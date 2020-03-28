@@ -1,0 +1,136 @@
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+24/04/2018 05:56:37: Start Paypal.asp  OrderID = empty 
+iItemNumber:51
+iPaymentAmount:25.89
+iPaymentStatus:Y
+21/07/2019 08:09:54: OrderID = 51  iRestaurantId =2 check1 True check2 True check3 True
+21/07/2019 08:09:55: Start Paypal.asp  OrderID = 51  iRestaurantId =2
+iItemNumber:52
+iPaymentAmount:21.40
+iPaymentStatus:Y
+21/07/2019 08:12:19: OrderID = 52  iRestaurantId =2 check1 True check2 True check3 True
+21/07/2019 08:12:19: Start Paypal.asp  OrderID = 52  iRestaurantId =2
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+22/07/2019 07:08:42: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+22/07/2019 07:08:53: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+22/07/2019 07:09:00: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+22/07/2019 07:09:23: Start Paypal.asp  OrderID = empty 
+iItemNumber:54
+iPaymentAmount:23.64
+iPaymentStatus:Y
+22/07/2019 08:39:43: OrderID = 54  iRestaurantId =2 check1 True check2 True check3 True
+22/07/2019 08:39:44: Start worldpay.asp  OrderID = 54  iRestaurantId =2
+22/07/2019 08:39:44: Start worldpay.asp  ThankURL = https://www.greek-painters.com/vo/food/7-6-Dang/Thanks.asp?id_o=&id_r=2
+iItemNumber:55
+iPaymentAmount:24.26
+iPaymentStatus:Y
+22/07/2019 08:41:32: OrderID = 55  iRestaurantId =2 check1 True check2 True check3 True
+22/07/2019 08:41:32: Start worldpay.asp  OrderID = 55  iRestaurantId =2
+22/07/2019 08:41:32: Start worldpay.asp  ThankURL = https://www.greek-painters.com/vo/food/7-6-Dang/demo-place-sk13-8aq-0131-313-5588/thanks/55
+iItemNumber:56
+iPaymentAmount:22.01
+iPaymentStatus:Y
+23/07/2019 07:53:30: OrderID = 56  iRestaurantId =2 check1 True check2 True check3 True
+23/07/2019 07:53:30: Start worldpay.asp  OrderID = 56  iRestaurantId =2
+23/07/2019 07:53:30: Start worldpay.asp  ThankURL = https://www.greek-painters.com/vo/food/7-6-Dang/Thanks.asp?id_o=56&id_r=2
+iItemNumber:57
+iPaymentAmount:23.64
+iPaymentStatus:Y
+23/07/2019 07:56:58: OrderID = 57  iRestaurantId =2 check1 True check2 True check3 True
+23/07/2019 07:56:58: Start worldpay.asp  OrderID = 57  iRestaurantId =2
+23/07/2019 07:56:58: Start worldpay.asp  ThankURL = https://www.greek-painters.com/vo/food/7-6-Dang/demo-place-sk13-8aq-0131-313-5588/thanks/57
+iItemNumber:58
+iPaymentAmount:23.64
+iPaymentStatus:Y
+23/07/2019 07:59:05: OrderID = 58  iRestaurantId =2 check1 True check2 True check3 True
+23/07/2019 07:59:05: Start worldpay.asp  OrderID = 58  iRestaurantId =2
+23/07/2019 07:59:05: Start worldpay.asp  ThankURL = https://www.greek-painters.com/vo/food/7-6-Dang/demo-place-sk13-8aq-0131-313-5588/thanks/58
+iItemNumber:59
+iPaymentAmount:25.68
+iPaymentStatus:Y
+23/07/2019 08:01:41: OrderID = 59  iRestaurantId =2 check1 True check2 True check3 True
+23/07/2019 08:01:41: Start worldpay.asp  OrderID = 59  iRestaurantId =2
+23/07/2019 08:01:41: Start worldpay.asp  ThankURL = https://www.greek-painters.com/vo/food/7-6-Dang/Thanks.asp?id_o=59&id_r=2
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:47:45: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:48:24: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:48:27: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:48:52: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:48:54: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:49:19: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:49:40: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:49:43: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:49:43: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:49:43: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:49:44: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:49:44: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:51:50: Start Paypal.asp  OrderID = empty 
+iItemNumber:
+iPaymentAmount:
+iPaymentStatus:
+18/09/2019 07:56:07: Start Paypal.asp  OrderID = empty 
+iItemNumber:255
+iPaymentAmount:30.25
+iPaymentStatus:Y
+22/09/2019 06:25:36: OrderID = 255  iRestaurantId =2 houroffset 8 time  22/09/2019 14:25:36
+22/09/2019 06:25:36: OrderID = 255  iRestaurantId =2 check1 True check2 True check3 True
+22/09/2019 06:25:36: Start worldpay.asp  OrderID = 255  iRestaurantId =2
+22/09/2019 06:25:36: Start worldpay.asp  ThankURL = https://www.greek-painters.com/vo/food/7-6-Dang/demo-place-sk13-8aq-0131-313-5588/thanks/255
+iItemNumber:262
+iPaymentAmount:26.43
+iPaymentStatus:Y
+30/09/2019 08:09:47: OrderID = 262  iRestaurantId =2 houroffset 8 time  30/09/2019 16:09:47
+30/09/2019 08:09:47: OrderID = 262  iRestaurantId =2 check1 True check2 True check3 True
+30/09/2019 08:09:47: Start worldpay.asp  OrderID = 262  iRestaurantId =2
+30/09/2019 08:09:47: Start worldpay.asp  ThankURL = https://www.greek-painters.com/vo/food/7-6-Dang/demo-place-sk13-8aq-0131-313-5588/thanks/262

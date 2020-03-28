@@ -1,0 +1,139 @@
+.panel-group-common .panel {
+	border-radius: 0;
+	box-shadow: none;
+	border-color: #EEEEEE;
+}
+.panel-group-common .panel-heading {
+	padding: 0;
+	border-radius: 0;
+	color: #212121;
+	background-color: #FAFAFA;
+	border-color: #EEEEEE;
+	transition: 500ms;
+}
+.panel-group-common .panel-heading:hover {
+	background-color: #eeeeee;
+}
+.panel-group-common .panel-title {
+	font-size: 17px;
+	font-family:Tahoma, Geneva, sans-serif;
+	text-transform: uppercase;
+	color: #FF0000;
+}
+.panel-group-common .panel-title  a {
+	display: block;
+	padding: 14px;
+	text-decoration: none;
+}
+.panel-group-common .more-less {
+	float: right;
+	color: red;
+}
+.panel-group-common .panel-default > .panel-heading + .panel-collapse > .panel-body {
+	border-top-color: #EEEEEE;
+}
+#bn
+{
+	border:none !important;
+	border-bottom:1px solid #ccc !important;
+}
+.bn1{
+	background-color:white !important;
+}
+
+
+/*====================================================Collapse Css====================================================*/
+.accord ul, .accord ul li {
+	list-style-type: none;
+}
+
+.accord ul li a {
+	color: #6E440A;
+	text-decoration: none;
+}
+
+.accord ul li a:hover {
+	color: #523205;
+	text-decoration: underline;
+}
+
+.accord ul li span {
+	color: red;
+	margin-left: 10%;
+	cursor: pointer;	
+}
+
+.pl-20 {
+	padding-left: 3%;
+}
+.panel, .panel-heading, .list-group, .list-group-item{
+	border-radius: 1px;
+}
+.list-group-item:first-child {
+  border-top-left-radius: 1px;
+  border-top-right-radius: 1px;
+}
+.list-group-item:last-child {
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+    margin-bottom: 0;
+}
+.meal{
+	float:left;
+	margin-left:-20px !important;
+}
+.meal
+h2{
+	font-size:25px;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+.meal
+p{
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:13px;
+	
+}
+.p1 {
+    color: #333;
+	margin-top:4px;
+	margin-bottom:4px;
+	text-transform:none !important;
+    font-family: tahoma !important;
+    font-size: 15px;
+}
+#burger1
+{
+	font-size:16px;
+	margin-bottom:0px;
+}
+.opt {
+    float: right;
+	border-radius:3px;
+	font-size:13px;
+	padding:3px;
+	text-decoration:none !important;
+	font-family:Tahoma, Geneva, sans-serif;
+	background-color:#fec752;
+}
+.price{
+	float:right;
+}
+.price
+p{
+	font-size:18px;
+	float:right;
+	margin-bottom:0px;
+	font-family:Tahoma, Geneva, sans-serif;
+}
+
+h1, h2 { font-family: 'trebuchet ms', verdana, arial; padding: 10px; margin: 0 }
+h1 { font-size: large }
+
+#banner { padding: 15px; background-color: #06b; color: white; font-size: large; border-bottom: 1px solid #ccc;
+    background: url(bg.gif) repeat-x; text-align: center }
+#banner a { color: white; }
+
+#main { padding: 1em; }
+
+a img { border: none; }
+

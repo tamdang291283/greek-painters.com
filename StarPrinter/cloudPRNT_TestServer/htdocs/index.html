@@ -1,0 +1,32 @@
+﻿<html>
+    <head>
+        <title>Star cloudPRNT sample server</title>
+        <link href="style.css" rel="stylesheet" />
+
+    </head>
+
+    <body>
+        <h1>Star Micronics cloudPRNT Simple Test Server</h1>
+
+        <article>
+            <h2>cloudPRNT is live</h2>
+            <p>Congratulations, your test server is running. Please open the <a href="/printers">Printer List</a> to get started.
+            </p>
+
+            <h2>Configuring your Intelligent Interface</h2>
+            <p>It is necessary to configure your Intelligent Interface to make sure that it is using this server and a suitable printer ID.</p>
+            <p>To do this, please open the cloudPRNT configuration we bage of your Star Printer. The correct CloudPRNT URL
+             depends on how you are running/accessing this server. If the server is running on your private PC then the URL should be: <em>http://[serverIP]:8080/starcloudprnt</em> and you can use any one of the prepared printer ID's visible on the
+            <a href="/printers">printer list</a> page. If you are acessing the SME hosted version of this server then the cloudPRNT URL is <em>http://cloud.stareu.net/starcloudprnt</em></p>.
+
+            <h2>Firewall Checking</h2>
+            <p>If you have trouble acessing this server from other computers, or using the Intelligent Interface, then please check the
+            firewall settings of the PC that you are using to run the server. It is necessary to allow incoming tcp connections on port 8080.</p>
+            <p>Also please not that it is necessary to run the server as Administrator, for Windows to allow it to receive web requests.</p>
+
+            <h2>Security</h2>
+            <p>This server does not implement security features for the demo. However cloudPRNT does fully support http authentication, and
+            https/TLS encryption.</p>
+        </article>
+    </body>
+</html>

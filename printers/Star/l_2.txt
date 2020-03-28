@@ -1,0 +1,48 @@
+10/25/2016 2:53:10 PM: POST|{
+    "status": "23 6 0 0 0 0 0 0 0 ",
+    "printerMAC": "00:11:62:0d:50:0f",
+    "statusCode": "200%20OK",
+    "clientAction": null
+}
+
+10/25/2016 2:53:11 PM: GET||mac=00:11:62:0d:50:0f&type=image/png
+10/25/2016 2:53:12 PM: POST|{
+    "status": "23 6 0 0 0 0 0 0 0 ",
+    "printerMAC": "00:11:62:0d:50:0f",
+    "statusCode": "200%20OK",
+    "clientAction": null
+}
+
+10/25/2016 2:53:12 PM: GET||mac=00:11:62:0d:50:0f&type=image/png
+10/25/2016 2:53:14 PM: POST|{
+    "status": "23 6 0 0 0 0 0 0 0 ",
+    "printerMAC": "00:11:62:0d:50:0f",
+    "statusCode": "200%20OK",
+    "clientAction": null
+}
+
+10/25/2016 2:53:14 PM: GET||mac=00:11:62:0d:50:0f&type=image/png
+10/25/2016 2:53:15 PM: POST|{
+    "status": "23 6 0 0 0 0 0 0 0 ",
+    "printerMAC": "00:11:62:0d:50:0f",
+    "statusCode": "200%20OK",
+    "clientAction": null
+}
+
+10/25/2016 2:53:15 PM: GET||mac=00:11:62:0d:50:0f&type=image/png
+10/25/2016 2:53:17 PM: POST|{
+    "status": "23 6 0 0 0 0 0 0 0 ",
+    "printerMAC": "00:11:62:0d:50:0f",
+    "statusCode": "200%20OK",
+    "clientAction": null
+}
+
+10/25/2016 2:53:17 PM: GET||mac=00:11:62:0d:50:0f&type=image/png
+10/25/2016 2:53:18 PM: POST|{
+    "status": "23 6 0 0 0 0 0 0 0 ",
+    "printerMAC": "00:11:62:0d:50:0f",
+    "statusCode": "200%20OK",
+    "clientAction": null
+}
+
+10/25/2016 2:53:18 PM: GET||mac=00:11:62:0d:50:0f&type=image/png

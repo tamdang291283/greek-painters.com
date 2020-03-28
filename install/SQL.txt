@@ -1,0 +1,1433 @@
+
+[GO]
+CREATE TABLE [dbo].[URL_REWRITE](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[FromLink] [nvarchar](255) NULL,
+	[Tolink] [nvarchar](255) NULL,
+	[RestaurantID] [int] NULL,
+	[Status] [nvarchar](255) NULL,
+	[businessname] [nvarchar](255) NULL,
+	[postcode] [nvarchar](255) NULL,
+	[phonenumber] [nvarchar](255) NULL,
+ CONSTRAINT [PK_URL_REWRITE] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+
+[GO]
+CREATE TABLE [dbo].[timezones](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Timezone] [nvarchar](255) NULL,
+	[offset] [nvarchar](255) NULL,
+	[offsetdst] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[sysadmin](
+	[ID] [int] NOT NULL,
+	[username] [nvarchar](255) NULL,
+	[pswd] [nvarchar](255) NULL,
+	[userrolelabel] [nvarchar](255) NULL,
+	[userrole] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[SMSEmailQueue](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[ToEmailAddress] [nvarchar](50) NULL,
+	[PhoneNumber] [nvarchar](20) NULL,
+	[Content] [nvarchar](255) NULL,
+	[SendTime] [datetime] NULL,
+	[IsSent] [int] NOT NULL,
+	[PlanSendDate] [datetime] NULL,
+	[SendType] [nvarchar](10) NULL,
+	[BusinessDetailID] [decimal](18, 0) NULL
+) ON [PRIMARY]
+
+
+[GO]
+CREATE TABLE [dbo].[OrdersLocal](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[CreationDate] [datetime] NULL,
+	[OrderDate] [datetime] NULL,
+	[DeliveryType] [nvarchar](255) NULL,
+	[DeliveryTime] [datetime] NULL,
+	[PaymentType] [nvarchar](255) NULL,
+	[SubTotal] [money] NULL,
+	[ShippingFee] [money] NULL,
+	[OrderTotal] [money] NULL,
+	[IdBusinessDetail] [int] NULL,
+	[SessionId] [nvarchar](255) NULL,
+	[FirstName] [nvarchar](255) NULL,
+	[LastName] [nvarchar](255) NULL,
+	[Email] [nvarchar](255) NULL,
+	[Phone] [nvarchar](255) NULL,
+	[Address] [nvarchar](255) NULL,
+	[PostalCode] [nvarchar](255) NULL,
+	[Notes] [nvarchar](255) NULL,
+	[ttest] [nvarchar](255) NULL,
+	[cancelleddate] [datetime] NULL,
+	[cancelledby] [nvarchar](255) NULL,
+	[cancelledreason] [nvarchar](255) NULL,
+	[acknowledgeddate] [datetime] NULL,
+	[delivereddate] [nvarchar](255) NULL,
+	[cancelled] [int] NULL,
+	[acknowledged] [int] NULL,
+	[outfordelivery] [int] NULL,
+	[vouchercodediscount] [int] NULL,
+	[vouchercode] [nvarchar](255) NULL,
+	[printed] [int] NULL,
+	[deliverydistance] [nvarchar](255) NULL,
+	[asaporder] [nvarchar](255) NULL,
+	[DeliveryLat] [nvarchar](50) NULL,
+	[DeliveryLng] [nvarchar](50) NULL,
+	[ServiceCharge] [float] NULL,
+	[PaymentSurcharge] [float] NULL,
+	[Tax_Rate] [int] NULL,
+	[Tax_Amount] [money] NULL,
+	[Tip_Rate] [nvarchar](255) NULL,
+	[Tip_Amount] [money] NULL,
+	[paymentstatus] [nvarchar](255) NULL,
+	[Payment_Status] [nvarchar](255) NULL
+	
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[Orders](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[CreationDate] [datetime] NULL,
+	[OrderDate] [datetime] NULL,
+	[DeliveryType] [nvarchar](255) NULL,
+	[DeliveryTime] [datetime] NULL,
+	[PaymentType] [nvarchar](255) NULL,
+	[SubTotal] [money] NULL,
+	[ShippingFee] [money] NULL,
+	[OrderTotal] [money] NULL,
+	[IdBusinessDetail] [int] NULL,
+	[SessionId] [nvarchar](255) NULL,
+	[FirstName] [nvarchar](255) NULL,
+	[LastName] [nvarchar](255) NULL,
+	[Email] [nvarchar](255) NULL,
+	[Phone] [nvarchar](255) NULL,
+	[Address] [nvarchar](255) NULL,
+	[PostalCode] [nvarchar](255) NULL,
+	[Notes] [nvarchar](255) NULL,
+	[ttest] [nvarchar](255) NULL,
+	[cancelleddate] [datetime] NULL,
+	[cancelledby] [nvarchar](255) NULL,
+	[cancelledreason] [nvarchar](255) NULL,
+	[acknowledgeddate] [datetime] NULL,
+	[delivereddate] [nvarchar](255) NULL,
+	[cancelled] [int] NULL,
+	[acknowledged] [int] NULL,
+	[outfordelivery] [int] NULL,
+	[vouchercodediscount] [int] NULL,
+	[vouchercode] [nvarchar](255) NULL,
+	[printed] [int] NULL,
+	[deliverydistance] [nvarchar](255) NULL,
+	[asaporder] [nvarchar](255) NULL,
+	[DeliveryLat] [nvarchar](50) NULL,
+	[DeliveryLng] [nvarchar](50) NULL,
+	[ServiceCharge] [money] NULL,
+	[PaymentSurcharge] [money] NULL,
+	[FromIP] [nvarchar](30) NULL,
+	[Tax_Rate] [int] NULL,
+	[Tax_Amount] [money] NULL,
+	[Tip_Rate] [nvarchar](255) NULL,
+	[Tip_Amount] [money] NULL,
+	[Card_Debit] [int] NULL,
+	[Card_Credit] [int] NULL,
+	[SentEmail] [nvarchar](255) NULL,
+	[deliverydelay] [int] NULL,
+	[collectiondelay] [int] NULL,
+	[paymentstatus] [nvarchar](255) NULL,
+	[lng_report] [nvarchar](255) NULL,
+	[lat_report] [nvarchar](255) NULL,
+	[OrderType] [nvarchar](64) NULL,
+	[Payment_status] [nvarchar](255) NULL,
+ CONSTRAINT [PK_Orders] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+[GO]
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'0' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Orders', @level2type=N'COLUMN',@level2name=N'Card_Debit'
+[GO]
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'0' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Orders', @level2type=N'COLUMN',@level2name=N'Card_Credit'
+
+[GO]
+CREATE TABLE [dbo].[OrderItemsLocal](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[OrderId] [int] NULL,
+	[MenuItemId] [int] NULL,
+	[MenuItemPropertyId] [int] NULL,
+	[Qta] [int] NULL,
+	[Price] [money] NULL,
+	[Total] [money] NULL,
+	[toppingids] [nvarchar](255) NULL,
+	[dishpropertiesids] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[OrderItems](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[OrderId] [int] NULL,
+	[MenuItemId] [int] NULL,
+	[MenuItemPropertyId] [int] NULL,
+	[Qta] [int] NULL,
+	[Price] [decimal](18, 2) NULL,
+	[Total] [decimal](18, 2) NULL,
+	[toppingids] [nvarchar](255) NULL,
+	[dishpropertiesids] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[Order_Receipt_tracking](
+	[l_id] [int] IDENTITY(1,1) NOT NULL,
+	[OrderID] [int] NULL,
+	[s_printtype] [nvarchar](255) NULL,
+	[s_filename] [nvarchar](255) NULL,
+	[t_createdDate] [datetime] NULL,
+	[IdBusinessDetail] [int] NULL,
+	[s_printstatus] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[OpeningTimes](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[DayOfWeek] [int] NULL,
+	[Hour_From] [time](7) NULL,
+	[Hour_To] [time](7) NULL,
+	[IdBusinessDetail] [int] NULL,
+	[delivery] [nvarchar](255) NOT NULL,
+	[collection] [nvarchar](255) NULL,
+	[MinAcceptOrderBeforeClose] [decimal](18, 0) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[Menutoppingsgroups](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[toppingsgroup] [nvarchar](255) NULL,
+	[IdBusinessDetail] [int] NULL,
+	[printingname] [nvarchar](255) NULL,
+	[i_displaySort] [int] NULL,
+	[limittopping] [int] NULL
+) ON [PRIMARY]
+[GO]
+
+[GO]
+CREATE TABLE [dbo].[MenuToppings](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[topping] [nvarchar](255) NULL,
+	[toppingprice] [float] NULL,
+	[IdBusinessDetail] [int] NULL,
+	[toppinggroupid] [int] NULL,
+	[printingname] [nvarchar](255) NULL,
+	[i_displaySort] [int] NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[MenuItems](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Code] [int] NULL,
+	[Name] [nvarchar](255) NULL,
+	[Description] [nvarchar](max) NULL,
+	[Vegetarian] [int] NULL,
+	[Spicyness] [smallint] NULL,
+	[Price] [decimal](18, 2) NULL,
+	[IdMenuCategory] [int] NULL,
+	[IdBusinessDetail] [int] NULL,
+	[Photo] [nvarchar](255) NULL,
+	[allowtoppings] [int] NULL,
+	[dishpropertygroupid] [nvarchar](255) NULL,
+	[hidedish] [int] NULL,
+	[PrintingName] [nvarchar](128) NULL,
+	[i_displaySort] [int] NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[MenuItemProperties](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [varchar](256) NULL,
+	[Price] [decimal](18, 2) NULL,
+	[IdMenuItem] [int] NULL,
+	[allowtoppings] [int] NULL,
+	[dishpropertiesgroupid] [varchar](255) NULL,
+	[printingname] [varchar](255) NULL,
+	[i_displaysort] [int] NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[MenuDishpropertiesGroups](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[dishpropertygroup] [nvarchar](255) NULL,
+	[IdBusinessDetail] [int] NULL,
+	[dishpropertypricetype] [nvarchar](255) NULL,
+	[dishpropertyrequired] [int] NULL,
+	[printingname] [nvarchar](255) NULL,
+	[i_displaySort] [int] NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[MenuDishproperties](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[dishproperty] [nvarchar](255) NULL,
+	[dishpropertyprice] [float] NULL,
+	[IdBusinessDetail] [int] NULL,
+	[dishpropertygroupid] [int] NULL,
+	[printingname] [nvarchar](255) NULL,
+	[i_displaySort] [int] NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[MenuCategories](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NULL,
+	[Description] [nvarchar](max) NULL,
+	[displayorder] [int] NULL,
+	[IdBusinessDetail] [int] NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE FUNCTION [dbo].[FNC_DeliveryTime] (@asaporder varchar(16),
+								  @deliverytype varchar(16),
+								  @deliverydelay int,
+								  @orderdate datetime,
+								  @collectiondelay int,
+								  @deliverytime datetime)
+RETURNS datetime 
+AS
+BEGIN
+	if @deliverydelay is null  set @deliverydelay = 0 
+    if @collectiondelay is null  set @collectiondelay = 0 
+	 
+    declare @resulttime as datetime
+    if @asaporder = 'n'
+    begin
+		if @deliverytype = 'd' 
+		begin
+		 set @resulttime  =  dateadd(minute,@deliverydelay,@orderdate)
+		end 
+		else
+		begin
+			set @resulttime  =  dateadd(minute,@collectiondelay,@orderdate) 
+		end
+    end
+    else
+    begin 
+		set @resulttime  =  @deliverytime
+    end 
+    
+    RETURN @resulttime
+END
+
+[GO]
+CREATE TABLE [dbo].[Customer_Book_Table](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NULL,
+	[Phone] [nvarchar](255) NULL,
+	[bookdate] [datetime] NULL,
+	[IdBusinessDetail] [int] NULL,
+	[comment] [nvarchar](max) NULL,
+	[s_contentemail] [nvarchar](max) NULL,
+	[numberpeople] [int] NULL,
+	[createddate] [datetime] NULL,
+	[Email] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[Category_Openning_Time](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[CategoryID] [int] NULL,
+	[IdBusinessDetail] [int] NULL,
+	[Hour_From] [time](7) NULL,
+	[Hour_To] [time](7) NULL,
+	[DayValue] [int] NULL,
+	[Dayname] [nvarchar](255) NULL,
+	[status] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[BusinessDetails](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](255) NULL,
+	[Address] [nvarchar](255) NULL,
+	[PostalCode] [nvarchar](255) NULL,
+	[FoodType] [nvarchar](255) NULL,
+	[DeliveryMinAmount] [int] NULL,
+	[DeliveryMaxDistance] [float] NULL,
+	[DeliveryFreeDistance] [float] NULL,
+	[AverageDeliveryTime] [int] NULL,
+	[AverageCollectionTime] [int] NULL,
+	[DeliveryFee] [money] NULL,
+	[ImgUrl] [nvarchar](255) NULL,
+	[Telephone] [nvarchar](255) NULL,
+	[Email] [nvarchar](255) NULL,
+	[pswd] [nvarchar](255) NULL,
+	[businessclosed] [int] NULL,
+	[announcement] [nvarchar](max) NULL,
+	[css] [nvarchar](max) NULL,
+	[SMTP_AUTENTICATE] [nvarchar](255) NULL,
+	[MAIL_FROM] [nvarchar](255) NULL,
+	[PAYPAL_URL] [nvarchar](255) NULL,
+	[PAYPAL_PDT] [nvarchar](255) NULL,
+	[SMTP_PASSWORD] [nvarchar](255) NULL,
+	[GMAP_API_KEY] [nvarchar](255) NULL,
+	[SMTP_USERNAME] [nvarchar](255) NULL,
+	[SMTP_USESSL] [nvarchar](255) NULL,
+	[MAIL_SUBJECT] [nvarchar](255) NULL,
+	[CURRENCYSYMBOL] [nvarchar](255) NULL,
+	[SMTP_SERVER] [nvarchar](255) NULL,
+	[CREDITCARDSURCHARGE] [nvarchar](255) NULL,
+	[SMTP_PORT] [nvarchar](255) NULL,
+	[STICK_MENU] [nvarchar](255) NULL,
+	[MAIL_CUSTOMER_SUBJECT] [nvarchar](255) NULL,
+	[CONFIRMATION_EMAIL_ADDRESS] [nvarchar](255) NULL,
+	[SEND_ORDERS_TO_PRINTER] [nvarchar](255) NULL,
+	[timezone] [int] NULL,
+	[PAYPAL_ADDR] [nvarchar](255) NULL,
+	[nochex] [nvarchar](255) NULL,
+	[nochexmerchantid] [nvarchar](255) NULL,
+	[paypal] [nvarchar](255) NULL,
+	[IBT_API_KEY] [nvarchar](255) NULL,
+	[IBP_API_PASSWORD] [nvarchar](255) NULL,
+	[disable_delivery] [nvarchar](255) NULL,
+	[disable_collection] [nvarchar](255) NULL,
+	[worldpay] [nvarchar](255) NULL,
+	[worldpaymerchantid] [nvarchar](255) NULL,
+	[backtohometext] [nvarchar](max) NULL,
+	[closedtext] [nvarchar](max) NULL,
+	[DeliveryChargeOverrideByOrderValue] [nvarchar](255) NULL,
+	[individualpostcodes] [nvarchar](max) NULL,
+	[individualpostcodeschecking] [int] NULL,
+	[longitude] [nvarchar](255) NULL,
+	[latitude] [nvarchar](255) NULL,
+	[googleecommercetracking] [nvarchar](255) NULL,
+	[googleecommercetrackingcode] [nvarchar](255) NULL,
+	[bringg] [nvarchar](255) NULL,
+	[bringgurl] [nvarchar](255) NULL,
+	[bringgcompanyid] [nvarchar](255) NULL,
+	[orderonlywhenopen] [int] NULL,
+	[disablelaterdelivery] [int] NULL,
+	[menupagetext] [nvarchar](max) NULL,
+	[ordertodayonly] [int] NULL,
+	[mileskm] [nvarchar](255) NULL,
+	[worldpaylive] [int] NULL,
+	[worldpayinstallationid] [nvarchar](255) NULL,
+	[DistanceCalMethod] [nvarchar](255) NULL,
+	[PrinterIDList] [nvarchar](255) NULL,
+	[EpsonJSPrinterURL] [nvarchar](128) NULL,
+	[SMSEnable] [int] NULL,
+	[SMSOnDelivery] [int] NULL,
+	[SMSSupplierDomain] [nvarchar](100) NULL,
+	[SMSOnOrder] [int] NULL,
+	[SMSOnOrderAfterMin] [int] NULL,
+	[SMSOnOrderContent] [nvarchar](255) NULL,
+	[DefaultSMSCountryCode] [nvarchar](10) NULL,
+	[MinimumAmountForCardPayment] [money] NULL,
+	[FavIconUrl] [nvarchar](255) NULL,
+	[AddToHomeScreenURL] [nvarchar](255) NULL,
+	[SMSOnAcknowledgement] [int] NULL,
+	[LocalPrinterURL] [nvarchar](255) NULL,
+	[ShowRestaurantDetailOnReceipt] [int] NULL,
+	[PrinterFontSizeRatio] [float] NULL,
+	[ServiceChargePercentage] [float] NULL,
+	[InRestaurantServiceChargeOnly] [int] NULL,
+	[IsDualReceiptPrinting] [int] NULL,
+	[PrintingFontSize] [float] NULL,
+	[InRestaurantEpsonPrinterIDList] [nvarchar](128) NULL,
+	[BlockIPEmailList] [nvarchar](255) NULL,
+	[inmenuannouncement] [nvarchar](max) NULL,
+	[RePrintReceiptWays] [nvarchar](255) NULL,
+	[printingtype] [nvarchar](255) NULL,
+	[Stripe_Key_Secret] [nvarchar](255) NULL,
+	[Stripe] [nvarchar](255) NULL,
+	[Stripe_Api_Key] [nvarchar](255) NULL,
+	[EnableBooking] [nvarchar](255) NULL,
+	[URL_Facebook] [nvarchar](255) NULL,
+	[URL_Twitter] [nvarchar](255) NULL,
+	[URL_Google] [nvarchar](255) NULL,
+	[URL_Intagram] [nvarchar](255) NULL,
+	[URL_YouTube] [nvarchar](255) NULL,
+	[URL_Tripadvisor] [nvarchar](255) NULL,
+	[URL_Special_Offer] [nvarchar](255) NULL,
+	[URL_Linkin] [nvarchar](255) NULL,
+	[Currency_PAYPAL] [nvarchar](255) NULL,
+	[Currency_STRIPE] [nvarchar](255) NULL,
+	[Currency_WOLRDPAY] [nvarchar](255) NULL,
+	[Tip_percent] [int] NULL,
+	[Tax_Percent] [int] NULL,
+	[InRestaurantTaxChargeOnly] [int] NULL,
+	[InRestaurantTipChargeOnly] [int] NULL,
+	[isCheckCapcha] [nvarchar](255) NULL,
+	[Close_StartDate] [nvarchar](255) NULL,
+	[Close_EndDate] [nvarchar](255) NULL,
+	[Stripe_Country] [nvarchar](255) NULL,
+	[enable_StripePaymentButton] [nvarchar](255) NULL,
+	[enable_CashPayment] [nvarchar](255) NULL,
+	[DeliveryMile] [float] NULL,
+	[Mon_Delivery] [int] NULL,
+	[Mon_Collection] [int] NULL,
+	[Tue_Delivery] [int] NULL,
+	[Tue_Collection] [int] NULL,
+	[Wed_Delivery] [int] NULL,
+	[Wed_Collection] [int] NULL,
+	[Thu_Delivery] [int] NULL,
+	[Thu_Collection] [int] NULL,
+	[Fri_Delivery] [int] NULL,
+	[Fri_Collection] [int] NULL,
+	[Sat_Delivery] [int] NULL,
+	[Sat_Collection] [int] NULL,
+	[Sun_Delivery] [int] NULL,
+	[Sun_Collection] [int] NULL,
+	[EnableUrlRewrite] [nvarchar](255) NULL,
+	[DeliveryCostUpTo] [float] NULL,
+	[DeliveryUptoMile] [float] NULL,
+	[Show_Ordernumner_printer] [nvarchar](255) NULL,
+	[Show_Ordernumner_Receipt] [nvarchar](255) NULL,
+	[Show_Ordernumner_Dashboard] [nvarchar](255) NULL,
+	[s_BannerURL] [nvarchar](1024) NULL,
+	[s_DeliveryZonesPath] [ntext] NULL,
+ CONSTRAINT [PK_BusinessDetails] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (PAD_INDEX  = OFF, STATISTICS_NORECOMPUTE  = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS  = ON, ALLOW_PAGE_LOCKS  = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+[GO]
+CREATE TABLE [dbo].[vouchercodes](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[vouchercode] [nvarchar](255) NULL,
+	[vouchercodediscount] [int] NULL,
+	[vouchertype] [nvarchar](255) NULL,
+	[startdate] [nvarchar](255) NULL,
+	[enddate] [nvarchar](255) NULL,
+	[IdBusinessDetail] [int] NULL,
+	[MinimumAmount] [money] NULL,
+	[MenuItemID] [int] NULL,
+	[VoucherMainType] [nvarchar](255) NULL
+) ON [PRIMARY]
+
+[GO]
+CREATE VIEW [dbo].[View_Paid_OrdersLocal]
+AS
+SELECT     ID, CreationDate, OrderDate, DeliveryType, DeliveryTime, PaymentType, SubTotal, ShippingFee, OrderTotal, IdBusinessDetail, SessionId, FirstName, LastName, 
+                      Email, Phone, Address, PostalCode, Notes, ttest, cancelleddate, cancelledby, cancelledreason, acknowledgeddate, delivereddate, cancelled, acknowledged, 
+                      outfordelivery, vouchercodediscount, vouchercode, printed, deliverydistance, asaporder, DeliveryLat, DeliveryLng, ServiceCharge, PaymentSurcharge, Tax_Rate, 
+                      Tax_Amount, Tip_Rate, Tip_Amount, paymentstatus, Payment_Status
+FROM         dbo.OrdersLocal
+WHERE     (PaymentType = 'Stripe-Paid') OR
+                      (PaymentType = 'card') OR
+                      (PaymentType = 'Paypal-Paid') OR
+                      (PaymentType = 'NoChex-Paid') OR
+                      (PaymentType = 'Worldpay-Paid') OR
+                      (PaymentType = 'Cash on Delivery') OR
+                      (Payment_Status = 'Paid')
+[GO]
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "OrdersLocal"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 125
+               Right = 229
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 15
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_Paid_OrdersLocal'
+[GO]
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'View_Paid_OrdersLocal'
+
+[GO]
+CREATE VIEW [dbo].[VIEW_Paid_Orders]
+AS
+SELECT     ID, CreationDate, OrderDate, DeliveryType, DeliveryTime, PaymentType, SubTotal, ShippingFee, OrderTotal, IdBusinessDetail, SessionId, FirstName, LastName, 
+                      Email, Phone, Address, PostalCode, Notes, ttest, cancelleddate, cancelledby, cancelledreason, acknowledgeddate, delivereddate, cancelled, acknowledged, 
+                      outfordelivery, vouchercodediscount, vouchercode, printed, deliverydistance, asaporder, DeliveryLat, DeliveryLng, ServiceCharge, PaymentSurcharge, FromIP, 
+                      Tax_Rate, Tax_Amount, Tip_Rate, Tip_Amount, Card_Debit, Card_Credit, SentEmail, deliverydelay, collectiondelay, paymentstatus, lng_report, lat_report, 
+                      Payment_status,OrderType
+FROM         dbo.Orders
+WHERE     (PaymentType = 'Stripe-Paid') OR
+                      (PaymentType = 'card') OR
+                      (PaymentType = 'Paypal-Paid') OR
+                      (PaymentType = 'NoChex-Paid') OR
+                      (PaymentType = 'Worldpay-Paid') OR
+                      (PaymentType = 'Cash on Delivery') OR
+                      (Payment_status = 'Paid')
+[GO]
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPane1', @value=N'[0E232FF0-B466-11cf-A24F-00AA00A3EFFF, 1.00]
+Begin DesignProperties = 
+   Begin PaneConfigurations = 
+      Begin PaneConfiguration = 0
+         NumPanes = 4
+         Configuration = "(H (1[40] 4[20] 2[20] 3) )"
+      End
+      Begin PaneConfiguration = 1
+         NumPanes = 3
+         Configuration = "(H (1 [50] 4 [25] 3))"
+      End
+      Begin PaneConfiguration = 2
+         NumPanes = 3
+         Configuration = "(H (1 [50] 2 [25] 3))"
+      End
+      Begin PaneConfiguration = 3
+         NumPanes = 3
+         Configuration = "(H (4 [30] 2 [40] 3))"
+      End
+      Begin PaneConfiguration = 4
+         NumPanes = 2
+         Configuration = "(H (1 [56] 3))"
+      End
+      Begin PaneConfiguration = 5
+         NumPanes = 2
+         Configuration = "(H (2 [66] 3))"
+      End
+      Begin PaneConfiguration = 6
+         NumPanes = 2
+         Configuration = "(H (4 [50] 3))"
+      End
+      Begin PaneConfiguration = 7
+         NumPanes = 1
+         Configuration = "(V (3))"
+      End
+      Begin PaneConfiguration = 8
+         NumPanes = 3
+         Configuration = "(H (1[56] 4[18] 2) )"
+      End
+      Begin PaneConfiguration = 9
+         NumPanes = 2
+         Configuration = "(H (1 [75] 4))"
+      End
+      Begin PaneConfiguration = 10
+         NumPanes = 2
+         Configuration = "(H (1[66] 2) )"
+      End
+      Begin PaneConfiguration = 11
+         NumPanes = 2
+         Configuration = "(H (4 [60] 2))"
+      End
+      Begin PaneConfiguration = 12
+         NumPanes = 1
+         Configuration = "(H (1) )"
+      End
+      Begin PaneConfiguration = 13
+         NumPanes = 1
+         Configuration = "(V (4))"
+      End
+      Begin PaneConfiguration = 14
+         NumPanes = 1
+         Configuration = "(V (2))"
+      End
+      ActivePaneConfig = 0
+   End
+   Begin DiagramPane = 
+      Begin Origin = 
+         Top = 0
+         Left = 0
+      End
+      Begin Tables = 
+         Begin Table = "Orders"
+            Begin Extent = 
+               Top = 6
+               Left = 38
+               Bottom = 125
+               Right = 229
+            End
+            DisplayFlags = 280
+            TopColumn = 0
+         End
+      End
+   End
+   Begin SQLPane = 
+   End
+   Begin DataPane = 
+      Begin ParameterDefaults = ""
+      End
+   End
+   Begin CriteriaPane = 
+      Begin ColumnWidths = 15
+         Column = 1440
+         Alias = 900
+         Table = 1170
+         Output = 720
+         Append = 1400
+         NewValue = 1170
+         SortType = 1350
+         SortOrder = 1410
+         GroupBy = 1350
+         Filter = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+         Or = 1350
+      End
+   End
+End
+' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'VIEW_Paid_Orders'
+[GO]
+EXEC sys.sp_addextendedproperty @name=N'MS_DiagramPaneCount', @value=1 , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'VIEW',@level1name=N'VIEW_Paid_Orders'
+[GO]
+/****** Object:  Default [DF_BusinessDetails_businessclosed]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_businessclosed]  DEFAULT ((0)) FOR [businessclosed]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_individualpostcodeschecking]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_individualpostcodeschecking]  DEFAULT ((0)) FOR [individualpostcodeschecking]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_orderonlywhenopen]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_orderonlywhenopen]  DEFAULT ((0)) FOR [orderonlywhenopen]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_disablelaterdelivery]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_disablelaterdelivery]  DEFAULT ((0)) FOR [disablelaterdelivery]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_ordertodayonly]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_ordertodayonly]  DEFAULT ((0)) FOR [ordertodayonly]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_worldpaylive]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_worldpaylive]  DEFAULT ((0)) FOR [worldpaylive]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_SMSEnable]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_SMSEnable]  DEFAULT ((0)) FOR [SMSEnable]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_SMSOnDelivery]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_SMSOnDelivery]  DEFAULT ((0)) FOR [SMSOnDelivery]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_SMSOnOrder]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_SMSOnOrder]  DEFAULT ((0)) FOR [SMSOnOrder]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_SMSOnOrderAfterMin]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_SMSOnOrderAfterMin]  DEFAULT ((0)) FOR [SMSOnOrderAfterMin]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_SMSOnAcknowledgement]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_SMSOnAcknowledgement]  DEFAULT ((0)) FOR [SMSOnAcknowledgement]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_ShowRestaurantDetailOnReceipt]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_ShowRestaurantDetailOnReceipt]  DEFAULT ((0)) FOR [ShowRestaurantDetailOnReceipt]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_InRestaurantServiceChargeOnly]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_InRestaurantServiceChargeOnly]  DEFAULT ((0)) FOR [InRestaurantServiceChargeOnly]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_IsDualReceiptPrinting]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_IsDualReceiptPrinting]  DEFAULT ((0)) FOR [IsDualReceiptPrinting]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_InRestaurantTaxChargeOnly]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_InRestaurantTaxChargeOnly]  DEFAULT ((0)) FOR [InRestaurantTaxChargeOnly]
+[GO]
+/****** Object:  Default [DF_BusinessDetails_InRestaurantTipChargeOnly]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[BusinessDetails] ADD  CONSTRAINT [DF_BusinessDetails_InRestaurantTipChargeOnly]  DEFAULT ((0)) FOR [InRestaurantTipChargeOnly]
+[GO]
+/****** Object:  Default [DF_MenuDishpropertiesGroups_dishpropertyrequired]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[MenuDishpropertiesGroups] ADD  CONSTRAINT [DF_MenuDishpropertiesGroups_dishpropertyrequired]  DEFAULT ((0)) FOR [dishpropertyrequired]
+[GO]
+/****** Object:  Default [DF_MenuItems_Vegetarian]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[MenuItems] ADD  CONSTRAINT [DF_MenuItems_Vegetarian]  DEFAULT ((0)) FOR [Vegetarian]
+[GO]
+/****** Object:  Default [DF_MenuItems_hidedish]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[MenuItems] ADD  CONSTRAINT [DF_MenuItems_hidedish]  DEFAULT ((0)) FOR [hidedish]
+[GO]
+/****** Object:  Default [DF_Orders_cancelled]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_cancelled]  DEFAULT ((0)) FOR [cancelled]
+[GO]
+/****** Object:  Default [DF_Orders_acknowledged]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_acknowledged]  DEFAULT ((0)) FOR [acknowledged]
+[GO]
+/****** Object:  Default [DF_Orders_outfordelivery]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_outfordelivery]  DEFAULT ((0)) FOR [outfordelivery]
+[GO]
+/****** Object:  Default [DF_Orders_vouchercodediscount]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_vouchercodediscount]  DEFAULT ((0)) FOR [vouchercodediscount]
+[GO]
+/****** Object:  Default [DF_Orders_printed]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_printed]  DEFAULT ((0)) FOR [printed]
+[GO]
+/****** Object:  Default [DF_Orders_Tax_Rate]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_Tax_Rate]  DEFAULT ((0)) FOR [Tax_Rate]
+[GO]
+/****** Object:  Default [DF_Orders_Tax_Amount]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_Tax_Amount]  DEFAULT ((0)) FOR [Tax_Amount]
+[GO]
+/****** Object:  Default [DF_Orders_Card_Debit]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_Card_Debit]  DEFAULT ((0)) FOR [Card_Debit]
+[GO]
+/****** Object:  Default [DF_Orders_Card_Credit]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[Orders] ADD  CONSTRAINT [DF_Orders_Card_Credit]  DEFAULT ((0)) FOR [Card_Credit]
+[GO]
+/****** Object:  Default [DF_OrdersLocal_cancelled]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[OrdersLocal] ADD  CONSTRAINT [DF_OrdersLocal_cancelled]  DEFAULT ((0)) FOR [cancelled]
+[GO]
+/****** Object:  Default [DF_OrdersLocal_acknowledged]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[OrdersLocal] ADD  CONSTRAINT [DF_OrdersLocal_acknowledged]  DEFAULT ((0)) FOR [acknowledged]
+[GO]
+/****** Object:  Default [DF_OrdersLocal_outfordelivery]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[OrdersLocal] ADD  CONSTRAINT [DF_OrdersLocal_outfordelivery]  DEFAULT ((0)) FOR [outfordelivery]
+[GO]
+/****** Object:  Default [DF_OrdersLocal_vouchercodediscount]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[OrdersLocal] ADD  CONSTRAINT [DF_OrdersLocal_vouchercodediscount]  DEFAULT ((0)) FOR [vouchercodediscount]
+[GO]
+/****** Object:  Default [DF_OrdersLocal_printed]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[OrdersLocal] ADD  CONSTRAINT [DF_OrdersLocal_printed]  DEFAULT ((0)) FOR [printed]
+[GO]
+/****** Object:  Default [DF_OrdersLocal_ServiceCharge]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[OrdersLocal] ADD  CONSTRAINT [DF_OrdersLocal_ServiceCharge]  DEFAULT ((0)) FOR [ServiceCharge]
+[GO]
+/****** Object:  Default [DF_OrdersLocal_PaymentSurcharge]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[OrdersLocal] ADD  CONSTRAINT [DF_OrdersLocal_PaymentSurcharge]  DEFAULT ((0)) FOR [PaymentSurcharge]
+[GO]
+/****** Object:  Default [DF_OrdersLocal_Tax_Rate]    Script Date: 06/27/2019 16:46:20 ******/
+ALTER TABLE [dbo].[OrdersLocal] ADD  CONSTRAINT [DF_OrdersLocal_Tax_Rate]  DEFAULT ((0)) FOR [Tax_Rate]
+
+[GO]
+SET IDENTITY_INSERT [timezones] ON 
+[GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (1, N'Africa/Abidjan', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (2, N'Africa/Accra', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (3, N'Africa/Addis_Ababa', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (4, N'Africa/Algiers', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (5, N'Africa/Asmara', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (6, N'Africa/Asmera', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (7, N'Africa/Bamako', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (8, N'Africa/Bangui', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (9, N'Africa/Banjul', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (10, N'Africa/Bissau', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (11, N'Africa/Blantyre', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (12, N'Africa/Brazzaville', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (13, N'Africa/Bujumbura', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (14, N'Africa/Cairo', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (15, N'Africa/Casablanca', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (16, N'Africa/Ceuta', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (17, N'Africa/Conakry', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (18, N'Africa/Dakar', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (19, N'Africa/Dar_es_Salaam', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (20, N'Africa/Djibouti', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (21, N'Africa/Douala', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (22, N'Africa/El_Aaiun', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (23, N'Africa/Freetown', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (24, N'Africa/Gaborone', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (25, N'Africa/Harare', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (26, N'Africa/Johannesburg', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (27, N'Africa/Juba', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (28, N'Africa/Kampala', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (29, N'Africa/Khartoum', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (30, N'Africa/Kigali', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (31, N'Africa/Kinshasa', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (32, N'Africa/Lagos', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (33, N'Africa/Libreville', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (34, N'Africa/Lome', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (35, N'Africa/Luanda', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (36, N'Africa/Lubumbashi', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (37, N'Africa/Lusaka', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (38, N'Africa/Malabo', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (39, N'Africa/Maputo', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (40, N'Africa/Maseru', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (41, N'Africa/Mbabane', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (42, N'Africa/Mogadishu', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (43, N'Africa/Monrovia', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (44, N'Africa/Nairobi', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (45, N'Africa/Ndjamena', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (46, N'Africa/Niamey', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (47, N'Africa/Nouakchott', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (48, N'Africa/Ouagadougou', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (49, N'Africa/Porto-Novo', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (50, N'Africa/Sao_Tome', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (51, N'Africa/Timbuktu', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (52, N'Africa/Tripoli', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (53, N'Africa/Tunis', N'+01:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (54, N'Africa/Windhoek', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (55, N'America/Adak', N'-10:00', N'-09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (56, N'America/Anchorage', N'-09:00', N'-08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (57, N'America/Anguilla', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (58, N'America/Antigua', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (59, N'America/Araguaina', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (60, N'America/Argentina/Buenos_Aires', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (61, N'America/Argentina/Catamarca', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (62, N'America/Argentina/ComodRivadavia', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (63, N'America/Argentina/Cordoba', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (64, N'America/Argentina/Jujuy', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (65, N'America/Argentina/La_Rioja', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (66, N'America/Argentina/Mendoza', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (67, N'America/Argentina/Rio_Gallegos', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (68, N'America/Argentina/Salta', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (69, N'America/Argentina/San_Juan', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (70, N'America/Argentina/San_Luis', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (71, N'America/Argentina/Tucuman', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (72, N'America/Argentina/Ushuaia', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (73, N'America/Aruba', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (74, N'America/Asuncion', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (75, N'America/Atikokan', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (76, N'America/Atka', N'-10:00', N'-09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (77, N'America/Bahia', N'-03:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (78, N'America/Bahia_Banderas', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (79, N'America/Barbados', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (80, N'America/Belem', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (81, N'America/Belize', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (82, N'America/Blanc-Sablon', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (83, N'America/Boa_Vista', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (84, N'America/Bogota', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (85, N'America/Boise', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (86, N'America/Buenos_Aires', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (87, N'America/Cambridge_Bay', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (88, N'America/Campo_Grande', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (89, N'America/Cancun', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (90, N'America/Caracas', N'-04:30', N'-04:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (91, N'America/Catamarca', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (92, N'America/Cayenne', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (93, N'America/Cayman', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (94, N'America/Chicago', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (95, N'America/Chihuahua', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (96, N'America/Coral_Harbour', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (97, N'America/Cordoba', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (98, N'America/Costa_Rica', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (99, N'America/Creston', N'-07:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (100, N'America/Cuiaba', N'-04:00', N'-03:00') [GO]
+
+
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (101, N'America/Curacao', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (102, N'America/Danmarkshavn', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (103, N'America/Dawson', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (104, N'America/Dawson_Creek', N'-07:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (105, N'America/Denver', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (106, N'America/Detroit', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (107, N'America/Dominica', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (108, N'America/Edmonton', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (109, N'America/Eirunepe', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (110, N'America/El_Salvador', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (111, N'America/Ensenada', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (112, N'America/Fort_Wayne', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (113, N'America/Fortaleza', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (114, N'America/Glace_Bay', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (115, N'America/Godthab', N'-03:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (116, N'America/Goose_Bay', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (117, N'America/Grand_Turk', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (118, N'America/Grenada', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (119, N'America/Guadeloupe', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (120, N'America/Guatemala', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (121, N'America/Guayaquil', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (122, N'America/Guyana', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (123, N'America/Halifax', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (124, N'America/Havana', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (125, N'America/Hermosillo', N'-07:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (126, N'America/Indiana/Indianapolis', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (127, N'America/Indiana/Knox', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (128, N'America/Indiana/Marengo', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (129, N'America/Indiana/Petersburg', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (130, N'America/Indiana/Tell_City', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (131, N'America/Indiana/Valparaiso', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (132, N'America/Indiana/Vevay', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (133, N'America/Indiana/Vincennes', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (134, N'America/Indiana/Winamac', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (135, N'America/Indianapolis', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (136, N'America/Inuvik', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (137, N'America/Iqaluit', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (138, N'America/Jamaica', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (139, N'America/Jujuy', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (140, N'America/Juneau', N'-09:00', N'-08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (141, N'America/Kentucky/Louisville', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (142, N'America/Kentucky/Monticello', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (143, N'America/Knox_IN', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (144, N'America/Kralendijk', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (145, N'America/La_Paz', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (146, N'America/Lima', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (147, N'America/Los_Angeles', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (148, N'America/Louisville', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (149, N'America/Lower_Princes', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (150, N'America/Maceio', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (151, N'America/Managua', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (152, N'America/Manaus', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (153, N'America/Marigot', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (154, N'America/Martinique', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (155, N'America/Matamoros', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (156, N'America/Mazatlan', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (157, N'America/Mendoza', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (158, N'America/Menominee', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (159, N'America/Merida', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (160, N'America/Metlakatla', N'-08:00', N'-08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (161, N'America/Mexico_City', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (162, N'America/Miquelon', N'-03:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (163, N'America/Moncton', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (164, N'America/Monterrey', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (165, N'America/Montevideo', N'-03:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (166, N'America/Montreal', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (167, N'America/Montserrat', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (168, N'America/Nassau', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (169, N'America/New_York', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (170, N'America/Nipigon', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (171, N'America/Nome', N'-09:00', N'-08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (172, N'America/Noronha', N'-02:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (173, N'America/North_Dakota/Beulah', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (174, N'America/North_Dakota/Center', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (175, N'America/North_Dakota/New_Salem', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (176, N'America/Ojinaga', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (177, N'America/Panama', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (178, N'America/Pangnirtung', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (179, N'America/Paramaribo', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (180, N'America/Phoenix', N'-07:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (181, N'America/Port_of_Spain', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (182, N'America/Port-au-Prince', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (183, N'America/Porto_Acre', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (184, N'America/Porto_Velho', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (185, N'America/Puerto_Rico', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (186, N'America/Rainy_River', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (187, N'America/Rankin_Inlet', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (188, N'America/Recife', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (189, N'America/Regina', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (190, N'America/Resolute', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (191, N'America/Rio_Branco', N'-05:00', NULL)
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (192, N'America/Rosario', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (193, N'America/Santa_Isabel', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (194, N'America/Santarem', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (195, N'America/Santiago', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (196, N'America/Santo_Domingo', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (197, N'America/Sao_Paulo', N'-03:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (198, N'America/Scoresbysund', N'-01:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (199, N'America/Shiprock', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (200, N'America/Sitka', N'-09:00', N'-08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (201, N'America/St_Barthelemy', N'-04:00', N'-04:00') [GO]
+
+
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (202, N'America/St_Johns', N'-03:30', N'-02:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (203, N'America/St_Kitts', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (204, N'America/St_Lucia', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (205, N'America/St_Thomas', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (206, N'America/St_Vincent', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (207, N'America/Swift_Current', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (208, N'America/Tegucigalpa', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (209, N'America/Thule', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (210, N'America/Thunder_Bay', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (211, N'America/Tijuana', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (212, N'America/Toronto', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (213, N'America/Tortola', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (214, N'America/Vancouver', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (215, N'America/Virgin', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (216, N'America/Whitehorse', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (217, N'America/Winnipeg', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (218, N'America/Yakutat', N'-09:00', N'-08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (219, N'America/Yellowknife', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (220, N'Antarctica/Casey', N'+11:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (221, N'Antarctica/Davis', N'+05:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (222, N'Antarctica/DumontDUrville', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (223, N'Antarctica/Macquarie', N'+11:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (224, N'Antarctica/Mawson', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (225, N'Antarctica/McMurdo', N'+12:00', N'+13:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (226, N'Antarctica/Palmer', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (227, N'Antarctica/Rothera', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (228, N'Antarctica/South_Pole', N'+12:00', N'+13:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (229, N'Antarctica/Syowa', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (230, N'Antarctica/Troll', N'+00:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (231, N'Antarctica/Vostok', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (232, N'Arctic/Longyearbyen', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (233, N'Asia/Aden', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (234, N'Asia/Almaty', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (235, N'Asia/Amman', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (236, N'Asia/Anadyr', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (237, N'Asia/Aqtau', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (238, N'Asia/Aqtobe', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (239, N'Asia/Ashgabat', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (240, N'Asia/Ashkhabad', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (241, N'Asia/Baghdad', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (242, N'Asia/Bahrain', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (243, N'Asia/Baku', N'+04:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (244, N'Asia/Bangkok', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (245, N'Asia/Beirut', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (246, N'Asia/Bishkek', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (247, N'Asia/Brunei', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (248, N'Asia/Calcutta', N'+05:30', N'+05:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (249, N'Asia/Choibalsan', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (250, N'Asia/Chongqing', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (251, N'Asia/Chungking', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (252, N'Asia/Colombo', N'+05:30', N'+05:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (253, N'Asia/Dacca', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (254, N'Asia/Damascus', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (255, N'Asia/Dhaka', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (256, N'Asia/Dili', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (257, N'Asia/Dubai', N'+04:00', N'+04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (258, N'Asia/Dushanbe', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (259, N'Asia/Gaza', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (260, N'Asia/Harbin', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (261, N'Asia/Hebron', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (262, N'Asia/Ho_Chi_Minh', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (263, N'Asia/Hong_Kong', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (264, N'Asia/Hovd', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (265, N'Asia/Irkutsk', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (266, N'Asia/Istanbul', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (267, N'Asia/Jakarta', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (268, N'Asia/Jayapura', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (269, N'Asia/Jerusalem', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (270, N'Asia/Kabul', N'+04:30', N'+04:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (271, N'Asia/Kamchatka', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (272, N'Asia/Karachi', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (273, N'Asia/Kashgar', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (274, N'Asia/Kathmandu', N'+05:45', N'+05:45')
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (275, N'Asia/Katmandu', N'+05:45', N'+05:45')
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (276, N'Asia/Khandyga', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (277, N'Asia/Kolkata', N'+05:30', N'+05:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (278, N'Asia/Krasnoyarsk', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (279, N'Asia/Kuala_Lumpur', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (280, N'Asia/Kuching', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (281, N'Asia/Kuwait', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (282, N'Asia/Macao', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (283, N'Asia/Macau', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (284, N'Asia/Magadan', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (285, N'Asia/Makassar', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (286, N'Asia/Manila', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (287, N'Asia/Muscat', N'+04:00', N'+04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (288, N'Asia/Nicosia', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (289, N'Asia/Novokuznetsk', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (290, N'Asia/Novosibirsk', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (291, N'Asia/Omsk', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (292, N'Asia/Oral', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (293, N'Asia/Phnom_Penh', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (294, N'Asia/Pontianak', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (295, N'Asia/Pyongyang', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (296, N'Asia/Qatar', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (297, N'Asia/Qyzylorda', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (298, N'Asia/Rangoon', N'+06:30', N'+06:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (299, N'Asia/Riyadh', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (300, N'Asia/Saigon', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (301, N'Asia/Sakhalin', N'+11:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (302, N'Asia/Samarkand', N'+05:00', N'+05:00') [GO]
+
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (303, N'Asia/Seoul', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (304, N'Asia/Shanghai', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (305, N'Asia/Singapore', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (306, N'Asia/Taipei', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (307, N'Asia/Tashkent', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (308, N'Asia/Tbilisi', N'+04:00', N'+04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (309, N'Asia/Tehran', N'+03:30', N'+04:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (310, N'Asia/Tel_Aviv', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (311, N'Asia/Thimbu', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (312, N'Asia/Thimphu', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (313, N'Asia/Tokyo', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (314, N'Asia/Ujung_Pandang', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (315, N'Asia/Ulaanbaatar', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (316, N'Asia/Ulan_Bator', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (317, N'Asia/Urumqi', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (318, N'Asia/Ust-Nera', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (319, N'Asia/Vientiane', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (320, N'Asia/Vladivostok', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (321, N'Asia/Yakutsk', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (322, N'Asia/Yekaterinburg', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (323, N'Asia/Yerevan', N'+04:00', N'+04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (324, N'Atlantic/Azores', N'-01:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (325, N'Atlantic/Bermuda', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (326, N'Atlantic/Canary', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (327, N'Atlantic/Cape_Verde', N'-01:00', N'-01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (328, N'Atlantic/Faeroe', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (329, N'Atlantic/Faroe', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (330, N'Atlantic/Jan_Mayen', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (331, N'Atlantic/Madeira', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (332, N'Atlantic/Reykjavik', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (333, N'Atlantic/South_Georgia', N'-02:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (334, N'Atlantic/St_Helena', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (335, N'Atlantic/Stanley', N'-03:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (336, N'Australia/ACT', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (337, N'Australia/Adelaide', N'+09:30', N'+10:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (338, N'Australia/Brisbane', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (339, N'Australia/Broken_Hill', N'+09:30', N'+10:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (340, N'Australia/Canberra', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (341, N'Australia/Currie', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (342, N'Australia/Darwin', N'+09:30', N'+09:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (343, N'Australia/Eucla', N'+08:45', N'+08:45')
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (344, N'Australia/Hobart', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (345, N'Australia/LHI', N'+10:30', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (346, N'Australia/Lindeman', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (347, N'Australia/Lord_Howe', N'+10:30', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (348, N'Australia/Melbourne', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (349, N'Australia/North', N'+09:30', N'+09:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (350, N'Australia/NSW', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (351, N'Australia/Perth', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (352, N'Australia/Queensland', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (353, N'Australia/South', N'+09:30', N'+10:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (354, N'Australia/Sydney', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (355, N'Australia/Tasmania', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (356, N'Australia/Victoria', N'+10:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (357, N'Australia/West', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (358, N'Australia/Yancowinna', N'+09:30', N'+10:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (359, N'Brazil/Acre', N'-05:00', NULL)
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (360, N'Brazil/DeNoronha', N'-02:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (361, N'Brazil/East', N'-03:00', N'-02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (362, N'Brazil/West', N'-04:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (363, N'Canada/Atlantic', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (364, N'Canada/Central', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (365, N'Canada/Eastern', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (366, N'Canada/East-Saskatchewan', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (367, N'Canada/Mountain', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (368, N'Canada/Newfoundland', N'-03:30', N'-02:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (369, N'Canada/Pacific', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (370, N'Canada/Saskatchewan', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (371, N'Canada/Yukon', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (372, N'Chile/Continental', N'-04:00', N'-03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (373, N'Chile/EasterIsland', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (374, N'Cuba', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (375, N'Egypt', N'+02:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (376, N'Eire', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (377, N'Etc/GMT', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (378, N'Etc/GMT+0', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (379, N'Etc/UCT', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (380, N'Etc/Universal', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (381, N'Etc/UTC', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (382, N'Etc/Zulu', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (383, N'Europe/Amsterdam', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (384, N'Europe/Andorra', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (385, N'Europe/Athens', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (386, N'Europe/Belfast', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (387, N'Europe/Belgrade', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (388, N'Europe/Berlin', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (389, N'Europe/Bratislava', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (390, N'Europe/Brussels', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (391, N'Europe/Bucharest', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (392, N'Europe/Budapest', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (393, N'Europe/Busingen', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (394, N'Europe/Chisinau', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (395, N'Europe/Copenhagen', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (396, N'Europe/Dublin', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (397, N'Europe/Gibraltar', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (398, N'Europe/Guernsey', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (399, N'Europe/Helsinki', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (400, N'Europe/Isle_of_Man', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (401, N'Europe/Istanbul', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (402, N'Europe/Jersey', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (403, N'Europe/Kaliningrad', N'+02:00', N'+02:00') [GO]
+
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (404, N'Europe/Kiev', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (405, N'Europe/Lisbon', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (406, N'Europe/Ljubljana', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (407, N'Europe/London', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (408, N'Europe/Luxembourg', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (409, N'Europe/Madrid', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (410, N'Europe/Malta', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (411, N'Europe/Mariehamn', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (412, N'Europe/Minsk', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (413, N'Europe/Monaco', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (414, N'Europe/Moscow', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (415, N'Europe/Nicosia', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (416, N'Europe/Oslo', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (417, N'Europe/Paris', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (418, N'Europe/Podgorica', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (419, N'Europe/Prague', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (420, N'Europe/Riga', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (421, N'Europe/Rome', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (422, N'Europe/Samara', N'+04:00', N'+04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (423, N'Europe/San_Marino', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (424, N'Europe/Sarajevo', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (425, N'Europe/Simferopol', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (426, N'Europe/Skopje', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (427, N'Europe/Sofia', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (428, N'Europe/Stockholm', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (429, N'Europe/Tallinn', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (430, N'Europe/Tirane', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (431, N'Europe/Tiraspol', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (432, N'Europe/Uzhgorod', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (433, N'Europe/Vaduz', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (434, N'Europe/Vatican', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (435, N'Europe/Vienna', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (436, N'Europe/Vilnius', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (437, N'Europe/Volgograd', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (438, N'Europe/Warsaw', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (439, N'Europe/Zagreb', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (440, N'Europe/Zaporozhye', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (441, N'Europe/Zurich', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (442, N'GB', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (443, N'GB-Eire', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (444, N'GMT', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (445, N'GMT+0', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (446, N'GMT0', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (447, N'GMT-0', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (448, N'Greenwich', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (449, N'Hongkong', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (450, N'Iceland', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (451, N'Indian/Antananarivo', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (452, N'Indian/Chagos', N'+06:00', N'+06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (453, N'Indian/Christmas', N'+07:00', N'+07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (454, N'Indian/Cocos', N'+06:30', N'+06:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (455, N'Indian/Comoro', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (456, N'Indian/Kerguelen', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (457, N'Indian/Mahe', N'+04:00', N'+04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (458, N'Indian/Maldives', N'+05:00', N'+05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (459, N'Indian/Mauritius', N'+04:00', N'+04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (460, N'Indian/Mayotte', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (461, N'Indian/Reunion', N'+04:00', N'+04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (462, N'Iran', N'+03:30', N'+04:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (463, N'Israel', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (464, N'Jamaica', N'-05:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (465, N'Japan', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (466, N'Kwajalein', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (467, N'Libya', N'+02:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (468, N'Mexico/BajaNorte', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (469, N'Mexico/BajaSur', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (470, N'Mexico/General', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (471, N'Navajo', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (472, N'NZ', N'+12:00', N'+13:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (473, N'NZ-CHAT', N'+12:45', N'+13:45')
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (474, N'Pacific/Apia', N'+13:00', N'+14:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (475, N'Pacific/Auckland', N'+12:00', N'+13:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (476, N'Pacific/Chatham', N'+12:45', N'+13:45')
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (477, N'Pacific/Chuuk', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (478, N'Pacific/Easter', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (479, N'Pacific/Efate', N'+11:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (480, N'Pacific/Enderbury', N'+13:00', N'+13:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (481, N'Pacific/Fakaofo', N'+13:00', N'+13:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (482, N'Pacific/Fiji', N'+12:00', N'+13:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (483, N'Pacific/Funafuti', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (484, N'Pacific/Galapagos', N'-06:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (485, N'Pacific/Gambier', N'-09:00', N'-09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (486, N'Pacific/Guadalcanal', N'+11:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (487, N'Pacific/Guam', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (488, N'Pacific/Honolulu', N'-10:00', N'-10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (489, N'Pacific/Johnston', N'-10:00', N'-10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (490, N'Pacific/Kiritimati', N'+14:00', N'+14:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (491, N'Pacific/Kosrae', N'+11:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (492, N'Pacific/Kwajalein', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (493, N'Pacific/Majuro', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (494, N'Pacific/Marquesas', N'-09:30', N'-09:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (495, N'Pacific/Midway', N'-11:00', N'-11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (496, N'Pacific/Nauru', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (497, N'Pacific/Niue', N'-11:00', N'-11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (498, N'Pacific/Norfolk', N'+11:30', N'+11:30') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (499, N'Pacific/Noumea', N'+11:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (500, N'Pacific/Pago_Pago', N'-11:00', N'-11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (501, N'Pacific/Palau', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (502, N'Pacific/Pitcairn', N'-08:00', N'-08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (503, N'Pacific/Pohnpei', N'+11:00', N'+11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (504, N'Pacific/Ponape', N'+11:00', N'+11:00') [GO]
+
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (505, N'Pacific/Port_Moresby', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (506, N'Pacific/Rarotonga', N'-10:00', N'-10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (507, N'Pacific/Saipan', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (508, N'Pacific/Samoa', N'-11:00', N'-11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (509, N'Pacific/Tahiti', N'-10:00', N'-10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (510, N'Pacific/Tarawa', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (511, N'Pacific/Tongatapu', N'+13:00', N'+13:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (512, N'Pacific/Truk', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (513, N'Pacific/Wake', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (514, N'Pacific/Wallis', N'+12:00', N'+12:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (515, N'Pacific/Yap', N'+10:00', N'+10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (516, N'Poland', N'+01:00', N'+02:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (517, N'Portugal', N'+00:00', N'+01:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (518, N'PRC', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (519, N'ROC', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (520, N'ROK', N'+09:00', N'+09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (521, N'Singapore', N'+08:00', N'+08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (522, N'Turkey', N'+02:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (523, N'UCT', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (524, N'Universal', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (525, N'US/Alaska', N'-09:00', N'-08:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (526, N'US/Aleutian', N'-10:00', N'-09:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (527, N'US/Arizona', N'-07:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (528, N'US/Central', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (529, N'US/Eastern', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (530, N'US/East-Indiana', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (531, N'US/Hawaii', N'-10:00', N'-10:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (532, N'US/Indiana-Starke', N'-06:00', N'-05:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (533, N'US/Michigan', N'-05:00', N'-04:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (534, N'US/Mountain', N'-07:00', N'-06:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (535, N'US/Pacific', N'-08:00', N'-07:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (536, N'US/Samoa', N'-11:00', N'-11:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (537, N'UTC', N'+00:00', N'+00:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (538, N'W-SU', N'+03:00', N'+03:00') [GO]
+INSERT [timezones] ([ID], [Timezone], [offset], [offsetdst]) VALUES (539, N'Zulu', N'+00:00', N'+00:00') [GO]
+

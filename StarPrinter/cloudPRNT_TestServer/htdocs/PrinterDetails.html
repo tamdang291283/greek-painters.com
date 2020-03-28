@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <script src="jquery-3.1.0.min.js"></script>
+    <link href="devman.css" rel="stylesheet" />
+
+    <title>Printer Management</title>
+
+    <script >
+
+        var urlParams;
+        var deviceInfo;
+
+        function decodeQueryParams() {
+            var match,
+                pl = /\+/g,  // Regex for replacing addition symbol with a space
+                search = /([^&=]+)=?([^&]*)/g,
+                decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                query = window.location.search.substring(1);
+
+            urlParams = {};
+            while (match = search.exec(query))
+                urlParams[decode(match[1])] = decode(match[2]);
+        };
+
+        function pollDeviceInfo() {
+            $.getJSON("deviceinfo?mac=" + urlParams["mac"], function (data, status) {
+                if (status == "success") {
+                    deviceInfo = data;
+                    displayDeviceInfo();
+                }
+            })
+
+            setTimeout(pollDeviceInfo, 1000);
+        }
+
+        function displayDeviceInfo() {
+            $(".displayuid").text(deviceInfo.uid);
+            $(".display_clienttype").text(deviceInfo.clientType);
+            $(".display_clientver").text(deviceInfo.clientVersion);
+            $(".display_encodings").html(deviceInfo.encodings.replace(/;\s?/g, "<br/>"));
+            $(".display_statuscode").text(deviceInfo.statusCode);
+            $(".display_status").text(deviceInfo.status);
+            $(".display_jobs").text(deviceInfo.jobs);
+        }
+
+        function orderObj() {
+            this.name = $("#Text_orderName").val();
+            this.address = $("#Text_orderAddress").val();
+            this.tsp650 = $("#Checkbox_tsp650").prop('checked');
+            this.tsp700 = $("#Checkbox_tsp700").prop('checked');
+            this.tsp800 = $("#Checkbox_tsp800").prop('checked');
+            this.sp700 = $("#Checkbox_sp700").prop('checked');
+
+            this.allowText = $("#Checkbox_allowText").prop("checked");
+            this.allowStarLine = $("#Checkbox_allowStarLine").prop("checked");
+            this.allowPNG = $("#Checkbox_allowPNG").prop("checked");
+            this.allowJpeg = $("#Checkbox_allowJPEG").prop("checked");
+        }
+
+        function sendOrderJob() {
+            var req = new orderObj();
+
+            $.ajax({
+                type: 'POST',
+                url: '/addOrder?pid=' + urlParams["mac"],
+                data: JSON.stringify(req),
+                success: function (data) { alert('data: ' + data); },
+                contentType: "application/json",
+                dataType: 'json'
+            });
+        }
+
+        $(document).ready(function () {
+            decodeQueryParams();
+
+            $(".displaymac").text(urlParams["mac"]);
+
+
+            $("#setuid").click(function () {
+                var oldid = deviceInfo.uid;
+                if (oldid == null)
+                    oldid = "";
+
+                var nuUid = prompt("Please enter a new ID", oldid);
+
+                if (nuUid == null)
+                    return;
+
+                if (nuUid == oldid)
+                    return;
+
+                $.get("deviceinfo?mac=" + urlParams["mac"] + "&setuid=" + encodeURIComponent(nuUid));
+            });
+
+            $("#sendOrder").click(function () {
+                sendOrderJob();
+            })
+
+            pollDeviceInfo();
+        });
+
+    </script>
+
+
+</head>
+<body>
+    <header>
+        <h1>
+            Managing Printer <span id="titlemac" class="displaymac">...</span> (<span id="titleuid" class="displayuid"></span>)
+        </h1>
+        <a href="/printers">Printer List</a>
+    </header>
+
+    <article>
+        <div id="info" class="panel">
+            <h1>Client Information</h1>
+            <div class="column">
+                <div class="label">Client Type:</div> <div class="result"><span class="display_clienttype"></span></div><br/>
+                <div class="label">Client Version:</div> <div class="result"><span class="display_clientver"></span></div><br />
+                <div class="label">Supported job encodings:</div> <div class="result"><span class="display_encodings"></span></div><br />
+                <br />
+            </div>
+            <div class="column">
+                <div class="label">Assigned ID:</div> <div class="result"><span class="displayuid"></span></div> <div id="setuid" class="button">change</div><br />
+                <div class="label">Status Code:</div> <div class="result"><span class="display_statuscode"></span></div><br />
+                <div class="label">Full Status:</div> <div class="result"><span class="display_status"></span></div><br />
+                <div class="label">Pending Jobs:</div> <div class="result"><span class="display_jobs"></span></div><br />
+            </div>
+        </div>
+
+        <div id="order" class="panel">
+            <h1>Send Order (Demo)</h1>
+            <p>Simple product order sample print, please select the required products:</p>
+            <div class="label">Name:</div> <div class="result"><input id="Text_orderName" type="text" /></div><br />
+            <div class="label">Address:</div> <div class="result"><input id="Text_orderAddress" type="text" /></div><br />
+
+            <div class="label">Select products:</div>
+            <div class="result">
+                <input id="Checkbox_tsp650" type="checkbox" /> TSP654II <br />
+                <input id="Checkbox_tsp700" type="checkbox" /> TSP700II <br />
+                <input id="Checkbox_tsp800" type="checkbox" /> TSP800II <br />
+                <input id="Checkbox_sp700" type="checkbox" /> SP700 <br />
+            </div>
+            <br />
+
+            <div class="label">Allowed print methods:</div>
+            <div class="result">
+                <input id="Checkbox_allowText" type="checkbox" /> text 
+                <input id="Checkbox_allowStarLine" type="checkbox" /> Line Mode 
+                <input id="Checkbox_allowJPEG" type="checkbox" /> JPEG
+                <input id="Checkbox_allowPNG" type="checkbox" /> PNG 
+            </div>
+            <br /><br />
+            <div class="label"></div> <div class="button" id="sendOrder">Send Order</div>
+        </div>
+    </article>
+</body>
+</html>

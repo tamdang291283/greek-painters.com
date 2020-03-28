@@ -1,0 +1,107 @@
+15/11/2017 16:09:15: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3237&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+15/11/2017 16:09:15: Pagename  = Saveimage.asp start saving 
+15/11/2017 16:09:15: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3237&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+15/11/2017 16:09:15: Pagename  = Saveimage.asp start saving 
+17/11/2017 17:35:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3255&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+17/11/2017 17:35:05: Pagename  = Saveimage.asp start saving 
+17/11/2017 17:35:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3255&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+17/11/2017 17:35:05: Pagename  = Saveimage.asp start saving 
+19/11/2017 07:24:53: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-dang/printers/star/print_t.asp?mod=printingname&id_o=3270&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+19/11/2017 07:24:53: Pagename  = Saveimage.asp start saving 
+19/11/2017 07:25:18: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-dang/printers/star/print_t.asp?mod=printingname&id_o=3270&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+19/11/2017 07:25:18: Pagename  = Saveimage.asp start saving 
+19/11/2017 14:24:59: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3274&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+19/11/2017 14:24:59: Pagename  = Saveimage.asp start saving 
+19/11/2017 14:25:00: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3274&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+19/11/2017 14:25:00: Pagename  = Saveimage.asp start saving 
+19/11/2017 14:25:16: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3275&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+19/11/2017 14:25:16: Pagename  = Saveimage.asp start saving 
+19/11/2017 14:25:16: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3275&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+19/11/2017 14:25:16: Pagename  = Saveimage.asp start saving 
+26/02/2018 08:25:56: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3494&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+26/02/2018 08:25:56: Pagename  = Saveimage.asp start saving 
+26/02/2018 08:25:56: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3494&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+26/02/2018 08:25:56: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:11:10: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3754&id_r=2&isPrint=N&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:11:10: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:11:11: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3754&id_r=2&isPrint=N&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:11:11: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:11:30: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3754&id_r=2&isPrint=N&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:11:30: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:11:31: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3754&id_r=2&isPrint=N&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:11:31: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:11:53: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3754&id_r=2&isPrint=N&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:11:53: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:11:54: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3754&id_r=2&isPrint=N&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:11:54: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:12:38: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3754&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:12:38: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:12:38: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3754&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:12:38: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:13:15: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3753&id_r=2&isPrint=undefined&idlist=undefined
+19/08/2018 14:13:15: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:13:16: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3753&id_r=2&isPrint=undefined&idlist=undefined
+19/08/2018 14:13:16: Pagename  = Saveimage.asp start saving 
+17/10/2018 08:41:39: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3804&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 08:41:39: Pagename  = Saveimage.asp start saving 
+17/10/2018 08:41:39: Pagename  = Saveimage.asp Done create receipt file   2-3804.png
+17/10/2018 08:41:39: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3804&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 08:41:39: Pagename  = Saveimage.asp start saving 
+17/10/2018 08:41:40: Pagename  = Saveimage.asp Done create receipt file   2-3804-PN.png
+17/10/2018 08:41:51: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3804&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 08:41:51: Pagename  = Saveimage.asp start saving 
+17/10/2018 09:55:11: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3805&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 09:55:11: Pagename  = Saveimage.asp start saving 
+17/10/2018 09:55:11: Pagename  = Saveimage.asp Done create receipt file   2-3805.png
+17/10/2018 09:55:11: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3805&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 09:55:11: Pagename  = Saveimage.asp start saving 
+17/10/2018 09:55:12: Pagename  = Saveimage.asp Done create receipt file   2-3805-PN.png
+17/10/2018 10:04:09: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3806&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:04:09: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:04:09: Pagename  = Saveimage.asp Done create receipt file   2-3806.png
+17/10/2018 10:04:09: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3806&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:04:09: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:04:09: Pagename  = Saveimage.asp Done create receipt file   2-3806-PN.png
+17/10/2018 10:16:35: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3807&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:16:35: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:16:35: Pagename  = Saveimage.asp Done create receipt file   2-3807.png
+17/10/2018 10:16:35: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3807&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:16:35: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:16:35: Pagename  = Saveimage.asp Done create receipt file   2-3807-PN.png
+17/10/2018 10:18:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3808&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:18:05: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:18:05: Pagename  = Saveimage.asp Done create receipt file   2-3808.png
+17/10/2018 10:18:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3808&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:18:05: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:18:05: Pagename  = Saveimage.asp Done create receipt file   2-3808-PN.png
+17/10/2018 10:18:10: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3808&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:18:10: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:18:10: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3808&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:18:10: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:20:22: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3809&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:20:22: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:20:22: Pagename  = Saveimage.asp Done create receipt file   2-3809.png
+17/10/2018 10:20:22: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3809&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+17/10/2018 10:20:22: Pagename  = Saveimage.asp start saving 
+17/10/2018 10:20:22: Pagename  = Saveimage.asp Done create receipt file   2-3809-PN.png
+24/10/2018 07:35:57: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3845&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+24/10/2018 07:35:57: Pagename  = Saveimage.asp start saving 
+24/10/2018 07:35:57: Pagename  = Saveimage.asp Done create receipt file   2-3845.png
+24/10/2018 07:35:58: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3845&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+24/10/2018 07:35:58: Pagename  = Saveimage.asp start saving 
+24/10/2018 07:35:58: Pagename  = Saveimage.asp Done create receipt file   2-3845-PN.png
+24/10/2018 07:36:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3845&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+24/10/2018 07:36:05: Pagename  = Saveimage.asp start saving 
+26/03/2019 08:39:44: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?mod=dishname&id_o=127&id_r=2&isPrint=&idlist=local_printer
+26/03/2019 08:39:44: Pagename  = Saveimage.asp start saving 
+26/03/2019 08:39:44: Pagename  = Saveimage.asp Done create receipt file   2-127.png
+09/04/2019 09:33:28: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?id_o=1&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 09:33:28: Pagename  = Saveimage.asp start saving 
+09/04/2019 09:33:29: Pagename  = Saveimage.asp Done create receipt file   2-1.png
+09/04/2019 09:33:40: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?id_o=1&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 09:33:40: Pagename  = Saveimage.asp start saving 
+09/04/2019 09:35:10: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?id_o=1&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 09:35:10: Pagename  = Saveimage.asp start saving 
+09/04/2019 09:37:05: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?id_o=2&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 09:37:05: Pagename  = Saveimage.asp start saving 
+09/04/2019 09:37:06: Pagename  = Saveimage.asp Done create receipt file   2-2.png

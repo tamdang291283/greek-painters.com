@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Star WebPRNT User's Manual</title>
+    <link href="bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome.min.css">    
+    <link href="html5reset-1.6.1.css" rel="stylesheet" type="text/css" />
+    <link href="webPRNT_layout.css" rel="stylesheet" type="text/css" />
+    <link href="webPRNT_print_layout.css" rel="stylesheet" type="text/css" media="print" />
+    
+<!-- ie10にて条件付きコメント([if IE]の箇所）がサポートされなくなったことに対する対処　　-->
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE9">
+    <!--[if IE ]>
+        <link rel="stylesheet" type="text/css" href="webPRNT_layout_ie.css"></script>
+        <link rel="stylesheet" type="text/css" href="webPRNT_print_layout_ie.css" media="print"></script>
+    <![endif]-->
+    
+    <script src="jquery-1.10.2.min.js"></script>
+    <script>
+    //ナビゲーショントグル
+    $(function tggleNavi() {
+        $('#naviArrow').click(function(){
+           $('#mainNavi').slideToggle('slow');           
+       });
+    });
+	
+	// 構成図　切り替え設定
+    $(function() {
+        $("#concept1").mouseenter(function(){
+            $("#conceptIllust").attr("src","../illust/concept1.png");
+        });
+        $("#concept1").mouseleave(function(){
+            $("#conceptIllust").attr("src","../illust/concept.png");
+        });
+        $("#concept2").mouseenter(function(){
+            $("#conceptIllust").attr("src","../illust/concept2.png");
+        });
+        $("#concept2").mouseleave(function(){
+            $("#conceptIllust").attr("src","../illust/concept.png");
+        });
+        $("#concept3").mouseenter(function(){
+            $("#conceptIllust").attr("src","../illust/concept3.png");
+        });
+        $("#concept3").mouseleave(function(){
+            $("#conceptIllust").attr("src","../illust/concept.png");
+        });
+        $("#concept4").mouseenter(function(){
+            $("#conceptIllust").attr("src","../illust/concept4.png");
+        });
+        $("#concept4").mouseleave(function(){
+            $("#conceptIllust").attr("src","../illust/concept.png");
+        });
+        $("#concept5").mouseenter(function(){
+            $("#conceptIllust").attr("src","../illust/concept5.png");
+        });
+        $("#concept5").mouseleave(function(){
+            $("#conceptIllust").attr("src","../illust/concept.png");
+        });
+        $("#AsuraCPRNTconcept1").mouseenter(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept1.png");
+        });
+        $("#AsuraCPRNTconcept1").mouseleave(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept.png");
+        });
+        $("#AsuraCPRNTconcept2").mouseenter(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept2.png");
+        });
+        $("#AsuraCPRNTconcept2").mouseleave(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept.png");
+        });
+        $("#AsuraCPRNTconcept3").mouseenter(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept3.png");
+        });
+        $("#AsuraCPRNTconcept3").mouseleave(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept.png");
+        });
+        $("#AsuraCPRNTconcept4").mouseenter(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept4.png");
+        });
+        $("#AsuraCPRNTconcept4").mouseleave(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept.png");
+        });
+        $("#AsuraCPRNTconcept5").mouseenter(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept5.png");
+        });
+        $("#AsuraCPRNTconcept5").mouseleave(function(){
+            $("#AsuraCPRNTconceptIllust").attr("src","../illust/AsuraCPRNTconcept.png");
+        });
+        $("#StarWebBrowserConsept1").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept1.png");
+        });
+        $("#StarWebBrowserConsept1").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept2").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept2.png");
+        });
+        $("#StarWebBrowserConsept2").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept3").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept3.png");
+        });
+        $("#StarWebBrowserConsept3").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept4").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept4.png");
+        });
+        $("#StarWebBrowserConsept4").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept5").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept5.png");
+        });
+        $("#StarWebBrowserConsept5").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#StarWebBrowserConsept6").mouseenter(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept6.png");
+        });
+        $("#StarWebBrowserConsept6").mouseleave(function(){
+            $("#StarWebBrowserConseptIllust").attr("src","../illust/StarWebBrowser_consept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept1").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept1.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept1").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept2").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept2.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept2").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept3").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept3.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept3").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept4").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept4.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept4").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept5").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept5.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept5").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept6").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept6.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept6").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept7").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept7.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept7").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept8").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept8.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept8").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept9").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept9.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept9").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept10").mouseenter(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept10.png");
+        });
+        $("#AsuraCPRNTwithPeripheralconcept10").mouseleave(function(){
+            $("#AsuraCPRNTwithPeripheralconceptIllust").attr("src","../illust/AsuraCPRNTwithPeripheralconcept.png");
+        });
+    });
+    </script>    
+</head>
+
+<body>
+
+<div id="toTop">
+    <a href="index.htm"><img id="webPRNTLogo" src="../illust/WebPRNT_Logo.png" /></a>
+    <h1> Star WebPRNT User's Manual </h1>
+
+    <div class="clear"></div>
+</div>
+
+<!--   ナビゲーショントグル　　　-->
+<div id="naviArrowSection">
+    <p class="naviToggle"><a id="naviArrow" onclick="tggleNavi()">Navi Show / Hidden</a></p>
+</div>
+
+<!-- wrapp : mainNavi + mainContents-->
+<div id="wrapp" class="clear">
+    
+
+<!-- mainNavi -->
+
+    <div id="mainNavi">
+	<navi>
+	<ul>
+	<li><a href="_sampleProgram.htm">Star WebPRNT SDK</a></li>
+	<li><a href="_sampleProgram.htm#sampleProgramConcept">Example of system configuration</a></li>
+	<li><a href="_sampleProgram.htm#sampleProgramList">Sample Program List</a></li>
+	<li><a href="_sampleProgram.htm#webServerRegistration">Web Server Registration</a></li>
+	<li><a href="_sampleProgram.htm#howToUse">How to use</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintBuilder-js.htm">StarWebPrintBuilder.js</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#StarWebPrintBuilder">StarWebPrintBuilder</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createAlignmentElement">createAlignmentElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeElement">createBarcodeElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBitImageElement">createBitImageElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createCutPaperElement">createCutPaperElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createFeedElement">createFeedElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createInitializationElement">createInitializationElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLogoElement">createLogoElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createPdf417Element">createPdf417Element</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createPeripheralElement">createPeripheralElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createQrCodeElement">createQrCodeElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createRawDataElement">createRawDataElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createRuledLineElement">createRuledLineElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createSoundElement">createSoundElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createTextElement">createTextElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createBarcodeReaderElement">createBarcodeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createMagstripeReaderElement">createMagstripeReaderElement</a></li>
+	<li><a href="_StarWebPrintBuilder-js.htm#createLineDisplayElement">createLineDisplayElement</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintTrader-js.htm">StarWebPrintTrader.js</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#StarWebPrintTrader">StarWebPrintTrader</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isCoverOpen">isCoverOpen</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isOffLine">isOffLine</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isCompulsionSwitchClose">isCompulsionSwitchClose</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isEtbCommandExecute">isEtbCommandExecute</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isHighTemperatureStop">isHighTemperatureStop</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isNonRecoverableError">isNonRecoverableError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isAutoCutterError">isAutoCutterError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isBlackMarkError">isBlackMarkError</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isPaperEnd">isPaperEnd</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#isPaperNearEnd">isPaperNearEnd</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#extractionEtbCounter">extractionEtbCounter</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintTrader-js.htm#onError">onError</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarBarcodeEncoder-js.htm">StarBarcodeEncoder.js</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#StarBarcodeEncoder">StarBarcodeEncoder</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createUPCE">createUPCE</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createUPCA">createUPCA</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createJAN8">createJAN8</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createJAN13">createJAN13</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode39">createCode39</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createITF">createITF</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode128">createCode128</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createCode93">createCode93</a></li>
+	<li><a href="_StarBarcodeEncoder-js.htm#createNW7">createNW7</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarClaimManager-js.htm">StarClaimManager.js</a></li>
+	<li><a href="_StarClaimManager-js.htm#StarClaimManager">StarClaimManager</a></li>
+	<li><a href="_StarClaimManager-js.htm#sendMessage">sendMessage</a></li>
+	<li><a href="_StarClaimManager-js.htm#isBCRClaimed">isBCRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isMSRClaimed">isMSRClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#isLDClaimed">isLDClaimed</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRDeviceNameCapability">getBCRDeviceNameCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRModeCapability">getBCRModeCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#getBCRSymbolCapability">getBCRSymbolCapability</a></li>
+	<li><a href="_StarClaimManager-js.htm#setPollingInterval">setPollingInterval</a></li>
+	<li><a href="_StarClaimManager-js.htm#setBCREventListener">setBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setMSREventListener">setMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#setLDEventListener">setLDEventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeBCREventListener">removeBCREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeMSREventListener">removeMSREventListener</a></li>
+	<li><a href="_StarClaimManager-js.htm#removeLDEventListener">removeLDEventListener</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintRequestElement.htm">StarWebPRNT Request Element</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#alignment">&lt;alignment&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcode">&lt;barcode&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#bitImage">&lt;bitImage&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#cutpaper">&lt;cutpaper&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#feed">&lt;feed&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#initialization">&lt;initialization&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#logo">&lt;logo&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#pdf417">&lt;pdf417&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#peripheral">&lt;peripheral&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#qrcode">&lt;qrcode&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#rawdata">&lt;rawdata&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#ruledline">&lt;ruledline&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#sound">&lt;sound&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#text">&lt;text&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#barcodereader">&lt;barcodereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#magstripereader">&lt;magstripereader&gt;</a></li>
+	<li><a href="_StarWebPrintRequestElement.htm#linedisplay">&lt;linedisplay&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintResponseElement.htm">StarWebPRNT Response Element</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#root-response">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#status">&lt;status&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr">&lt;bcr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-mode">&lt;mode&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-duplicatescandelay">&lt;duplicatescandelay&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-scanoncetimeout">&lt;scanoncetimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbol">&lt;symbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolenable">&lt;symbolenable&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datasymbol">&lt;datasymbol&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-bcrdevicename">&lt;bcrdevicename&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-modecapability">&lt;modecapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#bcr-symbolcapability">&lt;symbolcapability&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr">&lt;msr&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#msr-datacount">&lt;datacount&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld">&lt;ld&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPrintResponseElement.htm#ld-claimpollingtimeout">&lt;claimpollingtimeout&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPrintExtManager-js.htm">StarWebPrintExtManager.js</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#StarWebPrintExtManager">StarWebPrintExtManager</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#connect">connect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#disconnect">disconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onReceive">onReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onError">onError</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterImpossible">onPrinterImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOnline">onPrinterOnline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterOffline">onPrinterOffline</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperReady">onPrinterPaperReady</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperNearEmpty">onPrinterPaperNearEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterPaperEmpty">onPrinterPaperEmpty</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverOpen">onPrinterCoverOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onPrinterCoverClose">onPrinterCoverClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerOpen">onCashDrawerOpen</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onCashDrawerClose">onCashDrawerClose</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderImpossible">onBarcodeReaderImpossible</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderConnect">onBarcodeReaderConnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeReaderDisconnect">onBarcodeReaderDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onBarcodeDataReceive">onBarcodeDataReceive</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectSuccess">onAccessoryConnectSuccess</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryConnectFailure">onAccessoryConnectFailure</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onAccessoryDisconnect">onAccessoryDisconnect</a></li>
+	<li><a href="_StarWebPrintExtManager-js.htm#onStatusUpdate">onStatusUpdate</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm">StarWebPRNTEXTManager Request Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerRequestElement.htm#extmanager">&lt;extmanager&gt;</a></li>
+	</ul>
+	<ul>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm">StarWebPRNTExtManager Response Element</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#root">&lt;root&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#success">&lt;success&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#code">&lt;code&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claim">&lt;claim&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#claimid">&lt;claimid&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#eventcount">&lt;eventcount&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#event">&lt;event&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#action">&lt;action&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#data">&lt;data&gt;</a></li>
+	<li><a href="_StarWebPRNTExtManagerResponseElement.htm#number">&lt;number&gt;</a></li>
+	</ul>
+        <ul>
+	    <li><a href="_appendixUTF8.htm">Appendix UTF-8</a></li>
+        </ul>
+
+	</navi>
+</div>
+
+
+<div id="mainContents">
+
+      <article>
+
+      <div id="sampleProgram">
+        <h2>Star WebPRNT SDK</h2>
+        <p>
+        This SDK contains HTML files and JavaScript files.
+        </p>
+        <p>
+        <strong>The HTML files</strong> are the sample program to introduce the total procedures to print via a web browser by using the 
+        WebPRNT functions.<br />
+        Learn how to control your printer by actually running it.
+        </p>
+        <p>
+        <strong>The JavaScript files</strong> are the library files for embedding WebPRNT functions provided by Star.<br />
+        Don't modify them, and they can be loaded from the HTML file.
+        </p>
+
+        <div id="sampleProgramConcept">
+            <h3>Example of system configuration</h3>
+
+<!--            <h4>Star HE07x/08x Interface Printer</h4>      -->
+            <h4>Star Printer and AsuraCPRNT with WebPRNT</h4>
+            <p>* When you put your mouse cursor on the following sentences (each step), 
+            the illustration changes and shows detailed information.</p>
+        
+            <img id="conceptIllust" src="../illust/concept.png"  class="img_responsive"/>
+        
+            <div class="conceptDescription">
+                <ol class="concept">
+                    <li><a id="concept1">Prepare a Web server(A), an input device to display a web browser(B) and a Star POS printer / AsuraCPRNT (WebPRNT supported)(C), and enable them to communicate each other.</a></li>
+                    <li><a id="concept2">Copy the sample program in the SDK onto the Web server(A).</a></li>
+                    <li><a id="concept3">Display the sample program via a Web browser(B), and configure the IP address of the Star POS printer / AsuraCPRNT (C).</a></li>
+                    <li><a id="concept4">Send print data to the Star POS printer / AsuraCPRNT (C).</a></li>
+                    <li><a id="concept5">The Star POS printer / AsuraCPRNT (C) prints and returns the printer status to the input device(B).</a></li>
+                </ol>
+            </div>
+            
+        <br />&nbsp;<br />
+
+           <h4>AsuraCPRNT</h4>
+            <p>* When you put your mouse cursor on the following sentences (each step), 
+            the illustration changes and shows detailed information.</p>
+        
+            <img id="AsuraCPRNTconceptIllust" src="../illust/AsuraCPRNTconcept.png" class="img_responsive" />
+        
+            <div class="conceptDescription">
+                <ol class="concept">
+                    <li><a id="AsuraCPRNTconcept1">Prepare the AsuraCPRNT with WebPRNT(Web server)(A) and an input device to display a web browser(B), and enable them to communicate each other.</a></li>
+                    <li><a id="AsuraCPRNTconcept2">Copy the sample program in the SDK into the "/www/pages/" folder of the AsuraCPRNT(A).</a></li>
+                    <li><a id="AsuraCPRNTconcept3">Display the sample program via a Web browser(B), and configure the IP address of the AsuraCPRNT(A).</a></li>
+                    <li><a id="AsuraCPRNTconcept4">Send print data to the AsuraCPRNT(A).</a></li>
+                    <li><a id="AsuraCPRNTconcept5">The AsuraCPRNT(A) prints and returns the printer status to the input device(B).</a></li>
+                </ol>
+            </div>
+
+        <br />&nbsp;<br />
+
+           <h4>AsuraCPRNT with Peripheral</h4>
+            <p>* When you put your mouse cursor on the following sentences (each step), 
+            the illustration changes and shows detailed information.</p>
+        
+            <img id="AsuraCPRNTwithPeripheralconceptIllust" src="../illust/AsuraCPRNTwithPeripheralconcept.png" class="img_responsive" />
+        
+            <div class="conceptDescription">
+                <ol class="concept">
+                    <li><a id="AsuraCPRNTwithPeripheralconcept1">Prepare the AsuraCPRNT with WebPRNT(Web server)(A) and an input device to display a web browser(B), and enable them to communicate each other.</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept2">Copy the sample program in the SDK into the "/www/pages/" folder of the AsuraCPRNT(A).(AsuraCPRNT has installed the SDK at the time of the OS release as standard.)</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept3">Display the sample program via a Web browser(B), and configure the IP address of the AsuraCPRNT(A).</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept4">Send the setting start data of Peripheral device(BCR / MSR / LineDisplay) to the AsuraCPRNT(A).</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept5">AsruaCPRNT(A) is related the settings and start to use Peripheral device. And returns the setting status to the input device(B).</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept6">[BCR / MSR] Scans the barcode(magstripe) data by Peripheral device.</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept7">[BCR / MSR] Send the command data for receiving the read data to the AsuraCPRNT(A).</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept8">[BCR / MSR] returns the read data to the input device(B).</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept9">Send the setting finish data of Peripheral device(BCR / MSR / LineDisplay) to the AsuraCPRNT(A).</a></li>
+                    <li><a id="AsuraCPRNTwithPeripheralconcept10">AsruaCPRNT(A) is related the settings and finish to use Peripheral device. And returns the setting status to the input device(B).</a></li>
+                </ol>
+            </div>
+            <p>*When the SDK is copyed to the external Web server, Peripheral devices also can be used the same as this case.</p>
+
+       <br />&nbsp;<br />
+
+           <h4>Star WebPRNT Browser + Star Bluetooth Printer</h4>
+            <p>* When you tap the following sentences (each step), the illustration changes and shows detailed information.</p>
+        
+            <img id="StarWebBrowserConseptIllust" src="../illust/StarWebBrowser_consept.png" class="img_responsive" />
+        
+            <div class="conceptDescription">
+                <ol class="concept">
+                    <li><a id="StarWebBrowserConsept1">Prepare a local server or a cloud server(A) and an iOS device* in which the Star WebPRNT Browser is installed(B), and enable them to communicate each other.</a></li>
+                    <li><a id="StarWebBrowserConsept2">Pair the iOS device(B) and a Star Bluetooth printer(C).</a></li>
+                    <li><a id="StarWebBrowserConsept3">Copy the sample program in the SDK onto the Web server(A).</a></li>
+                    <li><a id="StarWebBrowserConsept4">Display the sample program via the Star WebPRNT Browser(B).</a></li>
+                    <li><a id="StarWebBrowserConsept5">Send print data to the Star Bluetooth printer from the sample program displayed via the Star WebPRNT Browser(B).</a></li>
+                    <li><a id="StarWebBrowserConsept6">The Star Bluetooth printer(C) prints and returns the printer status to the Star WebPRNT Browser(B).</a></li>
+                </ol>
+                 
+            </div>
+            <br />
+        <p class="note2">
+            * iOS Version 7.0 or later is required.
+         </p>
+            
+          </div><!-- SampleProgramConcept  -->
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+    
+
+        <div id="sampleProgramList">
+        <h3>Sample Program List</h3>
+
+        <h4>HTML File</h4>
+        <table class="coder">
+            <thead>
+                 <tr><td>Name</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>ComparisonReceiptDesign.html</td><td>Confirms if it is possible to print with device fonts and Canvas drawing</td></tr>
+            </tbody>
+        </table>
+        <br />
+
+        <h4>JavaScript File</h4>
+        <table class="coder">
+            <thead>
+                <tr><td>Name</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+                <tr><td>StarWebPrintBuilder.js</td><td>Creates StarWebPRNT request element</td></tr>
+                <tr><td>StarWebPrintTrader.js</td><td>Sends StarWebPRNT request element and checks status from received StarWebPRNT request element</td></tr>
+                <tr><td>StarBarcodeEncoder.js</td><td>Creates barcode module for drawing to a HTML5 Canvas 2D context</td></tr>
+            </tbody>
+        </table>
+        <p class="note">
+           *The JavaScript files are the library files for embedding WebPRNT functions provided. Don't modify them, and they can be loaded from the HTML file.
+        </p>
+        <br />
+        </div>
+
+    
+        <div id="webServerRegistration">
+        <h3>Web Server Registration</h3>
+    
+            <div class="introduction_3">
+                <p>Copy all sample program files for the Public folder according to the Web server operating manual.</p>
+            </div>
+        </div>
+    
+    
+        <div id="howToUse">
+        <h3>How to use</h3>
+
+        <ul class="linkList">
+           <a href="#howToUseHE0708"><li>Star HE07x/08x Interface Printer and AsuraCPRNT</li></a>
+           <a href="#howToUseBrowser"><li>Star WebPRNT Browser + Star Bluetooth Printer (iOS)</li></a>
+           <a href="#howToUseBrowserAndroid"><li>Star WebPRNT Browser + Star Bluetooth Printer (Android)</li></a>
+        </ul>
+
+        <h4 id="howToUseHE0708">Star HE07x/08x Interface Printer and AsuraCPRNT</h4>
+            
+        <div class="numOperation">
+            <ol>
+            <li>Open CompariosReceiptDesign.html on your server and check if the JavaScript/Canvas works properly with your browser.<br />
+            <img src="../illust/CheckYourBrowser3.png" class="numOpeFig img-responsive" alt="ComparisonReceiptDesign error screen"><br />
+            <p class="note">
+                  *If the message "Your browser does not support JavaScript!" appears on your browser, check the JavaScript setting and make it valid.</p>
+            <p class="note">
+                  *If the message "Your browser does not support Canvas!" appears on your application, 
+                  change (or upgrade) your browser to one which supports Canvas function.</p>
+            </li>
+            <li>Edit the StarWebPRNT end point URL in accordance with the IP address of the printer.<br />
+            <img src="../illust/Set_IP-Address3.png" class="numOpeFig img-responsive" alt="ComparisonReceiptSesign setting screen"></li>
+            <li>Press the “Send (API)” button to check if it is possible to print with device fonts</li>
+            <li>Press the “Send (Canvas)” button to check if it is possible to print with Canvas drawing.</li>
+            </ol>
+        </div>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+            
+        <h4 id="howToUseBrowser">Star WebPRNT Browser + Star Bluetooth Printer</h4>
+    
+        <div class="numOperation">
+            <ol>
+            <li>Install the "Star WebPRNT Browser" from AppStore.<br />
+            <img src="../illust/Howtouse/ToStarWebPRNTBrowser.png" class="numOpeFig2 img-responsive" alt=""></li>
+            <li>Pair a Bluetooth printer with your iOS device.</li>
+            <li>Open Settings &gt; Star WebPRNT<br />
+            <img src="../illust/Howtouse/ToSettings.png" class="numOpeFig2 img-responsive" alt="ComparisonReceiptSesign">
+            <img src="../illust/Howtouse/Settings.png" class="numOpeFig2 img-responsive" alt=""></li>
+            <li>Default is the Star WebPRNT sample site. Enter the URL of the Web server to be used.(1)<br />
+                Choose the Star Bluetooth printer to use.(POS Printer or Portable Printer)(2)<br />
+             <img src="../illust/Howtouse/StarWebPRNTBrowserSetting.png" class="numOpeFig2 img-responsive" alt="ComparisonReceiptSesign"></li>
+           <li>Open the Star WebPRNT Browser and try printing.<br />
+             <img src="../illust/Howtouse/WebPRNTBrowser.png" class="numOpeFig2 img-responsive" alt="ComparisonReceiptSesign"></li>
+           </ol>
+        </div>          
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+                      
+        <h4 id="howToUseBrowserAndroid">Star WebPRNT Browser + Star Bluetooth Printer (Android)</h4>
+    
+        <div class="numOperation">
+            <ol>
+            <li>Install the "Star WebPRNT Browser" from Play Store.<br />
+            <img src="../illust/android/StarWebPRNTBrowser.png" class="numOpeFig2 img_responsive" alt=""></li>
+            <li>Pair the Star Bluetooth printer with your Android device.</li>
+            <li>Specify the URL of the Star WebPRNT Browser and the type of printers to use.<br />
+                <div class="subNum">
+                        <p>1) Open the Star WebPRNT Browser.
+            <img src="../illust/android/StarWebPRNTBrowser.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign screen"></p>
+                        <p>2) <span class="button-boder"><i class="fa fa-ellipsis-v menu-icon"></i></span>Tap (a) and select Settings (b) from the menu.
+            <img src="../illust/android/ToSettings.png" class="numOpeFig2 img_responsive" alt=""></p>
+                        <p>3) Default is the Star WebPRNT sample site. Enter the URL of the Web server to be used.(a)<br />
+                        Choose the Star Bluetooth printer to use.(POS Printer or Portable Printer)(b)<br />
+             <img src="../illust/android/BrowserSettings.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign screen"></p>
+                 </div>
+           <li>Return to the top page and try printing.<br />
+             <img src="../illust/android/BrowserHome.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign screen"></li>
+           </ol>
+        <div class="infoBox noteBox">
+            <div class="noteTitle">How to Exit the Full Screen Mode</div>
+            <p> To exit the Full Screen mode set by Settings &gt; PREFERENCE &gt; Full Screen,
+            swipe down from the top to display the "Full Screen mode" notification (as shown in the figure below), 
+            tap it and then uncheck PREFERENCE &gt; Full Screen from the Setting menu.
+</p>
+            <div class="row">
+                <div class="col-md-6">
+                        <img src="../illust/android/FullScreenCancell1.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign setting screen"></li>
+                </div>
+                <div class="col-md-6">
+                        <img src="../illust/android/FullScreenCancell2.png" class="numOpeFig2 img_responsive" alt="ComparisonReceiptSesign setting screen"></li>
+                </div>
+            </div>                              
+        </div>
+        </div>
+
+        </div>    <!--     End of How to use      -->
+        
+      </div>    <!--   End of sampleProgram    -->
+      </article>
+
+    <div class="to_top">
+        <a href="#toTop"><img  src="../illust/TopMark.png">&nbsp;to Top</a>
+    </div>
+
+
+    </div>    <!-- Main Contents  -->
+
+</div>		<!-- Wrapp -->
+
+<div id="footer">
+<footer>
+<p id="copyright"> &copy; Copyright 2013 - 2015   <a href="http://www.star-m.jp/">Star Micronics Co., Ltd.</a> </p>
+</footer>
+</div>
+
+</body>
+</html>
+

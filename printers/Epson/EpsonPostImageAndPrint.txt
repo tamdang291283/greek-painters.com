@@ -1,0 +1,722 @@
+14/04/2018 06:08:38: PageName  = print_t.asp Start Page [Orderid] 3724
+14/04/2018 06:08:38: Pagename  =  print_t.asp  [Refer URL] 
+14/04/2018 06:08:38: PageName  = print_t.asp End Page [Orderid] 3724
+14/04/2018 06:08:39: Pagename  = Saveimage.asp 
+14/04/2018 06:08:39: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=
+14/04/2018 06:08:39: Pagename  = Saveimage.asp start saving 
+14/04/2018 06:08:39:  PrinterList  local_printer;PN:local_printer
+14/04/2018 06:08:39: Pagename  = Saveimage.asp [Orderid]  = 3724
+14/04/2018 06:08:39: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3724-local_printer-0.txt
+14/04/2018 06:08:39: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3724-local_printer-0.txt
+14/04/2018 06:08:40: PageName  = print_t.asp Start Page [Orderid] 3724
+14/04/2018 06:08:40: Pagename  =  print_t.asp  [Refer URL] 
+14/04/2018 06:08:40: PageName  = print_t.asp End Page [Orderid] 3724
+14/04/2018 06:08:40: Pagename  = Saveimage.asp 
+14/04/2018 06:08:40: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3724&id_r=2&isPrint=&idlist=
+14/04/2018 06:08:40: Pagename  = Saveimage.asp start saving 
+14/04/2018 06:08:41:  PrinterList  local_printer;PN:local_printer
+14/04/2018 06:08:41: Pagename  = Saveimage.asp [Orderid]  = 3724
+14/04/2018 06:08:41: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3724-local_printer-1-PN.txt
+14/04/2018 06:08:41: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3724-local_printer-1-PN.txt
+14/04/2018 06:23:14: PageName  = print_t.asp Start Page [Orderid] 3724
+14/04/2018 06:23:14: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3724&id_r=2
+14/04/2018 06:23:14: PageName  = print_t.asp End Page [Orderid] 3724
+14/04/2018 06:23:14: PageName  = print_t.asp Start Page [Orderid] 3724
+14/04/2018 06:23:14: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3724&id_r=2
+14/04/2018 06:23:14: PageName  = print_t.asp End Page [Orderid] 3724
+14/04/2018 06:23:18: Pagename  = Saveimage.asp 
+14/04/2018 06:23:18: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+14/04/2018 06:23:18: Pagename  = Saveimage.asp start saving 
+14/04/2018 06:23:18:  PrinterList  local_printer;PN:local_printer
+14/04/2018 06:23:18: Pagename  = Saveimage.asp [Orderid]  = 3724
+14/04/2018 06:23:18: Pagename  = Saveimage.asp 
+14/04/2018 06:23:19: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+14/04/2018 06:23:19: Pagename  = Saveimage.asp start saving 
+14/04/2018 06:23:19:  PrinterList  local_printer;PN:local_printer
+14/04/2018 06:23:19: Pagename  = Saveimage.asp [Orderid]  = 3724
+14/04/2018 06:23:32: PageName  = print_t.asp Start Page [Orderid] 3724
+14/04/2018 06:23:32: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3724&id_r=2
+14/04/2018 06:23:32: PageName  = print_t.asp End Page [Orderid] 3724
+14/04/2018 06:23:34: Pagename  = Saveimage.asp 
+14/04/2018 06:23:35: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+14/04/2018 06:23:35: Pagename  = Saveimage.asp start saving 
+14/04/2018 06:23:35:  PrinterList  local_printer;PN:local_printer
+14/04/2018 06:23:35: Pagename  = Saveimage.asp [Orderid]  = 3724
+14/04/2018 07:46:43: Pagename  = Saveimage.asp 
+14/04/2018 07:46:44: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+14/04/2018 07:46:44: Pagename  = Saveimage.asp start saving 
+14/04/2018 07:46:44:  PrinterList  local_printer;PN:local_printer
+14/04/2018 07:46:44: Pagename  = Saveimage.asp [Orderid]  = 3724
+14/04/2018 07:46:44: Pagename  = Saveimage.asp 
+14/04/2018 07:46:44: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+14/04/2018 07:46:44: Pagename  = Saveimage.asp start saving 
+14/04/2018 07:46:44:  PrinterList  local_printer;PN:local_printer
+14/04/2018 07:46:44: Pagename  = Saveimage.asp [Orderid]  = 3724
+14/04/2018 07:46:44:  PrinterList  local_printer;PN:local_printer
+14/04/2018 07:46:44: Pagename  = Saveimage.asp [Orderid]  = 3724
+15/04/2018 03:15:42: Pagename  = Saveimage.asp 
+15/04/2018 03:15:42: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+15/04/2018 03:15:42: Pagename  = Saveimage.asp start saving 
+15/04/2018 03:15:42:  PrinterList  local_printer;PN:local_printer
+15/04/2018 03:15:42: Pagename  = Saveimage.asp [Orderid]  = 3724
+15/04/2018 03:15:43: Pagename  = Saveimage.asp 
+15/04/2018 03:15:43: Pagename  = Saveimage.asp 
+15/04/2018 03:15:43: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+15/04/2018 03:15:43: Pagename  = Saveimage.asp start saving 
+15/04/2018 03:15:43: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+15/04/2018 03:15:43: Pagename  = Saveimage.asp start saving 
+15/04/2018 03:15:43:  PrinterList  local_printer;PN:local_printer
+15/04/2018 03:15:43: Pagename  = Saveimage.asp [Orderid]  = 3724
+15/04/2018 03:15:43:  PrinterList  local_printer;PN:local_printer
+15/04/2018 03:15:43: Pagename  = Saveimage.asp [Orderid]  = 3724
+15/04/2018 05:00:30: PageName  = print_t.asp Start Page [Orderid] 3725
+15/04/2018 05:00:30: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3725&id_r=2
+15/04/2018 05:00:30: PageName  = print_t.asp End Page [Orderid] 3725
+15/04/2018 05:00:30: PageName  = print_t.asp End Page [Orderid] 3725
+15/04/2018 05:00:31: Pagename  = Saveimage.asp 
+15/04/2018 05:00:31: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3725&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+15/04/2018 05:00:31: Pagename  = Saveimage.asp start saving 
+15/04/2018 05:00:31:  PrinterList  local_printer;PN:local_printer
+15/04/2018 05:00:31: Pagename  = Saveimage.asp [Orderid]  = 3725
+15/04/2018 05:00:31: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3725-local_printer-1-PN.txt
+15/04/2018 05:00:32: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3725-local_printer-1-PN.txt
+15/04/2018 05:00:32: Pagename  = Saveimage.asp 
+15/04/2018 05:00:32: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3725&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+15/04/2018 05:00:32: Pagename  = Saveimage.asp start saving 
+15/04/2018 05:00:32:  PrinterList  local_printer;PN:local_printer
+15/04/2018 05:00:32: Pagename  = Saveimage.asp [Orderid]  = 3725
+15/04/2018 05:00:32: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3725-local_printer-0.txt
+15/04/2018 05:00:32: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3725-local_printer-0.txt
+15/04/2018 05:27:51: Pagename  = Saveimage.asp 
+15/04/2018 05:27:51: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=106&id_r=2&table=&idlist=
+15/04/2018 05:27:51: Pagename  = Saveimage.asp start saving 
+15/04/2018 05:27:51:  PrinterList  local_printer;PN:local_printer
+15/04/2018 05:27:51: Pagename  = Saveimage.asp [Orderid]  = 106
+15/04/2018 05:27:51: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-106-local_printer-0.txt
+15/04/2018 05:27:51: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-106-local_printer-0.txt
+15/04/2018 05:27:51: Pagename  = Saveimage.asp 
+15/04/2018 05:27:51: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=106&id_r=2&table=&idlist=
+15/04/2018 05:27:51: Pagename  = Saveimage.asp start saving 
+15/04/2018 05:27:51:  PrinterList  local_printer;PN:local_printer
+15/04/2018 05:27:51: Pagename  = Saveimage.asp [Orderid]  = 106
+15/04/2018 05:27:51: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-106-local_printer-1-PN.txt
+15/04/2018 05:27:51: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-106-local_printer-1-PN.txt
+15/04/2018 08:06:51: PageName  = print_t.asp Start Page [Orderid] 3727
+15/04/2018 08:06:51: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3727&id_r=2
+15/04/2018 08:06:51: PageName  = print_t.asp End Page [Orderid] 3727
+15/04/2018 08:06:53: Pagename  = Saveimage.asp 
+15/04/2018 08:06:54: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3727&id_r=2&isPrint=&idlist=local_printer
+15/04/2018 08:06:54: Pagename  = Saveimage.asp start saving 
+15/04/2018 08:06:54:  PrinterList  local_printer
+15/04/2018 08:06:54: Pagename  = Saveimage.asp [Orderid]  = 3727
+15/04/2018 08:06:54: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3727-local_printer-0.txt
+15/04/2018 08:06:54: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3727-local_printer-0.txt
+15/04/2018 12:26:59: Pagename  = Saveimage.asp 
+15/04/2018 12:27:00: Pagename  = Saveimage.asp 
+15/04/2018 12:27:00: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=112&id_r=2&table=&idlist=
+15/04/2018 12:27:00: Pagename  = Saveimage.asp start saving 
+15/04/2018 12:27:00:  PrinterList  local_printer;PN:local_printer
+15/04/2018 12:27:00: Pagename  = Saveimage.asp [Orderid]  = 112
+15/04/2018 12:27:00: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=112&id_r=2&table=&idlist=
+15/04/2018 12:27:00: Pagename  = Saveimage.asp start saving 
+15/04/2018 12:27:00: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-112-local_printer-1-PN.txt
+15/04/2018 12:27:00:  PrinterList  local_printer;PN:local_printer
+15/04/2018 12:27:00: Pagename  = Saveimage.asp [Orderid]  = 112
+15/04/2018 12:27:00: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-112-local_printer-1-PN.txt
+15/04/2018 12:27:00: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-112-local_printer-0.txt
+15/04/2018 12:27:00: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-112-local_printer-0.txt
+17/04/2018 07:41:31: PageName  = print_t.asp Start Page [Orderid] 3732
+17/04/2018 07:41:31: PageName  = print_t.asp Start Page [Orderid] 3732
+17/04/2018 07:41:31: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3732&id_r=2
+17/04/2018 07:41:31: PageName  = print_t.asp End Page [Orderid] 3732
+17/04/2018 07:41:31: PageName  = print_t.asp End Page [Orderid] 3732
+17/04/2018 07:41:34: Pagename  = Saveimage.asp 
+17/04/2018 07:41:34: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3732&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+17/04/2018 07:41:34: Pagename  = Saveimage.asp start saving 
+17/04/2018 07:41:34:  PrinterList  local_printer;PN:local_printer
+17/04/2018 07:41:34: Pagename  = Saveimage.asp [Orderid]  = 3732
+17/04/2018 07:41:34: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3732-local_printer-1-PN.txt
+17/04/2018 07:41:34: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3732-local_printer-1-PN.txt
+17/04/2018 07:41:34: Pagename  = Saveimage.asp 
+17/04/2018 07:41:34: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3732&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+17/04/2018 07:41:34: Pagename  = Saveimage.asp start saving 
+17/04/2018 07:41:34:  PrinterList  local_printer;PN:local_printer
+17/04/2018 07:41:34: Pagename  = Saveimage.asp [Orderid]  = 3732
+17/04/2018 07:41:35: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3732-local_printer-0.txt
+17/04/2018 07:41:35: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3732-local_printer-0.txt
+17/04/2018 11:00:53: PageName  = print_t.asp Start Page [Orderid] 3734
+17/04/2018 11:00:53: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3734&id_r=2
+17/04/2018 11:00:53: PageName  = print_t.asp End Page [Orderid] 3734
+17/04/2018 11:00:53: PageName  = print_t.asp Start Page [Orderid] 3734
+17/04/2018 11:00:53: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3734&id_r=2
+17/04/2018 11:00:53: PageName  = print_t.asp End Page [Orderid] 3734
+17/04/2018 11:00:55: Pagename  = Saveimage.asp 
+17/04/2018 11:00:56: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3734&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+17/04/2018 11:00:56: Pagename  = Saveimage.asp start saving 
+17/04/2018 11:00:56:  PrinterList  local_printer;PN:local_printer
+17/04/2018 11:00:56: Pagename  = Saveimage.asp [Orderid]  = 3734
+17/04/2018 11:00:56: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3734-local_printer-1-PN.txt
+17/04/2018 11:00:56: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3734-local_printer-1-PN.txt
+17/04/2018 11:00:56: Pagename  = Saveimage.asp 
+17/04/2018 11:00:56: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3734&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+17/04/2018 11:00:56: Pagename  = Saveimage.asp start saving 
+17/04/2018 11:00:56:  PrinterList  local_printer;PN:local_printer
+17/04/2018 11:00:56: Pagename  = Saveimage.asp [Orderid]  = 3734
+17/04/2018 11:00:56: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3734-local_printer-0.txt
+17/04/2018 11:00:56: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3734-local_printer-0.txt
+19/04/2018 08:16:47: Pagename  = Saveimage.asp 
+19/04/2018 08:16:47: Pagename  = Saveimage.asp 
+19/04/2018 08:16:47: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=117&id_r=2&table=&idlist=
+19/04/2018 08:16:47: Pagename  = Saveimage.asp start saving 
+19/04/2018 08:16:47:  PrinterList  local_printer;PN:local_printer
+19/04/2018 08:16:47: Pagename  = Saveimage.asp [Orderid]  = 117
+19/04/2018 08:16:47: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-117-local_printer-1-PN.txt
+19/04/2018 08:16:47: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=117&id_r=2&table=&idlist=
+19/04/2018 08:16:47: Pagename  = Saveimage.asp start saving 
+19/04/2018 08:16:47: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-117-local_printer-1-PN.txt
+19/04/2018 08:16:47:  PrinterList  local_printer;PN:local_printer
+19/04/2018 08:16:47: Pagename  = Saveimage.asp [Orderid]  = 117
+19/04/2018 08:16:47: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-117-local_printer-0.txt
+19/04/2018 08:16:47: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-117-local_printer-0.txt
+19/04/2018 08:26:48: PageName  = print_t.asp Start Page [Orderid] 3738
+19/04/2018 08:26:48: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3738&id_r=2
+19/04/2018 08:26:48: PageName  = print_t.asp End Page [Orderid] 3738
+19/04/2018 08:26:49: PageName  = print_t.asp Start Page [Orderid] 3738
+19/04/2018 08:26:49: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3738&id_r=2
+19/04/2018 08:26:49: PageName  = print_t.asp End Page [Orderid] 3738
+19/04/2018 08:26:50: Pagename  = Saveimage.asp 
+19/04/2018 08:26:50: Pagename  = Saveimage.asp 
+19/04/2018 08:26:50: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+19/04/2018 08:26:50: Pagename  = Saveimage.asp start saving 
+19/04/2018 08:26:50:  PrinterList  local_printer;PN:local_printer
+19/04/2018 08:26:50: Pagename  = Saveimage.asp [Orderid]  = 3738
+19/04/2018 08:26:51: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3738-local_printer-0.txt
+19/04/2018 08:26:51: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+19/04/2018 08:26:51: Pagename  = Saveimage.asp start saving 
+19/04/2018 08:26:51: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3738-local_printer-0.txt
+19/04/2018 08:26:51:  PrinterList  local_printer;PN:local_printer
+19/04/2018 08:26:51: Pagename  = Saveimage.asp [Orderid]  = 3738
+19/04/2018 08:26:51: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3738-local_printer-1-PN.txt
+19/04/2018 08:26:51: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3738-local_printer-1-PN.txt
+19/04/2018 08:41:32: Pagename  = Saveimage.asp 
+19/04/2018 08:41:32: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&id_o=120&id_r=2&table=&idlist=
+19/04/2018 08:41:32: Pagename  = Saveimage.asp start saving 
+19/04/2018 08:41:32:  PrinterList  local_printer;PN:local_printer
+19/04/2018 08:41:32: Pagename  = Saveimage.asp [Orderid]  = 120
+19/04/2018 08:41:32: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-120-local_printer-0.txt
+19/04/2018 08:41:33: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-120-local_printer-0.txt
+20/04/2018 07:20:59: Pagename  = Saveimage.asp 
+20/04/2018 07:21:00: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+20/04/2018 07:21:00: Pagename  = Saveimage.asp start saving 
+20/04/2018 07:21:00:  PrinterList  local_printer;PN:local_printer
+20/04/2018 07:21:00: Pagename  = Saveimage.asp [Orderid]  = 3738
+20/04/2018 07:21:00: Pagename  = Saveimage.asp 
+20/04/2018 07:21:00: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+20/04/2018 07:21:00: Pagename  = Saveimage.asp start saving 
+20/04/2018 07:21:00:  PrinterList  local_printer;PN:local_printer
+20/04/2018 07:21:00: Pagename  = Saveimage.asp [Orderid]  = 3738
+20/04/2018 08:42:25: Pagename  = Saveimage.asp 
+20/04/2018 08:42:26: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+20/04/2018 08:42:26: Pagename  = Saveimage.asp start saving 
+20/04/2018 08:42:26:  PrinterList  local_printer;PN:local_printer
+20/04/2018 08:42:26: Pagename  = Saveimage.asp [Orderid]  = 3738
+20/04/2018 08:42:26: Pagename  = Saveimage.asp 
+20/04/2018 08:42:27: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+20/04/2018 08:42:27: Pagename  = Saveimage.asp start saving 
+20/04/2018 08:42:27:  PrinterList  local_printer;PN:local_printer
+20/04/2018 08:42:27: Pagename  = Saveimage.asp [Orderid]  = 3738
+22/04/2018 09:19:40: Pagename  = Saveimage.asp 
+22/04/2018 09:19:40: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=168&id_r=2&table=&idlist=
+22/04/2018 09:19:40: Pagename  = Saveimage.asp start saving 
+22/04/2018 09:19:40:  PrinterList  local_printer;PN:local_printer
+22/04/2018 09:19:40: Pagename  = Saveimage.asp [Orderid]  = 168
+22/04/2018 09:19:40: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-168-local_printer-1-PN.txt
+22/04/2018 09:19:40: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-168-local_printer-1-PN.txt
+22/04/2018 09:19:40: Pagename  = Saveimage.asp 
+22/04/2018 09:19:40: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=168&id_r=2&table=&idlist=
+22/04/2018 09:19:40: Pagename  = Saveimage.asp start saving 
+22/04/2018 09:19:40:  PrinterList  local_printer;PN:local_printer
+22/04/2018 09:19:40: Pagename  = Saveimage.asp [Orderid]  = 168
+22/04/2018 09:19:40: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-168-local_printer-0.txt
+22/04/2018 09:19:40: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-168-local_printer-0.txt
+24/04/2018 02:09:17: Pagename  = Saveimage.asp 
+24/04/2018 02:09:17: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=175&id_r=2&table=&idlist=
+24/04/2018 02:09:17: Pagename  = Saveimage.asp start saving 
+24/04/2018 02:09:17:  PrinterList  local_printer;PN:local_printer
+24/04/2018 02:09:17: Pagename  = Saveimage.asp [Orderid]  = 175
+24/04/2018 02:09:17: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-175-local_printer-1-PN.txt
+24/04/2018 02:09:17: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-175-local_printer-1-PN.txt
+24/04/2018 02:09:17: Pagename  = Saveimage.asp 
+24/04/2018 02:09:17: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=175&id_r=2&table=&idlist=
+24/04/2018 02:09:17: Pagename  = Saveimage.asp start saving 
+24/04/2018 02:09:17:  PrinterList  local_printer;PN:local_printer
+24/04/2018 02:09:17: Pagename  = Saveimage.asp [Orderid]  = 175
+24/04/2018 02:09:17: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-175-local_printer-0.txt
+24/04/2018 02:09:17: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-175-local_printer-0.txt
+24/04/2018 02:16:22: PageName  = print_t.asp Start Page [Orderid] 3743
+24/04/2018 02:16:22: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3743&id_r=2
+24/04/2018 02:16:22: PageName  = print_t.asp End Page [Orderid] 3743
+24/04/2018 02:16:22: PageName  = print_t.asp Start Page [Orderid] 3743
+24/04/2018 02:16:22: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3743&id_r=2
+24/04/2018 02:16:22: PageName  = print_t.asp End Page [Orderid] 3743
+24/04/2018 02:16:23: Pagename  = Saveimage.asp 
+24/04/2018 02:16:23: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3743&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+24/04/2018 02:16:23: Pagename  = Saveimage.asp start saving 
+24/04/2018 02:16:23:  PrinterList  local_printer;PN:local_printer
+24/04/2018 02:16:23: Pagename  = Saveimage.asp [Orderid]  = 3743
+24/04/2018 02:16:23: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3743-local_printer-0.txt
+24/04/2018 02:16:23: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3743-local_printer-0.txt
+24/04/2018 02:16:23: Pagename  = Saveimage.asp 
+24/04/2018 02:16:23: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3743&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+24/04/2018 02:16:23: Pagename  = Saveimage.asp start saving 
+24/04/2018 02:16:24:  PrinterList  local_printer;PN:local_printer
+24/04/2018 02:16:24: Pagename  = Saveimage.asp [Orderid]  = 3743
+24/04/2018 02:16:24: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3743-local_printer-1-PN.txt
+24/04/2018 02:16:24: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3743-local_printer-1-PN.txt
+24/04/2018 02:17:33: PageName  = print_t.asp Start Page [Orderid] 3744
+24/04/2018 02:17:33: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3744&id_r=2
+24/04/2018 02:17:33: PageName  = print_t.asp End Page [Orderid] 3744
+24/04/2018 02:17:33: PageName  = print_t.asp Start Page [Orderid] 3744
+24/04/2018 02:17:33: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3744&id_r=2
+24/04/2018 02:17:33: PageName  = print_t.asp End Page [Orderid] 3744
+24/04/2018 02:17:34: Pagename  = Saveimage.asp 
+24/04/2018 02:17:34: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3744&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+24/04/2018 02:17:34: Pagename  = Saveimage.asp start saving 
+24/04/2018 02:17:34:  PrinterList  local_printer;PN:local_printer
+24/04/2018 02:17:34: Pagename  = Saveimage.asp [Orderid]  = 3744
+24/04/2018 02:17:34: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3744-local_printer-0.txt
+24/04/2018 02:17:34: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3744-local_printer-0.txt
+24/04/2018 02:17:34: Pagename  = Saveimage.asp 
+24/04/2018 02:17:34: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3744&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
+24/04/2018 02:17:34: Pagename  = Saveimage.asp start saving 
+24/04/2018 02:17:34:  PrinterList  local_printer;PN:local_printer
+24/04/2018 02:17:34: Pagename  = Saveimage.asp [Orderid]  = 3744
+24/04/2018 02:17:34: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3744-local_printer-1-PN.txt
+24/04/2018 02:17:34: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3744-local_printer-1-PN.txt
+26/04/2018 07:29:25: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:29:31: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:29:37: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:29:42: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:29:48: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:29:53: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:29:59: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:04: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:10: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:15: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:21: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:26: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:32: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:37: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:43: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:48: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:54: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:30:59: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:05: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:10: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:15: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:21: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:26: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:32: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:37: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:42: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:48: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:53: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:31:59: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:04: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:10: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:15: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:20: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:26: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:31: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:37: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:42: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:48: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:53: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:32:59: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:04: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:09: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:15: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:20: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:26: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:31: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:37: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:42: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:47: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:53: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:33:58: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:34:04: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:34:09: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:34:15: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:34:20: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:34:25: PageName = pintXML_v2.xml Start 2
+26/04/2018 07:34:31: PageName = pintXML_v2.xml Start 2
+06/06/2018 08:08:52: PageName  = print_t.asp Start Page [Orderid] 3597
+06/06/2018 08:08:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3597&id_r=2
+06/06/2018 08:08:52: PageName  = print_t.asp End Page [Orderid] 3597
+06/06/2018 08:08:52: PageName  = print_t.asp Start Page [Orderid] 3597
+06/06/2018 08:08:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3597&id_r=2
+06/06/2018 08:08:52: PageName  = print_t.asp End Page [Orderid] 3597
+06/06/2018 08:08:55: Pagename  = Saveimage.asp 
+06/06/2018 08:08:55: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3597&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/06/2018 08:08:55: Pagename  = Saveimage.asp start saving 
+06/06/2018 08:08:56:  PrinterList  local_printer;PN:kitchen_printer
+06/06/2018 08:08:56: Pagename  = Saveimage.asp [Orderid]  = 3597
+06/06/2018 08:08:56: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3597-kitchen_printer-1-PN.txt
+06/06/2018 08:08:56: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3597-kitchen_printer-1-PN.txt
+06/06/2018 08:09:01: Pagename  = Saveimage.asp 
+06/06/2018 08:09:02: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3597&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/06/2018 08:09:02: Pagename  = Saveimage.asp start saving 
+06/06/2018 08:09:02:  PrinterList  local_printer;PN:kitchen_printer
+06/06/2018 08:09:02: Pagename  = Saveimage.asp [Orderid]  = 3597
+06/06/2018 08:09:03: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3597-local_printer-0.txt
+06/06/2018 08:09:03: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3597-local_printer-0.txt
+06/06/2018 08:14:03: PageName  = print_t.asp Start Page [Orderid] 3598
+06/06/2018 08:14:03: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3598&id_r=2
+06/06/2018 08:14:03: PageName  = print_t.asp End Page [Orderid] 3598
+06/06/2018 08:14:03: PageName  = print_t.asp Start Page [Orderid] 3598
+06/06/2018 08:14:03: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3598&id_r=2
+06/06/2018 08:14:03: PageName  = print_t.asp End Page [Orderid] 3598
+06/06/2018 08:14:04: Pagename  = Saveimage.asp 
+06/06/2018 08:14:04: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3598&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/06/2018 08:14:04: Pagename  = Saveimage.asp start saving 
+06/06/2018 08:14:04:  PrinterList  local_printer;PN:kitchen_printer
+06/06/2018 08:14:04: Pagename  = Saveimage.asp [Orderid]  = 3598
+06/06/2018 08:14:04: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3598-local_printer-0.txt
+06/06/2018 08:14:05: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3598-local_printer-0.txt
+06/06/2018 08:14:05: Pagename  = Saveimage.asp 
+06/06/2018 08:14:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3598&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/06/2018 08:14:05: Pagename  = Saveimage.asp start saving 
+06/06/2018 08:14:05:  PrinterList  local_printer;PN:kitchen_printer
+06/06/2018 08:14:05: Pagename  = Saveimage.asp [Orderid]  = 3598
+06/06/2018 08:14:05: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3598-kitchen_printer-1-PN.txt
+06/06/2018 08:14:05: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3598-kitchen_printer-1-PN.txt
+08/06/2018 21:24:43: PageName  = print_t.asp Start Page [Orderid] 3604
+08/06/2018 21:24:43: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3604&id_r=2
+08/06/2018 21:24:43: PageName  = print_t.asp End Page [Orderid] 3604
+08/06/2018 21:24:43: PageName  = print_t.asp Start Page [Orderid] 3604
+08/06/2018 21:24:43: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3604&id_r=2
+08/06/2018 21:24:43: PageName  = print_t.asp End Page [Orderid] 3604
+08/06/2018 21:24:46: Pagename  = Saveimage.asp 
+08/06/2018 21:24:47: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3604&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+08/06/2018 21:24:47: Pagename  = Saveimage.asp start saving 
+08/06/2018 21:24:47:  PrinterList  local_printer;PN:kitchen_printer
+08/06/2018 21:24:47: Pagename  = Saveimage.asp [Orderid]  = 3604
+08/06/2018 21:24:47: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3604-local_printer-0.txt
+08/06/2018 21:24:47: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3604-local_printer-0.txt
+08/06/2018 21:24:47: Pagename  = Saveimage.asp 
+08/06/2018 21:24:47: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3604&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+08/06/2018 21:24:47: Pagename  = Saveimage.asp start saving 
+08/06/2018 21:24:47:  PrinterList  local_printer;PN:kitchen_printer
+08/06/2018 21:24:47: Pagename  = Saveimage.asp [Orderid]  = 3604
+08/06/2018 21:24:47: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3604-kitchen_printer-1-PN.txt
+08/06/2018 21:24:47: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3604-kitchen_printer-1-PN.txt
+14/06/2018 07:09:49: PageName  = print_t.asp Start Page [Orderid] 3640
+14/06/2018 07:09:49: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3640&id_r=2
+14/06/2018 07:09:49: PageName  = print_t.asp End Page [Orderid] 3640
+14/06/2018 07:09:50: Pagename  = Saveimage.asp 
+14/06/2018 07:09:50: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3640&id_r=2&isPrint=&idlist=local_printer
+14/06/2018 07:09:50: Pagename  = Saveimage.asp start saving 
+14/06/2018 07:09:50:  PrinterList  local_printer
+14/06/2018 07:09:50: Pagename  = Saveimage.asp [Orderid]  = 3640
+14/06/2018 07:09:50: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3640-local_printer-0.txt
+14/06/2018 07:09:50: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3640-local_printer-0.txt
+24/06/2018 12:51:26: PageName  = print_t.asp Start Page [Orderid] 3667
+24/06/2018 12:51:26: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3667&id_r=2
+24/06/2018 12:51:26: PageName  = print_t.asp End Page [Orderid] 3667
+24/06/2018 12:51:26: PageName  = print_t.asp Start Page [Orderid] 3667
+24/06/2018 12:51:26: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3667&id_r=2
+24/06/2018 12:51:26: PageName  = print_t.asp End Page [Orderid] 3667
+24/06/2018 12:51:27: Pagename  = Saveimage.asp 
+24/06/2018 12:51:27: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3667&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+24/06/2018 12:51:27: Pagename  = Saveimage.asp start saving 
+24/06/2018 12:51:27:  PrinterList  local_printer;PN:kitchen_printer
+24/06/2018 12:51:27: Pagename  = Saveimage.asp [Orderid]  = 3667
+24/06/2018 12:51:27: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3667-kitchen_printer-1-PN.txt
+24/06/2018 12:51:27: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3667-kitchen_printer-1-PN.txt
+24/06/2018 12:51:27: Pagename  = Saveimage.asp 
+24/06/2018 12:51:27: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3667&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+24/06/2018 12:51:27: Pagename  = Saveimage.asp start saving 
+24/06/2018 12:51:28:  PrinterList  local_printer;PN:kitchen_printer
+24/06/2018 12:51:28: Pagename  = Saveimage.asp [Orderid]  = 3667
+24/06/2018 12:51:28: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3667-local_printer-0.txt
+24/06/2018 12:51:28: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3667-local_printer-0.txt
+27/06/2018 10:17:10: PageName  = print_t.asp Start Page [Orderid] 3683
+27/06/2018 10:17:10: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3683&id_r=2
+27/06/2018 10:17:10: PageName  = print_t.asp End Page [Orderid] 3683
+27/06/2018 10:17:10: PageName  = print_t.asp Start Page [Orderid] 3683
+27/06/2018 10:17:10: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3683&id_r=2
+27/06/2018 10:17:10: PageName  = print_t.asp End Page [Orderid] 3683
+27/06/2018 10:17:11: Pagename  = Saveimage.asp 
+27/06/2018 10:17:11: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3683&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+27/06/2018 10:17:11: Pagename  = Saveimage.asp start saving 
+27/06/2018 10:17:11:  PrinterList  local_printer;PN:kitchen_printer
+27/06/2018 10:17:11: Pagename  = Saveimage.asp [Orderid]  = 3683
+27/06/2018 10:17:11: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3683-kitchen_printer-1-PN.txt
+27/06/2018 10:17:11: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3683-kitchen_printer-1-PN.txt
+27/06/2018 10:17:11: Pagename  = Saveimage.asp 
+27/06/2018 10:17:11: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3683&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+27/06/2018 10:17:11: Pagename  = Saveimage.asp start saving 
+27/06/2018 10:17:11:  PrinterList  local_printer;PN:kitchen_printer
+27/06/2018 10:17:11: Pagename  = Saveimage.asp [Orderid]  = 3683
+27/06/2018 10:17:12: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3683-local_printer-0.txt
+27/06/2018 10:17:12: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3683-local_printer-0.txt
+28/06/2018 09:13:11: PageName  = print_t.asp Start Page [Orderid] 3688
+28/06/2018 09:13:11: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3688&id_r=2
+28/06/2018 09:13:11: PageName  = print_t.asp End Page [Orderid] 3688
+28/06/2018 09:13:11: PageName  = print_t.asp Start Page [Orderid] 3688
+28/06/2018 09:13:11: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3688&id_r=2
+28/06/2018 09:13:11: PageName  = print_t.asp End Page [Orderid] 3688
+28/06/2018 09:13:13: Pagename  = Saveimage.asp 
+28/06/2018 09:13:13: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3688&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+28/06/2018 09:13:13: Pagename  = Saveimage.asp start saving 
+28/06/2018 09:13:13:  PrinterList  local_printer;PN:kitchen_printer
+28/06/2018 09:13:13: Pagename  = Saveimage.asp [Orderid]  = 3688
+28/06/2018 09:13:13: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3688-local_printer-0.txt
+28/06/2018 09:13:13: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3688-local_printer-0.txt
+28/06/2018 09:13:13: Pagename  = Saveimage.asp 
+28/06/2018 09:13:13: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3688&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+28/06/2018 09:13:13: Pagename  = Saveimage.asp start saving 
+28/06/2018 09:13:13:  PrinterList  local_printer;PN:kitchen_printer
+28/06/2018 09:13:13: Pagename  = Saveimage.asp [Orderid]  = 3688
+28/06/2018 09:13:13: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3688-kitchen_printer-1-PN.txt
+28/06/2018 09:13:13: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3688-kitchen_printer-1-PN.txt
+28/06/2018 09:13:32: PageName  = print_t.asp Start Page [Orderid] 3690
+28/06/2018 09:13:32: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3690&id_r=2
+28/06/2018 09:13:32: PageName  = print_t.asp End Page [Orderid] 3690
+28/06/2018 09:13:32: PageName  = print_t.asp Start Page [Orderid] 3690
+28/06/2018 09:13:32: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3690&id_r=2
+28/06/2018 09:13:32: PageName  = print_t.asp End Page [Orderid] 3690
+28/06/2018 09:13:32: Pagename  = Saveimage.asp 
+28/06/2018 09:13:32: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3690&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+28/06/2018 09:13:32: Pagename  = Saveimage.asp start saving 
+28/06/2018 09:13:33:  PrinterList  local_printer;PN:kitchen_printer
+28/06/2018 09:13:33: Pagename  = Saveimage.asp [Orderid]  = 3690
+28/06/2018 09:13:33: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3690-local_printer-0.txt
+28/06/2018 09:13:33: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3690-local_printer-0.txt
+28/06/2018 09:13:33: Pagename  = Saveimage.asp 
+28/06/2018 09:13:33: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3690&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+28/06/2018 09:13:33: Pagename  = Saveimage.asp start saving 
+28/06/2018 09:13:33:  PrinterList  local_printer;PN:kitchen_printer
+28/06/2018 09:13:33: Pagename  = Saveimage.asp [Orderid]  = 3690
+28/06/2018 09:13:33: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3690-kitchen_printer-1-PN.txt
+28/06/2018 09:13:33: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3690-kitchen_printer-1-PN.txt
+13/07/2018 07:49:52: PageName  = print_t.asp Start Page [Orderid] 3704
+13/07/2018 07:49:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3704&id_r=2
+13/07/2018 07:49:52: PageName  = print_t.asp End Page [Orderid] 3704
+13/07/2018 07:49:52: PageName  = print_t.asp Start Page [Orderid] 3704
+13/07/2018 07:49:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3704&id_r=2
+13/07/2018 07:49:52: PageName  = print_t.asp End Page [Orderid] 3704
+13/07/2018 07:49:56: Pagename  = Saveimage.asp 
+13/07/2018 07:49:56: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3704&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 07:49:56: Pagename  = Saveimage.asp start saving 
+13/07/2018 07:49:56:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 07:49:56: Pagename  = Saveimage.asp [Orderid]  = 3704
+13/07/2018 07:49:56: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3704-kitchen_printer-1-PN.txt
+13/07/2018 07:49:56: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3704-kitchen_printer-1-PN.txt
+13/07/2018 07:49:56: Pagename  = Saveimage.asp 
+13/07/2018 07:49:56: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3704&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 07:49:56: Pagename  = Saveimage.asp start saving 
+13/07/2018 07:49:56:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 07:49:56: Pagename  = Saveimage.asp [Orderid]  = 3704
+13/07/2018 07:49:57: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3704-local_printer-0.txt
+13/07/2018 07:49:57: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3704-local_printer-0.txt
+13/07/2018 08:02:04: PageName  = print_t.asp Start Page [Orderid] 3706
+13/07/2018 08:02:04: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3706&id_r=2
+13/07/2018 08:02:04: PageName  = print_t.asp End Page [Orderid] 3706
+13/07/2018 08:02:04: PageName  = print_t.asp Start Page [Orderid] 3706
+13/07/2018 08:02:04: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3706&id_r=2
+13/07/2018 08:02:04: PageName  = print_t.asp End Page [Orderid] 3706
+13/07/2018 08:02:06: Pagename  = Saveimage.asp 
+13/07/2018 08:02:06: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3706&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:02:06: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:02:06:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:02:06: Pagename  = Saveimage.asp [Orderid]  = 3706
+13/07/2018 08:02:06: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3706-local_printer-0.txt
+13/07/2018 08:02:06: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3706-local_printer-0.txt
+13/07/2018 08:02:07: Pagename  = Saveimage.asp 
+13/07/2018 08:02:07: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3706&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:02:07: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:02:07:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:02:07: Pagename  = Saveimage.asp [Orderid]  = 3706
+13/07/2018 08:02:07: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3706-kitchen_printer-1-PN.txt
+13/07/2018 08:02:07: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3706-kitchen_printer-1-PN.txt
+13/07/2018 08:38:04: PageName  = print_t.asp Start Page [Orderid] 3712
+13/07/2018 08:38:04: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3712&id_r=2
+13/07/2018 08:38:04: PageName  = print_t.asp End Page [Orderid] 3712
+13/07/2018 08:38:04: PageName  = print_t.asp Start Page [Orderid] 3712
+13/07/2018 08:38:04: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3712&id_r=2
+13/07/2018 08:38:04: PageName  = print_t.asp End Page [Orderid] 3712
+13/07/2018 08:38:06: Pagename  = Saveimage.asp 
+13/07/2018 08:38:06: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3712&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:38:06: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:38:06:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:38:06: Pagename  = Saveimage.asp [Orderid]  = 3712
+13/07/2018 08:38:06: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3712-local_printer-0.txt
+13/07/2018 08:38:06: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3712-local_printer-0.txt
+13/07/2018 08:38:06: Pagename  = Saveimage.asp 
+13/07/2018 08:38:06: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3712&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:38:06: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:38:06:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:38:06: Pagename  = Saveimage.asp [Orderid]  = 3712
+13/07/2018 08:38:06: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3712-kitchen_printer-1-PN.txt
+13/07/2018 08:38:06: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3712-kitchen_printer-1-PN.txt
+13/07/2018 08:41:06: PageName  = print_t.asp Start Page [Orderid] 3714
+13/07/2018 08:41:06: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3714&id_r=2
+13/07/2018 08:41:06: PageName  = print_t.asp End Page [Orderid] 3714
+13/07/2018 08:41:06: PageName  = print_t.asp Start Page [Orderid] 3714
+13/07/2018 08:41:06: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3714&id_r=2
+13/07/2018 08:41:06: PageName  = print_t.asp End Page [Orderid] 3714
+13/07/2018 08:41:07: Pagename  = Saveimage.asp 
+13/07/2018 08:41:07: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3714&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:41:07: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:41:07:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:41:07: Pagename  = Saveimage.asp [Orderid]  = 3714
+13/07/2018 08:41:08: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3714-local_printer-0.txt
+13/07/2018 08:41:08: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3714-local_printer-0.txt
+13/07/2018 08:41:08: Pagename  = Saveimage.asp 
+13/07/2018 08:41:08: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3714&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:41:08: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:41:08:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:41:08: Pagename  = Saveimage.asp [Orderid]  = 3714
+13/07/2018 08:41:08: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3714-kitchen_printer-1-PN.txt
+13/07/2018 08:41:08: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3714-kitchen_printer-1-PN.txt
+13/07/2018 08:47:14: PageName  = print_t.asp Start Page [Orderid] 3716
+13/07/2018 08:47:14: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3716&id_r=2
+13/07/2018 08:47:14: PageName  = print_t.asp End Page [Orderid] 3716
+13/07/2018 08:47:14: PageName  = print_t.asp Start Page [Orderid] 3716
+13/07/2018 08:47:14: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3716&id_r=2
+13/07/2018 08:47:14: PageName  = print_t.asp End Page [Orderid] 3716
+13/07/2018 08:47:14: Pagename  = Saveimage.asp 
+13/07/2018 08:47:15: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3716&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:47:15: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:47:15:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:47:15: Pagename  = Saveimage.asp [Orderid]  = 3716
+13/07/2018 08:47:15: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3716-local_printer-0.txt
+13/07/2018 08:47:15: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3716-local_printer-0.txt
+13/07/2018 08:47:15: Pagename  = Saveimage.asp 
+13/07/2018 08:47:16: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3716&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:47:16: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:47:16:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:47:16: Pagename  = Saveimage.asp [Orderid]  = 3716
+13/07/2018 08:47:16: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3716-kitchen_printer-1-PN.txt
+13/07/2018 08:47:16: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3716-kitchen_printer-1-PN.txt
+13/07/2018 08:50:33: PageName  = print_t.asp Start Page [Orderid] 3718
+13/07/2018 08:50:33: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3718&id_r=2
+13/07/2018 08:50:33: PageName  = print_t.asp End Page [Orderid] 3718
+13/07/2018 08:50:33: PageName  = print_t.asp Start Page [Orderid] 3718
+13/07/2018 08:50:33: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3718&id_r=2
+13/07/2018 08:50:33: PageName  = print_t.asp End Page [Orderid] 3718
+13/07/2018 08:50:33: Pagename  = Saveimage.asp 
+13/07/2018 08:50:34: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3718&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:50:34: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:50:34:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:50:34: Pagename  = Saveimage.asp [Orderid]  = 3718
+13/07/2018 08:50:34: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3718-local_printer-0.txt
+13/07/2018 08:50:34: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3718-local_printer-0.txt
+13/07/2018 08:50:34: Pagename  = Saveimage.asp 
+13/07/2018 08:50:34: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3718&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 08:50:34: Pagename  = Saveimage.asp start saving 
+13/07/2018 08:50:34:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 08:50:34: Pagename  = Saveimage.asp [Orderid]  = 3718
+13/07/2018 08:50:34: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3718-kitchen_printer-1-PN.txt
+13/07/2018 08:50:34: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3718-kitchen_printer-1-PN.txt
+13/07/2018 09:01:52: PageName  = print_t.asp Start Page [Orderid] 3721
+13/07/2018 09:01:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3721&id_r=2
+13/07/2018 09:01:52: PageName  = print_t.asp End Page [Orderid] 3721
+13/07/2018 09:01:52: PageName  = print_t.asp Start Page [Orderid] 3721
+13/07/2018 09:01:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3721&id_r=2
+13/07/2018 09:01:52: PageName  = print_t.asp End Page [Orderid] 3721
+13/07/2018 09:01:53: Pagename  = Saveimage.asp 
+13/07/2018 09:01:53: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3721&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 09:01:53: Pagename  = Saveimage.asp start saving 
+13/07/2018 09:01:53:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 09:01:53: Pagename  = Saveimage.asp [Orderid]  = 3721
+13/07/2018 09:01:53: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3721-local_printer-0.txt
+13/07/2018 09:01:53: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3721-local_printer-0.txt
+13/07/2018 09:01:58: Pagename  = Saveimage.asp 
+13/07/2018 09:01:59: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3721&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 09:01:59: Pagename  = Saveimage.asp start saving 
+13/07/2018 09:01:59:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 09:01:59: Pagename  = Saveimage.asp [Orderid]  = 3721
+13/07/2018 09:01:59: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3721-kitchen_printer-1-PN.txt
+13/07/2018 09:01:59: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3721-kitchen_printer-1-PN.txt
+13/07/2018 09:07:18: PageName  = print_t.asp Start Page [Orderid] 3723
+13/07/2018 09:07:18: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3723&id_r=2
+13/07/2018 09:07:18: PageName  = print_t.asp End Page [Orderid] 3723
+13/07/2018 09:07:18: PageName  = print_t.asp Start Page [Orderid] 3723
+13/07/2018 09:07:18: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3723&id_r=2
+13/07/2018 09:07:18: PageName  = print_t.asp End Page [Orderid] 3723
+13/07/2018 09:07:18: Pagename  = Saveimage.asp 
+13/07/2018 09:07:19: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3723&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 09:07:19: Pagename  = Saveimage.asp start saving 
+13/07/2018 09:07:19:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 09:07:19: Pagename  = Saveimage.asp [Orderid]  = 3723
+13/07/2018 09:07:19: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3723-kitchen_printer-1-PN.txt
+13/07/2018 09:07:19: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3723-kitchen_printer-1-PN.txt
+13/07/2018 09:07:19: Pagename  = Saveimage.asp 
+13/07/2018 09:07:19: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3723&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 09:07:19: Pagename  = Saveimage.asp start saving 
+13/07/2018 09:07:19:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 09:07:19: Pagename  = Saveimage.asp [Orderid]  = 3723
+13/07/2018 09:07:19: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3723-local_printer-0.txt
+13/07/2018 09:07:19: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3723-local_printer-0.txt
+13/07/2018 09:10:50: PageName  = print_t.asp Start Page [Orderid] 3725
+13/07/2018 09:10:50: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3725&id_r=2
+13/07/2018 09:10:50: PageName  = print_t.asp End Page [Orderid] 3725
+13/07/2018 09:10:50: PageName  = print_t.asp Start Page [Orderid] 3725
+13/07/2018 09:10:50: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3725&id_r=2
+13/07/2018 09:10:50: PageName  = print_t.asp End Page [Orderid] 3725
+13/07/2018 09:10:51: Pagename  = Saveimage.asp 
+13/07/2018 09:10:51: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3725&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 09:10:51: Pagename  = Saveimage.asp start saving 
+13/07/2018 09:10:51:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 09:10:51: Pagename  = Saveimage.asp [Orderid]  = 3725
+13/07/2018 09:10:51: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3725-local_printer-0.txt
+13/07/2018 09:10:51: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3725-local_printer-0.txt
+13/07/2018 09:10:52: Pagename  = Saveimage.asp 
+13/07/2018 09:10:52: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3725&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 09:10:52: Pagename  = Saveimage.asp start saving 
+13/07/2018 09:10:52:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 09:10:52: Pagename  = Saveimage.asp [Orderid]  = 3725
+13/07/2018 09:10:52: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3725-kitchen_printer-1-PN.txt
+13/07/2018 09:10:52: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3725-kitchen_printer-1-PN.txt
+13/07/2018 09:40:18: PageName  = print_t.asp Start Page [Orderid] 3726
+13/07/2018 09:40:18: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3726&id_r=2
+13/07/2018 09:40:18: PageName  = print_t.asp End Page [Orderid] 3726
+13/07/2018 09:40:18: PageName  = print_t.asp Start Page [Orderid] 3726
+13/07/2018 09:40:18: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3726&id_r=2
+13/07/2018 09:40:18: PageName  = print_t.asp End Page [Orderid] 3726
+13/07/2018 09:40:19: Pagename  = Saveimage.asp 
+13/07/2018 09:40:19: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3726&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 09:40:19: Pagename  = Saveimage.asp start saving 
+13/07/2018 09:40:19:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 09:40:19: Pagename  = Saveimage.asp [Orderid]  = 3726
+13/07/2018 09:40:19: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3726-kitchen_printer-1-PN.txt
+13/07/2018 09:40:19: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3726-kitchen_printer-1-PN.txt
+13/07/2018 09:40:19: Pagename  = Saveimage.asp 
+13/07/2018 09:40:19: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3726&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+13/07/2018 09:40:19: Pagename  = Saveimage.asp start saving 
+13/07/2018 09:40:19:  PrinterList  local_printer;PN:kitchen_printer
+13/07/2018 09:40:19: Pagename  = Saveimage.asp [Orderid]  = 3726
+13/07/2018 09:40:19: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3726-local_printer-0.txt
+13/07/2018 09:40:19: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3726-local_printer-0.txt
+25/07/2018 07:35:29: PageName  = print_t.asp Start Page [Orderid] 3742
+25/07/2018 07:35:29: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3742&id_r=2
+25/07/2018 07:35:29: PageName  = print_t.asp End Page [Orderid] 3742
+25/07/2018 07:35:29: PageName  = print_t.asp Start Page [Orderid] 3742
+25/07/2018 07:35:29: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3742&id_r=2
+25/07/2018 07:35:29: PageName  = print_t.asp End Page [Orderid] 3742
+25/07/2018 07:35:30: Pagename  = Saveimage.asp 
+25/07/2018 07:35:31: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3742&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+25/07/2018 07:35:31: Pagename  = Saveimage.asp start saving 
+25/07/2018 07:35:31:  PrinterList  local_printer;PN:kitchen_printer
+25/07/2018 07:35:31: Pagename  = Saveimage.asp [Orderid]  = 3742
+25/07/2018 07:35:31: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3742-local_printer-0.txt
+25/07/2018 07:35:31: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3742-local_printer-0.txt
+25/07/2018 07:35:31: Pagename  = Saveimage.asp 
+25/07/2018 07:35:31: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3742&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+25/07/2018 07:35:31: Pagename  = Saveimage.asp start saving 
+25/07/2018 07:35:31:  PrinterList  local_printer;PN:kitchen_printer
+25/07/2018 07:35:31: Pagename  = Saveimage.asp [Orderid]  = 3742
+25/07/2018 07:35:31: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3742-kitchen_printer-1-PN.txt
+25/07/2018 07:35:31: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3742-kitchen_printer-1-PN.txt

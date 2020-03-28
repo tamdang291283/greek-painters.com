@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PrintRequestInfo Version="2.00">
+	 <ePOSPrint>
+    <Parameter>
+      <devid>local_printer</devid> 
+       <timeout>10000</timeout>
+	  <printjobid>2-2859-local_printer-1-PN</printjobid>
+    </Parameter>
+    <PrintData>
+<epos-print xmlns="http://www.epson-pos.com/schemas/2011/03/epos-print">
+<text lang="zh-cn"/>
+<text smooth="true"/>
+<text align="center"/>
+<text dw="true" dh="true"/>
+<text>Collection &#10;&#10;</text>
+<text dw="false" dh="false"/>
+<text>[19/08/2017 23:10] &#10;</text>
+<text>ORDER UNPAID &#10;</text>
+<text dw="false" dh="false"/>
+<text align="center"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Order 2859 from Demo Place&#10;&#10;</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>Demo Place&#10;</text>
+<text>67 - 71 Slateford Road, Edinburgh, EH11 1PR&#10;</text>
+<text>Tel. 0131 313 5588&#10;</text>
+<text>Email: k9kondop@hotmail.com&#10;&#10;</text>
+<text align="left"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Customer Details&#10;</text>
+<text align="center"/>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text dw="false" dh="false"/>
+<text>TestName&#10;</text>
+<text>2 Oxford Road, London,&#10;</text>
+<text>123456&#10;</text>
+<text>Phone: 936117540&#10;&#10;</text>
+<text align="left"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Order Details&#10;</text>
+<text align="center"/>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text>Order Number: 2859 &#10;</text>
+<text>Order Time: 19/08/2017 15:01&#10;</text>
+<text>Order Type: Collection&#10;</text>
+<text>Requested for:  19/08/2017 23:10&#10;</text>
+<text>Payment Status: ORDER UNPAID</text>
+<text align="center"/>
+<text>&#10;&#10;</text>
+<text align="left"/>
+<text>&#10;</text>
+<text width="1" height="2"/>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>2 x abcd</text>
+<text width="1" height="1"/>
+<text>&#10;&#9;&#9;&#9;&#9;2.00&#10;</text>
+<text>&#10;</text>
+<text width="1" height="2"/>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>1 x  efgh</text>
+<text width="1" height="1"/>
+<text>&#10;&#9;&#9;&#9;&#9;3.90&#10;</text>
+<text>&#10;</text>
+<text align="center"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text>SubTotal:&#9;&#9;&#9;05.90&#10;</text>
+<text>Delivery Fee:&#9;&#9;&#9;00.00&#10;</text>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>TOTAL&#9;&#9;&#9;&#9;5.90&#10;&#10;</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text align="left"/>
+<text dw="true" dh="true"/>
+<feed unit="12"/>
+<cut type="feed"/>
+      </epos-print>
+    </PrintData>
+  </ePOSPrint>
+</PrintRequestInfo>

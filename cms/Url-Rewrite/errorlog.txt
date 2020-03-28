@@ -1,0 +1,88 @@
+10/03/2019 10:45:52:    <ErrorLog Version="2.00"> 
+    <IpAdddress>127.0.0.1</IpAdddress> 
+    <Browser>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36</iBrowser> 
+    <physicalfile>http://my.outsource.com//cms/url-rewrite/Updated.asp?srcurl=menu.asp?id_r=18&resulturl=dang-le-mnh-tam-344--/menu&status=ACTIVE&ID=67&r=0.2612310911900244<physicalfile> 
+    <URL> /cms/url-rewrite/Updated.asp </URL> 
+    <Content Type>  </Content Type> 
+    <Content Length> 0 </Content Length> 
+    <ErrorDeatils>ADODB.Connection error ''800a0e78'' Operation is not allowed when the object is closed. /cms/url-rewrite/Updated.asp, line 31</LOCAL_ADDR> 
+    <LOCAL_ADDR>127.0.0.1</LOCAL_ADDR> 
+    <Server Variables:>HTTP_CONNECTION:keep-alive
+HTTP_ACCEPT:*/*
+HTTP_ACCEPT_ENCODING:gzip, deflate
+HTTP_ACCEPT_LANGUAGE:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5
+HTTP_COOKIE:_ga=GA1.2.1096819663.1545833622; __stripe_mid=25c5c2ed-e118-4280-a7c2-92b87f8b8878; Postcode=SK13+8AQ+; Address2=Glossop; Phone=1313135588; LastName=Tam; FirstName=Dang+Le; Email=tam%2Edang832912%40gmail%2Ecom; HouseNumber=9+Jacksons+Buildings%2C+Victoria+Street%2C+Glossop%2C+SK13+8AQ; Address=9201+S%2E+Pennsylvania+Ave%2E+Box+891452; _gid=GA1.2.264474771.1552136374; ASPSESSIONIDQSDCASTC=PAINMHFCHOBBLIIOKOIMDGND; ASPSESSIONIDQSABDTSD=OMALAOFCAJPFPIOAEDNHJGBI; ASPSESSIONIDSSABDTSD=MHILONGCIFCDFOJFCFGAGEIN; ASPSESSIONIDSSBDDQSC=FFOHLDHCGFLEFIJEBIJMHMCP
+HTTP_HOST:my.outsource.com
+HTTP_REFERER:http://my.outsource.com/cms/url-rewrite/default.asp?frmURL=&amp;page=2
+HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36
+HTTP_X_REQUESTED_WITH:XMLHttpRequest
+</Server Variables:> 
+    <s_Referer>http://my.outsource.com/cms/url-rewrite/default.asp?frmURL=&page=2</s_Referer> 
+  </ErrorLog> 
+
+22/05/2019 15:46:24:    <ErrorLog Version="2.00"> 
+    <IpAdddress>127.0.0.1</IpAdddress> 
+    <Browser>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36</iBrowser> 
+    <physicalfile>http://my.outsource.com//cms/url-rewrite/Reset.asp?r=0.99444580709774<physicalfile> 
+    <URL> /cms/url-rewrite/Reset.asp </URL> 
+    <Content Type>  </Content Type> 
+    <Content Length> 0 </Content Length> 
+    <ErrorDeatils>Microsoft OLE DB Provider for SQL Server error ''80040e2f'' Cannot insert the value NULL into column ''ID'', table ''Menu.dbo.URL_REWRITE''; column does not allow nulls. INSERT fails. /cms/url-rewrite/Reset.asp, line 50</LOCAL_ADDR> 
+    <LOCAL_ADDR>127.0.0.1</LOCAL_ADDR> 
+    <Server Variables:>HTTP_CONNECTION:keep-alive
+HTTP_ACCEPT:*/*
+HTTP_ACCEPT_ENCODING:gzip, deflate
+HTTP_ACCEPT_LANGUAGE:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5
+HTTP_COOKIE:_ga=GA1.2.1096819663.1545833622; __stripe_mid=25c5c2ed-e118-4280-a7c2-92b87f8b8878; Phone=1313135588; LastName=Tam; FirstName=Dang+Le; Email=tam%2Edang832912%40gmail%2Ecom; HouseNumber=test; Address=test; Postcode=SK13+8JZ; Address2=50+Whitfield+Ave%2C+Glossop+SK13+8JZ%2C+UK; DeliveryDistance=0%2E44; ASPSESSIONIDQQTCDRBS=OIPBKPACJEBGAPDGHEOHDHOK; ASPSESSIONIDCSCSQTQS=CADLAIKCJMNHHDOEJMKEPOPN; ASPSESSIONIDCQAQSTQS=JFPFNOKCDGAOKLEMFIAJPMNK
+HTTP_HOST:my.outsource.com
+HTTP_REFERER:http://my.outsource.com/cms/url-rewrite/
+HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36
+HTTP_X_REQUESTED_WITH:XMLHttpRequest
+</Server Variables:> 
+    <s_Referer>http://my.outsource.com/cms/url-rewrite/</s_Referer> 
+  </ErrorLog> 
+
+22/05/2019 15:46:32:    <ErrorLog Version="2.00"> 
+    <IpAdddress>127.0.0.1</IpAdddress> 
+    <Browser>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36</iBrowser> 
+    <physicalfile>http://my.outsource.com//cms/url-rewrite/Reset.asp?r=0.4084983284654802<physicalfile> 
+    <URL> /cms/url-rewrite/Reset.asp </URL> 
+    <Content Type>  </Content Type> 
+    <Content Length> 0 </Content Length> 
+    <ErrorDeatils>Microsoft OLE DB Provider for SQL Server error ''80040e2f'' Cannot insert the value NULL into column ''ID'', table ''Menu.dbo.URL_REWRITE''; column does not allow nulls. INSERT fails. /cms/url-rewrite/Reset.asp, line 50</LOCAL_ADDR> 
+    <LOCAL_ADDR>127.0.0.1</LOCAL_ADDR> 
+    <Server Variables:>HTTP_CONNECTION:keep-alive
+HTTP_ACCEPT:*/*
+HTTP_ACCEPT_ENCODING:gzip, deflate
+HTTP_ACCEPT_LANGUAGE:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5
+HTTP_COOKIE:_ga=GA1.2.1096819663.1545833622; __stripe_mid=25c5c2ed-e118-4280-a7c2-92b87f8b8878; Phone=1313135588; LastName=Tam; FirstName=Dang+Le; Email=tam%2Edang832912%40gmail%2Ecom; HouseNumber=test; Address=test; Postcode=SK13+8JZ; Address2=50+Whitfield+Ave%2C+Glossop+SK13+8JZ%2C+UK; DeliveryDistance=0%2E44; ASPSESSIONIDQQTCDRBS=OIPBKPACJEBGAPDGHEOHDHOK; ASPSESSIONIDCSCSQTQS=CADLAIKCJMNHHDOEJMKEPOPN; ASPSESSIONIDCQAQSTQS=JFPFNOKCDGAOKLEMFIAJPMNK
+HTTP_HOST:my.outsource.com
+HTTP_REFERER:http://my.outsource.com/cms/url-rewrite/
+HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36
+HTTP_X_REQUESTED_WITH:XMLHttpRequest
+</Server Variables:> 
+    <s_Referer>http://my.outsource.com/cms/url-rewrite/</s_Referer> 
+  </ErrorLog> 
+
+22/05/2019 15:46:50:    <ErrorLog Version="2.00"> 
+    <IpAdddress>127.0.0.1</IpAdddress> 
+    <Browser>Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36</iBrowser> 
+    <physicalfile>http://my.outsource.com//cms/url-rewrite/Reset.asp?r=0.45767973511360394<physicalfile> 
+    <URL> /cms/url-rewrite/Reset.asp </URL> 
+    <Content Type>  </Content Type> 
+    <Content Length> 0 </Content Length> 
+    <ErrorDeatils>Microsoft OLE DB Provider for SQL Server error ''80040e2f'' Cannot insert the value NULL into column ''ID'', table ''Menu.dbo.URL_REWRITE''; column does not allow nulls. INSERT fails. /cms/url-rewrite/Reset.asp, line 50</LOCAL_ADDR> 
+    <LOCAL_ADDR>127.0.0.1</LOCAL_ADDR> 
+    <Server Variables:>HTTP_CONNECTION:keep-alive
+HTTP_ACCEPT:*/*
+HTTP_ACCEPT_ENCODING:gzip, deflate
+HTTP_ACCEPT_LANGUAGE:vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5
+HTTP_COOKIE:_ga=GA1.2.1096819663.1545833622; __stripe_mid=25c5c2ed-e118-4280-a7c2-92b87f8b8878; Phone=1313135588; LastName=Tam; FirstName=Dang+Le; Email=tam%2Edang832912%40gmail%2Ecom; HouseNumber=test; Address=test; Postcode=SK13+8JZ; Address2=50+Whitfield+Ave%2C+Glossop+SK13+8JZ%2C+UK; DeliveryDistance=0%2E44; ASPSESSIONIDQQTCDRBS=OIPBKPACJEBGAPDGHEOHDHOK; ASPSESSIONIDCSCSQTQS=CADLAIKCJMNHHDOEJMKEPOPN; ASPSESSIONIDCQAQSTQS=JFPFNOKCDGAOKLEMFIAJPMNK
+HTTP_HOST:my.outsource.com
+HTTP_REFERER:http://my.outsource.com/cms/url-rewrite/
+HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36
+HTTP_X_REQUESTED_WITH:XMLHttpRequest
+</Server Variables:> 
+    <s_Referer>http://my.outsource.com/cms/url-rewrite/</s_Referer> 
+  </ErrorLog> 
+

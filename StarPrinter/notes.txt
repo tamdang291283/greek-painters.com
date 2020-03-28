@@ -1,0 +1,5 @@
+This is a standalone web server, not a true ASP.NET application (although there are a lot of similarities). This was done for maximum control when testing (i.e total control over headers etc.) but is unlikely to be how any customers implement a server. However, the classes in the “RequestHandlers” folder do most of the actual work, and are very similar to ASP.NET “Generic Handler” classes (.ashx files).
+
+There is also code in there to handle things like http basic auth, again this is for absolute control during testing, and would normally be handled by the web server, the customer can safely ignore it.
+
+The most useful parts, are probably the files in the cludPrntJson folder, which are that classes that we serialise/deserialise to generate/decode the JSON used by CP.

@@ -1,0 +1,245 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+</head>
+<body>
+    <script src="Scripts/jCaptcha.min.js"></script>
+    <style>
+        /*** DEMO only ***/
+        .jCaptchaText {
+            position: absolute;
+            top: 6px;
+            left: 15px;
+            background-color: #292b2b;
+        }
+
+        .jCaptcha {
+            padding: 20px 25px 20px 20px;
+            font-size: 15px;
+            width: 320px;
+            height: 60px;
+            box-sizing: border-box;
+            outline: none;
+            border-radius: 4px 0 0 4px;
+            border: none;
+            vertical-align: middle;
+            transition: all 150ms linear;
+            box-shadow: 0 0 8px #4e4706;
+        }
+
+            .jCaptcha:focus,
+            .jCaptcha:focus ~ .button {
+                box-shadow: 0 0 8px #a79816;
+            }
+
+            .jCaptcha.error,
+            .jCaptcha.error ~ .button {
+                box-shadow: 0 0 8px #c5391a;
+            }
+
+                .jCaptcha.error ~ .button {
+                    background: #c5391a;
+                    color: #fff;
+                }
+
+            .jCaptcha.success,
+            .jCaptcha.success ~ .button {
+                box-shadow: 0 0 8px #93a023;
+            }
+
+                .jCaptcha.success ~ .button {
+                    background: #b1c317;
+                    color: #fff;
+                }
+
+        .button {
+            padding: 21px 0;
+            width: 150px;
+            height: 60px;
+            vertical-align: middle;
+            box-sizing: border-box;
+            font-size: 12px;
+            font-weight: bold;
+            background: #e8d639;
+            cursor: pointer;
+            border: none;
+            color: #292b2b;
+            line-height: 1;
+            text-transform: uppercase;
+            border-radius: 0 4px 4px 0;
+            margin-left: -4px;
+            letter-spacing: 0.5px;
+            transition: all 150ms linear;
+            box-shadow: 0 0 8px #4e4706;
+            outline: none;
+        }
+
+            .button:hover,
+            .button:focus {
+                background: #e8d20b;
+            }
+
+        .codeBtn {
+            display: inline-block;
+            margin: 15px auto 0 auto;
+            color: #ddd;
+            font-size: 14px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+
+
+        @media screen and (max-width: 540px) {
+
+            h2 {
+                font-size: 60px;
+            }
+
+
+
+            main {
+                position: static;
+                left: auto;
+                top: auto;
+                width: 280px;
+                margin: 100px auto 100px auto;
+                height: auto;
+            }
+
+            .jCaptcha {
+                width: 180px;
+                height: 50px;
+                padding: 15px 20px 15px 15px;
+            }
+
+            .btnWrap {
+                position: static;
+                left: auto;
+                right: auto;
+                bottom: auto;
+                padding-bottom: 50px;
+            }
+
+            .button {
+                width: 100px;
+                height: 50px;
+                padding: 16px 0;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="Scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="Scripts/scripts.js"></script>
+        <main style="margin-top: 28px;">
+            <form class="form" id="frmCapcha" action="">
+                <input class="jCaptcha valid error" id="txtcapcha" type="text" placeholder="Type in result please">
+                <button class="button" type="submit">Check</button>
+            </form>
+            <a class="codeBtn" role="button">View demo source code</a>
+        </main>
+    
+    <script type="text/javascript">
+    // captcha initial setup
+    var myCaptcha = new jCaptcha({
+
+    // set callback function
+    callback: function (response, $captchaInputElement) {
+
+        if (response == 'success') {
+
+            $captchaInputElement[0].classList.remove('error');
+            $captchaInputElement[0].classList.add('success');
+            $captchaInputElement[0].placeholder = 'Submit successful!';
+            window.parent.checkShowButtonStripe();
+           
+        }
+
+        if (response == 'error') {
+
+            $captchaInputElement[0].classList.remove('success');
+            $captchaInputElement[0].classList.add('error');
+            $captchaInputElement[0].placeholder = 'Please try again!';
+
+        }
+
+    }
+
+    });
+
+    // captcha validate on form submit
+    document.querySelector('#frmCapcha').addEventListener('submit', function (e) {
+
+    e.preventDefault();
+
+    // captcha validate
+    myCaptcha.validate();
+   // window.parent.checkShowButtonStripe();
+   
+    });
+
+    // popup setup
+    document.querySelector('.codeBtn').addEventListener('click', function () {
+
+    var jPopupDemo = new jPopup({
+       
+        content: '<strong>HTML</strong>\
+                <p>\
+                    &lt;form class="form" id="frmCapcha" action=""&gt;\
+                    <br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input class="jCaptcha" id="txtcapcha" type="text" placeholder="Type in result please"&gt;\
+                    <br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;button type="submit">Submit&lt;/button&gt;\
+                    <br>\
+                    &lt;/form&gt;\
+                </p>\
+                <strong>JavaScript</strong>\
+                <p><span>// captcha initial setup</span>\
+                var myCaptcha = new jCaptcha({\
+                <br><br>\
+                    <span>&nbsp;&nbsp;&nbsp;&nbsp;// set callback function</span>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;callback: function(response, $captchaInputElement) {\
+                    <br><br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (response == \'success\') {\
+                    <br><br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$captchaInputElement[0].classList.remove(\'error\');\
+                    <br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$captchaInputElement[0].classList.add(\'success\');\
+                    <br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$captchaInputElement[0].placeholder = \'Submit successful!\';\
+                    <br><br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\
+                    <br><br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (response == \'error\') {\
+                    <br><br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$captchaInputElement[0].classList.remove(\'success\');\
+                    <br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$captchaInputElement[0].classList.add(\'error\');\
+                    <br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$captchaInputElement[0].placeholder = \'Please try again!\';\
+                    <br><br>\
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}\
+                <br><br>\
+                });\
+                <br><br>\
+                <span>// captcha validate on form submit</span>\
+                document.querySelector(\'form\').addEventListener(\'submit\', function(e) {\
+                <br><br>\
+                &nbsp;&nbsp;&nbsp;&nbsp;e.preventDefault();\
+                <br><br>\
+                <span>&nbsp;&nbsp;&nbsp;&nbsp;// captcha validate</span>\
+                &nbsp;&nbsp;&nbsp;&nbsp;myCaptcha.validate();window.parent.checkShowButtonStripe(); \
+                <br><br>\
+                });\
+                </p>'
+
+    });
+
+    });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+body {
+    padding-top: 70px;
+  }
+  
+  #contentWrap {
+	width: 700px;
+	margin: 0 auto;
+	height: auto;
+	overflow: hidden;
+}
+
+h1, h2, h3 {
+margin-top: 0px;
+margin-bottom: 10px;
+}
+
+#contentTop {
+	width: 600px;
+	padding: 10px;
+	margin-left: 30px;
+}
+
+#contentLeft {
+	float: left;
+	width: 400px;
+}
+
+#contentLeft li {
+	list-style: none;
+	margin: 0 0 4px 0;
+	padding: 10px;
+	background-color:#00CCCC;
+	border: #CCCCCC solid 1px;
+	color:#fff;
+}
+
+
+
+	
+
+#contentRight {
+	float: right;
+	width: 260px;
+	padding:10px;
+	background-color:#336600;
+	color:#FFFFFF;
+}

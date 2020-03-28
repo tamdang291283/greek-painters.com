@@ -1,0 +1,1036 @@
+15/04/2018 12:26:57: Start stripeprocess_local.asp  OrderID =  112 {
+  "id": "ch_1CHGV4D0iHKgtTfExTWqw3YH",
+  "object": "charge",
+  "amount": 2675,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1CHGV5D0iHKgtTfEPwDmr3Ww",
+  "captured": true,
+  "created": 1523820418,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {},
+  "invoice": null,
+  "livemode": false,
+  "metadata": {},
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1CHGV4D0iHKgtTfExTWqw3YH/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1CHGV1D0iHKgtTfEgHbV7Vy6",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 8,
+    "exp_year": 2018,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {},
+    "name": "k9kondop@hotmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+17/04/2018 11:17:20: Start stripeprocess_local.asp  OrderID =  115 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 3828.6",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+17/04/2018 11:17:35: Start stripeprocess_local.asp  OrderID =  115 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 3728.6",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+17/04/2018 11:18:54: Start stripeprocess_local.asp  OrderID =  115 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 3728.6",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+17/04/2018 11:19:32: Start stripeprocess_local.asp  OrderID =  115 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 3728.6",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+17/04/2018 11:20:26: Start stripeprocess_local.asp  OrderID =  115 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 3728.6",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+19/04/2018 08:01:22: Start stripeprocess_local.asp  OrderID =  117 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 2510.2",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+19/04/2018 08:01:59: Start stripeprocess_local.asp  OrderID =  117 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 2510.2",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+19/04/2018 08:09:50: Start stripeprocess_local.asp  OrderID =  118 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 2510.2",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+19/04/2018 08:16:41: Start stripeprocess_local.asp  OrderID =  117 {
+  "id": "ch_1CIeVMD0iHKgtTfEgPQdQf1C",
+  "object": "charge",
+  "amount": 2510,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1CIeVMD0iHKgtTfEZyJGhrt5",
+  "captured": true,
+  "created": 1524151020,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {},
+  "invoice": null,
+  "livemode": false,
+  "metadata": {},
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1CIeVMD0iHKgtTfEgPQdQf1C/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1CIeVID0iHKgtTfE6sbwlyaB",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {},
+    "name": "tam.dang832912@gmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+19/04/2018 08:41:30: Start stripeprocess_local.asp  OrderID =  120 {
+  "id": "ch_1CIetND0iHKgtTfETyKgR3YR",
+  "object": "charge",
+  "amount": 2510,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1CIetND0iHKgtTfEMxxeQ5gk",
+  "captured": true,
+  "created": 1524152509,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {},
+  "invoice": null,
+  "livemode": false,
+  "metadata": {},
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1CIetND0iHKgtTfETyKgR3YR/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1CIetJD0iHKgtTfEbjQSeHvb",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 8,
+    "exp_year": 2018,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {},
+    "name": "k9kondop@hotmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+13/05/2018 07:55:23: Start stripeprocess_local.asp  OrderID =  187 {
+  "id": "ch_1CRLbbD0iHKgtTfEjvukTirg",
+  "object": "charge",
+  "amount": 2963,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1CRLbbD0iHKgtTfEdEE0AElE",
+  "captured": true,
+  "created": 1526223323,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {},
+  "invoice": null,
+  "livemode": false,
+  "metadata": {},
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1CRLbbD0iHKgtTfEjvukTirg/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1CRLbYD0iHKgtTfEHI7W6olR",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {},
+    "name": "tam.dang832912@gmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+13/05/2018 07:58:06: Start stripeprocess_local.asp  OrderID =  188 {
+  "id": "ch_1CRLeED0iHKgtTfElSNTiHyL",
+  "object": "charge",
+  "amount": 4395,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1CRLeED0iHKgtTfEG6dQqm49",
+  "captured": true,
+  "created": 1526223486,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {},
+  "invoice": null,
+  "livemode": false,
+  "metadata": {},
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1CRLeED0iHKgtTfElSNTiHyL/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1CRLeBD0iHKgtTfEG6M8c3NH",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {},
+    "name": "tam.dang832912@gmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+24/03/2019 00:13:58: Start stripeprocess_local.asp  OrderID =  48 {
+  "id": "ch_1EHQXHKQhW02yxAX0Uc8mf1k",
+  "object": "charge",
+  "amount": 3283,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1EHQXHKQhW02yxAXKWGcYUsy",
+  "billing_details": {
+    "address": {
+      "city": null,
+      "country": null,
+      "line1": null,
+      "line2": null,
+      "postal_code": null,
+      "state": null
+    },
+    "email": null,
+    "name": "tam.dang832912@gmail.com",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1553411667,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 37,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": null,
+        "address_postal_code_check": null,
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "Ajz5NK1HiyXFVwXp",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_1E0rJNKQhW02yxAX/ch_1EHQXHKQhW02yxAX0Uc8mf1k/rcpt_EkwQJ6gl47dq0jaSEFEkIZo0WKsy0NS",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1EHQXHKQhW02yxAX0Uc8mf1k/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1EHQXEKQhW02yxAXHeBc0AjI",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "Ajz5NK1HiyXFVwXp",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "tam.dang832912@gmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+13/04/2019 08:56:04: Start stripeprocess_local.asp  OrderID =  85 {
+  "id": "ch_1EOoE5KQhW02yxAXzJZAxlit",
+  "object": "charge",
+  "amount": 2754,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1EOoE5KQhW02yxAXwoAn0Xo0",
+  "billing_details": {
+    "address": {
+      "city": null,
+      "country": null,
+      "line1": null,
+      "line2": null,
+      "postal_code": null,
+      "state": null
+    },
+    "email": null,
+    "name": "tam.dang832912@gmail.com",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1555171029,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 39,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method": "card_1EOoE1KQhW02yxAXDnS7BN0b",
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": null,
+        "address_postal_code_check": null,
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "Ajz5NK1HiyXFVwXp",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_1E0rJNKQhW02yxAX/ch_1EOoE5KQhW02yxAXzJZAxlit/rcpt_EsZMaMfk6g94lIfREl2QVHa6qVad30o",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1EOoE5KQhW02yxAXzJZAxlit/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1EOoE1KQhW02yxAXDnS7BN0b",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "Ajz5NK1HiyXFVwXp",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "tam.dang832912@gmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+08/05/2019 07:18:17: Start stripeprocess_local.asp  OrderID =  58 {
+  "id": "ch_1EXqbSHGfMHnuowU6dxUtakh",
+  "object": "charge",
+  "amount": 2120,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1EXqbTHGfMHnuowUqphgokv8",
+  "billing_details": {
+    "address": {
+      "city": null,
+      "country": null,
+      "line1": null,
+      "line2": null,
+      "postal_code": null,
+      "state": null
+    },
+    "email": null,
+    "name": "tam.dang832912@gmail.com",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1557325118,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 17,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method": "card_1EXqbOHGfMHnuowUcU15Ozxp",
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": null,
+        "address_postal_code_check": null,
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "description": "Visa Classic",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "qjEPw0SGjBobMs8e",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_17LMZoHGfMHnuowU/ch_1EXqbSHGfMHnuowU6dxUtakh/rcpt_F1uQg3Vt0eN0iqzOA7ymnQXOvULYJGb",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1EXqbSHGfMHnuowU6dxUtakh/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1EXqbOHGfMHnuowUcU15Ozxp",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "qjEPw0SGjBobMs8e",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "tam.dang832912@gmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+17/05/2019 10:03:36: Start stripeprocess_local.asp  OrderID =  30 {
+  "id": "ch_1Eb9TAKQhW02yxAXoRJfXZSP",
+  "object": "charge",
+  "amount": 2780,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1Eb9TBKQhW02yxAXYMpQcrcx",
+  "billing_details": {
+    "address": {
+      "city": null,
+      "country": null,
+      "line1": null,
+      "line2": null,
+      "postal_code": null,
+      "state": null
+    },
+    "email": null,
+    "name": "tam.dang832912@gmail.com",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1558112624,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 34,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method": "card_1Eb9T6KQhW02yxAXCz5Lnb3O",
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": null,
+        "address_postal_code_check": null,
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "description": "Visa Classic",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "Ajz5NK1HiyXFVwXp",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_1E0rJNKQhW02yxAX/ch_1Eb9TAKQhW02yxAXoRJfXZSP/rcpt_F5K7OzhOQCRrUS6Fv7T1IjkFg9Odb0Y",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1Eb9TAKQhW02yxAXoRJfXZSP/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1Eb9T6KQhW02yxAXCz5Lnb3O",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "Ajz5NK1HiyXFVwXp",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "tam.dang832912@gmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+19/06/2019 07:44:17: Start stripeprocess_local.asp  OrderID =  3 {
+  "id": "ch_1En51XKQhW02yxAXZvtaNChX",
+  "object": "charge",
+  "amount": 2480,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1En51XKQhW02yxAXSkCgBrIz",
+  "billing_details": {
+    "address": {
+      "city": null,
+      "country": null,
+      "line1": null,
+      "line2": null,
+      "postal_code": null,
+      "state": null
+    },
+    "email": null,
+    "name": "tam.dang832912@gmail.com",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1560955471,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 34,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method": "card_1En51TKQhW02yxAX4bijH8lJ",
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": null,
+        "address_postal_code_check": null,
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "Ajz5NK1HiyXFVwXp",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_1E0rJNKQhW02yxAX/ch_1En51XKQhW02yxAXZvtaNChX/rcpt_FHeKtQyM7YBVZldVwSpOrFRGfeR6kUX",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1En51XKQhW02yxAXZvtaNChX/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1En51TKQhW02yxAX4bijH8lJ",
+    "object": "card",
+    "address_city": null,
+    "address_country": null,
+    "address_line1": null,
+    "address_line1_check": null,
+    "address_line2": null,
+    "address_state": null,
+    "address_zip": null,
+    "address_zip_check": null,
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": null,
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "Ajz5NK1HiyXFVwXp",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "tam.dang832912@gmail.com",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+

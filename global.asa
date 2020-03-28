@@ -1,0 +1,6 @@
+<script language="VBScript" runat="Server">
+    Sub Session_OnStart
+        Session.Timeout = 60
+        Application("STimeout") = "ST:" & CStr(Session.Timeout)
+    End Sub
+</script>

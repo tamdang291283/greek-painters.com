@@ -1,0 +1,64 @@
+19/08/2018 14:13:13: PageName = starprinting.asp Start reCreate Receipt for ORDER =  3753 Order Date 19/08/2018 13:49:17 Server Time 8/19/2018 14:13:13
+19/08/2018 14:13:13: PageName = starprinting.asp ReCreateReceipt  ORDER =  3753
+19/08/2018 14:13:13: PageName starprinting.asp ReCreateReceipt  END Order = 3753 batfilepath = D:\OutSource\v7-2\printers\epson\ptjs\3753-2-dishname.bat
+19/08/2018 14:13:14: PageName = starprinting.asp ReCreateReceipt  END Order = 3753
+19/08/2018 14:13:14: PageName = starprinting.asp ReCreateReceipt  ORDER =  3753
+19/08/2018 14:13:14: PageName starprinting.asp ReCreateReceipt  END Order = 3753 batfilepath = D:\OutSource\v7-2\printers\epson\ptjs\3753-2-printingname.bat
+19/08/2018 14:13:16: PageName = starprinting.asp ReCreateReceipt  END Order = 3753
+16/10/2018 08:24:42: PageName = starprinting.asp Start reCreate Receipt for ORDER =  3801 Order Date 16/10/2018 16:19:13 Server Time 10/16/2018 16:24:42
+17/05/2019 09:45:57: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:45:57
+17/05/2019 09:45:57: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:45:57
+17/05/2019 09:45:57: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:45:57
+17/05/2019 09:45:57: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:45:57
+17/05/2019 09:45:57: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:45:57
+17/05/2019 09:51:44: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:51:44
+17/05/2019 09:51:44: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:51:44
+17/05/2019 09:51:44: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:51:44
+17/05/2019 09:51:44: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:51:44
+17/05/2019 09:51:44: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:51:44
+17/05/2019 09:53:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:53:37
+17/05/2019 09:53:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:53:37
+17/05/2019 09:53:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:53:37
+17/05/2019 09:53:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:53:37
+17/05/2019 09:53:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:53:37
+17/05/2019 09:53:38: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:53:38
+17/05/2019 09:53:38: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:53:38
+17/05/2019 09:53:38: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:53:38
+17/05/2019 09:53:38: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:53:38
+17/05/2019 09:53:38: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:53:38
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:39: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:53:39
+17/05/2019 09:53:40: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:53:40
+17/05/2019 09:53:40: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:53:40
+17/05/2019 09:53:40: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:53:40
+17/05/2019 09:53:40: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:53:40
+17/05/2019 09:53:40: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:53:40
+17/05/2019 09:53:48: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:53:48
+17/05/2019 09:53:48: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:53:48
+17/05/2019 09:53:48: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:53:48
+17/05/2019 09:53:48: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:53:48
+17/05/2019 09:53:48: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:53:48
+17/05/2019 09:53:49: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:53:49
+17/05/2019 09:53:49: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:53:49
+17/05/2019 09:53:49: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:53:49
+17/05/2019 09:53:49: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:53:49
+17/05/2019 09:53:49: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:53:49
+17/05/2019 09:55:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/17/2019 17:55:37
+17/05/2019 09:55:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/17/2019 17:55:37
+17/05/2019 09:55:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/17/2019 17:55:37
+17/05/2019 09:55:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/17/2019 17:55:37
+17/05/2019 09:55:37: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/17/2019 17:55:37
+20/05/2019 07:02:54: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31148 Order Date 13/05/2019 14:38:47 Server Time 5/20/2019 15:2:54
+20/05/2019 07:02:54: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31153 Order Date 13/05/2019 16:22:09 Server Time 5/20/2019 15:2:54
+20/05/2019 07:02:54: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31156 Order Date 14/05/2019 15:43:25 Server Time 5/20/2019 15:2:54
+20/05/2019 07:02:54: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31157 Order Date 14/05/2019 16:02:11 Server Time 5/20/2019 15:2:54
+20/05/2019 07:02:54: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31159 Order Date 14/05/2019 16:03:27 Server Time 5/20/2019 15:2:54
+20/05/2019 07:02:54: PageName = starprinting.asp Start reCreate Receipt for ORDER =  31173 Order Date 20/05/2019 15:00:04 Server Time 5/20/2019 15:2:54

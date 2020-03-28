@@ -1,0 +1,154 @@
+<epos-print xmlns="http://www.epson-pos.com/schemas/2011/03/epos-print">
+<text smooth="true"/>
+<text align="center"/>
+<text font="font_a"/>
+<text dw="true" dh="true"/>
+<text>Collection - 3774 &#10;</text>
+<text dw="true" dh="true"/>
+<text>[29/8/2018 15:41]&#10;</text>
+<text>ORDER UNPAID &#10;</text>
+<text dw="false" dh="false"/>
+<text align="center"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Order 3774 from Demo Place&#10;&#10;</text>
+<text align="left"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Customer Details&#10;</text>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text dw="false" dh="true"/>
+<text>test test&#10;</text>
+<text>Phone: 123&#10;</text>
+<text>Email: k9kondop@hotmail.com&#10;</text>
+<text>&#10;</text>
+<text dw="false" dh="false"/>
+<text align="left"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Order Details&#10;</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text>Order Number: 3774 &#10;</text>
+<text>Order Time: 29/8/2018 15:21&#10;</text>
+<text>Order Type: Collection&#10;</text>
+<text>Requested for: 29/8/2018 15:41&#10;</text>
+<text>Accepted to: 29/08/2018 15:41:46&#10;</text>
+<text>Payment Status: ORDER UNPAID</text>
+<text>&#10;&#10;</text>
+<text align="left"/>
+<text>&#10;</text>
+<text width="1" height="1"/>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>1 x Aromatic Crispy Duck</text>
+<text width="1" height="1"/>
+<text x="450"/>
+<text>7.50&#10;</text>
+<text>    Quater&#10;</text>
+<text>&#10;</text>
+<text align="center"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text>SubTotal:&#9;&#9;&#9;7.50&#10;</text>
+<text>Delivery Fee:&#9;&#9;&#9;0.00&#10;</text>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>TOTAL&#9;&#9;&#9;&#9;7.50&#10;&#10;</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Special Instructions&#10;</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text dw="false" dh="true"/>
+<text>line 1&#10;line 2&#10;&#10;</text>
+<text align="left"/>
+<feed unit="12"/>
+<cut type="feed"/>
+<text smooth="true"/>
+<text align="center"/>
+<text font="font_a"/>
+<text dw="true" dh="true"/>
+<text>Collection - 3774 &#10;</text>
+<text dw="true" dh="true"/>
+<text>[29/8/2018 15:41]&#10;</text>
+<text>ORDER UNPAID &#10;</text>
+<text dw="false" dh="false"/>
+<text align="center"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Order 3774 from Demo Place&#10;&#10;</text>
+<text align="left"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Customer Details&#10;</text>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text dw="false" dh="true"/>
+<text>test test&#10;</text>
+<text>Phone: 123&#10;</text>
+<text>Email: k9kondop@hotmail.com&#10;</text>
+<text>&#10;</text>
+<text dw="false" dh="false"/>
+<text align="left"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Order Details&#10;</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text>Order Number: 3774 &#10;</text>
+<text>Order Time: 29/8/2018 15:21&#10;</text>
+<text>Order Type: Collection&#10;</text>
+<text>Requested for: 29/8/2018 15:41&#10;</text>
+<text>Accepted to: 29/08/2018 15:41:46&#10;</text>
+<text>Payment Status: ORDER UNPAID</text>
+<text>&#10;&#10;</text>
+<text align="left"/>
+<text>&#10;</text>
+<text width="2" height="2"/>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text lang="zh-cn"/>
+
+<text width="1" height="1"/>
+<text>1 x 1/4 Roast Duck &#10;</text>
+<text width="2" height="2"/>
+<text>1 x 1/4香鸭 2wx2h &#10;&#10;</text>
+
+<text width="1" height="1"/>
+<text>1 x 1/4 Roast Duck &#10;</text>
+<text width="2" height="1"/>
+<text>1 x 1/4香鸭 2wx1h &#10;&#10;</text>
+
+<text width="1" height="1"/>
+<text>1 x 1/4 Roast Duck &#10;</text>
+<text width="1" height="2"/>
+<text>1 x 1/4香鸭 1wx2h &#10;&#10;</text>
+
+
+<text width="1" height="1"/>
+<text>1 x 1/4 Roast Duck &#10;</text>
+<text width="1" height="1"/>
+<text>1 x 1/4香鸭 &#10;</text>
+
+<text lang="en"/>
+<text x="450"/>
+
+<text>7.50&#10;</text>
+<text>&#10;</text>
+<text align="center"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text>SubTotal:&#9;&#9;&#9;7.50&#10;</text>
+<text>Delivery Fee:&#9;&#9;&#9;0.00&#10;</text>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>TOTAL&#9;&#9;&#9;&#9;7.50&#10;&#10;</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text reverse="false" ul="false" em="true" color="color_1"/>
+<text>Special Instructions&#10;</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>-----------&#10;</text>
+<text align="left"/>
+<text dw="false" dh="true"/>
+<text>line 1&#10;line 2&#10;&#10;</text>
+<text align="left"/>
+<feed unit="12"/>
+<cut type="feed"/>
+</epos-print>

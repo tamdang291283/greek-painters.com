@@ -1,0 +1,935 @@
+17/11/2018 20:16:32: stripeToken=   Amount 61.023
+17/11/2018 20:16:32: Start stripeprocess.asp  OrderID =  11 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 6102.3",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+17/11/2018 20:16:45: stripeToken=   Amount 61.023
+17/11/2018 20:16:45: Start stripeprocess.asp  OrderID =  11 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 6102.3",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+17/11/2018 20:18:15: stripeToken=   Amount 61.023
+17/11/2018 20:18:15: Start stripeprocess.asp  OrderID =  11 {
+  "error": {
+    "code": "parameter_invalid_integer",
+    "doc_url": "https://stripe.com/docs/error-codes/parameter-invalid-integer",
+    "message": "Invalid integer: 6102.3",
+    "param": "amount",
+    "type": "invalid_request_error"
+  }
+}
+
+17/11/2018 20:19:46: stripeToken=   Amount 61.02
+17/11/2018 20:19:46: Start stripeprocess.asp  OrderID =  11 {
+  "id": "ch_1DXhlYD0iHKgtTfE1n4tzKOQ",
+  "object": "charge",
+  "amount": 6102,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1DXhlYD0iHKgtTfEzZSltxHW",
+  "captured": true,
+  "created": 1542514812,
+  "currency": "usd",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 49,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1DXhlYD0iHKgtTfE1n4tzKOQ/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1DXhlXD0iHKgtTfEuHjMx7aI",
+    "object": "card",
+    "address_city": "Glossop",
+    "address_country": "GB",
+    "address_line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Glossop",
+    "address_zip": "SK13 8AQ ",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Dang Le Minh Tam",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+17/11/2018 20:21:39: stripeToken=   Amount 61.02
+17/11/2018 20:21:39: Start stripeprocess.asp  OrderID =  11 {
+  "id": "ch_1DXhnND0iHKgtTfEBzskjqX7",
+  "object": "charge",
+  "amount": 6102,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1DXhnND0iHKgtTfEW69xXAsE",
+  "captured": true,
+  "created": 1542514925,
+  "currency": "usd",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 29,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1DXhnND0iHKgtTfEBzskjqX7/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1DXhnMD0iHKgtTfECRG59yzu",
+    "object": "card",
+    "address_city": "Glossop",
+    "address_country": "GB",
+    "address_line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Glossop",
+    "address_zip": "SK13 8AQ ",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Dang Le Minh Tam",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+17/11/2018 20:21:58: stripeToken=   Amount 61.02
+17/11/2018 20:21:58: Start stripeprocess.asp  OrderID =  11 {
+  "error": {
+    "code": "token_already_used",
+    "doc_url": "https://stripe.com/docs/error-codes/token-already-used",
+    "message": "You cannot use a Stripe token more than once: tok_1DXhnMD0iHKgtTfEC51LG6nq.",
+    "type": "invalid_request_error"
+  }
+}
+
+17/11/2018 20:22:56: stripeToken=   Amount 61.02
+17/11/2018 20:22:56: Start stripeprocess.asp  OrderID =  11 {
+  "id": "ch_1DXhodD0iHKgtTfEqpIihols",
+  "object": "charge",
+  "amount": 6102,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1DXhodD0iHKgtTfE6z0Rd6RM",
+  "captured": true,
+  "created": 1542515003,
+  "currency": "usd",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 31,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1DXhodD0iHKgtTfEqpIihols/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1DXhocD0iHKgtTfEWG3jNyEB",
+    "object": "card",
+    "address_city": "Glossop",
+    "address_country": "GB",
+    "address_line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Glossop",
+    "address_zip": "SK13 8AQ ",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Dang Le Minh Tam",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+17/11/2018 20:27:12: stripeToken=   Amount 61.02
+17/11/2018 20:27:12: Start stripeprocess.asp  OrderID =  13 {
+  "id": "ch_1DXhsiD0iHKgtTfETEzoihon",
+  "object": "charge",
+  "amount": 6102,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1DXhsjD0iHKgtTfEZS1gJNgx",
+  "captured": true,
+  "created": 1542515256,
+  "currency": "usd",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 3,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1DXhsiD0iHKgtTfETEzoihon/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1DXhshD0iHKgtTfEPXTRwgbP",
+    "object": "card",
+    "address_city": "Glossop",
+    "address_country": "GB",
+    "address_line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Glossop",
+    "address_zip": "SK13 8AQ ",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Dang Le Minh Tam",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+18/11/2018 09:23:38: stripeToken=   Amount 52.13
+18/11/2018 09:23:38: Start stripeprocess.asp  OrderID =  25 {
+  "error": {
+    "charge": "ch_1DXu0BD0iHKgtTfESCTGWIWi",
+    "code": "card_declined",
+    "decline_code": "test_mode_live_card",
+    "doc_url": "https://stripe.com/docs/error-codes/card-declined",
+    "message": "Your card was declined. Your request was in test mode, but used a non test (live) card. For a list of valid test cards, visit: https://stripe.com/docs/testing.",
+    "type": "card_error"
+  }
+}
+
+18/11/2018 09:23:59: stripeToken=   Amount 52.13
+18/11/2018 09:23:59: Start stripeprocess.asp  OrderID =  25 {
+  "id": "ch_1DXu0UD0iHKgtTfEb4LArM9Q",
+  "object": "charge",
+  "amount": 5213,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "balance_transaction": "txn_1DXu0UD0iHKgtTfEoOqKMDnK",
+  "captured": true,
+  "created": 1542561866,
+  "currency": "usd",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 48,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "receipt_email": null,
+  "receipt_number": null,
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1DXu0UD0iHKgtTfEb4LArM9Q/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1DXu0TD0iHKgtTfEqvpQHv4n",
+    "object": "card",
+    "address_city": "Reading",
+    "address_country": "GB",
+    "address_line1": "1 Burcombe Way",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Berkshire",
+    "address_zip": "RG4 8RX",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "9j6fk2wzIL8Lerno",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Stripe Test Card",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_group": null
+}
+
+24/03/2019 00:11:39: stripeToken=   Amount 32.84
+24/03/2019 00:11:39: Start stripeprocess.asp  OrderID =  46 {
+  "id": "ch_1EHQV2KQhW02yxAX6ohunjUr",
+  "object": "charge",
+  "amount": 3284,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1EHQV2KQhW02yxAXFnjjvtrc",
+  "billing_details": {
+    "address": {
+      "city": "Glossop",
+      "country": "GB",
+      "line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+      "line2": "",
+      "postal_code": "SK13 8AQ ",
+      "state": "Glossop"
+    },
+    "email": null,
+    "name": "Dang Le Minh Tam",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1553411528,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 10,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": "pass",
+        "address_postal_code_check": "pass",
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "Ajz5NK1HiyXFVwXp",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_1E0rJNKQhW02yxAX/ch_1EHQV2KQhW02yxAX6ohunjUr/rcpt_EkwN5C4hTn2T6qtVHsuw0urxbsExGjl",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1EHQV2KQhW02yxAX6ohunjUr/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1EHQV1KQhW02yxAXyHhMtDKx",
+    "object": "card",
+    "address_city": "Glossop",
+    "address_country": "GB",
+    "address_line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Glossop",
+    "address_zip": "SK13 8AQ ",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "Ajz5NK1HiyXFVwXp",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Dang Le Minh Tam",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+24/03/2019 00:12:53: stripeToken=   Amount 32.84
+24/03/2019 00:12:53: Start stripeprocess.asp  OrderID =  46 {
+  "id": "ch_1EHQWEKQhW02yxAXaSv5yH9x",
+  "object": "charge",
+  "amount": 3284,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1EHQWEKQhW02yxAXjgIiRjkq",
+  "billing_details": {
+    "address": {
+      "city": "Glossop",
+      "country": "GB",
+      "line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+      "line2": "",
+      "postal_code": "SK13 8AQ ",
+      "state": "Glossop"
+    },
+    "email": null,
+    "name": "Dang Le Minh Tam",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1553411602,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 20,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": "pass",
+        "address_postal_code_check": "pass",
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "Ajz5NK1HiyXFVwXp",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_1E0rJNKQhW02yxAX/ch_1EHQWEKQhW02yxAXaSv5yH9x/rcpt_EkwPDzcZ24MEkSI22K4eLwruaIYDAdx",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1EHQWEKQhW02yxAXaSv5yH9x/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1EHQWDKQhW02yxAXvWLqQlpb",
+    "object": "card",
+    "address_city": "Glossop",
+    "address_country": "GB",
+    "address_line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Glossop",
+    "address_zip": "SK13 8AQ ",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "Ajz5NK1HiyXFVwXp",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Dang Le Minh Tam",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+24/03/2019 00:13:28: stripeToken=   Amount 32.84
+24/03/2019 00:13:28: Start stripeprocess.asp  OrderID =  47 {
+  "id": "ch_1EHQWnKQhW02yxAXNLfaOjNV",
+  "object": "charge",
+  "amount": 3284,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1EHQWnKQhW02yxAXUtv2fje3",
+  "billing_details": {
+    "address": {
+      "city": "Glossop",
+      "country": "GB",
+      "line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+      "line2": "",
+      "postal_code": "SK13 8AQ ",
+      "state": "Glossop"
+    },
+    "email": null,
+    "name": "Dang Le Minh Tam",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1553411637,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 48,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": "pass",
+        "address_postal_code_check": "pass",
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "Ajz5NK1HiyXFVwXp",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_1E0rJNKQhW02yxAX/ch_1EHQWnKQhW02yxAXNLfaOjNV/rcpt_EkwPXnKSstTxHzrT5OUi5cTWm7AxfJV",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1EHQWnKQhW02yxAXNLfaOjNV/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1EHQWmKQhW02yxAXDy2ZkhlU",
+    "object": "card",
+    "address_city": "Glossop",
+    "address_country": "GB",
+    "address_line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Glossop",
+    "address_zip": "SK13 8AQ ",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "Ajz5NK1HiyXFVwXp",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Dang Le Minh Tam",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
+04/05/2019 06:35:24: stripeToken=   Amount 21.42
+04/05/2019 06:35:24: Start stripeprocess.asp  OrderID =  51 {
+  "id": "ch_1EWO2PHGfMHnuowU54jZd5Ap",
+  "object": "charge",
+  "amount": 2142,
+  "amount_refunded": 0,
+  "application": null,
+  "application_fee": null,
+  "application_fee_amount": null,
+  "balance_transaction": "txn_1EWO2PHGfMHnuowUSA65A7qS",
+  "billing_details": {
+    "address": {
+      "city": "Glossop",
+      "country": "GB",
+      "line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+      "line2": "",
+      "postal_code": "SK13 8AQ ",
+      "state": "Glossop"
+    },
+    "email": null,
+    "name": "Dang Le Minh Tam",
+    "phone": null
+  },
+  "captured": true,
+  "created": 1556976985,
+  "currency": "gbp",
+  "customer": null,
+  "description": null,
+  "destination": null,
+  "dispute": null,
+  "failure_code": null,
+  "failure_message": null,
+  "fraud_details": {
+  },
+  "invoice": null,
+  "livemode": false,
+  "metadata": {
+  },
+  "on_behalf_of": null,
+  "order": null,
+  "outcome": {
+    "network_status": "approved_by_network",
+    "reason": null,
+    "risk_level": "normal",
+    "risk_score": 19,
+    "seller_message": "Payment complete.",
+    "type": "authorized"
+  },
+  "paid": true,
+  "payment_intent": null,
+  "payment_method": "card_1EWO2OHGfMHnuowUyve5KtQY",
+  "payment_method_details": {
+    "card": {
+      "brand": "visa",
+      "checks": {
+        "address_line1_check": "pass",
+        "address_postal_code_check": "pass",
+        "cvc_check": "pass"
+      },
+      "country": "US",
+      "description": "Visa Classic",
+      "exp_month": 1,
+      "exp_year": 2020,
+      "fingerprint": "qjEPw0SGjBobMs8e",
+      "funding": "credit",
+      "last4": "4242",
+      "three_d_secure": null,
+      "wallet": null
+    },
+    "type": "card"
+  },
+  "receipt_email": null,
+  "receipt_number": null,
+  "receipt_url": "https://pay.stripe.com/receipts/acct_17LMZoHGfMHnuowU/ch_1EWO2PHGfMHnuowU54jZd5Ap/rcpt_F0OqyVsETPuBeuQt8d2HyI5HYsSEj6p",
+  "refunded": false,
+  "refunds": {
+    "object": "list",
+    "data": [
+
+    ],
+    "has_more": false,
+    "total_count": 0,
+    "url": "/v1/charges/ch_1EWO2PHGfMHnuowU54jZd5Ap/refunds"
+  },
+  "review": null,
+  "shipping": null,
+  "source": {
+    "id": "card_1EWO2OHGfMHnuowUyve5KtQY",
+    "object": "card",
+    "address_city": "Glossop",
+    "address_country": "GB",
+    "address_line1": "9 Jacksons Buildings, Victoria Street, Glossop, SK13 8AQ",
+    "address_line1_check": "pass",
+    "address_line2": "",
+    "address_state": "Glossop",
+    "address_zip": "SK13 8AQ ",
+    "address_zip_check": "pass",
+    "brand": "Visa",
+    "country": "US",
+    "customer": null,
+    "cvc_check": "pass",
+    "dynamic_last4": null,
+    "exp_month": 1,
+    "exp_year": 2020,
+    "fingerprint": "qjEPw0SGjBobMs8e",
+    "funding": "credit",
+    "last4": "4242",
+    "metadata": {
+    },
+    "name": "Dang Le Minh Tam",
+    "tokenization_method": null
+  },
+  "source_transfer": null,
+  "statement_descriptor": null,
+  "status": "succeeded",
+  "transfer_data": null,
+  "transfer_group": null
+}
+
