@@ -108,7 +108,7 @@ if SEND_ORDERS_TO_PRINTER="EPSON" then
         vSubTotal = objRds("SubTotal")
         vOrderTotal = objRds("OrderTotal")
         
-        Dim PaymentSurcharge, ServiceCharge, vvouchercode, vvouchercodediscount
+        Dim PaymentSurcharge, ServiceCharge, vvouchercode, vvouchercodediscount,VoucherDiscontType
         PaymentSurcharge = objRds("PaymentSurcharge")
         If PaymentSurcharge & "" = "" Then
             PaymentSurcharge = "0"
@@ -137,6 +137,7 @@ if SEND_ORDERS_TO_PRINTER="EPSON" then
         vvouchercodediscount = ""
         vvouchercodediscount = objRds("vouchercodediscount")
 		vvouchercode=objRds("vouchercode")
+        VoucherDiscontType = objRds("DiscountType")
 
 	    'vvouchercode="Test voucher 12"
         'vvouchercodediscount = 12
@@ -330,8 +331,8 @@ ttabs="&#9;&#9;&#9;&#9;"
 <text>-----------&#10;</text>
 <text align="left" />
 <%if vvouchercode & "" <>"" then%>
-<text>Discount code:</text><text x="450"/><text>-<%= FormatNumber((( objRds("SubTotal") * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - objRds("SubTotal") ),2) %>&#10;</text>				
-<text><%=ReplaceSpecialCharacter(vvouchercode&"")%> (-<%=ReplaceSpecialCharacter(vvouchercodediscount)%>%)&#10;</text>
+<text>Discount code:</text><text x="450"/><text>-<%if VoucherDiscontType <> "Amount" then %><%= FormatNumber((( objRds("SubTotal") * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - objRds("SubTotal") ),2) %><%else %><%=FormatNumber(Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ","")),2) %><%end if %>&#10;</text>				
+<text><%=ReplaceSpecialCharacter(vvouchercode&"")%><%if VoucherDiscontType <> "Amount" then %> (-<%=ReplaceSpecialCharacter(vvouchercodediscount)%>%)<%end if %>&#10;</text>
 <%end if%><text>SubTotal:</text><text x="450"/><text><%= FormatNumber(objRds("SubTotal"), 2)  %>&#10;</text>
 <text>Delivery Fee:</text><text x="450"/><text><%= FormatNumber(vShippingFee, 2)  %>&#10;</text>
 <%if  Cdbl(PaymentSurcharge) > 0 then  %>

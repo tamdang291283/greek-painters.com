@@ -46,6 +46,10 @@ vouchercode = Request.QueryString("vouchercode")
 	sPostalCode = objRds("PostalCode")
     sDeliveryMaxDistance = Cdbl(objRds("DeliveryMaxDistance"))
     sDeliveryFreeDistance= Cdbl(objRds("DeliveryFreeDistance"))
+    CanEditQtyBasket = objRds("CanEditQtyBasket")
+    if CanEditQtyBasket & "" = "" then
+            CanEditQtyBasket = "c"
+    end if
 
 	sDeliveryChargeOverrideByOrderValue = 1000000000
     If Not Isnull(objRds("DeliveryChargeOverrideByOrderValue")) Then
@@ -83,10 +87,41 @@ End if
 objRds.Close
 set objRds = nothing
 
-    function CalculateSubtotalWithDiscount( byval orderID, byval discountvalue,byval subtotal,byval VoucherMainType,byval ApplyTo, byval ListID)
+    function HaveDiscount(byval OrderID,byval listID,byval mode)
+        dim result : result =  true
+        if lcase( mode & "") = "dishes" or lcase(mode & "") = "categories"  then
+                if ( lcase( mode & "") = "dishes" and listID & "" = "" ) or (lcase( mode & "") = "categories" and listID & "" = "") then
+                    result =  false
+                else
+                    result = false
+                    dim SQL : SQL = "" 
+                        SQL = "select  MenuItemId,Total,IdMenuCategory from  OrderItems oi with(nolock)   " 
+			            SQL= SQL & "  join MenuItems mi with(nolock) on oi.MenuItemId = mi.id "
+			            SQL= SQL & " where oi.orderid  = " & orderID
+                         dim RS_OrderTotal : set RS_OrderTotal = Server.CreateObject("ADODB.Recordset")
+                             RS_OrderTotal.Open SQL , objCon
+                         while not RS_OrderTotal.EOF
+                            if lcase(mode) = "dishes" then        
+                                if  instr("," & ListID,"," &  RS_OrderTotal("MenuItemId") & ",") > 0 then                            
+                                    result =  true                                           
+                                end if
+                            elseif lcase(mode) = "categories" then
+                                 if  instr("," & ListID,RS_OrderTotal("IdMenuCategory")) > 0 then
+                                     result =  true                     
+                                end if
+                            end if
+                            RS_OrderTotal.movenext()
+                        wend
+                           RS_OrderTotal.close()
+                           set RS_OrderTotal = nothing   
+                end if
+        end if
+         HaveDiscount = result
+    end function
+    function CalculateSubtotalWithDiscount( byval orderID, byval discountvalue,byval VoucherMainType, byval ListID)
         dim result : result = 0
        
-        if ( VoucherMainType = "Dishes" or VoucherMainType ="Categories" ) and (ApplyTo = "Online" or ApplyTo="Both") then
+        if ( VoucherMainType = "Dishes" or VoucherMainType ="Categories" )  then
                 result = 0 
             dim SQL : SQL = "" 
                 SQL = "select  MenuItemId,Total,IdMenuCategory from  OrderItems oi with(nolock)   " 
@@ -94,7 +129,7 @@ set objRds = nothing
 			    SQL= SQL & " where oi.orderid  = " & orderID
              '   Response.Write(SQL & " ListID " & ListID  )
              '   Response.End
-  
+            
                 dim RS_OrderTotal : set RS_OrderTotal = Server.CreateObject("ADODB.Recordset")
                 RS_OrderTotal.Open SQL , objCon
                 while not RS_OrderTotal.EOF
@@ -102,12 +137,12 @@ set objRds = nothing
         
                         if  instr("," & ListID,"," &  RS_OrderTotal("MenuItemId") & ",") > 0 then                            
                              result = result +  0.01 * cdbl(RS_OrderTotal("Total")) *  discountvalue    
-                                         
+                                        
                         end if
                     elseif VoucherMainType = "Categories" then
                          if  instr("," & ListID,RS_OrderTotal("IdMenuCategory")) > 0 then
                              result = result + 0.01*  cdbl(RS_OrderTotal("Total")) *  discountvalue 
-                      
+                               
                         end if
                     end if
                     RS_OrderTotal.movenext()
@@ -146,7 +181,10 @@ Dim vOperator
 Dim vMenuItemId
 dim vMenuItemPrice
 Dim vMenuItemPropertyId  
-
+Dim IncludeDishes_Categories : IncludeDishes_Categories  = ""
+Dim IncludeDelivery_Collection : IncludeDelivery_Collection = ""
+Dim ListIncludeID  : ListIncludeID = ""
+dim VoucherDiscontType  : VoucherDiscontType = ""
 vOperator = Request.QueryString("op")
     dim vouchertype : vouchertype = "" 
 if vOperator <> "" or 1=1 Then 
@@ -268,18 +306,32 @@ if vOperator <> "" or 1=1 Then
             'objCon.Open sConnString
             Set objRds = Server.CreateObject("ADODB.Recordset") 
             objRds.Open "SELECT * FROM [OrderItems] WHERE Id = " & vId, objCon, 1, 3         
-			
+			Dim UpdateQty : UpdateQty =  Request.QueryString("qty") & ""
             if not objRds.EOF then
                 currentqta= objRds("qta")
-			    if cint(currentqta)>1 then
-                    objRds("qta") = currentqta-1
-			        ppp=(cdbl(objRds("total"))/cdbl(currentqta))*(cdbl(currentqta)-1)
-			         objRds("total")=ppp
-	                objRds.Update 
-			    else
-                    WriteLog Server.MapPath("trackingtopping.txt"),"PageName = shoppingcart.asp OrderID = " & vOrderId & " delete id  " & vId 
-			        objRds.delete
-			    end if
+                if UpdateQty <> "" then
+                    if cint(UpdateQty) = 0 then
+                        WriteLog Server.MapPath("trackingtopping.txt"),"PageName = shoppingcart.asp OrderID = " & vOrderId & " delete id  " & vId 
+			            'objRds.delete
+                        objCon.execute("Delete OrderItems where id=" & vId)
+                    else
+                        ppp=(cdbl(objRds("total"))/cint(currentqta))*(cint(UpdateQty))
+                        objRds("qta") = UpdateQty
+			            objRds("total")=ppp
+                        objRds.Update 
+                    end if
+                else
+			            if cint(currentqta)>1 then                    
+                                objRds("qta") = currentqta-1
+			                    ppp=(cdbl(objRds("total"))/cdbl(currentqta))*(cdbl(currentqta)-1)
+			                    objRds("total")=ppp                    
+	                            objRds.Update 
+			            else
+                            WriteLog Server.MapPath("trackingtopping.txt"),"PageName = shoppingcart.asp OrderID = " & vOrderId & " delete id  " & vId 
+			               ' objRds.delete
+                            objCon.execute("Delete OrderItems where id=" & vId)
+			            end if
+                end if
             end if
              ' objCon.execute("update Orders set PaymentSurcharge = 0 where ID=" & vOrderId )
             objRds.Close
@@ -296,44 +348,55 @@ if vOperator <> "" or 1=1 Then
 			validvouchercode=0
             voucherminimumamount = 0
              Set objRds = Server.CreateObject("ADODB.Recordset") 
-          	objRds.Open "SELECT *, convert(varchar(10), startdate, 105) as StartDateF, convert(varchar(10), enddate, 105)   as enddatef FROM vouchercodes   where IdBusinessDetail=" & vRestaurantId & " and vouchercode='" & vouchercode & "' and isnull(applyto,'both') in ('online','both')", objCon, 1, 3 
+          	objRds.Open "SELECT *, convert(varchar(10), startdate, 105) as StartDateF, convert(varchar(10), enddate, 105)   as enddatef,isnull(applyto,'both') as applyto,isnull(ListID,'') as ListID,isnull(IncludeDishes_Categories,'') as IncludeDishes_Categories,isnull(IncludeDelivery_Collection,'') as IncludeDelivery_Collection  FROM vouchercodes with(nolock)  where IdBusinessDetail=" & vRestaurantId & " and vouchercode='" & vouchercode & "' ", objCon, 1, 3 
            ' Response.Write("SELECT *, convert(varchar(10), startdate, 105) as StartDateF, convert(varchar(10), enddate, 105)   as enddatef FROM vouchercodes   where IdBusinessDetail=" & vRestaurantId & " and vouchercode='" & vouchercode & "' and isnull(applyto,'both') in ('online','both')")
            ' Response.End()
 			if not objRds.EOF then
-			     if objRds("MenuItemID")& "" <> "" and  objRds("MenuItemID")& "" <> "0" then
-                        vouchertype = "product"
-                       vMenuItemId = objRds("MenuItemID")
-                       dim objRds1 : set objRds1 = Server.CreateObject("ADODB.Recordset")
-                        dim SQL
-                            SQL = "SELECT * FROM MenuItems mi    WHERE mi.Id = " & vMenuItemId
-                        objRds1.Open SQL , objCon
-                        If Not objRds1.Eof Then 
-                            vMenuItemPrice = objRds1("Price")
-                        end if
-                        'Response.Write("vMenuItemPrice " & vMenuItemPrice & "<br/>")
-                        objRds1.Close
-                        set objRds1 = nothing
-                      '  objCon.Close 
+
+                 if  lcase(objRds("applyto")& "") = "local" then
+                      validvouchercode = 2
+                 end if
+                IncludeDelivery_Collection =  objRds("IncludeDelivery_Collection")
+                ListIncludeID = objRds("ListID")
+                IncludeDishes_Categories = objRds("IncludeDishes_Categories")
+               if validvouchercode  <> 2 then 
+			           if objRds("MenuItemID")& "" <> "" and  objRds("MenuItemID")& "" <> "0" then
+                                vouchertype = "product"
+                               vMenuItemId = objRds("MenuItemID")
+                               dim objRds1 : set objRds1 = Server.CreateObject("ADODB.Recordset")
+                                dim SQL
+                                    SQL = "SELECT * FROM MenuItems mi    WHERE mi.Id = " & vMenuItemId
+                                objRds1.Open SQL , objCon
+                                If Not objRds1.Eof Then 
+                                    vMenuItemPrice = objRds1("Price")
+                                end if
+                                'Response.Write("vMenuItemPrice " & vMenuItemPrice & "<br/>")
+                                objRds1.Close
+                                set objRds1 = nothing
+                              '  objCon.Close 
      
-                       'vMenuItemPrice = 0  
-                end if
-                
-                If objRds("vouchertype")="once" Then
-                    validvouchercode=1
-			        vouchercodediscount=objRds("vouchercodediscount")
-                    If Not IsNull(objRds("minimumamount"))  AND objRds("minimumamount") & "" <> "" Then
-                        voucherminimumamount = objRds("minimumamount")
-                    End if
-                elseif objRds("vouchertype")="date"   then
-                    If  DateDiff("d", objRds("StartDateF"), date())>= 0 and DateDiff("d",date(), objRds("enddatef"))>= 0 Then
-			            validvouchercode=1
-			            vouchercodediscount=objRds("vouchercodediscount") 
+                               'vMenuItemPrice = 0  
+                        end if
+                        '' validvouchercode 1 OK 
+                        '' validvouchercode 2 Invalid Online
+                    
+                        If objRds("vouchertype")="once" Then
+                            validvouchercode=1
+			                vouchercodediscount=objRds("vouchercodediscount")
+                            If Not IsNull(objRds("minimumamount"))  AND objRds("minimumamount") & "" <> "" Then
+                                voucherminimumamount = objRds("minimumamount")
+                            End if
+                        elseif objRds("vouchertype")="date"   then
+                            If  DateDiff("d", objRds("StartDateF"), date())>= 0 and DateDiff("d",date(), objRds("enddatef"))>= 0 Then
+			                    validvouchercode=1
+			                    vouchercodediscount=objRds("vouchercodediscount") 
                         
-                        If Not IsNull(objRds("minimumamount"))  AND objRds("minimumamount") & "" <> "" Then
-                            voucherminimumamount = objRds("minimumamount")
-                        End if
-                    End If
-			    end if
+                                If Not IsNull(objRds("minimumamount"))  AND objRds("minimumamount") & "" <> "" Then
+                                    voucherminimumamount = objRds("minimumamount")
+                                End if
+                            End If
+			            end if
+                end if
 			end if
 
           
@@ -357,12 +420,23 @@ if vOperator <> "" or 1=1 Then
                 End If
             End if
 
-              
-			  if validvouchercode=1 then
-                  
-                  if vouchertype = "product" then
+               dim havediscountproduct 
+               if validvouchercode = 1 then 
+                     havediscountproduct =  HaveDiscount(vOrderId,ListIncludeID,IncludeDishes_Categories)                      
+                  if havediscountproduct = false then                      
+                        if IncludeDishes_Categories & "" = "Dishes" then
+                            validvouchercode = 3
+                        else
+                            validvouchercode = 4
+                        end if                          
+                  end if  
+              end if
+			  if validvouchercode=1 then   
+                                   
+                  if vouchertype = "product" then                      
+                     if havediscountproduct = true then
                         dim objRdsUpdate : set objRdsUpdate = Server.CreateObject("ADODB.Recordset")
-                        sql= "SELECT * FROM [OrderItems]   WHERE OrderId = " & vOrderId & " And MenuItemId = " &  vMenuItemId & " And MenuItemPropertyId Is Null"
+                            sql= "SELECT * FROM [OrderItems]   WHERE OrderId = " & vOrderId & " And MenuItemId = " &  vMenuItemId & " And MenuItemPropertyId Is Null"
                           'Response.Write("vMenuItemPrice [123] " & vMenuItemPrice & "<br/>")
                         objRdsUpdate.Open sql, objCon, 2, 3 
                          If objRdsUpdate.BOF AND objRdsUpdate.EOF Then
@@ -378,20 +452,44 @@ if vOperator <> "" or 1=1 Then
                         objRdsUpdate.Update     
                         objRdsUpdate.close()
                         set objRdsUpdate = nothing
+                     end if
                   end if
-			      set objRds = Server.CreateObject("ADODB.Recordset")
-			      objRds.Open "SELECT * FROM orders   where id=" & vOrderId, objCon, 1, 3    			
-			      objRds("vouchercode") = vouchercode
-			      objRds("vouchercodediscount") = vouchercodediscount
-    		      objRds.Update
-			      objRds.Close
-                  set objRds = nothing
+                 
+                       
+                   if validvouchercode  = 1 then
+			          set objRds = Server.CreateObject("ADODB.Recordset")
+			          objRds.Open "SELECT * FROM orders   where id=" & vOrderId, objCon, 1, 3    			
+			          objRds("vouchercode") = vouchercode
+			          objRds("vouchercodediscount") = vouchercodediscount
+                      objRds("DiscountType") = VoucherDiscontType
+    		          objRds.Update
+			          objRds.Close
+                      set objRds = nothing
+                  end if
             %>
             <script>
                     $("#divVoucherCodeAlert").html("");
                     scrollToV2("basket");
                 </script>
             <%
+            elseif validvouchercode = 2 then
+                %>
+                  <script>
+                    $("#divVoucherCodeAlert").html("This voucher is for in-store use only.");
+                </script>
+                <%
+            elseif validvouchercode = 3 then
+                    %>
+                     <script>
+                    $("#divVoucherCodeAlert").html("This voucher cannot be applied.");
+                </script>
+                    <%
+            elseif validvouchercode = 4 then
+                    %>
+                    <script>
+                        $("#divVoucherCodeAlert").html("This voucher cannot be applied.");
+                    </script> 
+                    <%
             elseif vtemsubtotal < Cdbl(voucherminimumamount) AND Cdbl(voucherminimumamount)  > 0 Then
                 %>
                 <script>
@@ -434,11 +532,14 @@ if vOperator <> "" or 1=1 Then
 	            Dim objRdsV
                 Set objRdsV = Server.CreateObject("ADODB.Recordset") 
                 objRdsV.Open "SELECT *,convert(varchar(10), startdate, 105)   as StartDateF, convert(varchar(10), enddate, 105)   as enddatef FROM vouchercodes   where IdBusinessDetail=" & vRestaurantId & " and vouchercode='" & objRds("Vouchercode") & "'", objCon, 1, 3 
-
-                If Not IsNull(objRdsV("minimumamount"))  AND objRdsV("minimumamount") & "" <> "" Then
-                    if Cdbl( objRdsV("minimumamount")) > vSubTotal Then
+                IncludeDelivery_Collection = objRdsV("IncludeDelivery_Collection")& ""
+                 
+                If Not IsNull(objRdsV("minimumamount"))  AND objRdsV("minimumamount") & "" <> ""  Then
+                    if Cdbl( objRdsV("minimumamount")) > vSubTotal or HaveDiscount(vOrderId,objRdsV("ListID") & "" ,objRdsV("IncludeDishes_Categories") & "" ) = false Then
+                         IncludeDelivery_Collection = ""
                          objRds("vouchercodediscount") = 0
                          objRds("Vouchercode")  = "" 
+                         objRds("DiscountType") = ""
                           dim RS_OrderItem : set  RS_OrderItem = Server.CreateObject("ADODB.Recordset")
                          RS_OrderItem.Open "Select Sum(Total) As Total from [OrderItems]     " & _
                         " Where OrderId = " & vOrderId & " And MenuItemPropertyId Is Null and  MenuItemId in (select Id from MenuItems   where hidedish  = 1 )  ", objCon
@@ -450,27 +551,35 @@ if vOperator <> "" or 1=1 Then
                         objCon.execute(" delete from [OrderItems]  WHERE OrderId = " & vOrderId & " And MenuItemPropertyId Is Null and  MenuItemId in (select Id from MenuItems where hidedish  = 1 ) ")
                     Else
                          vouchercode = objRds("Vouchercode")
-                          dim RS_voucher : set RS_voucher = Server.CreateObject("ADODB.Recordset")
-                            dim VoucherMainType : VoucherMainType  = ""
-                            dim ApplyTo : ApplyTo = "" 
-                            dim ListID : ListID = ""
-                            RS_voucher.Open "select ApplyTo,VoucherMainType,ListID from vouchercodes with(nolock) where vouchercode = '" & objRds("Vouchercode") &"'" , objCon
-                            if not RS_voucher.EOF then
-                                VoucherMainType = RS_voucher("VoucherMainType")
-                                ApplyTo =  RS_voucher("ApplyTo")
-                                ListID = RS_voucher("ListID")
-                            end if
-                            RS_voucher.close()
-                            set RS_voucher = nothing
-                         if VoucherMainType = "Dishes" or VoucherMainType = "Categories" then
-                                discountValueDisCat  = CalculateSubtotalWithDiscount(vOrderId,objRds("vouchercodediscount"),vSubTotal,VoucherMainType,ApplyTo,ListID)
-                            vSubTotal = vSubTotal - discountValueDisCat
-                         else
-                            vSubTotal=vSubTotal-((vSubTotal/100)*objRds("vouchercodediscount"))
-                         end if
+                         VoucherDiscontType = objRds("DiscountType")
+                             
+                                ListIncludeID = objRdsV("ListID")
+                                IncludeDishes_Categories = objRdsV("IncludeDishes_Categories")
+                                      
+                                 if (IncludeDishes_Categories = "Dishes" or IncludeDishes_Categories = "Categories") and ListIncludeID & "" <> ""  then
+                                        discountValueDisCat  = CalculateSubtotalWithDiscount(vOrderId,objRds("vouchercodediscount"),IncludeDishes_Categories,ListIncludeID)
+                                        
+                                    if cdbl(discountValueDisCat) > 0  then 
+                                        if VoucherDiscontType = "Amount" then
+                                            vSubTotal = vSubTotal - cdbl( objRds("vouchercodediscount") )                                          
+                                        else
+                                            vSubTotal = vSubTotal - cdbl(discountValueDisCat)
+                                        end if                                                                          
+                                    end if
+                                 else
+                                    if VoucherDiscontType = "Amount" then
+                                            vSubTotal = vSubTotal - cdbl( objRds("vouchercodediscount") )
+                                    else
+                                            vSubTotal = vSubTotal - ((vSubTotal/100)*objRds("vouchercodediscount"))
+                                    end if
+                                 end if
+                       
+                                
+
                          discountcodeused= "-" & objRds("vouchercodediscount") & "%"
 	                    ' vSubTotal=vSubTotal-((vSubTotal/100)*objRds("vouchercodediscount"))
                          vouchercodediscount = objRds("vouchercodediscount")  
+                         VoucherDiscontType = objRds("DiscountType") 
                     End If             
                 End if
 	            objRdsV.Close
@@ -487,7 +596,7 @@ End If
 
 set  objRds = Server.CreateObject("ADODB.Recordset")
 objRds.Open "select oi.*," & _
-        "mi.Name, mip.Name as PropertyName " & _
+        "mi.Name, mip.Name as PropertyName ,isnull(mi.ApplyTo,'b') as ApplyTo " & _
         "from ( OrderItems oi " & _
         "inner join MenuItems mi on oi.MenuItemId = mi.Id ) " & _
         "left join MenuItemProperties mip on oi.MenuItemPropertyId = mip.Id " & _
@@ -524,18 +633,64 @@ $( "#btnPlaceOrder").hide();
     set objRds = nothing
 
 else %>
+<% if CanEditQtyBasket = "a" then %>
+<style>
+  #divShoppingCartSroll .glyphicon-minus:before {
+text-align: center;
+padding: 9px;
+display: block;
+}    
+
+#divShoppingCartSroll .glyphicon-plus:before {  
+
+text-align: center;
+padding: 9px;
+display: block;
+}  
+
+   #divShoppingCartSroll .input-group{
+       width:126px;
+   }  
+
+  #divShoppingCartSroll  .input-number{
+      width:42px;
+      border:1px #dadada solid;
+      text-align:center;
+      border-left: 0;
+      border-right: 0;
+  }  
+
+   #divShoppingCartSroll .glyphicon-minus,#divShoppingCartSroll .glyphicon-plus{
+     width: 42px;
+     height: 34px;
+     border: 1px #dadada solid;
+      display: block; top: 0;
+  }  
+
+   #divShoppingCartSroll .itemPrice{text-align:right;}  
+
+ #divShoppingCartSroll  .input-number:focus{
+      border:1px blue solid;
+  }
+</style>
+<%end if %>
     <div id="divShoppingCartSroll" class="shoppingCartScroll">
     <table style="width: 100%" >  
 
     <%
         Do While NOT objRds.Eof  %>
-                <tr>
-                     <td style="padding:5px 0 5px 5px;"><button type="button" class="btn" onclick="Del(<%= objRds("Id") %>)" >X</button></td>
-                    <td name="itemName">  <%If objRds("Qta") > 1 Then %> 
+                <tr id="basket<%=objRds("Id") %>">
+                    <% if CanEditQtyBasket = "a" then %>
+                    <td name="itemName" colspan="3" style="text-align:left;"> 
+                        <%= objRds("Name") %>&nbsp;<%= objRds("PropertyName") %>                    
+                            <input type="hidden" id="menuid_<%=objRds("Id") %>" name="menuapplyto" value="<%=objRds("ApplyTo") %>" />
+                    <% else %>
+                        <td style="padding:5px 0 5px 5px;"><button type="button" class="btn" onclick="Delc(<%= objRds("Id") %>)" >X</button></td>
+                          <td name="itemName">  <%If objRds("Qta") > 1 Then %> 
                             (x <%= objRds("Qta") %>)
                         <% End If %>
-                        <%= objRds("Name") %>&nbsp;<%= objRds("PropertyName") %>                    
-                      
+                        <%= objRds("Name") %>&nbsp;<%= objRds("PropertyName") %>         
+                    <%end if %>
 						<%
 						'display toppings in basket area
 						If objRds("dishpropertiesids") <> "" Then
@@ -585,9 +740,28 @@ else %>
 						 End If %>
 						 
                     </td>
-                    <td name="itemPrice"><%=CURRENCYSYMBOL%><%= FormatNumber(objRds("Total"), 2) %></td>
+                   <% if CanEditQtyBasket = "c" then %>
+                      <td name="itemPrice"><%=CURRENCYSYMBOL%><%= FormatNumber(objRds("Total"), 2) %></td>
+                    <%end if %>
                    
                 </tr>
+           <% if CanEditQtyBasket = "a" then %>
+                <tr>
+                     <td style="padding:5px 0 5px 5px;" colspan="2">                        
+                         <div class="input-group">
+                              
+                              <span class="input-group-btn btn-number" style=" font-size: 13px;cursor:pointer;" data-type="minus" data-field="<%=objRds("Id") %>" onclick="IconClick(this);">
+                                  <span class="glyphicon glyphicon-minus"></span>
+                              </span>
+                               <input type="text" name="<%=objRds("Id") %>" class="form-control input-number"  id="qty<%=objRds("Id") %>" value="<%=objRds("Qta")  %>"  min="0" max="1000">
+                              <span class="input-group-btn btn-number" style="font-size: 13px;cursor:pointer;" data-type="plus" data-field="<%=objRds("Id") %>"  onclick="IconClick(this);">                                 
+                              <span class="glyphicon glyphicon-plus"></span>
+                              </span>
+                          </div>
+                     </td>
+                    <td name="itemPrice" class="itemPrice"><%=CURRENCYSYMBOL%><%= FormatNumber(objRds("Total"), 2) %></td>
+                </tr>
+            <%end if %>
         <%  
             objRds.MoveNext
         Loop 
@@ -603,16 +777,19 @@ else %>
      
 		<%if discountcodeused & "" <>"" then  %>
 		<tr>
-            <td style="padding-top: 5px; border-top: 1px dotted black; "><b>Voucher</b>
-             <br /> <%=vouchercode %> (<%=discountcodeused%>) 
+            <td style="padding-top: 5px; border-top: 1px dotted black; line-height:20px;"><b>Voucher</b>
+             <br /> <%=vouchercode %><% if VoucherDiscontType & "" <> "Amount" then%> (<%=discountcodeused%>)<%end if%> 
             </td>
-            <td style="padding-top: 5px; border-top: 1px dotted black;">
-               <% if discountValueDisCat >=0 then  %>
-                    <span id="subtotal">-<%=CURRENCYSYMBOL%><%= FormatNumber(discountValueDisCat,2) %>   </span></td>
+            <td style="padding-top: 5px; border-top: 1px dotted black;line-height:10px;">
+                <% if VoucherDiscontType & "" = "Amount" then    %>
+                    <span id="subtotal">-<%=CURRENCYSYMBOL%><%= FormatNumber(vouchercodediscount,2) %>   </span></td>
                 <%else %>
-                    <span id="subtotal">-<%=CURRENCYSYMBOL%><%= FormatNumber((( vSubTotal * 100 )/(100- vouchercodediscount) - vSubTotal ),2) %>   </span></td>
-                <% end if %>
-			
+                       <% if discountValueDisCat >=0 then  %>
+                            <span id="subtotal">-<%=CURRENCYSYMBOL%><%= FormatNumber(discountValueDisCat,2) %>   </span></td>
+                        <%else %>
+                            <span id="subtotal">-<%=CURRENCYSYMBOL%><%= FormatNumber((( vSubTotal * 100 )/(100- vouchercodediscount) - vSubTotal ),2) %>   </span></td>
+                        <% end if %>
+			    <% end if %>
             <td style="padding-top: 5px; border-top: 1px dotted black;">&nbsp;</td>
         </tr>
 		<%end if%>	
@@ -630,6 +807,11 @@ else %>
 			vOrderShipTotal = 0
 		end if
         vOrderShipTotal = 0
+        if lcase(IncludeDelivery_Collection) = "delivery" then
+                   IncludeDelivery_Collection = "d"
+        elseif lcase(IncludeDelivery_Collection) = "collection" then
+                     IncludeDelivery_Collection = "c"
+        end if
        %>
 	     <tr>
             <td class="subtotalw" style="padding-top: 5px; border-top: 1px dotted black;font-size:11px;">Subtotal</td>
@@ -681,24 +863,24 @@ else %>
     
     
     </form>
-<script>
+<script type="text/javascript">
+   IncludeDelivery_Collection = "<%=IncludeDelivery_Collection %>";
+    $( "#shoppingcart2" ).text( "<%= FormatNumber(vSubTotal, 2)  %>" );
+    $( "#butcontinue" ).show();
+    $( "#btnPlaceOrder").show();   
+    $( "#beforeorder").show();  
+    $( "#divVoucherCode").show();       
+    $("#specialshow").click(function(){
+        $("#specialbox").show();
+	    $("#specialshow").hide();
+	    $("#specialhide").show();
+    });
 
-$( "#shoppingcart2" ).text( "<%= FormatNumber(vSubTotal, 2)  %>" );
-$( "#butcontinue" ).show();
- $( "#btnPlaceOrder").show();   
-  $( "#beforeorder").show();  
-  $( "#divVoucherCode").show();       
-$("#specialshow").click(function(){
-    $("#specialbox").show();
-	$("#specialshow").hide();
-	$("#specialhide").show();
-});
-
-$("#specialhide").click(function(){
-    $("#specialbox").hide();
-	$("#specialshow").show();
-	$("#specialhide").hide();
-});
+    $("#specialhide").click(function(){
+        $("#specialbox").hide();
+	    $("#specialshow").show();
+	    $("#specialhide").hide();
+    });
 
 $('#Specialinput').bind('input propertychange', function() {
       if(this.value.length){
@@ -707,12 +889,6 @@ $('#Specialinput').bind('input propertychange', function() {
 });
 
 $("textarea#Specialinput").val($.cookie("Specialinput"));
-
-
-
-
-    
- 
    if( $(window).width() < 992) { 
 
    $("#divShoppingCartSroll").removeClass("shoppingCartScroll");
@@ -728,13 +904,88 @@ $("textarea#Specialinput").val($.cookie("Specialinput"));
                  alertTime =  true;
             }
     }
-//    if($("[name=Specialinput]").val() != "")
-//        {
-//            $("#specialbox").show();
-//	        $("#specialshow").hide();
-//	        $("#specialhide").show();
-//        }
+    <% if Request.QueryString("id") & "" <> "" then %>
+    $(function(){
+        if($("#basket<%=Request.QueryString("id") %>").length > 0)
+        {
+            jQuery('#divShoppingCartSroll').scrollTop($("#basket<%=Request.QueryString("id") %>").position().top);
+        }
+    });
+    <% end if %>
 </script>
+    
+  <% if CanEditQtyBasket = "a" then %>
+<script type="text/javascript">  
+    
+    function IconClick(obj)
+    {
+        fieldName = $(obj).attr('data-field');
+        type = $(obj).attr('data-type');
+        var input = $("input[name='" + fieldName + "']");
+        var currentVal = parseInt(input.val());
+        if (!isNaN(currentVal)) {
+            if (type == 'minus') {
+
+                if (currentVal > input.attr('min')) {
+                    input.val(currentVal - 1).change();
+                }
+                if (parseInt(input.val()) == input.attr('min')) {
+                    $(obj).attr('disabled', true);
+                }
+
+            } else if (type == 'plus') {
+
+                if (currentVal < input.attr('max')) {
+                    input.val(currentVal + 1).change();
+                }
+                if (parseInt(input.val()) == input.attr('max')) {
+                    $(obj).attr('disabled', true);
+                }
+
+            }
+        } else {
+            input.val(0);
+        }
+
+    }
+
+$('.input-number').focusin(function(){
+   $(this).data('oldValue', $(this).val());
+});
+
+$('.input-number').change(function() {
+    
+    minValue =  parseInt($(this).attr('min'));
+    maxValue =  parseInt($(this).attr('max'));
+    valueCurrent = parseInt($(this).val());
+    
+    name = $(this).attr('name');
+   
+    if (parseInt($(this).val()) >= 0) {
+        Del($(this).attr("id").replace("qty", ""), $(this).val());
+    } else {
+        alert('Sorry, enter number native');
+        $(this).val($(this).data('oldValue'));
+    }
+    
+});
+$(".input-number").keydown(function (e) {
+        // Allow: backspace, delete, tab, escape, enter and .
+        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+             // Allow: Ctrl+A
+            (e.keyCode == 65 && e.ctrlKey === true) || 
+             // Allow: home, end, left, right
+            (e.keyCode >= 35 && e.keyCode <= 39)) {
+                 // let it happen, don't do anything
+                 return;
+        }
+        // Ensure that it is a number and stop the keypress
+        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+            e.preventDefault();
+        }
+    });	</script>
+<% end if %>
+
 <%
 End If
 %>   

@@ -57,13 +57,18 @@ If (CStr(Request("MM_insert")) = "form1") Then
 
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    MM_editCmd.CommandText = "INSERT INTO menutoppings (topping, toppingprice, toppinggroupid, IdBusinessDetail,printingname) VALUES (?,?,?,?,?)" 
+    MM_editCmd.CommandText = "INSERT INTO menutoppings (topping, toppingprice, toppinggroupid, IdBusinessDetail,printingname,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor) VALUES (?,?,?,?,?,?,?,?)" 
     MM_editCmd.Prepared = true
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, Request.Form("topping")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 255, Request.Form("toppingprice")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 202, 1, 255, Request.Form("catid")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 202, 1, 255, Session("MM_id")) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 202, 1, 255, MM_IIF(Request.Form("printingname"), Request.Form("printingname"), "") ) ' adVarWChar
+    
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 202, 1, 255, MM_IIF(Request.Form("s_ContainAllergen"),Request.Form("s_ContainAllergen"),"")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 202, 1, 255,  MM_IIF(Request.Form("s_MayContainAllergen"),Request.Form("s_MayContainAllergen"),"") ) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255,   MM_IIF(Request.Form("s_SuitableFor"),Request.Form("s_MayContainAllergen"),"") ) ' adVarWChar
+
     MM_editCmd.Execute
     MM_editCmd.ActiveConnection.Close
 
@@ -126,10 +131,17 @@ End If
 		<div class="col-md-12 column">
 		<ol class="breadcrumb">
  <%
-				      objCon.Open sConnStringcms
-                      Set objRds = Server.CreateObject("ADODB.Recordset") 
+				          objCon.Open sConnStringcms
+                          Set objRds = Server.CreateObject("ADODB.Recordset") 
                         objRds.Open "SELECT * FROM Menutoppingsgroups where id=" & request.querystring("catid"), objCon
 
+                        Dim RS_Allergen : set RS_Allergen = Server.CreateObject("ADODB.Recordset") 
+                        Dim RS_Allergen_Suitable : set RS_Allergen_Suitable = Server.CreateObject("ADODB.Recordset")   
+                        sql=" select ID,Name,Type from Allergen with(nolock) where Type = 'allergen'" 
+                        RS_Allergen.Open sql, objCon
+                        dim sql
+                        sql = "select ID,Name,Type from Allergen with(nolock) where Type = 'SuitableFor'"
+                        RS_Allergen_Suitable.Open sql, objCon
 %>
  <li><a href="toppingsgroup.asp">Toppings Groups</a></li>
  <li><a href="toppings.asp?catid=<%=request.querystring("catid")%>"><%= objRds("toppingsgroup") %></a></li>
@@ -157,7 +169,78 @@ End If
     <input type="text" class="form-control" id="toppingprice" name="toppingprice" value="" required>
   </div>
   
- 
+ <div class="form-group">   
+       <div class="row">
+            <div class="col-md-4 column">
+                 <div class="panel panel-default">
+                  <div class="panel-heading">Contain Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                            <% if not RS_Allergen.EOF then %>
+                            <% while not RS_Allergen.EOF    
+                                    %>
+                                        <span style="float:left;padding-left:5px;"><input type="checkbox" name="s_ContainAllergen" value="<%=RS_Allergen("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen.movenext
+                                wend
+                                RS_Allergen.movefirst
+                                 %>
+                            <% end if %>
+                        </div>
+                      </div>
+                 </div>
+
+        
+            </div>
+            <div class="col-md-4 column">                 
+                 <div class="panel panel-default">
+                  <div class="panel-heading">May Contain Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                            <% if not RS_Allergen.EOF then %>
+                            <% while not RS_Allergen.EOF    
+                                    %>
+                                        <span style="float:left;padding-left:5px;"><input type="checkbox" name="s_MayContainAllergen"  value="<%=RS_Allergen("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen.movenext
+                                wend
+                               
+                                 %>
+                            <% end if 
+                                    RS_Allergen.close()
+                                set RS_Allergen = nothing
+                                %>
+                        </div>
+                      </div>
+                 </div>
+            </div>
+            <div class="col-md-4 column">
+                 
+                 <div class="panel panel-default">
+                  <div class="panel-heading">Suitable for Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                           <% if not RS_Allergen_Suitable.EOF then %>
+                            <% while not RS_Allergen_Suitable.EOF    
+                                    %>
+                                        <span style="padding-left:5px;"><input type="checkbox" name="s_SuitableFor" value="<%=RS_Allergen_Suitable("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen_Suitable("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen_Suitable.movenext
+                                wend
+                                    
+                                 %>
+                            <% end if
+                                    RS_Allergen_Suitable.close()
+                                set RS_Allergen_Suitable = nothing
+                                 %>
+                        </div>
+                      </div>
+                 </div>
+                
+            </div>
+       </div> 
+  </div>
+
   </div>
   
   <input type="hidden" name="MM_insert" value="form1">

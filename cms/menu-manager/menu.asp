@@ -173,13 +173,30 @@ Set objCon = Server.CreateObject("ADODB.Connection")
                 <tbody>
 				<%  
 				  objCon.Open sConnStringcms
-                        objRds.Open "SELECT * FROM menucategories where IdBusinessDetail=" &  Session("MM_id") & " order by displayorder" , objCon
-
+                        Dim SQL_s :     SQL_s =  ""
+                            SQL_s = "SELECT * " 
+                            SQL_s = SQL_s & " , ( select COUNT(ID) from Category_Openning_Time with(nolock) where CategoryID=mc.ID and status='ACTIVE' ) as dayactive " 
+                            SQL_s = SQL_s & " FROM menucategories mc with(nolock) "
+                            SQL_s = SQL_s & " where IdBusinessDetail=" &  Session("MM_id") & " order by displayorder"
+                        objRds.Open SQL_s , objCon
+                        dim TextHidden : TextHidden ="Hidden"
+                        dim sDisplay : sDisplay ="display:none"
                         Do While NOT objRds.Eof
+                                TextHidden ="Hidden"
+                                sDisplay ="display:none"
+                                if  cint( objRds("dayactive") & "") >  0 and  cint( objRds("dayactive") & "") < 7 then
+                                    TextHidden = "Part-Hidden" 
+                                    sDisplay = ""
+                                elseif  cint( objRds("dayactive") & "") = 0 then
+                                    TextHidden ="Hidden"
+                                    sDisplay = ""
+                                end if
                         %>
                        <tr id="MenuCat<%=objRds("ID") %>">
 						<td>
-							 <h2 ><%= objRds("name") %></h2>
+							 <h2><%= objRds("name") %>&nbsp;
+                                  <label class="label label-warning" style="<%=sDisplay%>" id="lb1<%=objRds("id") %>"><%=TextHidden %></label>
+							 </h2>
 							 
 						</td>
 						
@@ -217,15 +234,19 @@ DELETE
 
 Set objRds3 = Server.CreateObject("ADODB.Recordset") 
   '  Response.Write("SELECT * FROM menuitems where IdMenuCategory=" & objRds("id") & " and IdBusinessDetail=" & Session("MM_id") & " order by i_displaysort,id")
-objRds3.Open "SELECT * FROM menuitems where IdMenuCategory=" & objRds("id") & " and IdBusinessDetail=" & Session("MM_id") & " order by i_displaysort,id" , objCon
+objRds3.Open "SELECT * FROM menuitems with(nolock) where IdMenuCategory=" & objRds("id") & " and IdBusinessDetail=" & Session("MM_id") & " order by i_displaysort,id" , objCon
 
-
+     dim isHideDish : isHideDish =  false
 Do While NOT objRds3.Eof
     dim csstrStyle :  csstrStyle =""
     dim cssStyle :  cssStyle =""
-    if objRds3("hidedish") = -1 then
+    if objRds3("hidedish") = 1 then
         csstrStyle ="color:#468847;"
     end if
+   ' if objRds3("hidedish") = 1 then
+     '   isHideDish =  true
+   ' end if
+
 %>
 <tr style="<%=csstrStyle%>" id="<%=objRds3("id") %>">
 <td>
@@ -291,6 +312,15 @@ DELETE
 </td>
 </tr>
 <%
+
+     if isHideDish = true then
+        %>
+                <script type="text/javascript">
+                    $('#lb1<%=objRds("id") %>').show();                  
+                </script>
+        <%
+      end if
+
 objRds3.MoveNext    
 Loop
 objRds3.Close

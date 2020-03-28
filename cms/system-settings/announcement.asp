@@ -120,15 +120,21 @@ audio.play();
  <li>Announcement</li>
   
 </ol>
+        <form action="../exe.asp" method="post">
         <label for="document name">Announcement</label>
 		<p>Popup message to appear when the order page loads.</p>
-		<form action="../exe.asp" method="post">
+		
             <textarea class="form-control" name="announcement" id="announcement" rows="5"><%=announcement%></textarea>
 		<br/>
             <label for="document name">In-menu Announcement</label>
             <p>Message to show above the menu.</p>
             <textarea class="form-control" name="in-menu-announcement" id="in-menu-announcemen" rows="5"><%=inmenuannouncement%></textarea>
         <br />
+            <label for="document name">In-Filter Announcement</label>
+		    <p>Show on filter popup.</p>		
+                <textarea class="form-control" name="announcement_Filter" id="announcement_Filter" rows="5"><%=announcement_Filter%></textarea>
+		    <br/>
+
            <!-- <label for="document name">Restaurant will close</label>            
             <p>Start Date</p>
             <input type="text" class="form-control datepicker" autocomplete="off" style="width:200px" id="startdate" name="startdate" value="<%=Close_StartDate %>"  data-date-weekStart="1" data-date-format="dd/mm/yyyy" >

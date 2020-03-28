@@ -40,7 +40,7 @@ EPSONPRINTERIDLIST = Replace(EPSONPRINTERIDLIST & ";" & INRESTAURANTEPSONPRINTER
 INRESTAURANTEPSONPRINTERIDLIST = EPSONPRINTERIDLIST ' This use to list out all printer for CMS print button
 SMSEnable = objRdsconfig("SMSEnable")
 SMSOnDelivery = objRdsconfig("SMSOnDelivery") 
-SMSOnDelivery = objRdsconfig("SMSOnAcknowledgement") 
+SMSOnAcknowledgement = objRdsconfig("SMSOnAcknowledgement") 
 SMSSupplierDomain = objRdsconfig("SMSSupplierDomain") 
 SMSOnOrder = objRdsconfig("SMSOnOrder") 
 SMSOnOrderAfterMin = objRdsconfig("SMSOnOrderAfterMin") 
@@ -56,7 +56,9 @@ Show_Ordernumner_Dashboard = objRdsconfig("Show_Ordernumner_Dashboard") & ""
 
     announcement = objRdsconfig("announcement") 
     inmenuannouncement =  objRdsconfig("inmenuannouncement") 
+    announcement_Filter = objRdsconfig("announcement_Filter") 
     Close_StartDate = objRdsconfig("Close_StartDate") 
+
     Close_EndDate = objRdsconfig("Close_EndDate") 
     id = objRdsconfig("id") 
     css = objRdsconfig("css") 

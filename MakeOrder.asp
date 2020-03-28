@@ -20,7 +20,42 @@ end if%>
             set logobjFSO = nothing
         On Error GoTo 0
     End sub
-    function IsDifferentSubTotal(byval OrderID, byval conn,byval ResID, byval vOrderSubTotal)
+     function CalculateSubtotalWithDiscount( byval orderID, byval discountvalue,byval VoucherMainType, byval ListID)
+                            
+        dim result : result = 0
+       
+        if ( VoucherMainType = "Dishes" or VoucherMainType ="Categories" )  then
+                result = 0 
+            dim SQL : SQL = "" 
+                SQL = "select  MenuItemId,Total,IdMenuCategory from  OrderItems oi with(nolock)   " 
+			    SQL= SQL & "  join MenuItems mi with(nolock) on oi.MenuItemId = mi.id "
+			    SQL= SQL & " where oi.orderid  = " & orderID
+             '   Response.Write(SQL & " ListID " & ListID  )
+             '   Response.End
+            
+                dim RS_OrderTotal : set RS_OrderTotal = Server.CreateObject("ADODB.Recordset")
+                RS_OrderTotal.Open SQL , objCon
+                while not RS_OrderTotal.EOF
+                    if VoucherMainType = "Dishes" then
+        
+                        if  instr("," & ListID,"," &  RS_OrderTotal("MenuItemId") & ",") > 0 then                            
+                             result = result +  0.01 * cdbl(RS_OrderTotal("Total")) *  discountvalue    
+                                        
+                        end if
+                    elseif VoucherMainType = "Categories" then
+                         if  instr("," & ListID,RS_OrderTotal("IdMenuCategory")) > 0 then
+                             result = result + 0.01*  cdbl(RS_OrderTotal("Total")) *  discountvalue 
+                               
+                        end if
+                    end if
+                    RS_OrderTotal.movenext()
+                wend
+                   RS_OrderTotal.close()
+                   set RS_OrderTotal = nothing   
+        end if
+      CalculateSubtotalWithDiscount =   result
+    end function 
+    function IsDifferentSubTotal(byval OrderID, byval conn,byval ResID, byval vOrderSubTotal, byval VoucherDiscontType)
         dim result : result = false 
         dim objRds 
         set objRds_Order = Server.CreateObject("ADODB.Recordset")   
@@ -29,15 +64,20 @@ end if%>
         dim subtotalcart : subtotalcart  = 0
         dim Vouchercode : Vouchercode = ""
         dim vouchercodediscount : vouchercodediscount = ""
+        
         if not objRds_Order.EOF then
             'Subtotal = cdbl( objRds_Order("SubTotal"))
             subtotalcart = cdbl(objRds_Order("subtotalcart"))
             Vouchercode = objRds_Order("Vouchercode")
             vouchercodediscount = objRds_Order("vouchercodediscount")
+            dim discountValueDisCat : discountValueDisCat = -1
+            dim ListIncludeID,IncludeDishes_Categories 
             if  Vouchercode & "" <> "" then   
                 dim RS_VoucherCode : set RS_VoucherCode  = Server.CreateObject("ADODB.Recordset")
-                    RS_VoucherCode.Open "SELECT minimumamount,vouchercodediscount FROM vouchercodes with(nolock)   where IdBusinessDetail=" & ResID & " and vouchercode='" & Vouchercode & "'", conn, 1, 3 
+                    RS_VoucherCode.Open "SELECT minimumamount,vouchercodediscount,ListID,IncludeDishes_Categories FROM vouchercodes with(nolock)   where IdBusinessDetail=" & ResID & " and vouchercode='" & Vouchercode & "'", conn, 1, 3 
                 if not RS_VoucherCode.EOF then
+                    ListIncludeID = RS_VoucherCode("ListID")
+                    IncludeDishes_Categories = RS_VoucherCode("IncludeDishes_Categories")
                     if cdbl(RS_VoucherCode("minimumamount"))  > subtotalcart then
                         dim RS_OrderItem : set  RS_OrderItem = Server.CreateObject("ADODB.Recordset")
                             RS_OrderItem.Open "Select isnull(Sum(Total),0)  As Total from [OrderItems]     " & _
@@ -50,7 +90,24 @@ end if%>
                                 RS_OrderItem.close()
                             set RS_OrderItem = nothing 
                     else
-                          subtotalcart=subtotalcart-((subtotalcart/100)*RS_VoucherCode("vouchercodediscount"))
+                            
+                            if (IncludeDishes_Categories = "Dishes" or IncludeDishes_Categories = "Categories") and ListIncludeID & "" <> ""  then
+                                discountValueDisCat  = CalculateSubtotalWithDiscount(OrderID,RS_VoucherCode("vouchercodediscount"),IncludeDishes_Categories,ListIncludeID)                         
+                            end if
+                          if discountValueDisCat >=0 then
+                                if VoucherDiscontType = "Amount" then
+                                    subtotalcart=subtotalcart- cdbl(RS_VoucherCode("vouchercodediscount"))
+                                else
+                                    subtotalcart=subtotalcart-discountValueDisCat
+                                end if
+                          else
+                                if VoucherDiscontType = "Amount" then
+                                    subtotalcart=subtotalcart- cdbl(RS_VoucherCode("vouchercodediscount"))
+                                else
+                                    subtotalcart=subtotalcart-((subtotalcart/100)*RS_VoucherCode("vouchercodediscount"))      
+                                end if
+                          end if
+                          
                     end if
                 end if
                         RS_VoucherCode.close()
@@ -59,9 +116,13 @@ end if%>
         end if
         objRds_Order.close()
         set objRds_Order = nothing 
-            
-            if vOrderSubTotal  <> subtotalcart then
+            Response.Write("vOrderSubTotal " & vOrderSubTotal & " subtotalcart " & subtotalcart & "<br/>")
+            if cdbl(trim(vOrderSubTotal&"")) = cdbl(trim(subtotalcart&"")) then
+                result =  false
+               
+            else
                 result =  true
+                     
             end if
         IsDifferentSubTotal = result
     end function 
@@ -91,9 +152,10 @@ Set objCon = Server.CreateObject("ADODB.Connection")
 Set objRds = Server.CreateObject("ADODB.Recordset") 
 objCon.Open sConnString
 objRds.Open "SELECT * FROM [Orders] WHERE Id = " & Request.Form("order_id"), objCon, 1, 3 
-    
+   
 iItemNumber = objRds("ID")
 iRestaurantId = objRds("IdBusinessDetail")
+Dim VoucherDiscountType : VoucherDiscountType = objRds("DiscountType")
 dim vOrderSubTotal : vOrderSubTotal  = Request.Form("vOrderSubTotal")
 
          dim ThankURL
@@ -121,7 +183,7 @@ dim vOrderSubTotal : vOrderSubTotal  = Request.Form("vOrderSubTotal")
             end if
            ' ThankURL  = replace(lcase(ThankURL),lcase(SITE_URL),lcase(SITE_URL)&"local/")
         if vOrderSubTotal & "" <> "" then
-                if IsDifferentSubTotal(iItemNumber,objCon,iRestaurantId,cdbl( vOrderSubTotal)) = true then
+                if IsDifferentSubTotal(iItemNumber,objCon,iRestaurantId,cdbl( vOrderSubTotal),VoucherDiscountType) = true then
                         objRds.Close
                         objCon.Close  
                     set objRds = nothing
@@ -132,7 +194,9 @@ dim vOrderSubTotal : vOrderSubTotal  = Request.Form("vOrderSubTotal")
                               document.location.href="<%=MenuURL%>";
                           </script>  
                     <%
+                       
                 end if
+                        
         end if 
 
     end if
@@ -210,8 +274,8 @@ else
 end if
 dim paymentType : paymentType = objRds("PaymentType")
 Dim OrderTotal
-
-
+' Task 277
+WriteLog server.MapPath("PaymentSurcharge.txt")," before makeorder.asp  OrderID = "  &  Request.Form("order_id") & " PaymentSurcharge "  & objRds("PaymentSurcharge")
 if Request.Form("payment_type") = "stripe" or Request.Form("Stripe_Token") & "" <> "" or Request.Form("payment_type") = "paypal" or Request.Form("payment_type") = "nochex"  or Request.Form("payment_type") = "worldpay" then
     If CREDITCARDSURCHARGE & "" <> "" And CREDITCARDSURCHARGE & "" <> "0" Then
           
@@ -228,7 +292,8 @@ Else
     end if 
     objRds("PaymentSurcharge") = 0
 End If
-
+' Task 277
+WriteLog server.MapPath("PaymentSurcharge.txt")," after makeorder.asp  OrderID = "  &  Request.Form("order_id") & " PaymentSurcharge "  & objRds("PaymentSurcharge")
 OrderTotal = CDbl( objRds("OrderTotal")) + cdbl( objRds("PaymentSurcharge"))
 Dim iItemNumber, iRestaurantId, iRestaurantEmail, iEmail
 

@@ -46,12 +46,13 @@ if request.form("action")="announcement" then
     end if
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    MM_editCmd.CommandText = "UPDATE businessdetails SET announcement = ?,inmenuannouncement= ?,Close_StartDate = ?,Close_EndDate = ?  WHERE ID = " & request.form("id")
+    MM_editCmd.CommandText = "UPDATE businessdetails SET announcement = ?,inmenuannouncement= ?,Close_StartDate = ?,Close_EndDate = ?,announcement_Filter=?  WHERE ID = " & request.form("id")
     MM_editCmd.Prepared = true
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 4000, request.form("announcement") )
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 4000, request.form("in-menu-announcement") )
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 202, 1, 255, startdatefrm)
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 202, 1, 255, enddatefrm)
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 202, 1, 4000, request.form("announcement_Filter") )
     MM_editCmd.Execute
     MM_editCmd.ActiveConnection.Close
 
@@ -168,8 +169,8 @@ if request.querystring("sendemail") & "" <>"no" then
 SendEmail "Your order is confirmed", SITE_URL & "EmailOrderUpdate.asp?id_o=" & request.querystring("id") & "&id_r=" & Session("MM_id") & "&message=Order Acknowledged"  , objRds("email")
 
 end if
-     
-If  Lcase(SMSEnable&"") = "" AND  Lcase(SMSOnAcknowledgement&"") = "1" AND objRds("phone") & "" <> "" Then
+  
+If  Lcase(SMSEnable&"") = "1" AND  Lcase(SMSOnAcknowledgement&"") = "1" AND objRds("phone") & "" <> "" Then
      ' objRds("phone"), "Your order is out or delivery", Now(),Session("MM_id")
     
     ActualPhoneNumber = ""
@@ -201,8 +202,8 @@ if request.querystring("action")="outfordelivery" then
     Set objRds = Server.CreateObject("ADODB.Recordset") 
 objRds.Open "SELECT * FROM ORDERS where id=" & Request.QueryString("id") & " ORDER BY id desc" , objCon
 SendEmail "Your order is out or delivery", SITE_URL & "EmailOrderUpdate.asp?id_o=" & request.querystring("id") & "&id_r=" & Session("MM_id") & "&message=Order Out For Delivery"  , objRds("email")
-
-If  Lcase(SMSEnable&"") = "1" AND  Lcase(SMSOnDelivery&"1") = "1" AND objRds("phone") & "" <> "" Then
+    
+If  Lcase(SMSEnable&"") = "1" AND  Lcase(SMSOnDelivery&"") = "1" AND objRds("phone") & "" <> "" Then
      ' objRds("phone"), "Your order is out or delivery", Now(),Session("MM_id")
     
     ActualPhoneNumber = ""

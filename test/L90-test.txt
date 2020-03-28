@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?><PrintRequestInfo Version="2.00"><ePOSPrint><Parameter><devid>label_printer</devid><timeout>10000</timeout><printjobid>2-order-265order-0</printjobid></Parameter><PrintData><epos-print xmlns="http://www.epson-pos.com/schemas/2011/03/epos-print">
+<page>
+<text y="21"/>
+<text x="4"/>
+<text smooth="false"/>
+<text reverse="true" ul="true" em="true" color="color_1"/>
+<text dw="false" dh="false"/>
+<text>UNPAID(£118.99)</text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text dw="false" dh="false"/>
+<text> Delivery 23 Nov 2018 16:45&#10;</text>
+<text>-----------------------------------------&#10;</text>
+<text>TO: John Papadopoulos, 3 Downshire Lane, Wood Green, London N1 8PP. Tel.0207 1234 5678 &#10;</text>
+<text>-----------------------------------------&#10;</text>
+<text dw="false" dh="true"/>
+<text reverse="true" ul="false" em="true" color="color_1"/>
+<text>Item #1/6 </text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text dw="false" dh="false"/>
+<text> - Spare Ribs in Cantonese Sauce&#10;</text>
+<text reverse="false" ul="true" em="true" color="color_1"/>
+<text>Notes: </text>
+<text reverse="false" ul="false" em="false" color="color_1"/>
+<text>If no answer at the door call 0122 123 1234 and we will come down</text>
+<rectangle x1="0" y1="0" x2="510" y2="210" style="thin"/>
+</page>
+<cut type="feed"/>
+</epos-print>

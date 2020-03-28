@@ -70,6 +70,7 @@ Set objRdsSMS = Server.CreateObject("ADODB.Recordset")
     objRdsSMS("PlanSendDate") = senddate
     objRdsSMS("BusinessDetailID") = businessID
     objRdsSMS("SendType") = "SMS"
+    objRdsSMS("IsSent") =0
     
     objRdsSMS.Update 
 	objRdsSMS.Close

@@ -106,6 +106,7 @@
  <li><a href="../../cms/menu-manager/toppingsgroup.asp" >Toppings</a></li>
   <li><a href="../../cms/menu-manager/dishproperties.asp" >Dish properties</a></li>
   <li><a href="../../cms/menu-manager/vouchers.asp" >Voucher Codes</a></li>
+    <li><a href="../../cms/menu-manager/allergens.asp" >Allergen</a></li>
     <li>
       <a href="../../cms/menu-manager/healthcheck.asp?ID=<%=Session("MM_id")%>" >Health Check</a>
     </li>

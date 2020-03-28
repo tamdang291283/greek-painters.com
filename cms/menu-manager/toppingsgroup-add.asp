@@ -150,7 +150,7 @@ End If
      <div class="form-group">
     <label for="document name">Limitation of Topping</label>
 	<!--<p>Enter a printing name for this group of toppings.</p>-->
-    <input type="text" class="form-control" id="limittopping" name="limittopping" value="">
+    <input type="text" pattern="\d+" class="form-control" id="limittopping" name="limittopping" value="">
   </div>
   
  

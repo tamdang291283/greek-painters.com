@@ -58,14 +58,17 @@ If (CStr(Request("MM_update")) = "form1") Then
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
 
-MM_editCmd.CommandText = "UPDATE MenuItemProperties SET[name] = ?,[price] = ?,[allowtoppings] = ?,[printingname]=? WHERE ID = ?" 
+MM_editCmd.CommandText = "UPDATE MenuItemProperties SET[name] = ?,[price] = ?,[allowtoppings] = ?,[printingname]=?,s_ContainAllergen=?,s_MayContainAllergen=?,s_SuitableFor=? WHERE ID = ?" 
     MM_editCmd.Prepared = true
 
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, Request.Form("name")) ' adVarWChar
 	
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 6, 1, 255,MM_IIF(Request.Form("price"), Request.Form("price"), 0)) ' adVarWChar
-MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 3, 1, -1, MM_IIF(Request.Form("allowtoppings"),Request.Form("allowtoppings"),0)) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 3, 1, -1, MM_IIF(Request.Form("allowtoppings"),Request.Form("allowtoppings"),0)) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 202, 1, 255, MM_IIF(Request.Form("printingname"), Request.Form("printingname"), "")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 202, 1, 255, MM_IIF(Request.Form("s_ContainAllergen"),Request.Form("s_ContainAllergen"),"") ) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 202, 1, 255, MM_IIF(Request.Form("s_MayContainAllergen"),Request.Form("s_MayContainAllergen"),"") ) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, MM_IIF(Request.Form("s_SuitableFor"),Request.Form("s_SuitableFor"),"")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 5, 1, -1, MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)) ' adDouble
     
 
@@ -92,9 +95,9 @@ Dim Recordset1_cmd
 Dim Recordset1_numRows
 Set Recordset1_cmd = Server.CreateObject ("ADODB.Command")
 Recordset1_cmd.ActiveConnection = sConnStringcms
-sql = "SELECT * FROM MenuItemProperties where id=" & request.querystring("id")
-
-
+    sql = "SELECT Id,Name,Price,IdMenuItem,allowtoppings,dishpropertiesgroupid,printingname,i_displaysort "
+    sql = sql & " ,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor "
+    sql = sql & " FROM MenuItemProperties with(nolock) where id=" & request.querystring("id")
 
 Recordset1_cmd.CommandText = sql
 Recordset1_cmd.Prepared = true
@@ -149,7 +152,33 @@ Recordset1_numRows = 0
 				        objCon.Open sConnStringcms
                          Set objRds = Server.CreateObject("ADODB.Recordset") 
                         objRds.Open "SELECT * FROM menuitems where id=" & request.querystring("catid"), objCon
+                         Dim s_ContainAllergen : s_ContainAllergen  = replace(Recordset1.Fields.Item("s_ContainAllergen").Value & ""," ","")
+                        Dim s_MayContainAllergen : s_MayContainAllergen  =replace( Recordset1.Fields.Item("s_MayContainAllergen").Value & ""," ","")
+                        Dim s_SuitableFor : s_SuitableFor  = Replace(Recordset1.Fields.Item("s_SuitableFor").Value & ""," ","")
+                        if s_ContainAllergen <> "" then
+                            s_ContainAllergen = "," & s_ContainAllergen 
+                        end if
+                        if s_MayContainAllergen <> "" then
+                            s_MayContainAllergen = "," & s_MayContainAllergen 
+                        end if
+                        if s_SuitableFor <> "" then
+                            s_SuitableFor = "," & s_SuitableFor 
+                        end if
 
+                        Dim RS_Allergen : set RS_Allergen = Server.CreateObject("ADODB.Recordset") 
+                        Dim RS_Allergen_Suitable : set RS_Allergen_Suitable = Server.CreateObject("ADODB.Recordset")   
+                        sql=" select ID,Name,Type from Allergen with(nolock) where Type = 'allergen'" 
+                        RS_Allergen.Open sql, objCon
+                        sql = "select ID,Name,Type from Allergen with(nolock) where Type = 'SuitableFor'"
+                        RS_Allergen_Suitable.Open sql, objCon
+                         function writechecked(byval value1, byval value2)
+                            dim result : result = ""
+                          '  Response.Write("value1 " & value1 & " value2 " & value2 & "<br/>")
+                            if instr("," & value1 & ",","," & value2 & ",") > 0 then
+                                result="checked"
+                            end if
+                            writechecked = result
+                         end function
 %>
 			<ol class="breadcrumb">
 <li><a href="menu.asp">Main Menu</a></li>
@@ -175,7 +204,77 @@ Recordset1_numRows = 0
 		<p>Enter the price for a single item.</p>
     <input type="text" class="form-control" id="Price" name="Price" value="<%= Recordset1.Fields.Item("Price").Value %>" required>
   </div>
-  
+  <div class="form-group">   
+       <div class="row">
+            <div class="col-md-4 column">
+                 <div class="panel panel-default">
+                  <div class="panel-heading">Contain Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                            <% if not RS_Allergen.EOF then %>
+                            <% while not RS_Allergen.EOF    
+                                    %>
+                                        <span style="float:left;padding-left:5px;"><input type="checkbox" <%=writechecked(s_ContainAllergen,RS_Allergen("ID")) %> name="s_ContainAllergen" value="<%=RS_Allergen("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen.movenext
+                                wend
+                                RS_Allergen.movefirst
+                                 %>
+                            <% end if %>
+                        </div>
+                      </div>
+                 </div>
+
+        
+            </div>
+            <div class="col-md-4 column">                 
+                 <div class="panel panel-default">
+                  <div class="panel-heading">May Contain Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                            <% if not RS_Allergen.EOF then %>
+                            <% while not RS_Allergen.EOF    
+                                    %>
+                                        <span style="float:left;padding-left:5px;"><input type="checkbox" name="s_MayContainAllergen" <%=writechecked(s_MayContainAllergen,RS_Allergen("ID")) %>  value="<%=RS_Allergen("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen.movenext
+                                wend
+                               
+                                 %>
+                            <% end if 
+                                    RS_Allergen.close()
+                                set RS_Allergen = nothing
+                                %>
+                        </div>
+                      </div>
+                 </div>
+            </div>
+            <div class="col-md-4 column">
+                 
+                 <div class="panel panel-default">
+                  <div class="panel-heading">Suitable for Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                           <% if not RS_Allergen_Suitable.EOF then %>
+                            <% while not RS_Allergen_Suitable.EOF    
+                                    %>
+                                        <span style="padding-left:5px;"><input type="checkbox" name="s_SuitableFor"  <%=writechecked(s_SuitableFor,RS_Allergen_Suitable("ID")) %> value="<%=RS_Allergen_Suitable("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen_Suitable("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen_Suitable.movenext
+                                wend
+                                    
+                                 %>
+                            <% end if
+                                    RS_Allergen_Suitable.close()
+                                set RS_Allergen_Suitable = nothing
+                                 %>
+                        </div>
+                      </div>
+                 </div>
+                
+            </div>
+       </div> 
+  </div>
   <div class="form-group">
 
 	

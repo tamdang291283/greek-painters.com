@@ -6358,3 +6358,5 @@
 17/01/2020 07:36:41: Local StoreID[2] DateCondition 17/01/2020 15:36:41
 17/01/2020 07:36:41: Local StoreID[2] DateCondition 17/01/2020 15:36:41
 17/01/2020 07:36:41: StoreID[2] Push processed Print  Order ID 428
+19/03/2020 07:58:27: Local StoreID[18|13|80004005|Unspecified_error]  
+19/03/2020 07:59:05: Local StoreID[18|13|80004005|Unspecified_error]  

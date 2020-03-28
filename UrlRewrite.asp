@@ -1,7 +1,8 @@
 
   <!-- #include file="Config.asp" -->
 <%
- 
+
+
 Dim Current_Path, Requested_Page, Requested_File, urw_Split, ASPErr	
     Current_Path = Replace(Request.ServerVariables("SCRIPT_NAME"),"URLrewrite.asp","",1,-1,vbTextCompare)
     Requested_Page = Replace(Request.ServerVariables("QUERY_STRING"),"404;","")
@@ -87,7 +88,7 @@ sub ChangeUrlRewrite301(byval strFullURL)
           
     end if
        
-      
+
     strFullURL_Original = lcase(strFullURL_Original)
     Dim isLocal : isLocal =  false
      if instr(strFullURL_Original,"/local") > 0 then

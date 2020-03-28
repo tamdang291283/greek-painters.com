@@ -58,7 +58,7 @@ If (CStr(Request("MM_update")) = "form1") Then
 
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    MM_editCmd.CommandText = "UPDATE businessdetails SET [Name] = ?,[Address] = ?,[Telephone] = ?,[PostalCode] = ?,[FoodType] = ?,[ImgUrl] = ?,[backtohometext]=?, [closedtext]=?, [email]=? , [menupagetext]=?,[longitude]=?,[latitude]=?,[faviconurl]=?,[addtohomescreenurl]=?,[EnableBooking]=?,URL_Facebook=?,URL_Twitter=?,URL_Google=?,URL_Intagram=?,URL_YouTube=?,URL_Tripadvisor=?,URL_Special_Offer=?,URL_Linkin=?,s_BannerURL=?  WHERE ID = ?" 
+    MM_editCmd.CommandText = "UPDATE businessdetails SET [Name] = ?,[Address] = ?,[Telephone] = ?,[PostalCode] = ?,[FoodType] = ?,[ImgUrl] = ?,[backtohometext]=?, [closedtext]=?, [email]=? , [menupagetext]=?,[longitude]=?,[latitude]=?,[faviconurl]=?,[addtohomescreenurl]=?,[EnableBooking]=?,URL_Facebook=?,URL_Twitter=?,URL_Google=?,URL_Intagram=?,URL_YouTube=?,URL_Tripadvisor=?,URL_Special_Offer=?,URL_Linkin=?,s_BannerURL=?,s_IconApple=?,s_UrlApple=?,s_IconGoogle=?,s_UrlGoogle=?  WHERE ID = ?" 
 MM_editCmd.Prepared = true
 
 
@@ -87,7 +87,11 @@ MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param20", 202, 1, 255, 
 MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param21", 202, 1, 255, Request.Form("URL_Tripadvisor"))
 MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param22", 202, 1, 255, Request.Form("URL_Special_Offer"))
 MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param23", 202, 1, 255, Request.Form("URL_Linkin"))
-    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param24", 202, 1, 255, Request.Form("s_BannerURL"))
+MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param24", 202, 1, 255, Request.Form("s_BannerURL"))
+MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param25", 202, 1, 255, Request.Form("s_IconApple"))
+MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param26", 202, 1, 255, Request.Form("s_UrlApple"))
+MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param27", 202, 1, 255, Request.Form("s_IconGoogle"))
+MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param28", 202, 1, 255, Request.Form("s_UrlGoogle"))
     
 
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param16", 5, 1, -1, MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)) ' adDouble
@@ -268,7 +272,33 @@ Recordset1_numRows = 0
 <p>Enter any custom HTML for the restaurant closed page.</p>
 <textarea class="form-control" name="closedtext" id="closedtext" rows="5"><%=(Recordset1.Fields.Item("closedtext").Value)%></textarea>
 
-</div></div></div>
+</div>
+ <div class="form-group">
+    <label for="document name">Banner Image URL</label>
+    <input type="text" class="form-control" id="s_BannerURL" name="s_BannerURL" value="<%=(Recordset1.Fields.Item("s_BannerURL").Value)%>" >
+</div>
+
+<div class="form-group">
+    <label for="document name">SMART BANNER (for mobile app)</label>   
+</div>
+   <div class="form-group" style="margin-left:20px;">
+    <p>Icon Apple.</p>
+    <input type="text" class="form-control" id="s_IconApple" name="s_IconApple" value="<%=(Recordset1.Fields.Item("s_IconApple").Value)%>" >
+</div>
+<div class="form-group" style="margin-left:20px;">    
+    <p>URL Apple.</p>
+    <input type="text" class="form-control" id="s_UrlApple" name="s_UrlApple" value="<%=(Recordset1.Fields.Item("s_UrlApple").Value)%>" >
+</div>
+
+ <div class="form-group" style="margin-left:20px;">
+      <p>Icon Google.</p>
+    <input type="text" class="form-control" id="s_IconGoogle" name="s_IconGoogle" value="<%=(Recordset1.Fields.Item("s_IconGoogle").Value)%>" >
+</div>
+<div class="form-group" style="margin-left:20px;">
+   <p>URL Google.</p>
+    <input type="text" class="form-control" id="s_UrlGoogle" name="s_UrlGoogle" value="<%=(Recordset1.Fields.Item("s_UrlGoogle").Value)%>" >
+</div>
+  </div></div>
 
 <div class="panel panel-default">
   <div class="panel-heading">Menu Page</div>
@@ -342,15 +372,7 @@ Recordset1_numRows = 0
         </div>
  </div>
 
- <div class="panel panel-default">
-      <div class="panel-heading">Branding Section</div>
-        <div class="panel-body">
-             <div class="form-group">
-                <label for="document name">Banner Image URL</label>
-                <input type="text" class="form-control" id="s_BannerURL" name="s_BannerURL" value="<%=(Recordset1.Fields.Item("s_BannerURL").Value)%>" >
-            </div>
-        </div>
- </div>
+
 
   <input type="hidden" name="MM_update" value="form1">
   <input type="hidden" name="MM_recordId" value="<%= Recordset1.Fields.Item("ID").Value %>">

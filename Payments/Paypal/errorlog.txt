@@ -1,0 +1,3 @@
+27/01/2020 12:07:58: Error Occurred on function SendEmailV2 in file config.asp 
+Error Detail: The message could not be sent to the SMTP server. The transport error code was 0x800ccc6a. The server response was 451 ESMTP MailEnable Service temporarily refused connection at 01/27/20 12:07:58 from IP (23.161.0.18) because the server is too busy.
+

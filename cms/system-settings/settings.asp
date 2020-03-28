@@ -127,6 +127,10 @@ If (CStr(Request("MM_update")) = "form1") Then
     SQL_Update= SQL_Update & ",Show_Ordernumner_printer=?" '65
     SQL_Update= SQL_Update & ",Show_Ordernumner_Receipt=?" '66
     SQL_Update= SQL_Update & ",Show_Ordernumner_Dashboard=?" '67
+    SQL_Update= SQL_Update & ",EnableAllergen=?" '68
+    SQL_Update= SQL_Update & ",EnableSuitableFor=?" '69
+    SQL_Update= SQL_Update & ",CanEditQtyBasket=?" '69
+    
     SQL_Update= SQL_Update & "  WHERE ID = " & MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)  
         
     'Response.Write(SQL_Update) 
@@ -235,8 +239,8 @@ End If
         MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param49", 3, 1, -1, Request.Form("IsDualReceiptPrinting")) 
     End If    
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param50", 202, 1, 255, Request.Form("InRestaurantEpsonPrinterIDList"))
-     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param51", 202, 1, 255, Request.Form("BlockIPEmailList")) 
-     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param52", 202, 1, 255, Request.Form("RePrintReceiptWays"))
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param51", 202, 1, 255, Request.Form("BlockIPEmailList")) 
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param52", 202, 1, 255, Request.Form("RePrintReceiptWays"))
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param53", 202, 1, 255, Request.Form("printingtype"))
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param54", 202, 1, 255, Request.Form("stripe"))
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param55", 202, 1, 255, Request.Form("Stripe_Key_Secret"))
@@ -254,11 +258,11 @@ End If
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param66", 202, 1, 255, MM_IIF(Request.Form("Show_Ordernumner_Receipt"), Request.Form("Show_Ordernumner_Receipt"), "no"))
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param67", 202, 1, 255, MM_IIF(Request.Form("Show_Ordernumner_Dashboard"), Request.Form("Show_Ordernumner_Dashboard"), "no") )
     
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param68", 202, 1, 255, MM_IIF(Request.Form("EnableAllergen"), Request.Form("EnableAllergen"), "No"))
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param69", 202, 1, 255, MM_IIF(Request.Form("EnableSuitableFor"), Request.Form("EnableSuitableFor"), "No") )
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param69", 202, 1, 255, MM_IIF(Request.Form("CanEditQtyBasket"), Request.Form("CanEditQtyBasket"), "c") )
     
-    'MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param53", 5, 1, -1, MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)) ' adDouble
-
-    'REsponse.Write("AA" & Request.Form("SMSEnable")) 
-    'Response.End()
+  
     MM_editCmd.Execute
 
     if Request.Form("EnableUrlRewrite") = "Yes" then
@@ -582,6 +586,10 @@ Recordset10_numRows = 0
     if   STICK_MENU  & "" = "" then
          STICK_MENU = "Yes"
     end if
+    dim CanEditQtyBasket : CanEditQtyBasket = Recordset1.Fields.Item("CanEditQtyBasket").Value 
+    if CanEditQtyBasket & "" = "" then
+        CanEditQtyBasket = "c"
+    end if
  %>
 
 <div class="form-group">
@@ -592,6 +600,14 @@ Recordset10_numRows = 0
 
 </div>
 
+      <div class="form-group">
+<label for="document name">BASKET LAYOUT</label>
+<!--<p>If you would like the right-side part of the menu/order page to remain always visible even when a user scrolls down the page select Yes below.</p>-->
+          <p></p>
+<input type="radio" name="CanEditQtyBasket" value="c" <%if CanEditQtyBasket="c" then%>checked<%end if%>> Classic &nbsp;&nbsp; <input type="radio" name="CanEditQtyBasket" value="a" <%if CanEditQtyBasket="a" then%>checked<%end if%>> Advance 
+
+
+</div>
       
 
 </div></div>
@@ -699,6 +715,15 @@ Recordset10_numRows = 0
                 Show_Ordernumner_Dashboard = "yes"
               end if
 
+              dim EnableAllergen,EnableSuitableFor
+                  EnableAllergen = Recordset1.Fields.Item("EnableAllergen").Value
+                  if EnableAllergen & "" = "" then
+                    EnableAllergen = "No"
+                  end if
+                  EnableSuitableFor = Recordset1.Fields.Item("EnableSuitableFor").Value
+                  if EnableSuitableFor & "" = "" then
+                    EnableSuitableFor = "No"
+                  end if
                %>
     <input type="checkbox" name="Show_Ordernumner_printer" onclick="SelectShowNumberOrder(this);"   <%if Show_Ordernumner_printer="yes" then%>checked value="yes"<%else %> value="no" <%end if%>> Printer receipts &nbsp;&nbsp; 
     <input  type="checkbox" name="Show_Ordernumner_Receipt"  onclick="SelectShowNumberOrder(this);"  <%if Show_Ordernumner_Receipt="yes" then%>checked value="yes"<%else %> value="no" <%end if%>> Thank-you for your order  page  and emails 
@@ -707,6 +732,26 @@ Recordset10_numRows = 0
 
 </div>
 </div></div>
+
+      <div class="panel panel-default">
+  <div class="panel-heading">Search Filter</div>
+  <div class="panel-body">
+      <div class="form-group">
+        <label for="document name">Allergen</label>
+    <p>Select yes if you would like to enable Search Allergen Bar.</p>    
+    <input type="radio" name="EnableAllergen"  value="Yes" <%if EnableAllergen="Yes" then%>checked<%end if%>> Yes &nbsp;&nbsp; <input onclick="EnableURLRewrite('no');" type="radio" name="EnableAllergen" value="No" <%if EnableAllergen="No" then%>checked<%end if%>> No  
+    <br /> <br />
+    </div>
+
+       <div class="form-group">
+        <label for="document name">Suitable For</label>
+    <p>Select yes if you would like to enable Search Suitable For Bar.</p>   
+    <input type="radio" name="EnableSuitableFor"  value="Yes" <%if EnableSuitableFor="Yes" then%>checked<%end if%>> Yes &nbsp;&nbsp; <input onclick="EnableURLRewrite('no');" type="radio" name="EnableSuitableFor" value="No" <%if EnableSuitableFor="No" then%>checked<%end if%>> No  
+    <br /> <br />
+    </div>
+
+</div></div>
+
  <script type="text/javascript">
      function SelectShowNumberOrder(obj)
      {

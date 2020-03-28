@@ -164,7 +164,7 @@ if SEND_ORDERS_TO_PRINTER="EPSON" then
         vSubTotal = objRds("SubTotal")
         vOrderTotal = objRds("OrderTotal")
         
-        Dim PaymentSurcharge, ServiceCharge, vvouchercode, vvouchercodediscount
+        Dim PaymentSurcharge, ServiceCharge, vvouchercode, vvouchercodediscount,VoucherDiscontType
         PaymentSurcharge = objRds("PaymentSurcharge")
         If PaymentSurcharge & "" = "" Then
             PaymentSurcharge = "0"
@@ -194,7 +194,7 @@ if SEND_ORDERS_TO_PRINTER="EPSON" then
         vvouchercodediscount = ""
         vvouchercodediscount = objRds("vouchercodediscount")
 		vvouchercode=objRds("vouchercode")
-            
+          VoucherDiscontType=objRds("DiscountType")  
           dim numberOfOrder : numberOfOrder  = 0
             if Show_Ordernumner_printer = "yes" then
                   Set objRds20 = Server.CreateObject("ADODB.Recordset") 
@@ -405,8 +405,8 @@ end if
 <text align="center" />
 <text>-----------&#10;</text>
 <text align="left" />
-<%if vvouchercode & "" <>"" then%><text>Discount code:&#9;&#9;&#9;-<%=CURRENCYSYMBOL%><%= FormatNumber((( objRds("SubTotal") * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - objRds("SubTotal") ),2) %>  &#10;</text>				
-<text><%=ReplaceSpecialCharacter(vvouchercode&"")%> (-<%=ReplaceSpecialCharacter(vvouchercodediscount)%>%)&#10;</text>
+<%if vvouchercode & "" <>"" then%><text>Discount code:&#9;&#9;&#9;-<%=CURRENCYSYMBOL%><%if VoucherDiscontType <> "Amount" then %> <%= FormatNumber((( objRds("SubTotal") * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - objRds("SubTotal") ),2) %><%else %><%=FormatNumber(Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ","")),2) %><%end if %>  &#10;</text>				
+<text><%=ReplaceSpecialCharacter(vvouchercode&"")%><%if VoucherDiscontType <> "Amount" then %> (-<%=ReplaceSpecialCharacter(vvouchercodediscount)%>%)&#10;<%end if %></text>
 <%end if%>
 <%end if%><text>SubTotal:&#9;&#9;&#9;<%= FormatNumber(objRds("SubTotal"), 2)  %>&#10;</text>
 <text>Delivery Fee:&#9;&#9;&#9;<%= FormatNumber(vShippingFee, 2)  %>&#10;</text>
