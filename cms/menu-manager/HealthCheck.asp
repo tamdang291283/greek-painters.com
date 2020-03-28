@@ -59,7 +59,7 @@
         rs_menu.close()
     set rs_menu = nothing
 
-    SQL = "select COUNT(ID) as number from Menutoppingsgroups with(nolock) where isnull(PrintingName,'') = '' " & Replace( Where,"[table]","Menutoppingsgroups") 
+    SQL = "select COUNT(Menutoppingsgroups.ID) as number from Menutoppingsgroups with(nolock) join BusinessDetails c with(nolock) on Menutoppingsgroups.IdBusinessDetail = c.id  where isnull(PrintingName,'') = '' " & Replace( Where,"[table]","c") 
     rs_topping_group.Open SQL , objCon
     if not rs_topping_group.EOF then
         Number_topping_group = rs_topping_group("number")
@@ -94,7 +94,8 @@
         rs_dishproperty.close()
     set rs_dishproperty = nothing
 
-    SQL = "select COUNT(ID) as number from MenuDishpropertiesGroups with(nolock) where isnull(PrintingName,'') = '' " & Replace( Where,"[table]","MenuDishpropertiesGroups") 
+    SQL = "select COUNT(MenuDishpropertiesGroups.ID) as number from MenuDishpropertiesGroups with(nolock) join BusinessDetails c with(nolock) on MenuDishpropertiesGroups.IdBusinessDetail = c.id  where isnull(PrintingName,'') = '' " & Replace( Where,"[table]","c") 
+  
     rs_dishproperty_group.Open SQL , objCon
     if not rs_dishproperty_group.EOF then
         Number_dishproperty_group = rs_dishproperty_group("number")
@@ -216,7 +217,7 @@
                 <%
                     set rs_menu = Server.CreateObject("ADODB.Recordset")
                        ' SQL = " select m.ID,m.Name,PrintingName,b.name as storename  from MenuItems m with(nolock) join BusinessDetails b with(nolock) on m.IdBusinessDetail = b.id   where isnull(PrintingName,'') = '' " & Where
-                        SQL =  " select m.ID,m.Name,PrintingName,b.name as storename   "
+                        SQL =  " select m.ID,m.Name,PrintingName,b.name as storename ,m.IdMenuCategory  "
                         SQL = SQL & " from MenuItems m with(nolock) "
                         SQL = SQL & " join  menucategories mc with(nolock) on m.IdMenuCategory = mc.ID "
                         SQL = SQL & " join BusinessDetails b with(nolock) on mc.IdBusinessDetail = b.ID "
@@ -231,7 +232,7 @@
                                         <span class="form-check-label" for="exampleCheck1"><%=numberline %></span>
            	                    </div>
                                 <div class="col-md-1 column">    
-                                        <span class="form-check-label" for="exampleCheck1"><%=rs_menu("ID") %></span>
+                                        <span class="form-check-label" for="exampleCheck1"><a target="_blank" href="<%=SITE_URL %>cms/menu-manager/menu-categories-edit.asp?id=<%=rs_menu("ID") %>&catid=<%=rs_menu("IdMenuCategory") %>"><%=rs_menu("ID") %></a> </span>
            	                    </div>
            	                    <div class="col-md-5 column">    
                                         <span class="form-check-label" for="exampleCheck1"><%=rs_menu("Name") %></span>
@@ -286,7 +287,7 @@
                 <%
                     set rs_sub_menuitem = Server.CreateObject("ADODB.Recordset")
                        
-                        SQL =  " select a.ID,a.Name,a.PrintingName,b.name as storename   "
+                        SQL =  " select a.ID,a.Name,a.PrintingName,b.name as storename,a.IdMenuItem    "
                         SQL = SQL & " from MenuItemProperties a with(nolock) join menuitems m on a.IdMenuItem = m.Id "                        
                         SQL = SQL & " join BusinessDetails b with(nolock) on m.IdBusinessDetail = b.ID "
                         SQL = SQL & " where isnull(a.PrintingName,'') = '' " & Replace( Where,"[table]","b") 
@@ -300,7 +301,7 @@
                                         <span class="form-check-label" for="exampleCheck1"><%=numberline %></span>
            	                    </div>
                                 <div class="col-md-1 column">    
-                                        <span class="form-check-label" for="exampleCheck1"><%=rs_sub_menuitem("ID") %></span>
+                                        <span class="form-check-label" for="exampleCheck1"><a target="_blank" href="<%=SITE_URL %>cms/menu-manager/menu-sub-edit.asp?catid=<%=rs_sub_menuitem("IdMenuItem")%>&id=<%=rs_sub_menuitem("ID")%>"><%=rs_sub_menuitem("ID") %></a></span>
            	                    </div>
            	                    <div class="col-md-5 column">    
                                         <span class="form-check-label" for="exampleCheck1"><%=rs_sub_menuitem("Name") %></span>
@@ -362,7 +363,7 @@
                                         <span class="form-check-label" for="exampleCheck1"><%=numberline %></span>
            	                    </div>
                                   <div class="col-md-1 column">    
-                                        <span class="form-check-label" for="exampleCheck1"><%=rs_menu("ID") %></span>
+                                        <span class="form-check-label" for="exampleCheck1"><a target="_blank" href="<%=SITE_URL %>cms/menu-manager/toppingsgroup-edit.asp?id=<%=rs_menu("ID")%>"><%=rs_menu("ID") %></a></span>
            	                    </div>
            	                    <div class="col-md-5 column">    
                                         <span class="form-check-label" for="exampleCheck1"><%=rs_menu("toppingsgroup") %></span>
@@ -414,7 +415,7 @@
                 <%
                     set rs_menu = Server.CreateObject("ADODB.Recordset")
                         'SQL = "select m.ID,topping,PrintingName,b.name from MenuToppings m with(nolock) join BusinessDetails b with(nolock) on m.IdBusinessDetail = b.id  where isnull(PrintingName,'') = '' " & Where
-                       SQL = " select distinct m.ID,topping,m.PrintingName,b.name  "
+                       SQL = " select distinct m.ID,topping,m.PrintingName,b.name,m.toppinggroupid  "
                        SQL = SQL & " from MenuToppings m with(nolock) join Menutoppingsgroups tg with(nolock)  "
                        SQL = SQL & " on m.toppinggroupid =  tg.ID  "
                        SQL = SQL & "  join BusinessDetails b with(nolock) on tg.IdBusinessDetail = b.id   "
@@ -430,7 +431,7 @@
                                         <span class="form-check-label" for="exampleCheck1"><%=numberline %></span>
            	                    </div>
                                   <div class="col-md-1 column">    
-                                        <span class="form-check-label" for="exampleCheck1"><%=rs_menu("ID") %></span>
+                                        <span class="form-check-label" for="exampleCheck1"><a target="_blank" href="<%=SITE_URL %>cms/menu-manager/toppings-edit.asp?catid=<%=rs_menu("toppinggroupid") %>&id=<%=rs_menu("ID") %>"><%=rs_menu("ID") %></a> </span>
            	                    </div>
            	                    <div class="col-md-5 column">    
                                         <span class="form-check-label" for="exampleCheck1"><%=rs_menu("topping") %></span>
@@ -480,6 +481,7 @@
                 <%
                     set rs_menu = Server.CreateObject("ADODB.Recordset")
                         SQL = "select m.ID,dishpropertygroup,PrintingName,b.name from MenuDishpropertiesGroups m with(nolock) join BusinessDetails b with(nolock) on m.IdBusinessDetail = b.id  where isnull(PrintingName,'') = '' " & Replace( Where,"[table]","b") 
+                        
                     rs_menu.Open SQL , objCon
                     numberline = 0
                     while not rs_menu.EOF 
@@ -490,7 +492,7 @@
                                         <span class="form-check-label" for="exampleCheck1"><%=numberline %></span>
            	                    </div>
                                 <div class="col-md-1 column">    
-                                        <span class="form-check-label" for="exampleCheck1"><%=rs_menu("ID") %></span>
+                                        <span class="form-check-label" for="exampleCheck1"><a target="_blank" href="<%=SITE_URL %>cms/menu-manager/dishproperties-edit.asp?id=<%=rs_menu("ID") %>"><%=rs_menu("ID") %></a></span>
            	                    </div>
            	                    <div class="col-md-5 column">    
                                         <span class="form-check-label" for="exampleCheck1"><%=rs_menu("dishpropertygroup") %></span>
@@ -541,7 +543,7 @@
                 <%
                     set rs_menu = Server.CreateObject("ADODB.Recordset")
                        ' SQL = "select b.ID,dishproperty,PrintingName,c.name from MenuDishproperties b with(nolock)  join BusinessDetails c with(nolock) on b.IdBusinessDetail = c.id  where isnull(PrintingName,'') = '' " & Where
-                        SQL =" select b.ID,dishproperty,b.PrintingName,c.name "
+                        SQL =" select b.ID,dishproperty,b.PrintingName,c.name, b.dishpropertygroupid  "
                         SQL  = SQL & " from MenuDishproperties b with(nolock)  "
                         SQL  = SQL & " join MenuDishpropertiesGroups mdg with(nolock) on b.dishpropertygroupid = mdg.ID "
                         SQL  = SQL & " join BusinessDetails c with(nolock) on mdg.IdBusinessDetail = c.id  where isnull(b.PrintingName,'') = '' " & Replace( Where,"[table]","c") 
@@ -556,7 +558,7 @@
                                         <span class="form-check-label" for="exampleCheck1"><%=numberline %></span>
            	                    </div>
                                   <div class="col-md-1 column">    
-                                        <span class="form-check-label" for="exampleCheck1"><%=rs_menu("ID") %></span>
+                                        <span class="form-check-label" for="exampleCheck1"><a target="_blank" href="<%=SITE_URL %>cms/menu-manager/dishproperties-items-edit.asp?catid=<%=rs_menu("dishpropertygroupid") %>&id=<%=rs_menu("ID") %>"><%=rs_menu("ID") %></a></span>
            	                    </div>
            	                    <div class="col-md-5 column">    
                                         <span class="form-check-label" for="exampleCheck1"><%=rs_menu("dishproperty") %></span>

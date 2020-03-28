@@ -184,42 +184,25 @@ else{e.value="no";location.reload();}
 				<div style="float:right;">
 				
 				<div class="hidden-xs">
-				<span class="glyphicon glyphicon glyphicon-earphone"></span> <%= objRds("Telephone") %> 
+                 <i class="fa fa-phone"></i>
+				 <%= objRds("Telephone") %> 
 <span class="glyphicon glyphicon glyphicon-envelope"></span>  <%= objRds("Email") %></div>
-
 <div class="visible-xs">
-
-
 <a href="https://www.google.co.uk/maps?q=<%= objRds("Address") %>" target="_blank"><span class="glyphicon glyphicon-map-marker"></span></a>
 <a href="tel:<%= objRds("Telephone") %>"><span class="glyphicon glyphicon-earphone"></span></a>
 <a href="mailto:<%= objRds("Email") %>"><span class="glyphicon glyphicon-envelope"></span></a></div>
-
-
 </div>	
 						 <%= objRds("Name") %>
-
 					</h4><div class="hidden-xs"><b><%= objRds("Address") %> </b><br></div>
-
-
 <%= objRds("FoodType") %>
-					
 			</div>
 			</div>
 		</div></div>
-
-
-
-
-       
-
-        
     <%            
         objRds.Close
        ' objCon.Close
-
-         
       '  objCon.Open sConnString
-        objRds.Open "select o.* from [Orderslocal] o " & _
+        objRds.Open "select o.* from [Orderslocal]  o  " & _
             " Where o.IdBusinessDetail = " & vRestaurantId & _
             " And o.SessionId = '" & Session.SessionID & "'", objCon, 1, 3 
 
@@ -228,9 +211,11 @@ else{e.value="no";location.reload();}
         if objRds.EOF then
             response.redirect(SITE_URL &  "local/menu.asp?id_r=" & session("restaurantid"))
         end if
+        dim VoucherDiscontType : VoucherDiscontType =""
 	    if objRds("vouchercodediscount") <> 0  or objRds("vouchercode")  & "" <> ""  then
 	          discountcodeused= "-" & objRds("vouchercodediscount") & "%"
               vouchercode = objRds("vouchercode") 
+              VoucherDiscontType = objRds("DiscountType")
 	    end if
 			
         vOrderId = objRds("Id")
@@ -363,7 +348,7 @@ else{e.value="no";location.reload();}
             else %>
 
                
-                    <table style="width: 100%">  
+                    <table style="width: 100%" id="panel-item">  
 
                       <%
                     Do While NOT objRds.Eof  %>
@@ -433,8 +418,7 @@ else{e.value="no";location.reload();}
                     objRds.Close
                     set objRds = nothing
                    ' objCon.Close
-                    objCon.Close
-                    set objCon  = nothing
+               
 
                     %>
      
@@ -445,19 +429,81 @@ else{e.value="no";location.reload();}
                             <td style="padding-top: 5px">&nbsp;</td>
                         </tr>
 						
+							<%
+                            function CalculateSubtotalWithDiscount( byval orderID, byval discountvalue,byval VoucherMainType, byval ListID)
+                            
+                            dim result : result = 0
+       
+                            if ( VoucherMainType = "Dishes" or VoucherMainType ="Categories" )  then
+                                    result = 0 
+                                dim SQL : SQL = "" 
+                                    SQL = "select  MenuItemId,Total,IdMenuCategory from  orderitemslocal oi with(nolock)   " 
+			                        SQL= SQL & "  join MenuItems mi with(nolock) on oi.MenuItemId = mi.id "
+			                        SQL= SQL & " where oi.orderid  = " & orderID
+                                 '   Response.Write(SQL & " ListID " & ListID  )
+                                 '   Response.End
+            
+                                    dim RS_OrderTotal : set RS_OrderTotal = Server.CreateObject("ADODB.Recordset")
+                                    RS_OrderTotal.Open SQL , objCon
+                                    while not RS_OrderTotal.EOF
+                                        if VoucherMainType = "Dishes" then
+        
+                                            if  instr("," & ListID,"," &  RS_OrderTotal("MenuItemId") & ",") > 0 then                            
+                                                 result = result +  0.01 * cdbl(RS_OrderTotal("Total")) *  discountvalue    
+                                        
+                                            end if
+                                        elseif VoucherMainType = "Categories" then
+                                             if  instr("," & ListID,RS_OrderTotal("IdMenuCategory")) > 0 then
+                                                 result = result + 0.01*  cdbl(RS_OrderTotal("Total")) *  discountvalue 
+                               
+                                            end if
+                                        end if
+                                        RS_OrderTotal.movenext()
+                                    wend
+                                       RS_OrderTotal.close()
+                                       set RS_OrderTotal = nothing   
+                            end if
+                          CalculateSubtotalWithDiscount =   result
+                        end function 
+                        dim discountValueDisCat : discountValueDisCat = -1
+                        if discountcodeused <>"" then                                       
+                                Dim objRdsV,ListIncludeID,IncludeDishes_Categories
+                            Set objRdsV = Server.CreateObject("ADODB.Recordset") 
+                                objRdsV.Open "SELECT ListID,IncludeDishes_Categories FROM vouchercodes  with(nolock)  where IdBusinessDetail=" & vRestaurantId & " and vouchercode='" & vouchercode & "'", objCon, 1, 3 
+                            if not objRdsV.eof then
+                                    ListIncludeID = objRdsV("ListID")
+                                    IncludeDishes_Categories = objRdsV("IncludeDishes_Categories")
+                            end if
+                                if (IncludeDishes_Categories = "Dishes" or IncludeDishes_Categories = "Categories") and ListIncludeID & "" <> ""  then
+                                    discountValueDisCat  = CalculateSubtotalWithDiscount(vOrderId,abs(Replace(discountcodeused,"%","")),IncludeDishes_Categories,ListIncludeID)                         
+                                end if
+                                  if VoucherDiscontType = "Amount" then  
+                                        discountValueDisCat = abs(Replace(discountcodeused,"%",""))
+                                    end if 
+                            objRdsV.close()
+                            set objRdsV = nothing
+                                %>
 
-							<%if discountcodeused<>"" then%>
+							
 		<tr>
-            <td style="padding-top: 5px; border-top: 1px dotted black;"><b>Voucher</b><br /><%=vouchercode %>(<%=discountcodeused%>) </td>
+            <td style="padding-top: 5px; border-top: 1px dotted black;"><b>Voucher</b><br /><%=vouchercode %><%if  VoucherDiscontType & "" <> "Amount" then%>(<%=discountcodeused%>)<%end if %> </td>
             <td style="padding-top: 5px; border-top: 1px dotted black;text-align: right;padding-right: 20px;">
-			
-			
-			<span id="voucher">-<%=CURRENCYSYMBOL%><%= FormatNumber((( vOrderSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(discountcodeused,"-",""),"%","")," ",""))) - vOrderSubTotal ),2) %> </span>
-                
+			<%  if VoucherDiscontType = "Amount" then  %>
+                    <span id="voucher">-<%=CURRENCYSYMBOL%><%= FormatNumber(discountValueDisCat,2) %></span>
+                <%else %>
+			        <% if discountValueDisCat >= 0 then  %>
+                        <span id="voucher">-<%=CURRENCYSYMBOL%><%= FormatNumber(discountValueDisCat,2) %></span>
+                    <%else %>
+			            <span id="voucher">-<%=CURRENCYSYMBOL%><%= FormatNumber((( vOrderSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(discountcodeused,"-",""),"%","")," ",""))) - vOrderSubTotal ),2) %> </span>
+                     <%end if %> 
+             <%end if %> 
             </td>
             <td style="padding-top: 5px; border-top: 1px dotted black;">&nbsp;</td>
         </tr>
-		<%end if%>
+		<%end if
+                 objCon.Close
+                    set objCon  = nothing
+            %>
         
         
                          <tr>
@@ -490,7 +536,104 @@ else{e.value="no";location.reload();}
                             </tr> 
                         <% end if %>
                          <% if cdbl(TipAmount) > 0 then %>
-                              <script type="text/javascript">
+                              
+                                   <% function WriteCheck(byval value1, byval value2)
+                                        dim result : result = "" 
+                                        if value1 & "" = value2 & ""  then
+                                            result = "selected"
+                                        end if
+                                        WriteCheck = result
+                                    end function
+                             %>
+                             <tr>
+                                <td style="padding-top: 5px;">Tip<select  id="tip_custom" style="display:none;margin-left:10px;width:80px;" onchange="ChangeTip(this);">
+                                                                     <%  dim x
+                                                                        for x = 1 to 25 
+                                                                        if x mod 5 = 0 then
+                                                                         %>
+                                                                        <option <%=WriteCheck(x,Tip_Rate) %> value="<%=x %>" style="font-weight:bold"><%=x %>%</option>
+                                                                        <% else %>
+                                                                        <option <%=WriteCheck(x,Tip_Rate) %> value="<%=x %>"><%=x %>%</option>
+                                                                        <% end if %>
+                                                                     <%next %>    
+                                                                    <option <%=WriteCheck("custom",Tip_Rate) %> value="custom">custom</option>
+                                                                 </select>
+                                    <% if Tip_Rate = "custom" then %>
+                                     <input type="text" id ="tip_value" value="<%=FormatNumber(TipAmount, 2) %>" style="display:none;width:50px;"/>
+                                    <%else %>
+                                    <input type="text" readonly="readonly" id ="tip_value" value="<%=FormatNumber(TipAmount, 2) %>" style="display:none;width:70px;"/>
+                                    <% end if %>
+                                    <span style="text-decoration:underline;color:blue;cursor:pointer;" id="tip_edit" onclick="edit();">Edit</span>
+                                    <span style="text-decoration:underline;color:blue;cursor:pointer;display:none;" id="tip_update" onclick="UpdateTip();">Update</span></td>
+                                <td style="padding-top: 5px; padding-right: 20px; text-align: right;" id="lbTipmount"><%=CURRENCYSYMBOL%><%= FormatNumber(TipAmount, 2)  %></td>
+                                <td style="padding-top: 5px;">&nbsp;</td>
+                            </tr>  
+                        <% end if %>
+                        <tr>
+                            <td style="padding-top: 5px;"><b>Total</b></td>
+                            <td style="padding-top: 5px; padding-right: 20px; text-align: right;"><%=CURRENCYSYMBOL%><b><%= FormatNumber(vOrderTotal, 2)  %></b></td>
+                            <td style="padding-top: 5px;">&nbsp;</td>
+                        </tr>    
+                    <tr><td colspan="3" style="text-align:center;"><br /><br /><br /></td></tr>
+                            </table>
+                     <table style="width:100%">
+
+                          <tr>
+                            <td colspan="3">
+
+                                <div id="divVoucherCode" style="padding:0px 8px 15px 8px;">
+                                     <button type="button" class="btn btn-xs btn-block" id="vouchercodeshow" style="background-color:#eeeeee;color:#7d7c7c  ;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Voucher Code</button>
+	                                <button type="button" class="btn  btn-xs btn-block" id="vouchercodehide"  style="display:none;background-color: #eeeeee;color:#7d7c7c  ;"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Close</button>	
+                                    <div class="panel panel-default" style="display:none;" id="divVoucherCode1" >
+                                        <div class="panel-body">           
+						                                <div class="row">
+                                  <div class="col-xs-7">
+                                    <label class="sr-only" for="vouchercode">Enter Code</label>
+                                    <input type="text" class="form-control noSubmit" id="vouchercode" name="vouchercode" placeholder="Enter code">
+                                  </div> <div class="col-xs-3">
+  
+   
+  
+                                   <input  class="btn btn-default" type="button" onclick="VoucherCode();" value="Submit"/>
+                                 </div>
+ 
+                                 <div class="col-xs-1">&nbsp;</div>
+ 
+              
+                                                    </div>
+                                    </div>
+                                    <div id="divVoucherCodeAlert" style="margin: 1px auto;text-align: center;color:red;"> </div>
+                                 </div>
+                                        </div>
+                            </td>    
+                        </tr>
+                     </table>
+                     <table style="width: 100%">    
+                         <tr>
+                            <td colspan="3"><div class="control-group col-sm-12 col-md-12" style="padding-left:0px;padding-right:0px;padding-top:15px;padding-bottom:15px;">
+
+
+<br>
+<a href="javascript:window.history.back();" name="payment_type" value="nochex" class="btn btn-primary col-md-12" style="width: 180px; padding: 8px;float:none;"><span class="
+glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
+<br><br>
+
+
+                    <label class="control-label" for="Special">Special Instructions</label>
+                    <div class="controls">
+                        <textarea id="Special" name="Special" rows="4" class="form-control" ><%=Request.Form("Special")%></textarea>
+                    </div>
+                </div> </td>    
+                        </tr>
+                            <tr><td colspan="3" style="text-align:center;"><br /><br /><br /></td></tr>
+                    </table>
+          
+                <%
+                End If
+                %>  
+            </fieldset>
+		    </div>	
+           <script type="text/javascript">
                                   function IsInvalidTip(str)
                                   {
                                       var patt = new RegExp(/^(\d*\.)?\d+$/);
@@ -540,77 +683,34 @@ else{e.value="no";location.reload();}
                                     $("#tip_edit").hide();
                                     $("#tip_update").show();
                                 }
+                                $("#vouchercodeshow").click(function(){
+                                    $("#divVoucherCode1").show();
+                                    $("#vouchercodeshow").hide();
+                                    $("#vouchercodehide").show();
+                                });
+
+                                $("#vouchercodehide").click(function(){
+                                    $("#divVoucherCode1").hide();
+                                    $("#vouchercodeshow").show();
+                                    $("#vouchercodehide").hide();
+                                });
+                                $(function(){
+                                    $("input.noSubmit").keypress(function(e){
+                                        var k=e.keyCode || e.which;
+                                        if(k==13){
+                                            e.preventDefault();
+                                        }
+                                    });
+                                });
+                                function VoucherCode() {
+                                    //$("#panel-item").load("<%=SITE_URL%>local/applydiscount.asp?id_r=<%= vRestaurantId %>&op=vouchercode&vouchercode=" + $('#vouchercode').val());
+                                   
+                                    $.ajax({url:"<%=SITE_URL%>local/applydiscount.asp?id_r=<%= vRestaurantId %>&o=<%=vOrderId%>&op=vouchercode&vouchercode=" + $('#vouchercode').val() , success: function(result){
+                                        $("#panel-item").html(result);
+                                    }});
+                                    return false;
+                                }
                             </script>
-                                   <% function WriteCheck(byval value1, byval value2)
-                                        dim result : result = "" 
-                                        if value1 & "" = value2 & ""  then
-                                            result = "selected"
-                                        end if
-                                        WriteCheck = result
-                                    end function
-                             %>
-                             <tr>
-                                <td style="padding-top: 5px;">Tip<select  id="tip_custom" style="display:none;margin-left:10px;width:80px;" onchange="ChangeTip(this);">
-                                                                     <%  dim x
-                                                                        for x = 1 to 25 
-                                                                        if x mod 5 = 0 then
-                                                                         %>
-                                                                        <option <%=WriteCheck(x,Tip_Rate) %> value="<%=x %>" style="font-weight:bold"><%=x %>%</option>
-                                                                        <% else %>
-                                                                        <option <%=WriteCheck(x,Tip_Rate) %> value="<%=x %>"><%=x %>%</option>
-                                                                        <% end if %>
-                                                                     <%next %>    
-                                                                    <option <%=WriteCheck("custom",Tip_Rate) %> value="custom">custom</option>
-                                                                 </select>
-                                    <% if Tip_Rate = "custom" then %>
-                                     <input type="text" id ="tip_value" value="<%=FormatNumber(TipAmount, 2) %>" style="display:none;width:50px;"/>
-                                    <%else %>
-                                    <input type="text" readonly="readonly" id ="tip_value" value="<%=FormatNumber(TipAmount, 2) %>" style="display:none;width:70px;"/>
-                                    <% end if %>
-                                    <span style="text-decoration:underline;color:blue;cursor:pointer;" id="tip_edit" onclick="edit();">Edit</span>
-                                    <span style="text-decoration:underline;color:blue;cursor:pointer;display:none;" id="tip_update" onclick="UpdateTip();">Update</span></td>
-                                <td style="padding-top: 5px; padding-right: 20px; text-align: right;" id="lbTipmount"><%=CURRENCYSYMBOL%><%= FormatNumber(TipAmount, 2)  %></td>
-                                <td style="padding-top: 5px;">&nbsp;</td>
-                            </tr>  
-                        <% end if %>
-                        <tr>
-                            <td style="padding-top: 5px;"><b>Total</b></td>
-                            <td style="padding-top: 5px; padding-right: 20px; text-align: right;"><%=CURRENCYSYMBOL%><b><%= FormatNumber(vOrderTotal, 2)  %></b></td>
-                            <td style="padding-top: 5px;">&nbsp;</td>
-                        </tr>    
-                           
-                        <tr>
-                            <td colspan="3"><div class="control-group col-sm-12 col-md-12" style="padding-left:0px;padding-right:0px;padding-top:15px;padding-bottom:15px;">
-
-
-<br>
-<a href="javascript:window.history.back();" name="payment_type" value="nochex" class="btn btn-primary col-md-12" style="width: 180px; padding: 8px;float:none;"><span class="
-glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
-<br><br>
-
-
-                    <label class="control-label" for="Special">Special Instructions</label>
-                    <div class="controls">
-                        <textarea id="Special" name="Special" rows="4" class="form-control" ><%=Request.Form("Special")%></textarea>
-                    </div>
-                </div> </td>    
-                        </tr>
-
-                        
-        <tr><td colspan="3" style="text-align:center;"><br /><br /><br />
-<!--
-<a href="javascript:window.history.back();" name="payment_type" value="nochex" class="btn btn-primary col-md-12" style="width: 180px; padding: 8px;float:none;"><span class="
-glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
--->
-</td></tr>
-                    </table>
-          
-                <%
-                End If
-                %>  
-            </fieldset>
-		    </div>	
-
            <div class="col-md-6" id="right-payment-button">
                <table width="100%">
                    <tr>

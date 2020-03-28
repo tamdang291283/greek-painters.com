@@ -631,6 +631,7 @@ else{e.value="no";location.reload();}
                     <label class="control-label" for="Email">Email Address *</label>
                     <div class="controls">
                         <input  id="Email" name="Email" class="form-control" required placeholder="Your Email Address" value="<%=EmailCustomer%>"  type="email" />
+                        <p id="hint"></p>
                     </div>
                 </div>
                 <div class="control-group">
@@ -642,7 +643,41 @@ else{e.value="no";location.reload();}
                 </div>
 
             </fieldset> 
-            			
+                        <!--<script type="text/javascript" src="<%=SITE_URL %>Scripts/jquery-1.11.0.min.js"></script>-->
+                        <script type="text/javascript" src="<%=SITE_URL %>Scripts/mailcheck.js"></script>
+            			<script type="text/javascript">
+            			    var email = jQuery('#Email');
+            			    var hint = jQuery("#hint"); 
+            			    email.on('blur',function() {
+            			        hint.css('display', 'none').empty(); // hide hint initially
+            			        jQuery(this).mailcheck({
+            			            suggested: function(element, suggestion) {
+            			                if(!hint.html()) {
+            			                    // misspell - display hint element
+            			                    var suggestion = "Did you mean <span class='suggestion'>" +
+                                               "<span class='address'>" + suggestion.address + "</span>"
+                                               + "@<a href='#' class='domain'>" + suggestion.domain +
+                                               "</a></span>?";
+ 
+            			                    hint.html(suggestion).fadeIn(150);
+            			                } else {
+            			                    // Subsequent errors
+            			                    jQuery(".address").html(suggestion.address);
+            			                    jQuery(".domain").html(suggestion.domain);
+            			                }
+            			            }
+            			        });
+            			    });
+ 
+            			    hint.on('click', '.domain', function() {
+            			        // Display with the suggestion and remove the hint
+            			        email.val(jQuery(".suggestion").text());
+            			        hint.fadeOut(200, function() {
+            			            jQuery(this).empty();
+            			        });
+            			        return false;
+            			    });
+            			</script>
                 <fieldset>
                 <legend>Your Address</legend>
                     <%
@@ -1369,17 +1404,18 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
         });
 
         $("#frmMakeOrder").removeAttr("novalidate");
+      
+
         // $("form").validate();
-        if (1 == 2) {
-        $("#frmMakeOrder").validate({
-            rules: {
-                Email: {
-                    required: true,
-                    email: true
-                }
-            }
-        });
-        }
+                $("#frmMakeOrder").validate({
+                    rules: {
+                        Email: {
+                            required: true,
+                            email: true
+                        }
+                    }
+                });
+        
 
         var isFormSubmitted = false;
         $("#frmMakeOrder").submit(function() {    
@@ -1398,7 +1434,11 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                     }
 
             if($("form").valid() ){
-                if(isFormSubmitted) return false;     
+                if(isFormSubmitted) return false;  
+                if($.trim( $("#hint").html()) !="") 
+                {   $("#Email").focus();
+                    return false;
+                }
                 return true;
             }
         });

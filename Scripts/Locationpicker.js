@@ -417,7 +417,7 @@ function AutocompleteFNC()
         }
 
         var tempStreetNumber1 = '', tempRouteName1 = '', tempLocalcity1 = '';
-
+        
         for (i = 0; i < place.address_components.length; i++) {
             if (place.address_components[i].types[0] == "postal_code") {
                 $("#hidPostCode").val(place.address_components[i].short_name);
@@ -502,7 +502,7 @@ function AutocompleteFNC()
 
 
                     curFormatAddress = results[0].formatted_address;
-
+                    var tempStreetNumber = '', tempRouteName = '', tempLocalcity = '';
                     for (i = 0; i < results[0].address_components.length; i++) {
                         if (results[0].address_components[i].types[0] == "postal_code") {
                             curPostCode = results[0].address_components[i].short_name;

@@ -112,7 +112,11 @@ objStream.Open
 	 
 '	 response.write  ";" & objRds("DeliveryTime") & ";"
     if objRds("vouchercode") & "" <> "" Then
-        objStream.WriteText "*Discount Amount%%" & "-" & FormatNumber((( objRds("SubTotal") * 100 )/(100- Cdbl(Replace(Replace(Replace(objRds("vouchercodediscount"),"-",""),"%","")," ",""))) -  objRds("SubTotal") ),2) & "*" 
+        if objRds("vouchercode") <> "Amount" then
+            objStream.WriteText "*Discount Amount%%" & "-" & FormatNumber((( objRds("SubTotal") * 100 )/(100- Cdbl(Replace(Replace(Replace(objRds("vouchercodediscount"),"-",""),"%","")," ",""))) -  objRds("SubTotal") ),2) & "*" 
+        else
+            objStream.WriteText "*Discount Amount%%" & "-" & FormatNumber(Cdbl(Replace(Replace(Replace(objRds("vouchercodediscount"),"-",""),"%","")," ",""))),2) & "*" 
+        end if
     End If
 	 objStream.WriteText "*" & objRds("ShippingFee") & "*"
 	 objStream.WriteText ";"

@@ -53,11 +53,13 @@
                     If FileMod = "-PN"  Then                                                                                        
                         s_filenameEPSON = rId & "-" & oId & "-" & Replace(printername,"PN:","") & "-" & i & FileMod 
                             iQuery = "TempPOID=" &  oId & "&id_r=" & rId & "&PrintJobId=" & s_filenameEPSON
+                            Response.Write(iQuery)
                             s_ContentBatchReceipt = PostRequestURL( replace(SITE_URL,"https","http") & "printers/epson/orders-epson_item.asp" ,iQuery)
                     ElseIf  FileMod = "-EN"  Then
                             FileMod = ""                                                   
                             s_filenameEPSON =  rId & "-" & oId & "-" & printername& "-" & i  & FileMod 
                             iQuery = "TempPOID=" &  oId & "&id_r=" & rId & "&PrintJobId=" & s_filenameEPSON                                                      
+                            Response.Write(iQuery)
                             s_ContentBatchReceipt =  PostRequestURL(replace(SITE_URL,"https","http") & "printers/epson/orders-epson_item.asp" ,iQuery)                                                        
                     End If
                 end if
@@ -133,8 +135,9 @@
                 DateCondition = split(datet,"/")(1) & "/" & split(datet,"/")(0) & "/" & split(datet,"/")(2)  & datetime
             end if
         SQL  = "Select top 1 ID from view_paid_orders where IdBusinessDetail= " & Request.QueryString("id_r")  & "  "
-        SQL = SQL & "  and printed = 0  order by orderdate" 
+        SQL = SQL & "  and printed = 0 and ID  =  31326 order by orderdate" 
 
+    
 
         objRds2.Open SQL, objCon2
          Dim isDualPrint
@@ -151,6 +154,7 @@
                     "inner join MenuItems mi with(nolock) on oi.MenuItemId = mi.Id ) " & _
                     "left join MenuItemProperties mip with(nolock) on oi.MenuItemPropertyId = mip.Id " & _
                     "where oi.OrderId = " & objRds2("ID")
+            
                  dim objRds3 :   Set objRds3 = Server.CreateObject("ADODB.Recordset") 
                  objRds3.Open SQL, objCon2
                 

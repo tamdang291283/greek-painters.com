@@ -489,7 +489,6 @@ CREATE TABLE [dbo].[BusinessDetails](
 	[Show_Ordernumner_Receipt] [nvarchar](255) NULL,
 	[Show_Ordernumner_Dashboard] [nvarchar](255) NULL,
 	[s_BannerURL] [nvarchar](1024) NULL,
-	[s_DeliveryZonesPath] [ntext] NULL,
  CONSTRAINT [PK_BusinessDetails] PRIMARY KEY CLUSTERED 
 (
 	[ID] ASC
@@ -507,7 +506,11 @@ CREATE TABLE [dbo].[vouchercodes](
 	[IdBusinessDetail] [int] NULL,
 	[MinimumAmount] [money] NULL,
 	[MenuItemID] [int] NULL,
-	[VoucherMainType] [nvarchar](255) NULL
+	[VoucherMainType] [nvarchar](255) NULL,
+	[ApplyTo] [nvarchar](16) NULL,
+	[ListID] [nvarchar](2048) NULL,
+	[IncludeDishes_Categories] [nvarchar](64) NULL,
+	[IncludeDelivery_Collection] [nvarchar](64) NULL
 ) ON [PRIMARY]
 
 [GO]

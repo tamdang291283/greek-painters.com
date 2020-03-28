@@ -140,6 +140,9 @@
     end if
    ' CheckoutURL = "/checkout.asp?id_r=2"
     '' end 
+    ' Task 267 
+    Dim s_IconApple,s_UrlApple,s_IconGoogle,s_UrlGoogle
+    ' end
     Dim sDayOfWeek
     Dim sHour
     Dim sIsOpen
@@ -271,6 +274,12 @@ Loop
     objRds2.close()
     set objRds2 = nothing
 end if
+     ' Task 267 
+     s_IconApple = objRds("s_IconApple") & ""
+     s_UrlApple  = objRds("s_UrlApple") & ""
+     s_IconGoogle = objRds("s_IconGoogle") & ""
+     s_UrlGoogle = objRds("s_UrlGoogle") & ""
+    ' end
     EnableAllergen = objRds("EnableAllergen") & ""
     EnableSuitableFor = objRds("EnableSuitableFor") & ""
     if EnableAllergen = "" then
@@ -423,7 +432,7 @@ end if
   
   <link rel="dns-prefetch" href="<%=SITE_URL %>">
   
-
+   
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
     <script src="Scripts/html5shiv.js"></script>
@@ -435,7 +444,37 @@ end if
  
 
 <meta name="apple-mobile-web-app-title" content="<%= objRds("Name")%>">
-
+ <% dim platform : platform = ""
+     if (  s_IconApple & "" <> "" and s_UrlApple <> "" ) or (s_IconGoogle & "" <> "" and s_UrlGoogle <> "") then %>
+    <!-- Start SmartBanner configuration -->
+<meta name="smartbanner:title" content="<%=objRds("Name") %>">
+<meta name="smartbanner:author" content="Order Your Food Online">
+<meta name="smartbanner:price" content="FREE">
+<meta name="smartbanner:price-suffix-apple" content=" - On the App Store">
+<meta name="smartbanner:price-suffix-google" content=" - In Google Play">
+    <% if s_IconApple & "" <> "" and s_UrlApple <> "" then
+        platform="ios"
+         %>
+<meta name="smartbanner:icon-apple" content="<%=s_IconApple %>">
+<meta name="smartbanner:button-url-apple" content="<%=s_UrlApple %>">
+    <% end if %>
+<meta name="smartbanner:button" content="VIEW">
+    <% if s_IconGoogle & "" <> "" and s_UrlGoogle <> "" then
+        if platform = "" then
+            platform ="android"
+        else
+            platform = platform & ",android"
+        end if
+         %>
+<meta name="smartbanner:icon-google" content="<%=s_IconGoogle %>">
+<meta name="smartbanner:button-url-google" content="<%=s_UrlGoogle %>">
+    <% end if %>
+<meta name="smartbanner:enabled-platforms" content="<%=platform %>">
+<meta name="smartbanner:close-label" content="Close">
+<link rel="stylesheet" href="<%=SITE_URL %>css/smartbanner.css">
+<script src="<%=SITE_URL %>Scripts/smartbanner.js"></script>
+<!-- End SmartBanner configuration -->
+    <%end if %>
 <% If ADDTOHOMESCREENURL & "" <> "" Then %>
 <link rel="apple-touch-icon-precomposed" sizes="152x152" href="<%=ADDTOHOMESCREENURL %>">
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%=ADDTOHOMESCREENURL %>">
@@ -510,6 +549,7 @@ end if
 
 
     <link href="<%=SITE_URL %>css/bootstrap.css" rel="stylesheet">
+    
     <link href="stylesheet" href="<%=SITE_URL %>css/bootstrap-select.css">
 	<link href="<%=SITE_URL %>css/style.css?v=1.7" rel="stylesheet">	
     <link href="<%=SITE_URL %>css/product_test.css?v=1.9" rel="stylesheet">
@@ -757,6 +797,7 @@ text-align: right;
 
 
     
+    
 function scrollToV2(id)
 {
     console.log("ID " + id);
@@ -799,9 +840,6 @@ $('#rightaffix').removeData('bs.affix').removeClass('affix affix-top affix-botto
 } else {_scrollTopHeight = 277}
       
 });
-
-
-
 
 
 $('.movedown').click(function(e){
@@ -1183,11 +1221,7 @@ max-width: 154.3px;
 }
 }
 
-@media (max-width: 767px) {
-  .dishproperties__heading {
-    padding-top:15px;
-  }
-}
+
         </style>
 	<div class="row clearfix">
 		<div class="col-md-2" id="categories">		
@@ -1521,8 +1555,16 @@ max-width: 154.3px;
                                             <% end if %>
 
 
-                                            <%If Spicyness> 0 Then %>
-                                                <img src="<%=SITE_URL %>Images/spicy_<%= Spicyness %>.png" alt="spicy"  />
+                                            <%
+                                                dim spicytitle  : spicytitle = "Mildly Spicy" 
+                                                
+                                                if Spicyness = 2  then
+                                                    spicytitle = "Spicy" 
+                                                elseif Spicyness = 3  then
+                                                    spicytitle = "Very Spicy" 
+                                                end if
+                                                If Spicyness> 0 Then %>
+                                                <img src="<%=SITE_URL %>Images/spicy_<%= Spicyness %>.png?v=1.1"  height="17" alt="<%=spicytitle %>" title="<%=spicytitle %>"  data-container="body" data-toggle="tooltip"  />
                                             <%End If %><br />
                                             <% if MenuDescription & "" <> "" then %>
                                                 <i><span class="small"><%= MenuDescription %></span></i>
@@ -2387,10 +2429,12 @@ max-width: 154.3px;
 		
 	
 
-    function Del(itemId) {
-	
+    function Delc(itemId) {	
         $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&id=" + itemId);
-
+    }
+    function Del(itemId,qty)
+    {
+        $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&qty="+qty+"&id=" + itemId);
     }
 		
     function Showdishproperties(itemtoshow) {
@@ -3362,6 +3406,20 @@ max-width: 154.3px;
             return false;
         }   
         var delivery_type  = $("input[name='orderTypePicker']:checked").val();
+        // check valid Item
+        var checkApplyto =  true;
+        $("[name=menuapplyto]").each(function(){
+            if($(this).val() !="b" && $(this).val() != delivery_type)
+                checkApplyto = false;
+        });
+        if(checkApplyto==false && delivery_type !="")
+        {   var delivery_typeText = "Delivery";
+            if(delivery_type =="c")
+                delivery_typeText = "Collection";
+            alert("Some of the selected items are not allowed for the order type " + delivery_typeText );
+            return false;
+        }
+        // end 
         var AcceptFor = 0;
         var offsetmins,offsetmins2;
         if (delivery_type == 'd') {
@@ -4851,6 +4909,14 @@ width: calc(100% - 20px);
 .glyphicon-filtered {
     color: orange!important;
     border: 1px dotted;
+}
+@media (max-width: 767px) {
+  .dishproperties__heading {
+    padding-top:15px;
+  }
+}
+.dropdown-menu > li > a:focus {
+    outline: 0;
 }
     </style>
               

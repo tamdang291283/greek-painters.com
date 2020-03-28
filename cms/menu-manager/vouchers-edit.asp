@@ -62,7 +62,7 @@ End Function
         dim index : index = 0
         dim arrValue : arrValue = split(svalue,",")
         for index = 0 to ubound(arrValue)
-            if  trim(arrValue(index) & "") <> ""  then
+            if  trim(arrValue(index) & "") <> ""  and lcase(trim(arrValue(index) & "")) <> "on"   then
                 result = result & trim(arrValue(index) & "")  & ","
             end if
         next 
@@ -74,11 +74,11 @@ End Function
   
     dim VoucherMainType : VoucherMainType =  Request.Form("VoucherMainType")
     dim ListID : ListID = ""
-    if VoucherMainType & "" <> "Dishes" and VoucherMainType & "" <> "Categories" then
-        ApplyTo = "Both"
-    elseif VoucherMainType = "Dishes" then
+     dim IncludeDishes_Categories : IncludeDishes_Categories  = Request.Form("IncludeDishes_Categories")
+    dim IncludeDelivery_Collection : IncludeDelivery_Collection = Request.Form("IncludeDelivery_Collection")
+    if IncludeDishes_Categories = "Dishes" then
         ListID = FormatValue(Request.Form("selectedDishes"))
-    elseif VoucherMainType = "Categories" then
+    elseif IncludeDishes_Categories = "Categories" then
         ListID = FormatValue(Request.Form("selectedCategories"))
     end if
 	
@@ -90,10 +90,10 @@ If (CStr(Request("MM_update")) = "form1") Then
 
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    MM_editCmd.CommandText = "UPDATE vouchercodes SET [vouchercode] = ?,[vouchercodediscount] = ?,[vouchertype] = ?,[startdate] = convert(varchar(10), ?, 105) ,[enddate] =convert(varchar(10), ?, 105) , [minimumamount] = ?,MenuItemID=?,VoucherMainType=?,ApplyTo=?,ListID=?  WHERE ID = ?" 
+    MM_editCmd.CommandText = "UPDATE vouchercodes SET [vouchercode] = ?,[vouchercodediscount] = ?,[vouchertype] = ?,[startdate] = convert(varchar(10), ?, 105) ,[enddate] =convert(varchar(10), ?, 105) , [minimumamount] = ?,MenuItemID=?,VoucherMainType=?,ApplyTo=?,ListID=?,IncludeDishes_Categories=?,IncludeDelivery_Collection=?  WHERE ID = ?" 
     MM_editCmd.Prepared = true
  
-	 MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, Request.Form("vouchercode")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, Request.Form("vouchercode")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 255, MM_IIF(Request.Form("vouchercodediscount"), Request.Form("vouchercodediscount"), null))
 
 	
@@ -111,6 +111,9 @@ If (CStr(Request("MM_update")) = "form1") Then
 
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param10", 202, 1, 255,  MM_IIF(ApplyTo, ApplyTo, "")) 	
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param11", 202, 1, 255,ListID ) ' adVarWChar
+
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param10", 202, 1, 255,  MM_IIF(IncludeDishes_Categories, IncludeDishes_Categories, "")) 	
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param11", 202, 1, 255,IncludeDelivery_Collection ) ' adVarWChar
 
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 5, 1, -1, MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)) ' adDouble
     
@@ -275,195 +278,17 @@ Recordset1_numRows = 0
     <label for="vouchertype">Discount</label><br/>
 	<input type="radio" name="VoucherMainType" value="Percentage" <%if VoucherMainType="Percentage" then%>checked<%end if%>  onclick="selectMainType();"> Percentage&nbsp;&nbsp;
     <input type="radio" name="VoucherMainType" value="Product" <%if VoucherMainType="Product" then%>checked<%end if%> onclick="selectMainType();"> Product   (ie. free dish)
-    <input type="radio" name="VoucherMainType" value="Dishes" <%if VoucherMainType="Dishes" then%>checked<%end if%>  onclick="selectMainType();"> Dishes 
-    <input type="radio" name="VoucherMainType" value="Categories" <%if VoucherMainType="Categories" then%>checked<%end if%>  onclick="selectMainType();"> Categories   
+        <input type="radio" name="VoucherMainType" value="Amount" <%if VoucherMainType="Amount" then%>checked<%end if%> onclick="selectMainType();"> Amount
+    
+        
   </div>
 
    <div class="form-group" style="margin-left:30px;" id="divpercentage">
-    <label for="vouchercodediscount">Percentage</label>
-	<p>Enter the percentage discount offered when using this voucher.</p>
+    <label for="vouchercodediscount" id="DiscountTypeText">Percentage</label>
+	<p id="DiscountTypeTextp">Enter the percentage discount offered when using this voucher.</p>
     <input type="text" pattern="\d+"  title="Discount (%) must be number" class="form-control" id="vouchercodediscount" name="vouchercodediscount" value="<%=Recordset1.Fields.Item("vouchercodediscount").Value %>" required>
   </div>
-                  <%
-        dim objCon2,objRds2 ,SQL
-        Set objCon2 = Server.CreateObject("ADODB.Connection")
-        objCon2.Open sConnStringcms   
-        dim rs_category : set rs_category = Server.CreateObject("ADODB.Recordset")
-            rs_category.Open "SELECT ID,Name,displayorder FROM menucategories where IdBusinessDetail=" &  Session("MM_id") & " order by displayorder" , objCon2 
-
-    %>
- <div class="form-group" style="display:none;" id="divApplyto">
-    <label for="applyto">Apply to</label><br/>
-	<input type="radio" name="ApplyTo"  <%if ApplyTo="Online" then%>checked<%end if%>  value="Online"> Online&nbsp;&nbsp;
-    <input type="radio" name="ApplyTo"  <%if ApplyTo="Local" then%>checked<%end if%>  value="Local"> Local&nbsp;&nbsp;
-    <input type="radio" name="ApplyTo"  <%if ApplyTo="Both" then%>checked<%end if%>  value="Both"> Both 
- 
-  </div>
-
-  <div class="form-group" style="margin-left:30px;display:none;" id="divCategories">
-    <label for="vouchercodediscount">Categories</label>
-	<p>Select Categories for discount</p>
-     <% if not rs_category.EOF then %>  
-      <ul id="treeList" class="treeList">  
-    <li>   
-        <div class="item"><span class="glyphicon glyphicon-minus" style="cursor:pointer;" onclick="parentclick(this, 'cateRoot')" ></span>
-            <input type="checkbox" name="selectedCategories"> Categories 
-        </div> 
-        <ul>  
-            <% 
-                dim scheck : scheck = "" 
-                if  VoucherMainType = "Categories" then
-                    scheck = "categories"
-                 end if
-                while not rs_category.EOF %>
-            <li>  
-                <div class="item"><span></span>
-                    <input type="checkbox" <%=WriteChecked(ListID,"," & rs_category("ID") & ",",scheck) %> value="<%=rs_category("ID") %>" name="selectedCategories"> <%=rs_category("Name") %>  
-                </div>
-            </li>  
-            <%
-                 rs_category.movenext()
-                wend
-                rs_category.movefirst()
-                 %>
-        </ul> 
-        <script type="text/javascript">
-            $('#treeList :checkbox').change(function () {
-                $(this).parent().siblings('ul').find(':checkbox').prop('checked', this.checked);
-                if (this.checked) {
-                    $(this).parentsUntil('#treeList', 'ul').siblings("div").find(':checkbox').prop('checked', true);
-                } else {
-                    $(this).parentsUntil('#treeList', 'ul').each(function () {
-                        var $this = $(this);
-                        var childSelected = $this.find(':checkbox:checked').length;
-                        if (!childSelected) {
-                            $this.prev(':checkbox').prop('checked', false);
-                        }
-                    });
-                }
-            });
-            $('#treeList :checkbox').each(function () {
                 
-                if (this.checked) {
-                    $(this).parentsUntil('#treeList', 'ul').siblings("div").find(':checkbox').prop('checked', true);
-                } else {
-                    $(this).parentsUntil('#treeList', 'ul').each(function () {
-                        var $this = $(this);
-                        var childSelected = $this.find(':checkbox:checked').length;
-                        if (!childSelected) {
-                            $this.prev(':checkbox').prop('checked', false);
-                        }
-                    });
-                }
-            });
-        </script>
-        <% end if
-          
-             %>
-  </div>
-
-   <div class="form-group" style="margin-left:30px;display:none;" id="divDishes">
-    <label for="vouchercodediscount">Dishes</label>
-	<p>Select Categories for discount</p>
-     <% if not rs_category.EOF then %>  
-      <ul id="treeListDishes" class="treeList" >  
-    <li>  
-        <div class="item"><span class="glyphicon glyphicon-minus"></span>
-            <input type="checkbox" name="selectedDishes" value=""> Categories  
-        </div>
-        <ul>  
-            <%
-                scheck = "" 
-                if  VoucherMainType = "Dishes" then
-                    scheck = "Dishes"
-                 end if
-
-                 while not rs_category.EOF %>
-            <li>  
-                 <div class="item"><span class="glyphicon glyphicon-plus" style="cursor:pointer;"  onclick="parentclick(this, 'cate<%=rs_category("id")%>')"></span>
-                    <input type="checkbox" value="" name="selectedDishes" onclick="parentclick(this, 'cate<%=rs_category("id")%>')"> <%=rs_category("Name") %>  
-                 </div>
-                 <% SQL = "SELECT id,name,i_displaysort FROM menuitems where IdMenuCategory=" & rs_category("id") & " and IdBusinessDetail=" & Session("MM_id") & " order by i_displaysort,id " 
-                    dim RS_Menu :  set RS_Menu = Server.CreateObject("ADODB.Recordset")
-                        RS_Menu.Open SQL , objCon2 
-                     if not RS_Menu.EOF then
-                 %> 
-                <ul id="cate<%=rs_category("id") %>" style="display:none;">  
-                    <% while not RS_Menu.EOF   %>
-                    <li>  
-                        <div class="item"><span></span>
-                            <input type="checkbox" <%=WriteChecked(ListID,"," & RS_Menu("id") & ",",scheck) %>  name="selectedDishes"  value="<%=RS_Menu("id") %>"><%=RS_Menu("name") %>
-                        </div>
-                    </li>  
-                    <%
-                        RS_Menu.movenext()
-                        wend
-                        RS_Menu.close()
-                        set RS_Menu = nothing
-                          %>
-                </ul>  
-                <%end if %>
-            </li>  
-            <%
-                 rs_category.movenext()
-                wend
-             
-                 %>
-        </ul> 
-        <script type="text/javascript">
-            function parentclick(obj, id) {
-
-
-                if ($(obj).attr("class").indexOf("plus") > -1) {
-                    $("#" + id).show();
-                    $(obj).attr("class", $(obj).attr("class").replace("plus", "minus"));
-                }
-                else {
-                    $("#" + id).hide();
-                    $(obj).attr("class", $(obj).attr("class").replace("minus", "plus"));
-                }
-
-
-
-            }
-            $('#treeListDishes :checkbox').change(function () {
-                $(this).parent().siblings('ul').find(':checkbox').prop('checked', this.checked);
-                if (this.checked) {
-                    $(this).parentsUntil('#treeListDishes', 'ul').siblings("div").find(':checkbox').prop('checked', true);
-                    $(this).parentsUntil('#treeListDishes', 'ul').show();
-                } else {
-                    $(this).parentsUntil('#treeListDishes', 'ul').each(function () {
-                        var $this = $(this);
-                        var childSelected = $this.find(':checkbox:checked').length;
-                        if (!childSelected) {
-                            $this.prev(':checkbox').prop('checked', false);
-
-                        }
-                    });
-                }
-            });
-            $('#treeListDishes :checkbox').each(function () {
-                if (this.checked) {
-                    $(this).parentsUntil('#treeListDishes', 'ul').siblings("div").find(':checkbox').prop('checked', true);
-                    $(this).parentsUntil('#treeListDishes', 'ul').siblings("div").find("span").attr("class", "glyphicon glyphicon-minus")
-                    $(this).parentsUntil('#treeListDishes', 'ul').show();
-                } else {
-                    $(this).parentsUntil('#treeListDishes', 'ul').each(function () {
-                        var $this = $(this);
-                        var childSelected = $this.find(':checkbox:checked').length;
-                        if (!childSelected) {
-                            $this.prev(':checkbox').prop('checked', false);
-
-                        }
-                    });
-                }
-            });
-        </script>
-        <% end if
-            rs_category.close()
-            set rs_category = nothing
-             %>
-  </div>
 
   <div class="form-group"  style="margin-left:30px;" id="divproduct"> 
       <label for="name">Product</label>      
@@ -471,7 +296,7 @@ Recordset1_numRows = 0
   <select name="drproduct" id="drproduct" title="Please choose product below." class="form-control" required>
       <option value="">Please select</option>
       <%
-      SQL = "SELECT  ID, Name  FROM menuitems where IdBusinessDetail=" & Session("MM_id")  & " and hidedish  = 1  " 
+      SQL = "SELECT  ID, Name  FROM menuitems with(nolock) where IdBusinessDetail=" & Session("MM_id")  & " and hidedish  = 1  " 
 
       Set objRds2 = Server.CreateObject("ADODB.Recordset") 
           objCon.Open sConnStringcms
@@ -533,9 +358,248 @@ Recordset1_numRows = 0
     <input type="text" pattern="\d+"  title="Minimum Amount must be number" class="form-control" id="minimumamount" name="minimumamount" value="<%=(Recordset1.Fields.Item("minimumamount").Value)%>" required>
   </div>
   
+    <%
+        dim objCon2,objRds2 ,SQL
+        Set objCon2 = Server.CreateObject("ADODB.Connection")
+        objCon2.Open sConnStringcms   
+        dim rs_category : set rs_category = Server.CreateObject("ADODB.Recordset")
+             
+            dim SQL_s : SQL_s = ""
+             SQL_s  =  "SELECT ID,Name,displayorder " 
+             SQL_s = SQL_s & " , ( select COUNT(ID) from Category_Openning_Time with(nolock) where CategoryID=mc.ID and status='ACTIVE' ) as dayactive " 
+             SQL_s = SQL_s & "  FROM menucategories mc with(nolock) where IdBusinessDetail=" &  Session("MM_id") & " order by displayorder "  
+           '  Response.Write(SQL_s)
+            rs_category.Open SQL_s, objCon2 
+
+    %>
+ <div class="form-group"  id="divApplyto">
+    <label for="applyto">Apply to</label><br/>
+	<input type="radio" name="ApplyTo"  <%if ApplyTo="Both" then%>checked<%end if%>  value="Both" onclick="selectapplyto();"> Both&nbsp;&nbsp; 
+     <input type="radio" name="ApplyTo"  <%if ApplyTo="Online" then%>checked<%end if%>  value="Online" onclick="selectapplyto();"> Online&nbsp;&nbsp;
+    <input type="radio" name="ApplyTo"  <%if ApplyTo="Local" then%>checked<%end if%>  value="Local" onclick="selectapplyto();"> Local
+    
+ 
+  </div>
+                <%
+                    IncludeDishes_Categories  = Recordset1.Fields.Item("IncludeDishes_Categories").Value & "" 
+                     %>
+  <div class="form-group"  id="divIncludeDishes_Categories">
+            <label for="vouchertype">Include Dishes, Categories</label><br/>
+           <input type="radio" name="IncludeDishes_Categories"  <%if IncludeDishes_Categories="" then%>checked<%end if%> value="" onclick="selectDishesCategories();"> All &nbsp; 
+            <input type="radio" name="IncludeDishes_Categories"  <%if IncludeDishes_Categories="Dishes" then%>checked<%end if%> value="Dishes" onclick="selectDishesCategories();"> Dishes&nbsp; 
+           <input type="radio" name="IncludeDishes_Categories"  <%if IncludeDishes_Categories="Categories" then%>checked<%end if%> value="Categories" onclick="selectDishesCategories();"> Categories   
+     </div>
+  <div class="form-group" style="margin-left:30px;display:none;" id="divCategories">
+    <label for="vouchercodediscount">Categories</label>
+	<p>Select Categories for discount</p>
+     <% if not rs_category.EOF then %>  
+      <ul id="treeList" class="treeList">  
+    <li>   
+        <div class="item"><span class="glyphicon glyphicon-minus" style="cursor:pointer;" onclick="parentclick(this, 'cateRoot')" ></span>
+            <input type="checkbox" name="selectedCategories"> Categories 
+        </div> 
+        <ul id="cateRoot">  
+            <% 
+                dim scheck : scheck = "" 
+                if  IncludeDishes_Categories = "Categories" then
+                    scheck = "categories"
+                 end if
+                dim TextHidden : TextHidden ="Hidden"
+                dim sDisplay : sDisplay ="display:none"
+                while not rs_category.EOF
+                     TextHidden ="Hidden"
+                    sDisplay ="display:none"
+                 if  cint( rs_category("dayactive") & "") >  0 and  cint( rs_category("dayactive") & "") < 7 then
+                        TextHidden = "Part-Hidden" 
+                        sDisplay = ""
+                 elseif  cint( rs_category("dayactive") & "") = 0 then
+                        TextHidden ="Hidden"
+                        sDisplay = ""
+                 end if
+                 %>
+            <li>  
+                <div class="item"><span></span>
+                    <input type="checkbox" <%=WriteChecked(ListID,"," & rs_category("ID") & ",",scheck) %> value="<%=rs_category("ID") %>" name="selectedCategories"> <%=rs_category("Name") %>  
+                    <label class="label label-warning" style="<%=sDisplay%>" id="lb1<%=rs_category("id") %>"><%=TextHidden %></label>
+                </div>
+            </li>  
+            <%
+                 rs_category.movenext()
+                wend
+                rs_category.movefirst()
+                 %>
+        </ul> 
+        <script type="text/javascript">
+            $('#treeList :checkbox').change(function () {
+                $(this).parent().siblings('ul').find(':checkbox').prop('checked', this.checked);
+                if (this.checked) {
+                    $(this).parentsUntil('#treeList', 'ul').siblings("div").find(':checkbox').prop('checked', true);
+                } else {
+                    $(this).parentsUntil('#treeList', 'ul').each(function () {
+                        var $this = $(this);
+                        var childSelected = $this.find(':checkbox:checked').length;
+                        if (!childSelected) {
+                            $this.prev(':checkbox').prop('checked', false);
+                        }
+                    });
+                }
+            });
+            $('#treeList :checkbox').each(function () {
+                
+                if (this.checked) {
+                    $(this).parentsUntil('#treeList', 'ul').siblings("div").find(':checkbox').prop('checked', true);
+                } else {
+                    $(this).parentsUntil('#treeList', 'ul').each(function () {
+                        var $this = $(this);
+                        var childSelected = $this.find(':checkbox:checked').length;
+                        if (!childSelected) {
+                            $this.prev(':checkbox').prop('checked', false);
+                        }
+                    });
+                }
+            });
+        </script>
+        <% end if
+          
+             %>
+  </div>
+
+   <div class="form-group" style="margin-left:30px;display:none;" id="divDishes">
+    <label for="vouchercodediscount">Dishes</label>
+	<p>Select Categories for discount</p>
+     <% if not rs_category.EOF then %>  
+      <ul id="treeListDishes" class="treeList" >  
+    <li>  
+        <div class="item"><span class="glyphicon glyphicon-minus"  onclick="parentclick(this, 'cateRoot1')" ></span>
+            <input type="checkbox" name="selectedDishes" value=""> Categories  
+        </div>
+        <ul id="cateRoot1">  
+            <%
+                scheck = "" 
+                if  IncludeDishes_Categories = "Dishes" then
+                    scheck = "Dishes"
+                 end if
+
+                 while not rs_category.EOF
+                            TextHidden ="Hidden"
+                            sDisplay ="display:none"
+                         if  cint( rs_category("dayactive") & "") >  0 and  cint( rs_category("dayactive") & "") < 7 then
+                                TextHidden = "Part-Hidden" 
+                                sDisplay = ""
+                         elseif  cint( rs_category("dayactive") & "") = 0 then
+                                TextHidden ="Hidden"
+                                sDisplay = ""
+                         end if
+                 %>
+            <li>  
+                 <div class="item"><span class="glyphicon glyphicon-plus" style="cursor:pointer;"  onclick="parentclick(this, 'cate<%=rs_category("id")%>')"></span>
+                    <input type="checkbox" value="" name="selectedDishes" onclick="parentclick(this, 'cate<%=rs_category("id")%>')"> <%=rs_category("Name") %>  
+                     <label class="label label-warning" style="<%=sDisplay%>" id="lb<%=rs_category("id") %>"><%=TextHidden %></label>
+                 </div>
+                 <% SQL = "SELECT id,name,i_displaysort,hidedish FROM menuitems with(nolock) where IdMenuCategory=" & rs_category("id") & " and IdBusinessDetail=" & Session("MM_id") & " order by i_displaysort,id " 
+                    dim RS_Menu :  set RS_Menu = Server.CreateObject("ADODB.Recordset")
+                        RS_Menu.Open SQL , objCon2 
+                     if not RS_Menu.EOF then
+                 %> 
+                <ul id="cate<%=rs_category("id") %>" style="display:none;">  
+                    <%  dim isHideDish : isHideDish =  false
+                        while not RS_Menu.EOF   %>
+                    <li>  
+                        <div class="item"><span></span>
+                            <input type="checkbox" <%=WriteChecked(ListID,"," & RS_Menu("id") & ",",scheck) %>  name="selectedDishes"  value="<%=RS_Menu("id") %>"><%=RS_Menu("name") %>
+                                  <%if RS_Menu("hidedish")=1 then
+                                     ' isHideDish =  true
+                                      %>
+                                        &nbsp;<label class="label label-warning">Hidden</label>
+                                  <%end if%>
+                        </div>
+                    </li>  
+                    <%
+                        RS_Menu.movenext()
+                        wend
+                        RS_Menu.close()
+                        set RS_Menu = nothing
+                            if isHideDish = true then
+                            %>
+                                 <script type="text/javascript">
+                                     $('#lb<%=rs_category("id") %>').show();
+                                     $('#lb1<%=rs_category("id") %>').show();
+                                 </script>
+                            <%
+                            end if
+                          %>
+                </ul>  
+                <%end if %>
+            </li>  
+            <%
+                 rs_category.movenext()
+                wend
+             
+                 %>
+        </ul> 
+        <script type="text/javascript">
+            function parentclick(obj, id) {
+                if ($(obj).attr("class").indexOf("plus") > -1) {
+                    $("#" + id).slideDown("slow", function () {
+                        $(obj).attr("class", $(obj).attr("class").replace("plus", "minus"));
+                    });
+                    
+                }
+                else {
+                    $("#" + id).slideUp("slow", function () {
+                        $(obj).attr("class", $(obj).attr("class").replace("minus", "plus"));
+                    });                    
+                }
+            }
+            $('#treeListDishes :checkbox').change(function () {
+                $(this).parent().siblings('ul').find(':checkbox').prop('checked', this.checked);
+                if (this.checked) {
+                    $(this).parentsUntil('#treeListDishes', 'ul').siblings("div").find(':checkbox').prop('checked', true);
+                    $(this).parentsUntil('#treeListDishes', 'ul').show();
+                } else {
+                    $(this).parentsUntil('#treeListDishes', 'ul').each(function () {
+                        var $this = $(this);
+                        var childSelected = $this.find(':checkbox:checked').length;
+                        if (!childSelected) {
+                            $this.prev(':checkbox').prop('checked', false);
+
+                        }
+                    });
+                }
+            });
+            $('#treeListDishes :checkbox').each(function () {
+                if (this.checked) {
+                    $(this).parentsUntil('#treeListDishes', 'ul').siblings("div").find(':checkbox').prop('checked', true);
+                    $(this).parentsUntil('#treeListDishes', 'ul').siblings("div").find("span").attr("class", "glyphicon glyphicon-minus")
+                    $(this).parentsUntil('#treeListDishes', 'ul').show();
+                } else {
+                    $(this).parentsUntil('#treeListDishes', 'ul').each(function () {
+                        var $this = $(this);
+                        var childSelected = $this.find(':checkbox:checked').length;
+                        if (!childSelected) {
+                            $this.prev(':checkbox').prop('checked', false);
+
+                        }
+                    });
+                }
+            });
+        </script>
+        <% end if
+            rs_category.close()
+            set rs_category = nothing
+             %>
+  </div>
+  <% IncludeDelivery_Collection  = Recordset1.Fields.Item("IncludeDelivery_Collection").Value & "" 
+     
+      
+       %>
   
-  
-  
+   <div class="form-group" id="divIncludeDelivery_Collection">
+        <label for="vouchertype">Include Delivery, Collection</label><br/>
+           <input type="radio" name="IncludeDelivery_Collection" <%if IncludeDelivery_Collection="" then%>checked<%end if%>  value=""> All &nbsp; 
+            <input type="radio" name="IncludeDelivery_Collection" <%if IncludeDelivery_Collection="Delivery" then%>checked<%end if%>  value="Delivery"> Delivery&nbsp; 
+           <input type="radio" name="IncludeDelivery_Collection" <%if IncludeDelivery_Collection="Collection" then%>checked<%end if%>  value="Collection"> Collection   
+     </div>
   
   
   
@@ -564,43 +628,67 @@ Recordset1_numRows = 0
 
 
      <script type="text/javascript">
+         function selectapplyto()
+         {
+             var val = $("[name=ApplyTo]:checked").val();
+             if (val == "Local") {
+                 $("[name=IncludeDelivery_Collection]").each(function () {
+                     if ($(this).val() != "Collection") {
+                         $(this).attr('disabled', 'disabled');
+                     } else {
+                         $('[name=IncludeDelivery_Collection][value="Collection"]').prop('checked', true);
+                     }
+                 });
+         
+             } else {
+                 $("[name=IncludeDelivery_Collection]").each(function () {                    
+                         $(this).removeAttr('disabled');                     
+                 });
+               //  $('[name=IncludeDelivery_Collection][value=""]').prop('checked', true);
+             }
+         }
+         function selectDishesCategories() {
+             if ($("[name=IncludeDishes_Categories]:checked").val() == "") {
+                 $("#divDishes").hide();
+                 $("#divCategories").hide();
+             }
+             else if ($("[name=IncludeDishes_Categories]:checked").val() == "Dishes") {
+                 $("#divDishes").show();
+                 $("#divCategories").hide();
 
+             }
+             else if ($("[name=IncludeDishes_Categories]:checked").val() == "Categories") {
+                 $("#divDishes").hide();
+                 $("#divCategories").show();
+
+             }
+
+         }
          function selectMainType()
          {
-            if($("[name=VoucherMainType]:checked").val() == "Percentage"){
+             if ($("[name=VoucherMainType]:checked").val() == "Percentage" || $("[name=VoucherMainType]:checked").val() == "Amount" ) {
+                 if ($("[name=VoucherMainType]:checked").val() == "Percentage") {
+                     $("#DiscountTypeText").html("Percentage");
+                     $("#DiscountTypeTextp").html($("#DiscountTypeTextp").html().replace("amount", "percentage"));
+                 }
+                 else {
+                     $("#DiscountTypeText").html("Amount");
+                     $("#DiscountTypeTextp").html($("#DiscountTypeTextp").html().replace("percentage", "amount"));
+                 }
+                     
                 $("#divpercentage").show();
-                $("#divproduct").hide();
-                $("#divDishes").hide();
-                $("#divCategories").hide();
-                $("#divApplyto").hide();
-               // $("#drproduct").val("");
+                $("#divproduct").hide();              
             }
-            else if ($("[name=VoucherMainType]:checked").val() == "Dishes")
-            {
-                $("#divpercentage").show();
-                $("#divproduct").hide();
-                $("#divDishes").show();
-                $("#divCategories").hide();
-                $("#divApplyto").show();
-            }
-            else if ($("[name=VoucherMainType]:checked").val() == "Categories") {
-                $("#divpercentage").show();
-                $("#divproduct").hide();
-                $("#divDishes").hide();
-                $("#divCategories").show();
-                $("#divApplyto").show();
-            }
+           
             else {
                     $("#divproduct").show();
-                    $("#divpercentage").hide();             
-                    $("#divDishes").hide();
-                    $("#divCategories").hide();
-                    $("#divApplyto").hide();
+                    $("#divpercentage").hide();      
                 }
             constrainsValidate();
          }
          selectMainType();
-
+         selectDishesCategories();
+         selectapplyto();
         function constrainsValidate()
         {             
             if($("[name=vouchertype]:checked").val()=="once")

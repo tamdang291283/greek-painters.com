@@ -57,33 +57,34 @@ If (CStr(Request("MM_insert")) = "form1") Then
 
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    dim SQL : SQL = "INSERT INTO menuitems ([codeid]name, description,Vegetarian,Spicyness,Price,IdMenuCategory,IdBusinessDetail,allowtoppings,dishpropertygroupid,hidedish,printingname,i_displaySort) VALUES ([codevalue]?, ?,?,?,?,?,?,?,?,?,?,?)" 
-
-    if Request.Form("code") & "" <> "" then
-        SQL = replace(SQL,"[codeid]","code,")
-        SQL = replace(SQL,"[codevalue]","?,")
-    else
-        SQL = replace(SQL,"[codeid]","")
-        SQL = replace(SQL,"[codevalue]","")
-    end if
-
-    MM_editCmd.CommandText =SQL ' "INSERT INTO menuitems (code,name, description,Vegetarian,Spicyness,Price,IdMenuCategory,IdBusinessDetail,allowtoppings,dishpropertygroupid,hidedish,printingname,i_displaySort) VALUES (?,?, ?,?,?,?,?,?,?,?,?,?,?)" 
+    MM_editCmd.CommandText = "INSERT INTO menuitems (code,name, description,Spicyness,Price,IdMenuCategory,IdBusinessDetail,allowtoppings,dishpropertygroupid,hidedish,printingname,i_displaySort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor,ApplyTo ) VALUES (?,?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)" 
     MM_editCmd.Prepared = true
-    if Request.Form("code") & "" <> "" then
-        MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 6, 1, 255, MM_IIF(Request.Form("code"), Request.Form("code"), vbNull)) ' adVarWChar
-    end if
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 255, MM_IIF(Request.Form("name"),Request.Form("name"),"")) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 202, 1, 4000, MM_IIF(Request.Form("description"),Request.Form("description"),"")) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 3, 1, -1, MM_IIF(Request.Form("Vegetarian"),Request.Form("Vegetarian"),0)) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 6, 1, 255, MM_IIF(Request.Form("Spicyness"), Request.Form("Spicyness"), 0)) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 6, 1, 255,MM_IIF(Request.Form("price"), Request.Form("price"), 0)) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 6, 1, 255,MM_IIF( Request.Form("IdMenuCategory"),Request.Form("IdMenuCategory"),0) ) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 6, 1, 255, Session("MM_id")) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 3, 1, -1, MM_IIF(Request.Form("allowtoppings"),Request.Form("allowtoppings"),0)) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, MM_IIF(Request.Form("dishpropertygroupid"), Request.Form("dishpropertygroupid"), "")) ' adVarWChar
-    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 3, 1, -1, MM_IIF( Request.Form("hidedish"),Request.Form("hidedish"),0) ) ' adVarWChar
-    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param10", 202, 1, 255,  MM_IIF(Request.Form("Printingname"),Request.Form("Printingname"),"")) ' adVarWChar
-    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param11", 6, 1, 255,  MM_IIF(Request.Form("hidDisplay_sort"),Request.Form("hidDisplay_sort"),0)) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, MM_IIF(Request.Form("code"), Request.Form("code"), null)) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 255, Request.Form("name")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 202, 1, 255255, Request.Form("description")) ' adVarWChar
+	'MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 202, 1, -1, Request.Form("Vegetarian")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 202, 1, 255, MM_IIF(Request.Form("Spicyness"), Request.Form("Spicyness"), null)) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 202, 1, 255,MM_IIF(Request.Form("price"), Request.Form("price"), null)) ' adVarWChar
+
+    
+	
+	
+
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 202, 1, 255, Request.Form("IdMenuCategory")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, Session("MM_id")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 202, 1, -1, Request.Form("allowtoppings")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, MM_IIF(Request.Form("dishpropertygroupid"), Request.Form("dishpropertygroupid"), null)) ' adVarWChar
+    
+    
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 202, 1, -1, Request.Form("hidedish")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param10", 202, 1, 255,  Request.Form("Printingname")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param11", 202, 1, 255,  Request.Form("hidDisplay_sort")) ' adVarWChar
+
+     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param12", 202, 1, 255, MM_IIF(Request.Form("s_ContainAllergen"),Request.Form("s_ContainAllergen"),"")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param13", 202, 1, 255,  MM_IIF(Request.Form("s_MayContainAllergen"),Request.Form("s_MayContainAllergen"),"") ) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param14", 202, 1, 255,   MM_IIF(Request.Form("s_SuitableFor"),Request.Form("s_MayContainAllergen"),"") ) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param15", 202, 1, 255,   MM_IIF(Request.Form("ApplyTo"),Request.Form("ApplyTo"),"") ) ' adVarWChar
+
 
     MM_editCmd.Execute
     MM_editCmd.ActiveConnection.Close
@@ -159,6 +160,16 @@ End If
                         end if    
                         objRds1.close()
                         set objRds1 = nothing
+
+                        Dim RS_Allergen : set RS_Allergen = Server.CreateObject("ADODB.Recordset") 
+                        Dim RS_Allergen_Suitable : set RS_Allergen_Suitable = Server.CreateObject("ADODB.Recordset")   
+                        sql=" select ID,Name,Type from Allergen with(nolock) where Type = 'allergen'" 
+                        RS_Allergen.Open sql, objCon
+                        dim sql
+                        sql = "select ID,Name,Type from Allergen with(nolock) where Type = 'SuitableFor'"
+                        RS_Allergen_Suitable.Open sql, objCon
+                        
+
 %>
 			<ol class="breadcrumb">
 <li><a href="menu.asp">Main Menu</a></li>
@@ -194,11 +205,85 @@ End If
 	<p>Do not display this item on the menu</p>
     <input type="radio" name="hidedish" value="1" > Yes &nbsp;&nbsp; <input type="radio" name="hidedish" value="0" checked> No 
   </div>
-  <div class="form-group">
-    <label for="Vegetarian">Vegetarian</label>
-	<p>Is this item suitable for vegetarians.</p>
-    <input type="radio" name="Vegetarian" value="1" > Yes &nbsp;&nbsp; <input type="radio" name="Vegetarian" value="0" checked> No 
+	<div class="form-group" id="divApplyto">
+        <label for="applyto">Limit to</label><br>
+	    <input type="radio" name="ApplyTo" checked="checked" value="b" onclick="selectapplyto();"> No Limitation&nbsp;&nbsp; 
+         <input type="radio" name="ApplyTo"  value="d" onclick="selectapplyto();"> Delivery Only&nbsp;&nbsp;
+        <input type="radio" name="ApplyTo"  value="c" onclick="selectapplyto();"> Collection Only
   </div>
+    <div class="form-group">   
+       <div class="row">
+            <div class="col-md-4 column">
+                 <div class="panel panel-default">
+                  <div class="panel-heading">Contain Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                            <% if not RS_Allergen.EOF then %>
+                            <% while not RS_Allergen.EOF    
+                                    %>
+                                        <span style="float:left;padding-left:5px;"><input type="checkbox" name="s_ContainAllergen" value="<%=RS_Allergen("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen.movenext
+                                wend
+                                RS_Allergen.movefirst
+                                 %>
+                            <% end if %>
+                        </div>
+                      </div>
+                 </div>
+
+        
+            </div>
+            <div class="col-md-4 column">                 
+                 <div class="panel panel-default">
+                  <div class="panel-heading">May Contain Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                            <% if not RS_Allergen.EOF then %>
+                            <% while not RS_Allergen.EOF    
+                                    %>
+                                        <span style="float:left;padding-left:5px;"><input type="checkbox" name="s_MayContainAllergen"  value="<%=RS_Allergen("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen.movenext
+                                wend
+                               
+                                 %>
+                            <% end if 
+                                    RS_Allergen.close()
+                                set RS_Allergen = nothing
+                                %>
+                        </div>
+                      </div>
+                 </div>
+            </div>
+            <div class="col-md-4 column">
+                 
+                 <div class="panel panel-default">
+                  <div class="panel-heading">Suitable for Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                           <% if not RS_Allergen_Suitable.EOF then %>
+                            <% while not RS_Allergen_Suitable.EOF    
+                                    %>
+                                        <span style="padding-left:5px;"><input type="checkbox" name="s_SuitableFor" value="<%=RS_Allergen_Suitable("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen_Suitable("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen_Suitable.movenext
+                                wend
+                                    
+                                 %>
+                            <% end if
+                                    RS_Allergen_Suitable.close()
+                                set RS_Allergen_Suitable = nothing
+                                 %>
+                        </div>
+                      </div>
+                 </div>
+                
+            </div>
+       </div> 
+  </div>
+
+
    <div class="form-group">
     <label for="name">Spicyness</label>
 	<p>Please choose the level of spicyness below.</p>
@@ -290,7 +375,7 @@ End Function
    
   </div>
  
-	
+
    
   
      

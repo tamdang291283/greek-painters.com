@@ -33,8 +33,8 @@
           Response.Cookies("FormPhoneNumber") =    Request.Cookies("FormPhoneNumber")
           OrderType = "Telephone"
      else
-          Response.Cookies("Address") =   ""
-          Response.Cookies("Postcode") = ""
+         ' Response.Cookies("Address") =   ""
+         ' Response.Cookies("Postcode") = ""
 
           Response.Cookies("FormAddress") =   ""
           Response.Cookies("FormPostCode") =  ""
@@ -1299,7 +1299,7 @@ max-width: 154.3px;
                         <div id="categroup-<%=categoryID %>" class="group-ptoduct-line" data-type="group-cate">
                         <%
                          ' Load Menu Item 
-                            SQL = " SELECT mi.IdMenuCategory,mi.Id,mi.Code,mi.Description,mi.dishpropertygroupid,mi.hidedish,mi.Name,mi.Photo,mi.Price,mi.PrintingName,mi.Spicyness,mi.Vegetarian,mi.i_displaysort, "
+                            SQL = " SELECT mi.IdMenuCategory,mi.Id,mi.Code,mi.Description,mi.dishpropertygroupid,mi.hidedish,mi.Name,mi.Photo,mi.Price,mi.PrintingName,mi.Spicyness,mi.i_displaysort, "
                             SQL =SQL & " mip.Id AS PropertyId, mip.Name AS PropertyName, "
                             SQL =SQL & "mip.Price AS PropertyPrice,  mi.allowtoppings AS miallowtoppings, "
                             SQL =SQL & " mip.allowtoppings AS mipallowtoppings,mip.i_displaysort  "
@@ -1328,7 +1328,7 @@ max-width: 154.3px;
                                    MenuPrice = objRds_MenuItem("Price")
                                    menuPrintingName = objRds_MenuItem("PrintingName")
                                    Spicyness = objRds_MenuItem("Spicyness")
-                                   Vegetarian = objRds_MenuItem("Vegetarian")
+                                   'Vegetarian = objRds_MenuItem("Vegetarian")
                                    PropertyName = objRds_MenuItem("PropertyName")
                                     PropertyId = "-1"
                                      If Not IsNull(objRds_MenuItem("PropertyId")) Then
@@ -1388,7 +1388,7 @@ max-width: 154.3px;
                                             <div class="product-line__description desc ">
                                             <%=MenuItemName %>
                                             <%If Vegetarian Then %> 
-                                                <img src="<%=SITE_URL %>Images/veggie_small.png"  alt="veggie" />
+                                              <!--  <img src="<%=SITE_URL %>Images/veggie_small.png"  alt="veggie" />-->
                                             <%End If %>
 
                                             
@@ -2151,10 +2151,105 @@ max-width: 154.3px;
             return false;
         }
         else if (isInDeliveryZone == -1) return false;
-    <%if individualpostcodeschecking=0 then%>
+        <%if individualpostcodeschecking=0 then%>
          CheckDistanceLatLng();
         return false;
-        
+        $.when(GetDistance(zipcode)).then(function(data) {
+                
+            var distance = -1;
+
+            if (data.rows && data.rows.length > 0) {
+                if (data.rows[0].elements
+                        && data.rows[0].elements.length > 0) {
+                    if (data.rows[0].elements[0].status == 'OK')
+                        distance = data.rows[0].elements[0].distance.value;
+                }
+            }
+
+            if(distance >= 0) 
+            {
+                var free_miles = parseFloat('<%=sDeliveryFreeDistance %>');
+                var max_miles = parseFloat('<%=sDeliveryMaxDistance %>');
+                var form = $("#CheckOutForm");
+                <%if mileskm="miles" then%>
+                var miles = distance * .6214;
+                <%else%>
+                var miles = distance;
+                <%end if%>
+                miles=(Math.round(miles / 10) / 100);
+                $("#DeliverySpan").html("Distance: " + miles + " m");
+                //console.log(distance, free_miles, max_miles);
+                if(miles > max_miles)
+                {
+                    $('.delivery_info').hide();   
+                    $("#missingPostcodeAlert").show();
+                    $("#missingPostcodeAlert").html('This Takeaway Only Offers <strong>Collection</strong> To Your Postcode');                       
+                    $('input[name=distance]', form).val('');
+                    $('.delivery_info').addClass('alert-danger');
+                    $('.delivery_info').removeClass('alert-success'); 
+                }
+                else
+                {
+                    var total = parseFloat($("#SubTotal").val());
+					
+					
+                    if (total><%=sDeliveryChargeOverrideByOrderValue%>) {
+						
+                    $("#missingPostcodeAlert").hide();
+					
+                    $('.delivery_info').show();
+                    $('#delivery_fee').text('0'); 
+                    $('input[name=deliveryDistance]', form).val(miles);
+                    $('#showdistance').html(miles + ' <%=mileskm%>');
+                    $.ajax({url: "<%=SITE_URL %>ajaxdeliverydistance.asp?d=" + miles , success: function(result){
+                        ReloadShop();
+                    }});
+                    $('input[name=deliveryPC]', form).val(zipcode);
+                    $('div.beforeorder').css('border-color', '#E9EAEB');
+						
+                    $('.delivery_info').removeClass('alert-danger');
+                    $("#delivery-info").html("Great! Continue ordering");
+                    $('.delivery_info').addClass('alert-success');
+						
+						
+                } else {
+					
+                    $("#missingPostcodeAlert").hide();
+					
+                $('.delivery_info').show();
+                if(miles <= free_miles) {
+                    $('#delivery_fee').text('0'); 
+                    $('#df').css('color', '#3c763d');
+                } else  {
+					
+                    $('#delivery_fee').text('<%= FormatNumber(sDeliveryFee, 2) %>');
+                }
+                $('input[name=deliveryDistance]', form).val(miles);
+                $('#showdistance').html(miles + ' <%=mileskm%>');
+						
+                $.ajax({url: "<%=SITE_URL %>ajaxdeliverydistance.asp?d=" + miles , success: function(result){
+                    ReloadShop();
+                }});
+                $('input[name=deliveryPC]', form).val(zipcode);
+                $('div.beforeorder').css('border-color', '#E9EAEB');
+						
+                $('.delivery_info').removeClass('alert-danger');
+                $("#delivery-info").html("Great! Continue ordering");
+                $('.delivery_info').addClass('alert-success');
+            }
+        }
+        }
+    else 
+    {
+                    $("#DeliverySpan").html("Distance: --");
+    $("#missingPostcodeAlert").html('Your Postcode code seems to be <strong>invalid</strong>');                   
+    $('input[name=distance]', form).val('');
+    }     
+
+    return false; 
+    
+    });
+			
     <%else%>
             var zipcode = $("#validate_pc").val();
                 
@@ -2235,6 +2330,10 @@ max-width: 154.3px;
         $("#missingPostcodeAlert2").hide();
         $("#missingPostcodeAlert3").show();	
     }
+			
+			
+			
+						
 			
     <%end if%>
                                        
@@ -4884,7 +4983,7 @@ CheckDistance();
     function CheckDistanceLatLng(_distance) {
             _distance =_distance || -1;
             if(($("#hidLat").val() == "" || $("#hidLng").val() == "") && _distance < 0) {
-               
+                // var firstResult = $(".pac-container .pac-item:first").text();
                  if($("#validate_pc").val().indexOf(",") > -1 )
                     var firstResult = $("#validate_pc").val().replace(/ /g,"+");
                  else
@@ -4975,7 +5074,8 @@ CheckDistance();
 						$('.delivery_info').removeClass('alert-success'); 
                 return false;
             }
-		
+			    
+			<%if individualpostcodeschecking=0  then%>
             
            
                 var distance;
@@ -5072,8 +5172,8 @@ CheckDistance();
                                     $("#updateFullPostcodeSubmit").tooltip('destroy');
                                     $("#updateFullPostcodeSubmit").attr("data-original-title","Remember to Check your address");
                                 }, 3000);  
-	                        ReloadShop();
-                            }});
+	ReloadShop();
+    }});
                        
                         $('div.beforeorder').css('border-color', '#E9EAEB');
 						
@@ -5094,7 +5194,88 @@ CheckDistance();
     
            
 			
+			<%else%>
+			var miles;
+			var distance;
+			var form = $("#CheckOutForm");
+			if(zipcode.indexOf(' ') >= 0){
 			
+			firstpartofzipcode = "|" + zipcode.substr(0,zipcode.indexOf(' ')) + "|";
+			individualpostcodes = "<%=individualpostcodes%>";
+			if(individualpostcodes.toLowerCase().indexOf(firstpartofzipcode.toLowerCase()) >= 0){
+			
+			
+   $("#missingPostcodeAlert").hide();
+$("#missingPostcodeAlert3").hide();
+$("#missingPostcodeAlert2").hide();	
+	
+	
+		    
+						$('.delivery_info').show();
+					
+						$('#delivery_fee').text('<%= FormatNumber(sDeliveryFee, 2) %>');
+						 var zipcode = $("#validate_pc").val();
+
+
+$.when(GetDistance(zipcode)).then(function(data) {
+distance = -1;
+	if (data.rows && data.rows.length > 0) {
+		if (data.rows[0].elements && data.rows[0].elements.length > 0) {
+			if (data.rows[0].elements[0].status == 'OK') {
+                            distance = data.rows[0].elements[0].distance.value;
+			}
+		}
+	}
+<%if mileskm="miles" then%>
+					var miles = distance * .6214;
+					<%else%>
+					var miles = distance;
+					<%end if%>
+					miles=(Math.round(miles / 10) / 100);
+					 $('input[name=deliveryDistance]', form).val(miles);
+					 $('#showdistance').html(miles + ' <%=mileskm%>');
+					  $.ajax({url: "<%=SITE_URL %>ajaxdeliverydistance.asp?d=" + miles , success: function(result){
+                     $("#updateFullPostcodeSubmit").tooltip("destroy");  
+                              $("#updateFullPostcodeSubmit").attr("data-original-title","You can now Continue to place your order");
+                              $("#updateFullPostcodeSubmit").tooltip({trigger: 'manual'}).tooltip('show');
+                               setTimeout(function(){
+                        
+                                    $("#updateFullPostcodeSubmit").tooltip('destroy');
+                                    $("#updateFullPostcodeSubmit").attr("data-original-title","Remember to Check your address");
+                                }, 3000);  
+	ReloadShop();
+    }});
+					   $('input[name=deliveryPC]', form).val(zipcode);
+					
+                   
+}
+
+)
+				
+				
+				
+                     
+                      
+                        $('div.beforeorder').css('border-color', '#E9EAEB');
+						$('.delivery_info').removeClass('alert-danger');
+                        $("#delivery-info").html("Great! Continue ordering");
+						$('.delivery_info').addClass('alert-success');
+						} else {
+					    $("#missingPostcodeAlert").hide();
+				    	$("#missingPostcodeAlert3").hide();
+		     		    $("#missingPostcodeAlert2").show();	
+						}
+} else {
+	$("#missingPostcodeAlert").hide();
+	$("#missingPostcodeAlert2").hide();
+	$("#missingPostcodeAlert3").show();	
+}
+			
+			
+			
+						
+			
+			<%end if%>
                                        
         }
     

@@ -71,6 +71,7 @@
         vSubTotal = objRds("SubTotal")
         vOrderTotal = objRds("OrderTotal")
 		vvouchercodediscount = objRds("vouchercodediscount")
+        VoucherDiscountType  = objRds("DiscountType")
 		vvouchercode=objRds("vouchercode")
         servicecharge  = objRds("servicecharge")
 
@@ -322,8 +323,8 @@ end if
 					
 					<%if vvouchercode<>"" then%>
 					<tr>
-                        <td style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code<br /><%=vvouchercode%> (-<%=vvouchercodediscount%>%) </td>
-                        <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;">-<%=CURRENCYSYMBOL%><%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2)%></td>
+                        <td style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code<br /><%=vvouchercode%><% if VoucherDiscountType & "" <> "Amount" then %> (-<%=vvouchercodediscount%>%) <%end if %> </td>
+                        <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;">-<%=CURRENCYSYMBOL%><% if VoucherDiscountType & "" <> "Amount" then %><%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2)%><%else %><%=FormatNumber(Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))),2) %><%end if %></td>
                     </tr>
 					<%end if%>
 					

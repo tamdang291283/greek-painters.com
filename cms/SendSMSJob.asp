@@ -17,7 +17,8 @@
      Dim objConSMS, objRdsSMS
    
         objCon.Open sConnStringcms
-        objRds.Open " Select * from [SMSEmailQueue]  where PlanSendDate < now() and IsSent = false and BusinessDetailID =  " & session("restaurantid") , objCon,1,3
+     
+        objRds.Open " Select * from [SMSEmailQueue]  where PlanSendDate < getdate() and IsSent = 0 and BusinessDetailID =  " & session("restaurantid") , objCon,1,3
         While NOT objRds.EOF
             If LCase(objRds("SendType") ) = "email" Then
                 'Response.Write("Send : "&  "Message from " & BUSINESSNAME & "|" &  objRds("Content") & "|To:" &  objRds("ToEmailAddress"))
@@ -27,7 +28,7 @@
                 'Response.Write("Send : "&  "Message from " & BUSINESSNAME & "|" &  objRds("Content") & "|To:" &  objRds("PhoneNumber") & SMSSupplierDomain)
                 SendEmailV2 "Message from " & BUSINESSNAME, objRds("Content"), objRds("PhoneNumber") & SMSSupplierDomain
             End If
-            objRds("IsSent") = "True"
+            objRds("IsSent") = 1
             objRds("SendTime") = Now()
             'Set objConTemp = Server.CreateObject("ADODB.Connection")
             'Set objRdsTemp = Server.CreateObject("ADODB.Recordset") 

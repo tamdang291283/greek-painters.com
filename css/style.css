@@ -353,6 +353,7 @@ display:none;
 }
 
 @media (min-width: 768px) and (max-width: 992px) {
+    .banner{height:150px;}
 .navmobile {
 display: inline-block;
 width: 100%;
@@ -373,7 +374,7 @@ background-color:#fff;
 
 
 @media (max-width: 768px) {
-
+    .banner{height:150px;}
 .mobilebutton {
 float: right;
 margin-right: 20px;
@@ -413,7 +414,7 @@ display:none;
 
 @media (min-width: 769px) {
 
-
+    .banner{height:150px;}
 
 .hidden-xs {
 display: inline;
@@ -479,6 +480,7 @@ h2
     -webkit-margin-end: 0px;
 }
 @media (min-width: 1200px) {
+    .banner{height:200px;}
   .affix
     {
         position: fixed;
@@ -490,6 +492,7 @@ h2
   }
 }        
 @media (min-width: 1000px) and (max-width: 1199px) {
+    .banner{height:200px;}
   .affix
     {
         position: fixed;
@@ -837,7 +840,7 @@ div.tooltip-inner {
     white-space:pre-wrap;
     font-size:10px;
 }
-div.tooltip {z-index:999!important;}
+div.tooltip {z-index:1000!important;}
 
         .clearable{
   background: #fff url(../images/clear-text.jpg) no-repeat right -20px center;
@@ -1082,10 +1085,8 @@ clear:both;
 body{font-family: "Open Sans","sans-serif"!important;}
 #topmenumobile .u-display-block .glyphicon{font: normal normal normal 14px/1 FontAwesome;}
 #topmenumobile .u-display-block .glyphicon-envelope{margin-left: 15px;margin-right: 2px;}
-.media-heading .glyphicon-envelope,.media-heading .glyphicon-earphone,.media-heading .glyphicon-map-marker{font: normal normal normal 14px/1 FontAwesome;font-size: 18px; margin-left: 5px;}
-.glyphicon-envelope:before{content: "\f0e0";}
-.glyphicon-earphone:before{content: "\f095";}
-.glyphicon-map-marker:before{content: "\f041";}
+.media-heading .glyphicon-envelope,.media-heading .glyphicon-earphone,.media-heading .glyphicon-map-marker{font-size: 18px; margin-left: 5px;}
+
 #topmenumobile .u-display-block{font-size: 14px; font-weight: 400;}
 #header{margin-bottom: 50px;border: 1px solid #94b604;}
 #tabmenu .glyphicon-align-justify{font: normal normal normal 14px/1 FontAwesome;} 
@@ -1258,17 +1259,19 @@ padding: 27px 0;
     #frmMakeOrder{padding-top: 110px;}
 }
 @media only screen and (max-width: 539px) {
+    .banner{height:100px;}
     #mainmenu{top: 135px;}
     .link-book-table{ font-size: 14px; }
     .menu-text{font-size: 14px; font-weight: 400;}
 }
 @media only screen and (max-width: 479px) {
+    .banner{height:100px;}
     #divShoppingCartSroll .btn:before{font-size: 11px;}
     #divVoucherCode1{margin-bottom: 0;}
     .media-heading .glyphicon-envelope, .media-heading .glyphicon-earphone, .media-heading .glyphicon-map-marker, .media-heading .social-icon i{margin-left: 3px;}
 }
 @media only screen and (max-width: 413px) {
-    #topmenumobile .media-heading{font-size: 14px;}
+    .banner{height:100px;}
     .media-object{width: 50px;}
     .link-book-table{ font-size: 12px; padding: 8px 10px; }
     .media-heading .glyphicon-envelope, .media-heading .glyphicon-earphone, .media-heading .glyphicon-map-marker, .media-heading .social-icon i{font-size: 12px;}

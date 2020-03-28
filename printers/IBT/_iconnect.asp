@@ -157,7 +157,11 @@ PAYPAL=objRdsconfig("paypal")
             x=x & "&delivery_time=" & formatDateTimeC(objRds("DeliveryTime"))
        end if
 	  if objRds("vouchercode") & "" <> "" Then
-	    x=x & "&discount_amount=" & Server.URLEncode("-" & FormatNumber((( objRds("SubTotal") * 100 )/(100- Cdbl(Replace(Replace(Replace(objRds("vouchercodediscount"),"-",""),"%","")," ",""))) -  objRds("SubTotal") ),2) )
+            if objRds("vouchercode") & "" <> "Amount" then
+	            x=x & "&discount_amount=" & Server.URLEncode("-" & FormatNumber((( objRds("SubTotal") * 100 )/(100- Cdbl(Replace(Replace(Replace(objRds("vouchercodediscount"),"-",""),"%","")," ",""))) -  objRds("SubTotal") ),2) )
+            else
+                x=x & "&discount_amount=" & Server.URLEncode("-" & FormatNumber(Cdbl(Replace(Replace(Replace(objRds("vouchercodediscount"),"-",""),"%","")," ",""))),2) )
+            end if
       End If
 	  x=x & "&deliverycost=" & Server.URLEncode(objRds("ShippingFee"))
     x=x & "&payment_surcharge=" & Server.URLEncode(objRds("paymentsurcharge"))

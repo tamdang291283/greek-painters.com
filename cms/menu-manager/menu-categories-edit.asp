@@ -57,29 +57,27 @@ If (CStr(Request("MM_update")) = "form1") Then
 
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    
-    Dim SQLUpdate  : SQLUpdate = "UPDATE menuitems SET [code] = ?,[name] = ?,[description] = ?,[Vegetarian] = ?,[Spicyness] = ?,[price] = ?,[allowtoppings] = ?,[dishpropertygroupid]=?,[hidedish]=?,[printingname]=? WHERE ID = ?" 
-    if Request.Form("code") & "" = "" then
-        SQLUpdate  = replace(SQLUpdate,"[code] = ?","[code] = null")
-    end if
 
-MM_editCmd.CommandText = SQLUpdate' "UPDATE menuitems SET [code] = ?,[name] = ?,[description] = ?,[Vegetarian] = ?,[Spicyness] = ?,[price] = ?,[allowtoppings] = ?,[dishpropertygroupid]=?,[hidedish]=?,[printingname]=? WHERE ID = ?" 
+MM_editCmd.CommandText = "UPDATE menuitems SET [code] = ?,[name] = ?,[description] = ?,[Spicyness] = ?,[price] = ?,[allowtoppings] = ?,[dishpropertygroupid]=?,[hidedish]=?,[printingname]=?,s_ContainAllergen=?,s_MayContainAllergen=?,s_SuitableFor=?,ApplyTo=? WHERE ID = ?" 
     MM_editCmd.Prepared = true
-    if Request.Form("code") & "" <> "" then
-        MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 6, 1, 255, MM_IIF(Request.Form("code"), Request.Form("code"), 0)) ' adVarWChar
-    end if
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 255, MM_IIF(Request.Form("name"),Request.Form("name"),"")) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 202, 1, 4000, MM_IIF(Request.Form("description"),Request.Form("description"),"")) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 3, 1, 255, MM_IIF(Request.Form("Vegetarian"),Request.Form("Vegetarian"),0)) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 3, 1, 255, MM_IIF(Request.Form("Spicyness"), Request.Form("Spicyness"), 0)) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 6, 1, 255,MM_IIF(Request.Form("price"), Request.Form("price"), 0)) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, MM_IIF(Request.Form("code"), Request.Form("code"), null)) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 255, Request.Form("name")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 202, 1, 255255, Request.Form("description")) ' adVarWChar
+	'MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 202, 1, -1, Request.Form("Vegetarian")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 202, 1, 255, MM_IIF(Request.Form("Spicyness"), Request.Form("Spicyness"), null)) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 202, 1, 255,MM_IIF(Request.Form("price"), Request.Form("price"), null)) ' adVarWChar
 
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 6, 1, 255, MM_IIF( Request.Form("allowtoppings"),Request.Form("allowtoppings"),0)) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, MM_IIF(Request.Form("dishpropertygroupid"), Request.Form("dishpropertygroupid"), "")) ' adVarWChar
-MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 3, 1, -1, MM_IIF(Request.Form("hidedish"),Request.Form("hidedish"),0)) ' adVarWChar
-    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param10", 202, 1, -1, MM_IIF(Request.Form("printingname"),Request.Form("printingname"),"") ) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 202, 1, -1, Request.Form("allowtoppings")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, MM_IIF(Request.Form("dishpropertygroupid"), Request.Form("dishpropertygroupid"), null)) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 202, 1, -1, Request.Form("hidedish")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param10", 202, 1, -1, Request.Form("printingname")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param12", 202, 1, 255, MM_IIF(Request.Form("s_ContainAllergen"),Request.Form("s_ContainAllergen"),"")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param13", 202, 1, 255, MM_IIF(Request.Form("s_MayContainAllergen"),Request.Form("s_MayContainAllergen"),"")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param14", 202, 1, 255, MM_IIF(Request.Form("s_SuitableFor"),Request.Form("s_SuitableFor"),"")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param15", 202, 1, 255, MM_IIF(Request.Form("ApplyTo"),Request.Form("ApplyTo"),"")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param11", 5, 1, -1, MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)) ' adDouble
     
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param11", 5, 1, -1, MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)) ' adDouble
+
 
     MM_editCmd.Execute
     MM_editCmd.ActiveConnection.Close
@@ -105,10 +103,11 @@ Dim Recordset1_cmd
 Dim Recordset1_numRows
 Set Recordset1_cmd = Server.CreateObject ("ADODB.Command")
 Recordset1_cmd.ActiveConnection = sConnStringcms
-sql = "SELECT * FROM menuitems where id=" & request.querystring("id")
-
-
-
+sql  = "SELECT Id,Code,Name,Description,Spicyness,Price "
+sql=sql&" ,IdMenuCategory,IdBusinessDetail,Photo,allowtoppings,dishpropertygroupid"
+sql=sql&" ,hidedish,PrintingName,i_displaySort "
+sql=sql&" ,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor,isnull(ApplyTo,'b') as ApplyTo "
+sql=sql&" FROM menuitems where id=" & request.querystring("id")
 Recordset1_cmd.CommandText = sql
 Recordset1_cmd.Prepared = true
 Set Recordset1 = Recordset1_cmd.Execute
@@ -158,11 +157,39 @@ Recordset1_numRows = 0
 <div class="row clearfix">
 		<div class="col-md-12 column">
 		
-			<%
+			<%         
 				        objCon.Open sConnStringcms
                         Set objRds = Server.CreateObject("ADODB.Recordset") 
                         objRds.Open "SELECT * FROM menucategories where id=" & request.querystring("catid"), objCon
 
+                        Dim s_ContainAllergen : s_ContainAllergen  = replace(Recordset1.Fields.Item("s_ContainAllergen").Value & ""," ","")
+                        Dim s_MayContainAllergen : s_MayContainAllergen  =replace( Recordset1.Fields.Item("s_MayContainAllergen").Value & ""," ","")
+                        Dim s_SuitableFor : s_SuitableFor  = Replace(Recordset1.Fields.Item("s_SuitableFor").Value & ""," ","")
+                        if s_ContainAllergen <> "" then
+                            s_ContainAllergen = "," & s_ContainAllergen 
+                        end if
+                        if s_MayContainAllergen <> "" then
+                            s_MayContainAllergen = "," & s_MayContainAllergen 
+                        end if
+                        if s_SuitableFor <> "" then
+                            s_SuitableFor = "," & s_SuitableFor 
+                        end if
+
+                        Dim RS_Allergen : set RS_Allergen = Server.CreateObject("ADODB.Recordset") 
+                        Dim RS_Allergen_Suitable : set RS_Allergen_Suitable = Server.CreateObject("ADODB.Recordset")   
+                        sql=" select ID,Name,Type from Allergen with(nolock) where Type = 'allergen'" 
+                        RS_Allergen.Open sql, objCon
+                        sql = "select ID,Name,Type from Allergen with(nolock) where Type = 'SuitableFor'"
+                        RS_Allergen_Suitable.Open sql, objCon
+                         function writechecked(byval value1, byval value2)
+                            dim result : result = ""
+                          '  Response.Write("value1 " & value1 & " value2 " & value2 & "<br/>")
+                            if instr("," & value1 & ",","," & value2 & ",") > 0 then
+                                result="checked"
+                            end if
+                            writechecked = result
+                         end function
+                        
 %>
 			<ol class="breadcrumb">
 <li><a href="menu.asp">Main Menu</a></li>
@@ -193,18 +220,97 @@ Recordset1_numRows = 0
 	<p>Enter a description of this item for the menu page.</p>
     <textarea class="form-control" id="Description" name="Description" rows="3"><%= Recordset1.Fields.Item("Description").Value %></textarea>
   </div>
-                
   <div class="form-group">
     <label for="Vegetarian">Hide Item</label>
   <p>Do not display this item on the menu</p>
+	<input type="radio" name="hidedish" value="1" <%if Recordset1.Fields.Item("hidedish").Value=1 then%>checked<%end if%>> Yes &nbsp;&nbsp; <input type="radio" name="hidedish" value="0" <%if Recordset1.Fields.Item("hidedish").Value=0 then%>checked<%end if%>> No 
+  </div>
+                  <% dim  ApplyTo : ApplyTo = Recordset1.Fields.Item("ApplyTo").Value 
+      if ApplyTo & "" = "" then
+            ApplyTo = "b"
+      end if
+       %>
+	<div class="form-group" id="divApplyto">
+    <label for="applyto">Limit to</label><br>
+	<input type="radio" name="ApplyTo" <%if ApplyTo="b" then%>checked<%end if%>  value="b" onclick="selectapplyto();"> No Limitation&nbsp;&nbsp; 
+     <input type="radio" name="ApplyTo" <%if ApplyTo="d" then%>checked<%end if%>  value="d" onclick="selectapplyto();"> Delivery Only&nbsp;&nbsp;
+    <input type="radio" name="ApplyTo" <%if ApplyTo="c" then%>checked<%end if%>  value="c" onclick="selectapplyto();"> Collection Only
     
-	<input type="radio" name="hidedish" value="1" <%if Recordset1.Fields.Item("hidedish").Value=1 then%>checked<%end if%>> Yes &nbsp;&nbsp; <input type="radio" name="hidedish" value="0" <%if Recordset1.Fields.Item("hidedish").Value =0 then%>checked<%end if%>> No 
+ 
   </div>
-   <div class="form-group">
-    <label for="Vegetarian">Vegetarian</label>
-  <p>Is this item suitable for vegetarians.</p>
-	<input type="radio" name="Vegetarian" value="1" <%if Recordset1.Fields.Item("Vegetarian").Value=1 then%>checked<%end if%>> Yes &nbsp;&nbsp; <input type="radio" name="Vegetarian" value="0" <%if Recordset1.Fields.Item("Vegetarian").Value=0 then%>checked<%end if%>> No 
+   <div class="form-group">   
+       <div class="row">
+            <div class="col-md-4 column">
+                 <div class="panel panel-default">
+                  <div class="panel-heading">Contain Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                            <% if not RS_Allergen.EOF then %>
+                            <% while not RS_Allergen.EOF    
+                                    %>
+                                        <span style="float:left;padding-left:5px;"><input type="checkbox" <%=writechecked(s_ContainAllergen,RS_Allergen("ID")) %> name="s_ContainAllergen" value="<%=RS_Allergen("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen.movenext
+                                wend
+                                RS_Allergen.movefirst
+                                 %>
+                            <% end if %>
+                        </div>
+                      </div>
+                 </div>
+
+        
+            </div>
+            <div class="col-md-4 column">                 
+                 <div class="panel panel-default">
+                  <div class="panel-heading">May Contain Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                            <% if not RS_Allergen.EOF then %>
+                            <% while not RS_Allergen.EOF    
+                                    %>
+                                        <span style="float:left;padding-left:5px;"><input type="checkbox" name="s_MayContainAllergen" <%=writechecked(s_MayContainAllergen,RS_Allergen("ID")) %>  value="<%=RS_Allergen("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen.movenext
+                                wend
+                               
+                                 %>
+                            <% end if 
+                                    RS_Allergen.close()
+                                set RS_Allergen = nothing
+                                %>
+                        </div>
+                      </div>
+                 </div>
+            </div>
+            <div class="col-md-4 column">
+                 
+                 <div class="panel panel-default">
+                  <div class="panel-heading">Suitable for Allergen</div>
+                  <div class="panel-body">
+                        <div class="form-group">
+                           <% if not RS_Allergen_Suitable.EOF then %>
+                            <% while not RS_Allergen_Suitable.EOF    
+                                    %>
+                                        <span style="padding-left:5px;"><input type="checkbox" name="s_SuitableFor"  <%=writechecked(s_SuitableFor,RS_Allergen_Suitable("ID")) %> value="<%=RS_Allergen_Suitable("ID") %>"/><label style="padding-left:5px;"><%=RS_Allergen_Suitable("Name") %></label></span>
+                                    <%                            
+                                    RS_Allergen_Suitable.movenext
+                                wend
+                                    
+                                 %>
+                            <% end if
+                                    RS_Allergen_Suitable.close()
+                                set RS_Allergen_Suitable = nothing
+                                 %>
+                        </div>
+                      </div>
+                 </div>
+                
+            </div>
+       </div> 
   </div>
+
+
    <div class="form-group">
     <label for="name">Spicyness</label>
 	<p>Please choose the level of spicyness below.</p>
@@ -224,11 +330,8 @@ Recordset1_numRows = 0
     <input type="text" pattern="[0-9]+([\.][0-9]{0,2})?"   class="form-control" id="Price" name="Price" value="<%= Recordset1.Fields.Item("Price").Value %>" required title="Please note if you are setting options that determine the price please set this to zero or set to number with up to 2 decimal places.">
   </div>
    <div class="form-group">
-
-	
 	 <label for="allowtoppings">Toppings </label>
-	<p>Does this product come with optional toppings, if so select the topping group appropriate to this item.</p>
-	
+	<p>Does this product come with optional toppings, if so select the topping group appropriate to this item.</p>	
 	<select name="allowtoppings" id="allowtoppings" class="form-control">
   <option value="0">-- don't allow toppings --</option>
 
@@ -303,8 +406,9 @@ End Function
 	
    
   </div>
- 
-	
+
+
+   
    
   
      

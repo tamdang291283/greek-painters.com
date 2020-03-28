@@ -44,7 +44,27 @@
 
 
 <% 
-   
+   ' task 263
+    Dim StrAllergen : StrAllergen = ""
+    function FindAllergen(byval allergen )
+             allergens  = "," & replace(allergens," ","") & ","   
+            dim result : result = ""
+            dim allergenID : allergenID = ""
+        if StrAllergen <> "" then
+           dim arrAllergen : arrAllergen =  split(StrAllergen,"[**]")
+               dim index :  index = 0
+            for index = 0 to ubound(arrAllergen) 
+                if arrAllergen(index) & "" <> "" then
+                    allergenID = split(arrAllergen(index),"|")(0)
+                    if allergen = allergenID  then
+                        result = arrAllergen(index)
+                    end if 
+                end if
+            next
+        end if
+        FindAllergen = result
+    end function
+    'task 263
     Set objCon = Server.CreateObject("ADODB.Connection")
     Set objRds = Server.CreateObject("ADODB.Recordset") 
  
@@ -183,7 +203,41 @@ Loop
 objRds2.Close
     set objRds2 = nothing
 end if
+    ' task 263    
+    EnableAllergen = objRds("EnableAllergen") & ""
+    EnableSuitableFor = objRds("EnableSuitableFor") & ""
+    if EnableAllergen = "" then
+        EnableAllergen = "No"
+    end if 
+    if EnableSuitableFor = "" then
+        EnableSuitableFor = "No"
+    end if 
 
+    Dim SQL1 : SQL1 = "select ID,Name,icon,Type from allergen with(nolock) "
+    if EnableAllergen = "Yes" and EnableSuitableFor = "No"  then
+        SQL1 = SQL1 &  " where type ='Allergen' " 
+    elseif EnableAllergen = "No" and EnableSuitableFor = "Yes"  then
+        SQL1 = SQL1 &  " where type ='SuitableFor' " 
+    elseif EnableAllergen = "No" and EnableSuitableFor = "No"  then
+         SQL1 = SQL1 &  " where 1 != 1 " 
+    end if
+   
+    Dim Rs_Allergen : set Rs_Allergen =  Server.CreateObject("ADODB.Recordset")
+        Rs_Allergen.open  SQL1 ,objCon
+    while not Rs_Allergen.EOF 
+        if StrAllergen = "" then
+            StrAllergen =   Rs_Allergen("ID") & "|" & Rs_Allergen("Name") & "|" & Rs_Allergen("icon") & "|" & Rs_Allergen("Type")
+        else
+            StrAllergen =  StrAllergen & "[**]" & Rs_Allergen("ID") & "|" & Rs_Allergen("Name") & "|" & Rs_Allergen("icon") & "|" & Rs_Allergen("Type")
+        end if
+     
+        Rs_Allergen.movenext() 
+    wend
+        Rs_Allergen.close()
+    set Rs_Allergen = nothing
+    'End task 263
+
+    s_BannerURL = trim( objRds("s_BannerURL") & "" ) 
     sName = objRds("Name")
     sPostalCode = objRds("PostalCode")
     sDeliveryFreeDistance  = 0
@@ -231,7 +285,8 @@ end if
 	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
 	
 	<link href="<%=SITE_URL %>css/bootstrap.css" rel="stylesheet">
-	<link href="<%=SITE_URL %>css/style.css" rel="stylesheet">
+    <link href="stylesheet" href="<%=SITE_URL %>css/bootstrap-select.css">
+	<link href="<%=SITE_URL %>css/style.css?v=1.7" rel="stylesheet">
     
     <link href="<%=SITE_URL %>css/product.css?v=1.9" rel="stylesheet">
 	<link href="<%=SITE_URL %>css/datepicker.css" rel="stylesheet">
@@ -277,17 +332,18 @@ end if
 
   </script>
 	<script type="text/javascript" src="<%=SITE_URL %>Scripts/jquery.min.js"></script>
-    <script type="text/javascript" src="<%=SITE_URL %>Scripts/jquery.lazy.min.js"></script>
-	<script type="text/javascript" src="<%=SITE_URL %>Scripts/js.cookie.js"></script>
+    <script defer type="text/javascript" src="<%=SITE_URL %>Scripts/jquery.lazy.min.js"></script>
+	<script defer type="text/javascript" src="<%=SITE_URL %>Scripts/js.cookie.js"></script>
 	
 	
 	<script type="text/javascript" src="<%=SITE_URL %>Scripts/bootstrap.min.js"></script>
-	<script type="text/javascript" src="<%=SITE_URL %>Scripts/scripts.js"></script>
+	<script defer  type="text/javascript" src="<%=SITE_URL %>Scripts/scripts.js"></script>
 	
-    <script src="<%=SITE_URL %>Scripts/jquery.validate.min.js" type="text/javascript"></script>
+    <script defer src="<%=SITE_URL %>Scripts/jquery.validate.min.js" type="text/javascript"></script>
 
     <script src="<%=SITE_URL %>Scripts/bootstrap-datepicker.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= GMAP_API_KEY %>&libraries=places"></script>
+    <script defer  src="<%=SITE_URL %>Scripts/bootstrap-select.js?v=2.7"></script>
+    <script defer type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= GMAP_API_KEY %>&libraries=places"></script>
 	
 	  
 	<style media="screen" type="text/css">
@@ -306,6 +362,99 @@ end if
 	background: url('<%= objRds("ImgUrl") %>') 50% 50% no-repeat rgb(249,249,249);
 }
 .pac-container {z-index:10000;}
+
+@media only screen and (max-width: 767px){
+
+.social-thumb{
+display:block;
+margin-top: 5px;
+}
+.social-text{display: none}
+.link-book-table{margin-top:0;}
+#topmenumobile .thumb-special-offers{
+margin-bottom: 10px;
+}
+.icon-thumb{
+text-align: right;
+}
+#mainmenu{
+top: 0;
+}
+}
+
+#topmenumobile .media:first-child{
+padding: 0 15px;
+}
+
+#wholepage{
+padding-top: 0px;
+}
+
+#header{
+position: static;
+margin-bottom: 15px;
+padding: 15px 0!important;
+}
+div#topmenumobile {
+    display: flex;
+    align-items: center;
+}
+.social-info {
+    min-width: 125px;
+    margin-left: auto;
+text-align: right;
+}
+
+.media, .media .media {
+    margin-top: 0px;
+}
+
+@media only screen and (max-width: 767px){
+
+    #topmenumobile .media > a {
+        float: none !important;
+        display:block;
+        margin-bottom: 10px
+    }
+
+    #topmenumobile .media-body div, #topmenumobile .media-body i{
+        font-size: 12px;
+    }
+
+   
+      .social-info{
+        min-width: 182px;
+    }
+   
+
+}
+
+	   
+       
+@media only screen and (max-width: 413px){
+    .social-info{
+        min-width: 135px;
+    }
+    #topmenumobile .media-body div{font-size: 10px}
+  
+}
+
+#topmenumobile .u-display-block .glyphicon {
+    font: normal normal normal 14px/1 FontAwesome;
+}
+
+@media (max-width: 767px){
+   
+    .link-book-table {
+        line-height: 1.42857143;
+         padding: 6px 8px;
+    }
+   
+    .link-book-table .glyphicon{
+        margin-left: 0;
+    }
+   
+}
 
 </style>
 
@@ -522,23 +671,6 @@ $("#AnnouncementModal div.modal-body").html('<%=replace(objRds("announcement"),v
 
 	
 
-/*
-function responsive(){
-   var winWidth = $(window).width();
-   if(winWidth < 992) { 
-
-   	 $("#header").addClass("navbar-fixed-top");
-  $("body").css( "padding-top", "80px" );
-  
-    }  else {
-	$("#header").removeClass("navbar-fixed-top");
-	 $("body").css( "padding-top", "0px" );
-	}
-	
-	
-  
-}
-*/
 
 
 
@@ -561,7 +693,7 @@ if(is_android) {
 <body>
 <div class="fake-header" style="display:none;"></div>
 <div class="loader"></div>
-<div class="container" id="wholepage" style="padding-bottom:100px;display:none;">
+<div  id="wholepage" style="padding-bottom:100px;display:none;">
 
 	<div class="row clearfix headerbox" id="header">
 		<div class="col-md-12 col-xs-12" style="padding-bottom:10px;">
@@ -574,17 +706,16 @@ if(is_android) {
 				
 				<div class="hidden-xs">
 				<span class="glyphicon glyphicon glyphicon-earphone"></span> <%= objRds("Telephone") %> 
-<span class="glyphicon glyphicon glyphicon-envelope"></span>  <%= objRds("Email") %></div>
-
-<div class="visible-xs">
-
-
-<a href="https://www.google.co.uk/maps?q=<%= objRds("Address") %>" target="_blank"><span class="glyphicon glyphicon-map-marker"></span></a>
-<a href="tel:<%= objRds("Telephone") %>"><span class="glyphicon glyphicon-earphone"></span></a>
-<a href="mailto:<%= objRds("Email") %>"><span class="glyphicon glyphicon-envelope"></span></a></div>
+                <span class="glyphicon glyphicon glyphicon-envelope"></span>  <%= objRds("Email") %></div>
+                <div class="visible-xs">
 
 
-</div>	
+                <a  class="link-book-table"  href="https://www.google.co.uk/maps?q=<%= objRds("Address") %>" target="_blank"><span class="glyphicon glyphicon-map-marker"></span></a>
+                <a  class="link-book-table" href="tel:<%= objRds("Telephone") %>"><span class="glyphicon glyphicon-earphone"></span></a>
+                <a  class="link-book-table" href="mailto:<%= objRds("Email") %>"><span class="glyphicon glyphicon-envelope"></span></a>
+
+                </div>
+                </div>	
 						 <%= objRds("Name") %>
 
 					</h4><div class="hidden-xs"><b><%= objRds("Address") %> </b><br></div>
@@ -601,472 +732,749 @@ if(is_android) {
         %>	
 		
 	</div>
-    <script>
-         function CategorySelection(ID)
-        {
+    <div class="container">
         
-            $("#txtSearch").val("");
-            $(".product-line-heading").show();
-            $("[data-type=group-cate]").each(function(){
-                var categroup  = $(this);
-                categroup.find(".product-line").each(function(){
-                    $(this).show();
-                });
-            }); 
+          <% if s_BannerURL & "" <> "" then %>
+        <div  style="overflow:hidden;" class="banner">
+            <img src="<%=s_BannerURL %>" style="padding-bottom:15px;width:100%;" />
+        </div>
+            <div style="height:15px;"></div>
+        <%end if %>
+           <style>
+            
+.nav-stacked.nav-stacked.nav-pills.navdesktop li:nth-child(2){
+padding-top:0;
+}
+.sidebar-header.sidebar-header{
+background-color: #94b604;
+    z-index: 100;
+    width: 192px;
+    color: #fff;
+    border-color: #94b604;
+    border: 1px solid #94b604;
+    border-radius: 4px;
+    padding: 10px 10px;
+    border-bottom: 0px solid transparent;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    font-size: 18px;
+}
+.nav-stacked.nav-pills.navdesktop{
+    border-top-right-radius: 0px;
+    border-top-left-radius: 0px;
+}
 
-            $("[data-type='group-cate']").each(function(){
-                $(this).hide();
-                $(this).prev().find(".product-line-heading__icon").addClass("arrow-icon-down").removeClass("arrow-icon-up");
-            });
-            $("#" + ID).prev().find(".product-line-heading__icon").addClass("arrow-icon-up").removeClass("arrow-icon-down");
-            //  scrollToV2(ID);
-            $("#" + ID).slideDown("slow");
+@media only screen and (max-width: 1199px){
+.sidebar-header.sidebar-header{
+max-width: 154.3px;
+}
 
-        }
-       function selectcategorymobile(groupid,obj)
+}
+@media only screen and (max-width: 991px){
+.sidebar-header.sidebar-header {
+    display: none!important;
+}
+}
+
+
+        </style>
+	    <div class="row clearfix">
+		    <div class="col-md-2 visible-md visible-lg" id="categories">
+		
+		    <div data-spy="affix" data-offset-top="300" data-offset-bottom="200">
+			    <div style="width:165px; height : 450px; overflow : auto; " class="hidden-xs">
+                    <div class="sidebar-header">
+	                    <b>Categories</b>
+                    </div>
+                    <ul class="nav nav-stacked nav-pills navdesktop" style="width:155px;overflow : auto;height: 80vh;border-top-right-radius: 0px;border-top-left-radius: 0px;">
+				   
+				
+			      <%
+                        Dim SQLCategory 
+                        SQLCategory ="  SELECT DISTINCT mc.id, mc.NAME, mc.description, displayorder ,ct.DayValue, convert(varchar, Hour_From, 8)  as Hour_From, convert(varchar, Hour_To, 8)  as Hour_To "
+                        SQLCategory = SQLCategory & " FROM   ( menucategories AS mc  "
+                        SQLCategory = SQLCategory & "        INNER JOIN Category_Openning_Time as ct "
+                        SQLCategory = SQLCategory & "          on ( ct.categoryid = mc.id and ct.DayValue= " & sDayOfWeek & "   and ct.hour_from <= '" & hhmm1&"' and hour_to >= '"&hhmm1&"' and ct.status = 'ACTIVE'  )  ) "
+                        SQLCategory = SQLCategory & "        INNER JOIN menuitems AS mi "
+                        SQLCategory = SQLCategory & "                ON mc.id = mi.idmenucategory "
+                        SQLCategory = SQLCategory & "  WHERE  mc.idbusinessdetail = " & vRestaurantId & "  "
+                        SQLCategory = SQLCategory & "        AND (( ( mi.idbusinessdetail ) = " & vRestaurantId & "  )) "
+                        SQLCategory = SQLCategory & "        AND mi.hidedish <> 1 "
+                        SQLCategory = SQLCategory & " ORDER  BY mc.displayorder; "
+                  'objCon.Open sConnString
+       
+              objRdsMainCategory.Open   SQLCategory , objCon
+                            if not objRdsMainCategory.EOF then
+                        
+                                Do While NOT objRdsMainCategory.Eof
+						
+                                %>
+                                <li ><a href="#menucat_<%=objRdsMainCategory("ID") %>" class="catlink" onclick="SelectLeftategory(<%=objRdsMainCategory("ID") %>);">
+                                    <%= objRdsMainCategory("Name") %></a> </li>
+                                <%
+                                    objRdsMainCategory.MoveNext    
+                                Loop
+                                objRdsMainCategory.MoveFirst()
+                            end if
+                            %>
+				
+			    </ul>
+			    </div></div>
+		    </div>
+           <script>
+        function SelectLeftategory(ID)
         {
-            var idAnchor  =  $(obj).attr("data");
-            //if(idAnchor=="p1")
-            //    $("#mainmenu").css("top","136px");
-            //else
-            //    $("#mainmenu").css("top","0px");
-            $('#' + groupid ).hide();
-            $('#' + groupid).slideDown('show');
+              $("#txtSearch").val("");
+                $("#tabmenu").trigger("click");
+                $(".product-line-heading").show();
+                $("[data-type=group-cate]").each(function(){
+                    var categroup  = $(this);
+                    categroup.find(".product-line").each(function(){
+                            $(this).show();
+                    });
+                });
+            $("#categroup-" + ID ).hide();
+            $("#categroup-" + ID ).show();
+            document.location.href = document.location.href.replace(document.location.hash,"") + "#menucat_" +  ID;
         }
     </script>
-	<div class="row clearfix">
-		<div class="col-md-2 visible-md visible-lg" id="categories">
-		
-		<div data-spy="affix" data-offset-top="60" data-offset-bottom="200">
-			<div style="width:165px; height : 450px; overflow : auto; " class="hidden-xs"><ul class="nav nav-stacked nav-pills navdesktop" style="width:155px;overflow : auto;    height: 80vh;">
-				<li class="active">
-					<a href="#"><b>Categories</b></a>
-				</li>
-				
+		    <div class="col-md-6half column" id="mainmenu">
+			    <ul class="nav nav-stacked nav-pills">
 			
-				
-			  <%
-                    Dim SQLCategory 
-                    SQLCategory ="  SELECT DISTINCT mc.id, mc.NAME, mc.description, displayorder ,ct.DayValue, convert(varchar, Hour_From, 8)  as Hour_From, convert(varchar, Hour_To, 8)  as Hour_To "
-                    SQLCategory = SQLCategory & " FROM   ( menucategories AS mc  "
-                    SQLCategory = SQLCategory & "        INNER JOIN Category_Openning_Time as ct "
-                    SQLCategory = SQLCategory & "          on ( ct.categoryid = mc.id and ct.DayValue= " & sDayOfWeek & "   and ct.hour_from <= '" & hhmm1&"' and hour_to >= '"&hhmm1&"' and ct.status = 'ACTIVE'  )  ) "
-                    SQLCategory = SQLCategory & "        INNER JOIN menuitems AS mi "
-                    SQLCategory = SQLCategory & "                ON mc.id = mi.idmenucategory "
-                    SQLCategory = SQLCategory & "  WHERE  mc.idbusinessdetail = " & vRestaurantId & "  "
-                    SQLCategory = SQLCategory & "        AND (( ( mi.idbusinessdetail ) = " & vRestaurantId & "  )) "
-                    SQLCategory = SQLCategory & "        AND mi.hidedish <> 1 "
-                    SQLCategory = SQLCategory & " ORDER  BY mc.displayorder; "
-              'objCon.Open sConnString
-       
-          objRdsMainCategory.Open   SQLCategory , objCon
-                        if not objRdsMainCategory.EOF then
-                        
-                            Do While NOT objRdsMainCategory.Eof
-						
-                            %>
-                            <li ><a href="#menucat_<%=objRdsMainCategory("ID") %>" class="catlink" onclick="SelectLeftategory(<%=objRdsMainCategory("ID") %>);">
-                                <%= objRdsMainCategory("Name") %></a> </li>
-                            <%
-                                objRdsMainCategory.MoveNext    
-                            Loop
-                            objRdsMainCategory.MoveFirst()
-                        end if
-                        %>
-				
-			</ul>
-			</div></div>
-		</div>
-       <script>
-    function SelectLeftategory(ID)
-    {
-          $("#txtSearch").val("");
-            $("#tabmenu").trigger("click");
-            $(".product-line-heading").show();
-            $("[data-type=group-cate]").each(function(){
-                var categroup  = $(this);
-                categroup.find(".product-line").each(function(){
-                        $(this).show();
-                });
-            });
-        $("#categroup-" + ID ).hide();
-        $("#categroup-" + ID ).show();
-        document.location.href = document.location.href.replace(document.location.hash,"") + "#menucat_" +  ID;
-    }
-</script>
-		<div class="col-md-6half column" id="mainmenu">
-			<ul class="nav nav-stacked nav-pills">
-			
-				</ul>
+				    </ul>
 
-<!-- Begin update html menu bar -->
+    <!-- Begin update html menu bar -->
 
-<div class="menu-bar-wrapper">
-<div class="menu-bar">
-    <div class="menu-bar__item menu-bar__menu active" onclick="if($('#txtSearch').val() !='') { $('#txtSearch').val('');SearchTerms('txtSearch'); }  $('#navbar-menu-mobile').slideToggle();$('.js-menu-custom-item').slideUp();">
-        <span class="glyphicon glyphicon-align-justify"></span> <span class="menu-text hidden-xs"> Menu</span>
+    <div class="menu-bar-wrapper">
+    <div class="menu-bar">
+        <div class="menu-bar__item menu-bar__menu active" onclick="if($('#txtSearch').val() !='') { $('#txtSearch').val('');SearchTerms('txtSearch'); }  $('#navbar-menu-mobile').slideToggle();$('.js-menu-custom-item').slideUp();">
+            <span class="glyphicon glyphicon-align-justify"></span> <span class="menu-text hidden-xs"> Menu</span>
+        </div>
+        <div class="menu-bar__item menu-bar__search" onclick="if($('#txtSearch').val() !='') { $('#txtSearch').val('');SearchTerms('txtSearch'); } $('.js-menu-custom-item').slideToggle('fast');$('#navbar-menu-mobile').slideUp();">
+            <span class=" glyphicon glyphicon-search"></span>
+            <span class="menu-text hidden-xs">Search</span>
+        </div>
+          <% if StrAllergen & "" <> "" then %>
+      <div   class="menu-bar__item menu-bar__booking"   data-toggle="modal" data-target="#FilterModal">
+        <span class="glyphicon glyphicon-filter" id="icoAllergenFilter"></span>
+        <span class="menu-text">Filter</span>
     </div>
-    <div class="menu-bar__item menu-bar__search" onclick="if($('#txtSearch').val() !='') { $('#txtSearch').val('');SearchTerms('txtSearch'); } $('.js-menu-custom-item').slideToggle('fast');$('#navbar-menu-mobile').slideUp();">
-        <span class=" glyphicon glyphicon-search"></span>
-        <span class="menu-text hidden-xs">Search</span>
+    <% end if %>
+        <div class="menu-bar__item menu-bar__login visible-sm visible-xs" data-toggle="modal" data-target="#loginModal">
+            <span class="glyphicon glyphicon-user"></span>
+            <span class="menu-text hidden-xs">Login</span>
+        </div>
+        <div class="menu-bar__item menu-bar__review" data-toggle="modal" data-target="#reviewsModal" >
+            <span class="glyphicon glyphicon-comment"></span>
+            <span class="menu-text hidden-xs">Review<span>
+        </div>
     </div>
-    <div class="menu-bar__item menu-bar__login visible-sm visible-xs" data-toggle="modal" data-target="#loginModal">
-        <span class="glyphicon glyphicon-user"></span>
-        <span class="menu-text hidden-xs">Login</span>
-    </div>
-    <div class="menu-bar__item menu-bar__review" data-toggle="modal" data-target="#reviewsModal" >
-        <span class="glyphicon glyphicon-comment"></span>
-        <span class="menu-text hidden-xs">Review<span>
-    </div>
-</div>
 
-<div class="collapse scrollable-menu hidden-lg hidden-md" id="navbar-menu-mobile" style="display:none;">
-    <ul class="nav navbar-nav">
-        <%
-        if not objRdsMainCategory.EOF then
-            Do While NOT objRdsMainCategory.Eof
-        
-            %>
-            <li ><a class="movedown" data="categroup-<%=objRdsMainCategory("ID") %>"  onclick="CategorySelection('categroup-<%=objRdsMainCategory("ID") %>');">
-                <%=objRdsMainCategory("Name") %></a> </li>
+    <div class="collapse scrollable-menu hidden-lg hidden-md" id="navbar-menu-mobile" style="display:none;">
+        <ul class="nav navbar-nav">
             <%
-                objRdsMainCategory.MoveNext    
-            Loop
-            objRdsMainCategory.MoveFirst()
-        end if
-    %>
-    </ul>   
-</div>
-<div class="alpha-search-custom js-menu-custom-item">
-    <div class="input-group" style="width:100%;">
-    <input type="search" class="search-query form-control clearable" spellcheck="false"  autocapitalize="off" autocomplete="off" autocorrect="off" id="txtSearch" onchange="SearchTerms('txtSearch');" onkeyup="SearchTerms('txtSearch');"  placeholder="Search as you type" />
-   <!-- <span class="input-group-btn">
-        <button class="btn btn-primary" type="button">Search</button>
-      </span>-->
+            if not objRdsMainCategory.EOF then
+                Do While NOT objRdsMainCategory.Eof
+        
+                %>
+                <li ><a class="movedown" data="categroup-<%=objRdsMainCategory("ID") %>"  onclick="CategorySelection('categroup-<%=objRdsMainCategory("ID") %>');">
+                    <%=objRdsMainCategory("Name") %></a> </li>
+                <%
+                    objRdsMainCategory.MoveNext    
+                Loop
+                objRdsMainCategory.MoveFirst()
+            end if
+        %>
+        </ul>   
     </div>
-</div>
+    <div class="alpha-search-custom js-menu-custom-item">
+        <div class="input-group" style="width:100%;">
+        <input type="search" class="search-query form-control clearable" spellcheck="false"  autocapitalize="off" autocomplete="off" autocorrect="off" id="txtSearch" onchange="SearchTerms('txtSearch');" onkeyup="SearchTerms('txtSearch');"  placeholder="Search as you type" />
+       <!-- <span class="input-group-btn">
+            <button class="btn btn-primary" type="button">Search</button>
+          </span>-->
+        </div>
+    </div>
 
-</div>
+    </div>
 
-<!-- End update menu bar -->
+    <!-- End update menu bar -->
 
-<script type="text/javascript">
-    function tog(v){return v?'addClass':'removeClass';} 
+    <script type="text/javascript">
+        function tog(v){return v?'addClass':'removeClass';} 
 
-        $(document).on('input', '.clearable', function(){
-            $(this)[tog(this.value)]('x');
-        }).on('mousemove', '.x', function( e ){
-            $(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
-        }).on('touchstart click', '.onX', function( ev ){
-            ev.preventDefault();
-            $(this).removeClass('x onX').val('').change();
-            SearchTerms('txtSearch');
-        });
+            $(document).on('input', '.clearable', function(){
+                $(this)[tog(this.value)]('x');
+            }).on('mousemove', '.x', function( e ){
+                $(this)[tog(this.offsetWidth-18 < e.clientX-this.getBoundingClientRect().left)]('onX');
+            }).on('touchstart click', '.onX', function( ev ){
+                ev.preventDefault();
+                $(this).removeClass('x onX').val('').change();
+                SearchTerms('txtSearch');
+            });
 
-                    $(".clearable").trigger("input");
+                        $(".clearable").trigger("input");
 
-</script>
+    </script>
                 
 				
-                       <% 
+                           <% 
                 
-                Dim vCategoryId                
-                Dim vMenuItemId
-                Dim vMenuItemPrice
-                Dim f  
-                dim objRds_MenuItem : set objRds_MenuItem  =  Server.CreateObject("ADODB.Recordset")
-                dim SQL 
-                    SQL = " SELECT mi.*, mi.Name AS Name, "
-                    SQL =SQL & " mip.Id AS PropertyId, mip.Name AS PropertyName, "
-                    SQL =SQL & "mip.Price AS PropertyPrice,  mi.allowtoppings AS miallowtoppings, "
-                    SQL =SQL & " mip.allowtoppings AS mipallowtoppings,mip.i_displaysort  "
-                    SQL =SQL & " FROM  MenuItems AS mi "
-                    SQL =SQL & " LEFT JOIN MenuItemProperties AS mip ON mi.Id = mip.IdMenuItem "
-                    SQL =SQL & "WHERE    mi.idbusinessdetail =  " & vRestaurantId & "  AND mi.hidedish<>1 "
-                    SQL =SQL & " ORDER BY mi.i_displaysort,mi.id,mip.i_displaysort,mip.Id; "
-                objRds_MenuItem.Open SQL, objCon 
-                dim categoryID,CategoryName,CategoryDescription
-                
-                while not objRdsMainCategory.EOF
-                        categoryID = objRdsMainCategory("ID")
-                        CategoryName = objRdsMainCategory("Name")
-                        CategoryDescription = objRdsMainCategory("Description")
-                        %>
-                        <div class="categroup-<%=categoryID %> "></div>
-                            <div id="group-categroup-<%=categoryID %>" class="product-line-heading clearfix" onclick="ShowdishpropertiesV2('categroup-<%=categoryID %>')">
-                            <h4 class="product-line-heading__cat pull-left" >
-                            <a id="menucat_<%=categoryID %>" name="menucat_<%=categoryID %>" ></a>
-                            <%= CategoryName%>   
-                            </h4>
-                            <div class="product-line-heading__icon-wrapper is-vertical-center">
-                                <img class="product-line-heading__icon" src="<%=SITE_URL %>images/menu-category-collapse--retina.png" alt="" id="imgcategroup-<%=categoryID %>">
-                            </div>            
-                            <% if CategoryDescription & "" <> "" then %>
-                                <div class="product-line-heading__cat-des">
-                                    <%= CategoryDescription %>
-                                </div>    
-                            <% end if %>  
-                                </div>
-                        <div id="categroup-<%=categoryID %>" class="group-ptoduct-line" data-type="group-cate">
-                        <%
-                         ' Load Menu Item 
-                            objRds_MenuItem.Filter =  " IdMenuCategory = " & categoryID  & ""
+                    Dim vCategoryId                
+                    Dim vMenuItemId
+                    Dim vMenuItemPrice
+                    Dim f  
+                    dim objRds_MenuItem : set objRds_MenuItem  =  Server.CreateObject("ADODB.Recordset")
+                    dim SQL 
+                        SQL = " SELECT mi.*, mi.Name AS Name, "
+                        SQL =SQL & " mip.Id AS PropertyId, mip.Name AS PropertyName, "
+                        SQL =SQL & "mip.Price AS PropertyPrice,  mi.allowtoppings AS miallowtoppings, "
+                        SQL =SQL & " mip.allowtoppings AS mipallowtoppings,mip.i_displaysort  "
+                        SQL = SQL & ",mip.s_ContainAllergen as s_ContainAllergen_p,mip.s_MayContainAllergen as s_MayContainAllergen_p,mip.s_SuitableFor as s_SuitableFor_p "
+                        SQL = SQL & ",mi.s_ContainAllergen as s_ContainAllergen_m,mi.s_MayContainAllergen as s_MayContainAllergen_m,mi.s_SuitableFor as s_SuitableFor_m "
+                        SQL =SQL & " FROM  MenuItems AS mi "
+                        SQL =SQL & " LEFT JOIN MenuItemProperties AS mip ON mi.Id = mip.IdMenuItem "
+                        SQL =SQL & "WHERE    mi.idbusinessdetail =  " & vRestaurantId & "  AND mi.hidedish<>1 "
+                        SQL =SQL & " ORDER BY mi.i_displaysort,mi.id,mip.i_displaysort,mip.Id; "
+                    objRds_MenuItem.Open SQL, objCon 
+                    dim categoryID,CategoryName,CategoryDescription
+                    dim s_ContainAllergen_p,s_MayContainAllergen_p,s_SuitableFor_p 
+                            dim s_ContainAllergen_m,s_MayContainAllergen_m,s_SuitableFor_m
+                    while not objRdsMainCategory.EOF
+                                    
+                            categoryID = objRdsMainCategory("ID")
+                            CategoryName = objRdsMainCategory("Name")
+                            CategoryDescription = objRdsMainCategory("Description")
+                            %>
+                            <div class="categroup-<%=categoryID %> "></div>
+                                <div id="group-categroup-<%=categoryID %>" class="product-line-heading clearfix" onclick="ShowdishpropertiesV2('categroup-<%=categoryID %>')">
+                                <h4 class="product-line-heading__cat pull-left" >
+                                <a id="menucat_<%=categoryID %>" name="menucat_<%=categoryID %>" ></a>
+                                <%= CategoryName%>   
+                                </h4>
+                                <div class="product-line-heading__icon-wrapper is-vertical-center">
+                                    <img class="product-line-heading__icon" src="<%=SITE_URL %>images/menu-category-collapse--retina.png" alt="" id="imgcategroup-<%=categoryID %>">
+                                </div>            
+                                <% if CategoryDescription & "" <> "" then %>
+                                    <div class="product-line-heading__cat-des">
+                                        <%= CategoryDescription %>
+                                    </div>    
+                                <% end if %>  
+                                    </div>
+                            <div id="categroup-<%=categoryID %>" class="group-ptoduct-line" data-type="group-cate">
+                            <%
+                             ' Load Menu Item 
+                                objRds_MenuItem.Filter =  " IdMenuCategory = " & categoryID  & ""
 
-                            dim Code,MenuDescription,dishpropertygroupid,hidedish
-                            dim MenuItemName,Photo,MenuPrice,menuPrintingName,Spicyness,Vegetarian
-                            dim PropertyName,PropertyId,PropertyPrice,miallowtoppings,mipallowtoppings
+                                dim Code,MenuDescription,dishpropertygroupid,hidedish
+                                dim MenuItemName,Photo,MenuPrice,menuPrintingName,Spicyness,Vegetarian
+                                dim PropertyName,PropertyId,PropertyPrice,miallowtoppings,mipallowtoppings
                             
-                            MenuItemName = ""
-                            dim menuItemNameID : menuItemNameID = ""
-                            while not objRds_MenuItem.EOF
-                                   vMenuItemId = objRds_MenuItem("Id")
-                                   Code =  objRds_MenuItem("Code")
-                                   MenuDescription = objRds_MenuItem("Description")
-                                   dishpropertygroupid = objRds_MenuItem("dishpropertygroupid")
-                                   hidedish = objRds_MenuItem("hidedish")
-                                   MenuItemName = objRds_MenuItem("Name")
-                                   Photo = objRds_MenuItem("Photo")
-                                   MenuPrice = objRds_MenuItem("Price")
-                                   menuPrintingName = objRds_MenuItem("PrintingName")
-                                   Spicyness = objRds_MenuItem("Spicyness")
-                                   Vegetarian = objRds_MenuItem("Vegetarian")
-                                   PropertyName = objRds_MenuItem("PropertyName")
-                                    PropertyId = "-1"
-                                     If Not IsNull(objRds_MenuItem("PropertyId")) Then
-                                        PropertyId = objRds_MenuItem("PropertyId")
-                                        PropertyPrice = objRds_MenuItem("PropertyPrice")   
-                                        if MenuPrice & "" = "0" or MenuPrice & "" = ""  then 
-                                            MenuPrice = PropertyPrice
-                                        end if                     
-                                    End If
+                                MenuItemName = ""
+                                dim menuItemNameID : menuItemNameID = ""
+                                while not objRds_MenuItem.EOF
+                                       s_ContainAllergen_m = replace(objRds_MenuItem("s_ContainAllergen_m") & ""," ","")
+                                    s_MayContainAllergen_m = replace(objRds_MenuItem("s_MayContainAllergen_m") & ""," ","")
+                                    s_SuitableFor_m = replace(objRds_MenuItem("s_SuitableFor_m") & ""," ","")
+                            
+                                    s_ContainAllergen_p = replace(objRds_MenuItem("s_ContainAllergen_p") & ""," ","")
+                                    s_MayContainAllergen_p = replace(objRds_MenuItem("s_MayContainAllergen_p") & ""," ","")
+                                    s_SuitableFor_p = replace(objRds_MenuItem("s_SuitableFor_p") & ""," ","") 
+                                       vMenuItemId = objRds_MenuItem("Id")
+                                       Code =  objRds_MenuItem("Code")
+                                       MenuDescription = objRds_MenuItem("Description")
+                                       dishpropertygroupid = objRds_MenuItem("dishpropertygroupid")
+                                       hidedish = objRds_MenuItem("hidedish")
+                                       MenuItemName = objRds_MenuItem("Name")
+                                       Photo = objRds_MenuItem("Photo")
+                                       MenuPrice = objRds_MenuItem("Price")
+                                       menuPrintingName = objRds_MenuItem("PrintingName")
+                                       Spicyness = objRds_MenuItem("Spicyness")
+                                       'Vegetarian = objRds_MenuItem("Vegetarian")
+                                       PropertyName = objRds_MenuItem("PropertyName")
+                                        PropertyId = "-1"
+                                         If Not IsNull(objRds_MenuItem("PropertyId")) Then
+                                            PropertyId = objRds_MenuItem("PropertyId")
+                                            PropertyPrice = objRds_MenuItem("PropertyPrice")   
+                                            if MenuPrice & "" = "0" or MenuPrice & "" = ""  then 
+                                                MenuPrice = PropertyPrice
+                                            end if                     
+                                        End If
                                    
-                                   miallowtoppings = objRds_MenuItem("miallowtoppings")
-                                   mipallowtoppings = objRds_MenuItem("mipallowtoppings")
+                                       miallowtoppings = objRds_MenuItem("miallowtoppings")
+                                       mipallowtoppings = objRds_MenuItem("mipallowtoppings")
                             
-                                    dim class_noborder : class_noborder = ""
-                                    if menuItemNameID = vMenuItemId then
-                                        class_noborder = " no-border"
-                                    End if
-                                    dim parent : parent = "" 
-                                     if menuItemNameID <> vMenuItemId then
-                                            parent = "parent='0'"
-                                    end if
-                                       %>
+                                        dim class_noborder : class_noborder = ""
+                                        if menuItemNameID = vMenuItemId then
+                                            class_noborder = " no-border"
+                                        End if
+                                        dim parent : parent = "" 
+                                         if menuItemNameID <> vMenuItemId then
+                                                parent = "parent='0'"
+                                        end if
+                                           %>
 
                               
-                                <div class="product-line <%=class_noborder %>" name="<%=vMenuItemId %>" <%=parent %>>
-                                    <!--Menu Item Name-->                                  
+                                    <div class="product-line <%=class_noborder %>" name="<%=vMenuItemId %>" <%=parent %> >
+                                        <!--Menu Item Name-->                                  
                                    
-                                        <% 
+                                            <% 
                                           
-                                            if menuItemNameID <> vMenuItemId then  %>
-                                                 <div class="product-line__content-left<%=class_noborder %>">
-                                                    <div class="d-flex-center d-flex-start">
-                                             <%
-                                                 dim styleMarginleft : styleMarginleft =""
-								            If Photo <> "" Then 
-                                                 styleMarginleft = "style='margin-left:12px;' "
-								               photo=1%>
-                                                   <div  class="product10w photo" data-toggle="modal" data-target="#lightbox">  
-                                                        <img data-src="<%=SITE_URL %>Images/<%=vRestaurantId %>/<%= objRds_MenuItem("Photo")%>" class="img-rounded lazy" alt="<%= MenuItemName%>" style="vertical-align: top;width:30px;max-width:40px;" /> 
-                                                            <div class="overlay">
-                                                                    <a href="javascript:;"  class="magnifying-glass-icon foobox" style="top:12px;left:20px;">
-                                                                    <i class="fa fa-search"></i>
-                                                                    </a>
-                                                            </div>
-						                            </div>	
-                                            <%End If %>
-
-
-											<div class="product-line__number" <%=styleMarginleft %>>
-                                            <% If Code <> "" Then 
-								                code=1%>
-                                                   
-                                                    <%= objRds_MenuItem("Code")  %>.
+                                                if menuItemNameID <> vMenuItemId then  %>
+                                                     <div class="product-line__content-left<%=class_noborder %>">
+                                                        <div class="d-flex-center d-flex-start">
+                                                 <%
+                                                     dim styleMarginleft : styleMarginleft =""
+								                If Photo <> "" Then 
+                                                     styleMarginleft = "style='margin-left:12px;' "
+								                   photo=1%>
+                                                       <div  class="product10w photo" data-toggle="modal" data-target="#lightbox">  
+                                                            <img data-src="<%=SITE_URL %>Images/<%=vRestaurantId %>/<%= objRds_MenuItem("Photo")%>" class="img-rounded lazy" alt="<%= MenuItemName%>" style="vertical-align: top;width:30px;max-width:40px;" /> 
+                                                                <div class="overlay">
+                                                                        <a href="javascript:;"  class="magnifying-glass-icon foobox" style="top:12px;left:20px;">
+                                                                        <i class="fa fa-search"></i>
+                                                                        </a>
+                                                                </div>
+						                                </div>	
                                                 <%End If %>
-											</div>
+
+
+											    <div class="product-line__number" <%=styleMarginleft %>>
+                                                <% If Code <> "" Then 
+								                    code=1%>
+                                                   
+                                                        <%= objRds_MenuItem("Code")  %>.
+                                                    <%End If %>
+											    </div>
 
 
 
 
-                                            <div class="product-line__description desc ">
-                                            <%=MenuItemName %>
-                                            <%If Vegetarian Then %>
-                                                <img src="<%=SITE_URL %>Images/veggie_small.png" alt="veggie" />
-                                            <%End If %>
+                                                <div class="product-line__description desc "   s_ContainAllergen_m="<%=s_ContainAllergen_m & "|" & s_MayContainAllergen_m %>" s_MayContainAllergen_m="<%=s_MayContainAllergen_m %>" s_SuitableFor_m="<%=s_SuitableFor_m %>">
+                                                <%=MenuItemName %>
+                                                <%If Vegetarian Then %>
+                                                    <!--<img src="<%=SITE_URL %>Images/veggie_small.png" alt="veggie" />-->
+                                                <%End If %>
 
-                                            
+                                                 <%
+                                                dim index_m ,s_contain
+                                           
+                                                 if s_ContainAllergen_m & "" <> "" then 
+                                                  ''FindAllergen
+                                                    dim   arr_s_ContainAllergen_m : arr_s_ContainAllergen_m = split(s_ContainAllergen_m,",")
+                                                     index_m = 0
+                                                    for index_m = 0 to ubound(arr_s_ContainAllergen_m)
+                                                         s_contain = FindAllergen(arr_s_ContainAllergen_m(index_m) )
+                                                        if s_contain & "" <> "" then
+                                                                %>
+                                                                    <img width="17" height="17" data-container="body" data-toggle="tooltip"  src="<%=SITE_URL %>Images/allergen/png/<%=replace( split(s_contain,"|")(2),"amber","red")   %>" title="Contains <%=split(s_contain,"|")(1) %>"  alt="Contains <%=split(s_contain,"|")(1) %>" />
+                                                                <%
+                                                        end if
+                                                    next
+                                                %>
 
-                                            <%If Spicyness> 0 Then %>
-                                                <img src="<%= SITE_URL& "Images/spicy_" & Spicyness & ".png"%>" alt="spicy" />
-                                            <%End If %><br />
-                                            <% if MenuDescription & "" <> "" then %>
-                                                <i><span class="small"><%= MenuDescription %></span></i>
                                             <% end if %>
+
+                                             <% if s_MayContainAllergen_m & "" <> "" then 
+                                                  ''FindAllergen
+                                                    dim arr_s_MayContainAllergen_m : arr_s_MayContainAllergen_m= split(s_MayContainAllergen_m,",")
+                                                  index_m = 0
+                                                    for index_m = 0 to ubound(arr_s_MayContainAllergen_m)
+                                                        s_contain =FindAllergen(arr_s_MayContainAllergen_m(index_m) )
+                                                        if s_contain & "" <> "" then%>
+                                                                    <img width="17" height="17" data-container="body" data-toggle="tooltip"  src="<%=SITE_URL %>Images/allergen/png/<%=split(s_contain,"|")(2)  %>" title="May contain <%=split(s_contain,"|")(1) %>" alt="May contain <%=split(s_contain,"|")(1) %>" />
+                                                                <%
+                                                        end if
+                                                    next
+                                                %>
+
+                                            <% end if %>
+
+                                                  <% if s_SuitableFor_m & "" <> "" then 
+                                                  ''FindAllergen
+                                                    dim arr_s_SuitableFor_m : arr_s_SuitableFor_m= split(s_SuitableFor_m,",")
+                                                    index_m = 0
+                                                    for index_m = 0 to ubound(arr_s_SuitableFor_m)
+                                                         s_contain =FindAllergen( arr_s_SuitableFor_m(index_m) )
+                                                        if s_contain & "" <> "" then%>
+                                                                    <img width="17" height="17" data-container="body" data-toggle="tooltip"  src="<%=SITE_URL %>Images/allergen/png/<%=split(s_contain,"|")(2)  %>"  title="<%=split(s_contain,"|")(1) %>" alt="<%=split(s_contain,"|")(1) %>"  />
+                                                                <%
+                                                        end if
+                                                    next
+                                                %>
+
+                                            <% end if %>
+
+                                                <%
+                                                     dim spicytitle  : spicytitle = "Mildly Spicy" 
+                                                
+                                                if Spicyness = 2  then
+                                                    spicytitle = "Spicy" 
+                                                elseif Spicyness = 3  then
+                                                    spicytitle = "Very Spicy" 
+                                                end if
+                                                    If Spicyness> 0 Then %>
+                                                   <img src="<%=SITE_URL %>Images/spicy_<%= Spicyness %>.png?v=1.1"  height="17" alt="<%=spicytitle %>" title="<%=spicytitle %>"  data-container="body" data-toggle="tooltip"  />
+                                                <%End If %><br />
+                                                <% if MenuDescription & "" <> "" then %>
+                                                    <i><span class="small"><%= MenuDescription %></span></i>
+                                                <% end if %>
+
+                                                </div>
+                                             </div>
+                                         </div>
+                                            <% end if
+                                                menuItemNameID = vMenuItemId
+                                            %>
+                                       
+                                        <!--Propertyname and Price-->
+                                        <!--<div style="width:30%;float:left;">-->
+                                            <!--PropertyName-->
+                                            <div class="product-line__content-right " style="width:85%">
+                                            <div class="d-flex-center d-flex-end">
+                                            <div class="product-line__property-name"  s_ContainAllergen_p="<%=s_ContainAllergen_p & "|" & s_MayContainAllergen_p %>" s_MayContainAllergen_p="<%=s_MayContainAllergen_p %>"  s_SuitableFor_p="<%=s_SuitableFor_p %>"><%=PropertyName %></div> 
+
+                                                 <%
+                                                 if s_ContainAllergen_p & "" <> "" then 
+                                                  ''FindAllergen
+                                                    dim   arr_s_ContainAllergen_p : arr_s_ContainAllergen_p = split(s_ContainAllergen_p,",")
+                                                     index_m = 0
+                                                    for index_m = 0 to ubound(arr_s_ContainAllergen_p)
+                                                         s_contain = FindAllergen(arr_s_ContainAllergen_p(index_m) )
+                                                        if s_contain & "" <> "" then
+                                                                %>
+                                                                    <img width="17" height="17" data-toggle="tooltip"  src="<%=SITE_URL %>Images/allergen/png/<%=replace(split(s_contain,"|")(2),"amber","red")  %>" title="Contains <%=split(s_contain,"|")(1) %>"  alt="Contains <%=split(s_contain,"|")(1) %>" />
+                                                                <%
+                                                        end if
+                                                    next
+                                                %>
+
+                                            <% end if %>
+
+                                             <% if s_MayContainAllergen_p & "" <> "" then 
+                                                  ''FindAllergen
+                                                    dim arr_s_MayContainAllergen_p : arr_s_MayContainAllergen_p= split(s_MayContainAllergen_p,",")
+                                                  index_m = 0
+                                                    for index_m = 0 to ubound(arr_s_MayContainAllergen_p)
+                                                        s_contain =FindAllergen(arr_s_MayContainAllergen_p(index_m) )
+                                                        if s_contain & "" <> "" then%>
+                                                                    <img width="17" height="17" data-toggle="tooltip"  src="<%=SITE_URL %>Images/allergen/png/<%=split(s_contain,"|")(2)  %>" title="May contain <%=split(s_contain,"|")(1) %>"  alt="May contain <%=split(s_contain,"|")(1) %>" />
+                                                                <%
+                                                        end if
+                                                    next
+                                                %>
+
+                                            <% end if %>
+
+                                                  <% if s_SuitableFor_p & "" <> "" then 
+                                                  ''FindAllergen
+                                                    dim arr_s_SuitableFor_p : arr_s_SuitableFor_p= split(s_SuitableFor_p,",")
+                                                    index_m = 0
+                                                    for index_m = 0 to ubound(arr_s_SuitableFor_p)
+                                                         s_contain =FindAllergen( arr_s_SuitableFor_p(index_m) )
+                                                        if s_contain & "" <> "" then%>
+                                                                    <img width="17" height="17" data-toggle="tooltip"  src="<%=SITE_URL %>Images/allergen/png/<%=split(s_contain,"|")(2)  %>" title="<%=split(s_contain,"|")(1) %>" alt="<%=split(s_contain,"|")(1) %>"  />
+                                                                <%
+                                                        end if
+                                                    next
+                                                %>
+
+                                            <% end if %>
+
+                                             <% donotshowprice="n"
+								                dishpropertiestext=""
+								                pricefrom=0
+								            ' code to check if other dish properties are applicable to this product
+								            if dishpropertygroupid & "" <>"" then%>
+								            <%
+								            'Set objCon_properties = Server.CreateObject("ADODB.Connection")
+								            Set objRds_properties = Server.CreateObject("ADODB.Recordset") 
+          
+								            'objCon_properties.Open sConnString
+                                                objRds_properties.Open "SELECT * FROM MenuDishpropertiesGroups where id in (" & dishpropertygroupid & ") order by i_displaysort,id", objCon
+				                                While NOT objRds_properties.Eof 
+                                                    dishpropertiestext =  dishpropertiestext & "<div class=""dishproperties__title"">" & objRds_properties("dishpropertygroup") & " </div> "
+                                                    dishpropertiestext =  dishpropertiestext & " <select name=""" & objRds_properties("id") & """ id=""" & objRds_properties("id") & """ class=""form-control selectpicker"" data-group=""dishproperties" & vMenuItemId & "-" & PropertyId & """"
+                                                    if objRds_properties("dishpropertyrequired")<>1  then
+                                                        dishpropertiestext = dishpropertiestext & " data-required=""n"">"
+                                                        dishpropertiestext = dishpropertiestext & "><option value=""0"">-- select --</option>"
+                                                    else
+                                                        dishpropertiestext = dishpropertiestext & " data-required=""y"" data-caption=""Please choose " & replace(objRds_properties("dishpropertygroup"),"""","") & """>"
+                                                        dishpropertiestext = dishpropertiestext & "><option value=""0"">-- select --</option>"
+                                                    end if
+						
+								                    'Set objCon_propertiesitems = Server.CreateObject("ADODB.Connection")
+								                    Set objRds_propertiesitems = Server.CreateObject("ADODB.Recordset") 
+								                    'objCon_propertiesitems.Open sConnString
+                                                    'SQL = "SELECT * FROM MenuDishproperties where dishpropertygroupid=" & objRds_properties("id")  & "  order by i_displaysort,id "
+                                                    SQL = "SELECT dishproperty,dishpropertyprice,id,i_displaysort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor FROM MenuDishproperties with(nolock)    where dishpropertygroupid=" & objRds_properties("id")  & " order by i_displaysort, id "
+                                                    objRds_propertiesitems.Open SQL, objCon
+				                                    dim s_ContainAllergen_dp,s_MayContainAllergen_dp,s_SuitableFor_dp  
+                                                    dim htmltooltip : htmltooltip = "" 
+				                                    While NOT objRds_propertiesitems.Eof 
+                                                         dim htmlicon : htmlicon = ""
+                                                     '   htmltooltip = ""
+                                                    s_ContainAllergen_dp = replace(objRds_propertiesitems("s_ContainAllergen") & ""," ","") 
+                                                    s_MayContainAllergen_dp = replace(objRds_propertiesitems("s_MayContainAllergen") & "" ," ","") 
+                                                    s_SuitableFor_dp  = replace(objRds_propertiesitems("s_SuitableFor") & ""," ","") 
+                                                     htmltooltip = htmltooltip & "<b>" &  objRds_propertiesitems("dishproperty") & "</b>"  & "<br/>"
+                                                     dim htmltooltip1 : htmltooltip1 = ""
+                                                     if s_ContainAllergen_dp & "" <> "" then                                                   
+                                                        dim   arr_s_ContainAllergen_dp : arr_s_ContainAllergen_dp = split(s_ContainAllergen_dp,",")
+                                                         index_m = 0
+                                                        for index_m = 0 to ubound(arr_s_ContainAllergen_dp)
+                                                             s_contain = FindAllergen(arr_s_ContainAllergen_dp(index_m) )
+                                                            if s_contain & "" <> "" then
+                                                                if instr(htmltooltip1,"Contains") = 0 then
+                                                                     htmltooltip1 = htmltooltip1 &  "Contains: " 
+                                                                end if
+                                                                     htmltooltip1 =  htmltooltip1 & " <img width=""17"" height=""17""  src=""" & SITE_URL & "Images/allergen/png/" & replace( split(s_contain,"|")(2),"amber","red") & """ /> "
+                                                                     htmltooltip1 =  htmltooltip1 &  split(s_contain,"|")(1) & ", "
+                                                                       htmlicon = htmlicon &  SITE_URL &  "Images/allergen/png/"  & replace(split(s_contain,"|")(2),"amber","red")  & ";"                                                                
+                                                            end if
+                                                        next
+                                                    end if
+                                                        if htmltooltip1 & "" <> "" then
+                                                            htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
+                                                            htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
+                                                         end if
+                                                    htmltooltip1  =""
+                                                    if s_MayContainAllergen_dp & "" <> "" then                                                   
+                                                        dim   arr_s_MayContainAllergen_dp : arr_s_MayContainAllergen_dp = split(s_MayContainAllergen_dp,",")
+                                                         index_m = 0
+                                                        for index_m = 0 to ubound(arr_s_MayContainAllergen_dp)
+                                                             s_contain = FindAllergen(arr_s_MayContainAllergen_dp(index_m) )
+                                                            if s_contain & "" <> "" then
+                                                                       if instr(htmltooltip1,"May Contain") = 0 then
+                                                                             htmltooltip1 = htmltooltip1 &  "May Contain: " 
+                                                                        end if
+                                                                        htmltooltip1 =  htmltooltip1 & " <img width=""17"" height=""17""  src=""" & SITE_URL & "Images/allergen/png/" & split(s_contain,"|")(2) & """ /> "
+                                                                        htmltooltip1 =  htmltooltip1 & split(s_contain,"|")(1) & ", "
+                                                                       htmlicon = htmlicon &  SITE_URL &  "Images/allergen/png/"  & split(s_contain,"|")(2)  & ";"   
+                                                            end if
+                                                        next
+                                                    end if
+                                                     if htmltooltip1 & "" <> "" then
+                                                            htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
+                                                            htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
+                                                         end if
+                                                    htmltooltip1  =""
+                                                    if s_SuitableFor_dp & "" <> "" then                                                   
+                                                        dim   arr_s_SuitableFor_dp : arr_s_SuitableFor_dp = split(s_SuitableFor_dp,",")
+                                                         index_m = 0
+                                                        for index_m = 0 to ubound(arr_s_SuitableFor_dp)
+                                                             s_contain = FindAllergen(arr_s_SuitableFor_dp(index_m) )
+                                                            if s_contain & "" <> "" then
+                                                                       if instr(htmltooltip1,"Suitable For") = 0 then
+                                                                             htmltooltip1 = htmltooltip1 &  "Suitable For: " 
+                                                                        end if
+                                                                        htmltooltip1 =  htmltooltip1 & " <img width=""17"" height=""17""  src=""" & SITE_URL & "Images/allergen/png/" & split(s_contain,"|")(2) & """ /> "
+                                                                        htmltooltip1 =  htmltooltip1 & split(s_contain,"|")(1) & ", "
+                                                                      htmlicon = htmlicon &  SITE_URL &  "Images/allergen/png/"  & split(s_contain,"|")(2)  & ";"   
+                                                            end if
+                                                        next
+                                                    end if
+                                                     if htmltooltip1 & "" <> "" then
+                                                            htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
+                                                            htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
+                                                         end if
+                                                  '  htmltooltip =  htmltooltip & "<br/>"
+
+				                                        add=""
+				                                        if objRds_properties("dishpropertypricetype")="add" then
+				                                            add=" - add "
+				                                        else
+				                                            donotshowprice="y"
+				                                            if pricefrom & "" = "0" or pricefrom & "" = ""  then
+					                                            pricefrom=objRds_propertiesitems("dishpropertyprice")
+				                                            end if
+				                                        end if
+				                                       ' dishpropertiestext = dishpropertiestext & "<option value=""" & objRds_propertiesitems("id") & """>" & objRds_propertiesitems("dishproperty") & add & " " &  CURRENCYSYMBOL & FormatNumber(objRds_propertiesitems("dishpropertyprice"),2) & "</option>"
+                                                        dishpropertiestext = dishpropertiestext & "<option data-thumbnail=""" & htmlicon & """ s_SuitableFor_dp="""& s_SuitableFor_dp &"""  s_MayContainAllergen_dp="""& s_MayContainAllergen_dp  &""" s_ContainAllergen_dp="""& s_ContainAllergen_dp & "|" & s_MayContainAllergen_dp &""" value=""" & objRds_propertiesitems("id") & """>" & objRds_propertiesitems("dishproperty") & add & " " &  CURRENCYSYMBOL & FormatNumber(objRds_propertiesitems("dishpropertyprice"),2) & "</option>"
+				    		                            objRds_propertiesitems.MoveNext
+							                        wend 
+                                                        objRds_propertiesitems.close()
+                                                        set objRds_propertiesitems = nothing        
+                                                dishpropertiestext = dishpropertiestext & "</select>"
+                                                 '' Add Add tooltip here
+                                                    if instr(htmltooltip,"Contains:") =  0 and instr(htmltooltip,"May Contain:") =  0 and  instr(htmltooltip,"Suitable For:") =  0 then
+                                                            htmltooltip = ""
+                                                    else
+                                                        dishpropertiestext =  dishpropertiestext & "   <span class=""glyphicon glyphicon-exclamation-sign append text-info tip"" data-tip=""tip-"&objRds_properties("id")&""" ></span> <br>"    
+                                                        dishpropertiestext = dishpropertiestext & "<div id=""tip-" & objRds_properties("id") & """ class=""tip-content hidden""> "
+                                                        dishpropertiestext=  dishpropertiestext &    htmltooltip
+                                                        dishpropertiestext = dishpropertiestext & "</div>"
+                                                    end if                                                  
+                                            '' end 
+						                        objRds_properties.MoveNext
+                                                wend 
+                                                objRds_properties.close()
+                                                set objRds_properties = nothing
+                                            End if
+
+                                  
+								    ' code to check if toppings are applicable to this product
+								    dishtoppingstext=""
+								    if (miallowtoppings & "" <> "0" and trim( miallowtoppings & "") <> "") or ( mipallowtoppings & "" <> "0" and trim( mipallowtoppings & "") <> "")  then
+                                             dim listtoppinggroupid : listtoppinggroupid = ""
+                                                if trim( miallowtoppings & "") <> "0" and trim( miallowtoppings & "") <> ""   then
+                                                    listtoppinggroupid = miallowtoppings
+                                                end if
+
+                                                if trim( mipallowtoppings & "") <> "0" and  trim( mipallowtoppings & "") <> ""  then
+                                                    if listtoppinggroupid = "" then
+                                                        listtoppinggroupid =mipallowtoppings
+                                                    else
+                                                        listtoppinggroupid =listtoppinggroupid &  "," & mipallowtoppings
+                                                    end if
+                                                end if
+                                             Set objRds_toppings_Group = Server.CreateObject("ADODB.Recordset")  
+                                                SQL = "select ID,toppingsgroup,i_displaysort,isnull(limittopping,0) as limittopping from Menutoppingsgroups where IdBusinessDetail = " &   vRestaurantId & " and ID in (" &listtoppinggroupid& ")  order by i_displaysort,id "                                                     
+                                                objRds_toppings_Group.Open SQL, objCon
+                                            while not objRds_toppings_Group.EOF 
+                                                Set objRds_toppings = Server.CreateObject("ADODB.Recordset")           
+                                                    SQL = "SELECT id,topping,toppingprice,i_displaysort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor FROM MenuToppings with(nolock)    where  IdBusinessDetail=" & vRestaurantId                                               
+                                                    SQL =SQL & " and toppinggroupid=" & objRds_toppings_Group("ID")    & " order by i_displaysort,id "                                            
+                                                    objRds_toppings.Open SQL, objCon
+                                                dishtoppingstext =  "<div class=""dishproperties__title"">" & objRds_toppings_Group("toppingsgroup") & " </div> "
+                                                dim s_ContainAllergen_t,s_MayContainAllergen_t,s_SuitableFor_t 
+                                                While NOT objRds_toppings.Eof 
+                                                    s_ContainAllergen_t = Replace(objRds_toppings("s_ContainAllergen")& ""," ","") 
+                                                    s_MayContainAllergen_t  =Replace( objRds_toppings("s_MayContainAllergen")&""," ","")
+                                                    s_SuitableFor_t  = Replace( objRds_toppings("s_SuitableFor")&""," ","")
+                                                    dim shtmlicons : shtmlicons = ""
+
+                                                     if s_ContainAllergen_t & "" <> "" then 
+                                                          ''FindAllergen
+                                                            dim   arr_s_ContainAllergen_t : arr_s_ContainAllergen_t = split(s_ContainAllergen_t,",")
+                                                             index_m = 0
+                                                            for index_m = 0 to ubound(arr_s_ContainAllergen_t)
+                                                                 s_contain = FindAllergen(arr_s_ContainAllergen_t(index_m) )
+                                                                if s_contain & "" <> "" then
+                                                                        shtmlicons = shtmlicons &  "<img width=""17"" data-toggle=""tooltip""  height=""17"" src=""" & SITE_URL & "Images/allergen/png/" & replace(split(s_contain,"|")(2),"amber","red") & """    title=""Contains "&split(s_contain,"|")(1)&"""  alt=""Contains "&split(s_contain,"|")(1)&""" />"
+                                                                end if
+                                                            next
+                                                    end if
+
+                                                    if s_MayContainAllergen_t & "" <> "" then 
+                                                          ''FindAllergen
+                                                            dim   arr_s_MayContainAllergen_t : arr_s_MayContainAllergen_t = split(s_MayContainAllergen_t,",")
+                                                             index_m = 0
+                                                            for index_m = 0 to ubound(arr_s_MayContainAllergen_t)
+                                                                 s_contain = FindAllergen(arr_s_MayContainAllergen_t(index_m) )
+                                                                if s_contain & "" <> "" then
+                                                                        shtmlicons = shtmlicons &  "<img width=""17"" height=""17"" data-toggle=""tooltip""  src=""" & SITE_URL & "Images/allergen/png/" & split(s_contain,"|")(2) & """    title=""May contain "&split(s_contain,"|")(1)&"""  alt=""May contain "&split(s_contain,"|")(1)&""" />"
+                                                                end if
+                                                            next
+                                                    end if
+
+                                                    if s_SuitableFor_t & "" <> "" then 
+                                                          ''FindAllergen
+                                                            dim   arr_s_SuitableFor_t : arr_s_SuitableFor_t = split(s_SuitableFor_t,",")
+                                                             index_m = 0
+                                                            for index_m = 0 to ubound(arr_s_SuitableFor_t)
+                                                                 s_contain = FindAllergen(arr_s_SuitableFor_t(index_m) )
+                                                                if s_contain & "" <> "" then
+                                                                        shtmlicons = shtmlicons &  "<img width=""17"" height=""17"" data-toggle=""tooltip""  src=""" & SITE_URL & "Images/allergen/png/" & split(s_contain,"|")(2) & """    title="""&split(s_contain,"|")(1)&"""  alt="""&split(s_contain,"|")(1)&""" />"
+                                                                end if
+                                                            next
+                                                    end if
+
+                                                    dishtoppingstext = dishtoppingstext &  "<span s_ContainAllergen_t="""  & s_ContainAllergen_t & "|" & s_MayContainAllergen_t & """  s_MayContainAllergen_t="""  & s_MayContainAllergen_t & """  s_SuitableFor_t="""  & s_SuitableFor_t & """  class=""topping d-flex""> " 
+                                                    dishtoppingstext = dishtoppingstext &  " <span class=""mr-5""> " 
+                                                    dishtoppingstext = dishtoppingstext &  "    <input type=""checkbox"" toppinggroup=""topping_" & objRds_toppings_Group("ID") &""" name=""" & objRds_toppings("topping") & """ value=""" & objRds_toppings("id") & """ data-group=""toppings" & vMenuItemId & "-" & PropertyId & """> " & objRds_toppings("topping") & shtmlicons 
+                                                    dishtoppingstext = dishtoppingstext &  " </span> " 
+                                                    dishtoppingstext = dishtoppingstext &  " <span  class=""ml-auto""> " 
+                                                    dishtoppingstext = dishtoppingstext &  CURRENCYSYMBOL & FormatNumber(objRds_toppings("toppingprice"),2)  
+                                                    dishtoppingstext = dishtoppingstext &  " </span> " 
+                                                    dishtoppingstext = dishtoppingstext &  "</span>"
+								                    objRds_toppings.MoveNext
+                                                wend 
+                                                    objRds_toppings.close()
+                                                set objRds_toppings = nothing
+                                                  if cint( objRds_toppings_Group("limittopping")) > 0 then
+                                                        dishtoppingstext  = dishtoppingstext & "<script>checkboxlimit('topping_" & objRds_toppings_Group("ID") & "'," &  objRds_toppings_Group("limittopping")  &  ");</script>"
+                                                    end if
+                                                objRds_toppings_Group.movenext()
+                                            wend
+                                                objRds_toppings_Group.close()
+                                                set objRds_toppings_Group = nothing
+                                    end if
+								    %> 
+                                
+                                    <% 
+                                    
+                                        noprice=0
+                                        If Not IsNull(MenuPrice) and donotshowprice="n" Then %>
+                                        <div class="product-line__price"><b><%=CURRENCYSYMBOL%><%= FormatNumber(MenuPrice, 2) %></b></div> 
+                                
+                                    <%  noprice=1
+                                        End If %>
+							
+                                    <%if pricefrom & "" <> "0" then%>
+                               
+                                     <div class="product-line__price"><b>from <%=CURRENCYSYMBOL%><%= FormatNumber(pricefrom, 2) %></b></div>    
+                                    <%noprice=1
+                                    end if%>
+
+
+                                  
+                                            <!--Add to cart-->
+                                            <div class="product-line__action-btn">	
+                                                <div align="right">
+                                                <% if dishpropertiestext & "" <> ""  or dishtoppingstext & "" <> "" then  %>
+                                                    <button class="btn btn-success" onclick="Showdishproperties('dishproperties<%=vMenuItemId %>-<%=objRds_MenuItem("PropertyId") %>');">
+                                                        <span style="top:2px;" class="glyphicon glyphicon-plus-sign"></span>
+                                                    </button>
+                                                <% else %>
+                                                    <button class="btn btn-success btnadd" onclick="Add(<%=vMenuItemId %>,<%=PropertyId %>,this);">
+                                                      <span class="glyphicon glyphicon-plus"></span>
+                                                      <span class="fa fa-refresh fa-spin" aria-hidden="true" style=" width: 1em;display:none;"></span>
+                                                    </button>    
+                                                <% end if %>
+                                                </div>					
+                                            </div>
 
                                             </div>
-                                         </div>
-                                     </div>
-                                        <% end if
-                                            menuItemNameID = vMenuItemId
-                                        %>
-                                       
-                                    <!--Propertyname and Price-->
-                                    <!--<div style="width:30%;float:left;">-->
-                                        <!--PropertyName-->
-                                        <div class="product-line__content-right ">
-                                        <div class="d-flex-center d-flex-end">
-                                        <div class="product-line__property-name"><%=PropertyName %></div> 
-
-                                         <% donotshowprice="n"
-								            dishpropertiestext=""
-								            pricefrom=0
-								        ' code to check if other dish properties are applicable to this product
-								        if dishpropertygroupid & "" <>"" then%>
-								        <%
-								        'Set objCon_properties = Server.CreateObject("ADODB.Connection")
-								        Set objRds_properties = Server.CreateObject("ADODB.Recordset") 
-          
-								        'objCon_properties.Open sConnString
-                                            objRds_properties.Open "SELECT * FROM MenuDishpropertiesGroups where id in (" & dishpropertygroupid & ") order by i_displaysort,id", objCon
-				                            While NOT objRds_properties.Eof 
-                                                dishpropertiestext =  dishpropertiestext & "<div class=""dishproperties__title"">" & objRds_properties("dishpropertygroup") & " </div> <select name=""" & objRds_properties("id") & """ id=""" & objRds_properties("id") & """ class=""form-control"" data-group=""dishproperties" & vMenuItemId & "-" & PropertyId & """"
-                                            if objRds_properties("dishpropertyrequired")<>1  then
-                                                dishpropertiestext = dishpropertiestext & " data-required=""n"">"
-                                                dishpropertiestext = dishpropertiestext & "><option value=""0"">-- select --</option>"
-                                            else
-                                                dishpropertiestext = dishpropertiestext & " data-required=""y"" data-caption=""Please choose " & replace(objRds_properties("dishpropertygroup"),"""","") & """>"
-                                                dishpropertiestext = dishpropertiestext & "><option value=""0"">-- select --</option>"
-                                            end if
-						
-								                'Set objCon_propertiesitems = Server.CreateObject("ADODB.Connection")
-								                Set objRds_propertiesitems = Server.CreateObject("ADODB.Recordset") 
-								                'objCon_propertiesitems.Open sConnString
-                                                SQL = "SELECT * FROM MenuDishproperties where dishpropertygroupid=" & objRds_properties("id")  & "  order by i_displaysort,id "
-                                                objRds_propertiesitems.Open SQL, objCon
-				                               
-				                                While NOT objRds_propertiesitems.Eof 
-				                                    add=""
-				                                    if objRds_properties("dishpropertypricetype")="add" then
-				                                        add=" - add "
-				                                    else
-				                                        donotshowprice="y"
-				                                        if pricefrom & "" = "0" or pricefrom & "" = ""  then
-					                                        pricefrom=objRds_propertiesitems("dishpropertyprice")
-				                                        end if
-				                                    end if
-				                                    dishpropertiestext = dishpropertiestext & "<option value=""" & objRds_propertiesitems("id") & """>" & objRds_propertiesitems("dishproperty") & add & " " &  CURRENCYSYMBOL & FormatNumber(objRds_propertiesitems("dishpropertyprice"),2) & "</option>"
-				    		                        objRds_propertiesitems.MoveNext
-							                    wend 
-                                                    objRds_propertiesitems.close()
-                                                    set objRds_propertiesitems = nothing        
-                                            dishpropertiestext = dishpropertiestext & "</select><br>"
-						                    objRds_properties.MoveNext
-                                            wend 
-                                            objRds_properties.close()
-                                            set objRds_properties = nothing
-                                        End if
-
-                                  
-								' code to check if toppings are applicable to this product
-								dishtoppingstext=""
-								if (miallowtoppings & "" <> "0" and trim( miallowtoppings & "") <> "") or ( mipallowtoppings & "" <> "0" and trim( mipallowtoppings & "") <> "")  then
-                                         dim listtoppinggroupid : listtoppinggroupid = ""
-                                            if trim( miallowtoppings & "") <> "0" and trim( miallowtoppings & "") <> ""   then
-                                                listtoppinggroupid = miallowtoppings
-                                            end if
-
-                                            if trim( mipallowtoppings & "") <> "0" and  trim( mipallowtoppings & "") <> ""  then
-                                                if listtoppinggroupid = "" then
-                                                    listtoppinggroupid =mipallowtoppings
-                                                else
-                                                    listtoppinggroupid =listtoppinggroupid &  "," & mipallowtoppings
-                                                end if
-                                            end if
-                                         Set objRds_toppings_Group = Server.CreateObject("ADODB.Recordset")  
-                                            SQL = "select ID,toppingsgroup,i_displaysort,isnull(limittopping,0) as limittopping from Menutoppingsgroups where IdBusinessDetail = " &   vRestaurantId & " and ID in (" &listtoppinggroupid& ")  order by i_displaysort,id "       
-                                            
-                                            objRds_toppings_Group.Open SQL, objCon
-                                        while not objRds_toppings_Group.EOF 
-                                            Set objRds_toppings = Server.CreateObject("ADODB.Recordset")           
-                                                    SQL = "SELECT id,topping,toppingprice,i_displaysort FROM MenuToppings where  IdBusinessDetail=" & vRestaurantId                                                
-                                                    SQL =SQL & " and toppinggroupid=" & objRds_toppings_Group("ID")   & "   order by i_displaysort,id  "                                            
-                                                objRds_toppings.Open SQL, objCon
-                                            dishtoppingstext =  "<div class=""dishproperties__title"">" & objRds_toppings_Group("toppingsgroup") & " </div> "
-                                            While NOT objRds_toppings.Eof 
-                                                dishtoppingstext = dishtoppingstext &  "<input type=""checkbox"" class=""topping"" name=""" & objRds_toppings("topping") & """  toppinggroup=""topping_" & objRds_toppings_Group("ID") &"""  value=""" & objRds_toppings("id") & """ data-group=""toppings" & vMenuItemId & "-" & PropertyId & """> " & objRds_toppings("topping") & " - " & CURRENCYSYMBOL & FormatNumber(objRds_toppings("toppingprice"),2) & "<BR>"
-								                objRds_toppings.MoveNext
-                                            wend 
-                                                objRds_toppings.close()
-                                            set objRds_toppings = nothing
-                                              if cint( objRds_toppings_Group("limittopping")) > 0 then
-                                                    dishtoppingstext  = dishtoppingstext & "<script>checkboxlimit('topping_" & objRds_toppings_Group("ID") & "'," &  objRds_toppings_Group("limittopping")  &  ");</script>"
-                                                end if
-                                            objRds_toppings_Group.movenext()
-                                        wend
-                                            objRds_toppings_Group.close()
-                                            set objRds_toppings_Group = nothing
-                                end if
-								%> 
-                                
-                                <% 
-                                    
-                                    noprice=0
-                                    If Not IsNull(MenuPrice) and donotshowprice="n" Then %>
-                                    <div class="product-line__price"><b><%=CURRENCYSYMBOL%><%= FormatNumber(MenuPrice, 2) %></b></div> 
-                                
-                                <%  noprice=1
-                                    End If %>
-							
-                                <%if pricefrom & "" <> "0" then%>
-                               
-                                 <div class="product-line__price"><b>from <%=CURRENCYSYMBOL%><%= FormatNumber(pricefrom, 2) %></b></div>    
-                                <%noprice=1
-                                end if%>
-
-
-                                  
-                                        <!--Add to cart-->
-                                        <div class="product-line__action-btn">	
-                                            <div align="right">
-                                            <% if dishpropertiestext & "" <> ""  or dishtoppingstext & "" <> "" then  %>
-                                                <button class="btn btn-success" onclick="Showdishproperties('dishproperties<%=vMenuItemId %>-<%=objRds_MenuItem("PropertyId") %>');">
-                                                    <span style="top:2px;" class="glyphicon glyphicon-plus-sign"></span>
-                                                </button>
-                                            <% else %>
-                                                <button class="btn btn-success btnadd" onclick="Add(<%=vMenuItemId %>,<%=PropertyId %>,this);">
-                                                  <span class="glyphicon glyphicon-plus"></span>
-                                                  <span class="fa fa-refresh fa-spin" aria-hidden="true" style=" width: 1em;display:none;"></span>
-                                                </button>    
-                                            <% end if %>
-                                            </div>					
                                         </div>
-
-                                        </div>
-                                    </div>
-                                        <!--End Add to cart-->
+                                            <!--End Add to cart-->
 
                                        
-                                    </div>
-                                <!--</div>-->
-                                <%if dishpropertiestext<>"" or dishtoppingstext<>"" then%>
+                                        </div>
+                                    <!--</div>-->
+                                     <%if dishpropertiestext<>"" or dishtoppingstext<>"" then%>
 					                <div class="dishproperties" id="dishproperties<%=vMenuItemId %>-<%=objRds_MenuItem("PropertyId") %>">
 					                    <div class="row dishproperties__inner">
-                                        <div  class="col-md-6 col-sm-6 desc">
-					                    <%if dishpropertiestext<>"" then%>
-                                            <div class="dishproperties__heading">
-					                            <b>Dish Options</b>
-                                            </div>
-					                        <%=dishpropertiestext%>
-					                    <%end if%>
-					                    </div>
-					                    <div  class="col-md-5  col-sm-5 desc">
+
+					                    <div  class="col-md-5 col-sm-5 desc pr-0 desc">
 					                        <%if dishtoppingstext<>"" then%>
                                                     <div class="dishproperties__heading">    
 					                                <b>Toppings</b>
                                                     </div>
 					                                <%=dishtoppingstext%>
 					                        <%end if%>
+					                    </div>
+
+                                        <div  class="col-md-6 col-sm-6 desc">
+					                    <%if dishpropertiestext<>"" then%>
+                                            <div class="dishproperties__heading" name="dishproperties__heading">
+					                            <b>Dish Options</b>
+                                            </div>
+					                        <%=dishpropertiestext%>
+                                            <script type="text/javascript">
+                                                $(function(){
+                                                    $('.tip').each(function () {
+                                                        $(this).tooltip(
+                                                        {
+                                                            html: true,
+                                                            title: $('#' + $(this).data('tip')).html(),
+                                                            container: 'body'
+                                                        });
+                                                    });
+                                                    
+                                                });
+                                            </script>
+					                    <%end if%>
 					                    </div>
                                         <div class="col-md-1 col-sm-1 dishproperties__btn is-vertical-center">
                                                <div align="left">
@@ -1081,29 +1489,29 @@ if(is_android) {
 					            <%end if%>
 
                                
-                             <%
-                                   objRds_MenuItem.MoveNext 
-                            wend
-                           %>
-                            </div>
-                            <%
-                         'end 
-                    objRdsMainCategory.MoveNext
-                wend
-				    objRds_MenuItem.Close()
-                set objRds_MenuItem = nothing
-                    objRdsMainCategory.close()
-                set objRdsMainCategory = nothing
-                                 %>
+                                 <%
+                                       objRds_MenuItem.MoveNext 
+                                wend
+                               %>
+                                </div>
+                                <%
+                             'end 
+                        objRdsMainCategory.MoveNext
+                    wend
+				        objRds_MenuItem.Close()
+                    set objRds_MenuItem = nothing
+                        objRdsMainCategory.close()
+                    set objRdsMainCategory = nothing
+                                     %>
 
-		</div>
-		<div class="col-md-3half column" id="pricecolumn">
+		    </div>
+		    <div class="col-md-3half column" id="pricecolumn">
 		
 		
-		<div class="panel panel-default" id="noorders" style="display:none;">
-  <div class="panel-heading" >
-    <h3 class="panel-title">Ordering available during opening hours only</h3>
-  </div></div>
+		    <div class="panel panel-default" id="noorders" style="display:none;">
+      <div class="panel-heading" >
+        <h3 class="panel-title">Ordering available during opening hours only</h3>
+      </div></div>
 		
 	
 			
@@ -1112,112 +1520,112 @@ if(is_android) {
 
 
 
-	<div id="rightaffix" <%if STICK_MENU="Yes"  then%>data-spy="affix" data-offset-top="300" data-offset-bottom="200"<%end if%>>
-<div class="panel panel-primary"  id="basket"  >
-  <div class="panel-heading">
-    <h3 class="panel-title"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span> Your Order</h3>
-  </div>
-  <div class="panel-body" style="padding:15px 8px 15px 8px;" id="footerbasket">
+	    <div id="rightaffix" <%if STICK_MENU="Yes"  then%>data-spy="affix" data-offset-top="300" data-offset-bottom="200"<%end if%>>
+    <div class="panel panel-primary"  id="basket"  >
+      <div class="panel-heading">
+        <h3 class="panel-title"><span class="glyphicon glyphicon glyphicon-shopping-cart"></span> Your Order</h3>
+      </div>
+      <div class="panel-body" style="padding:15px 8px 15px 8px;" id="footerbasket">
    
                          
 
-                        <form id="CheckOutForm" action="<%=CheckoutURL %>" method="post">                
-                        <input type="hidden" name="deliveryDistance" id="distance" value="" />
-                        <input type="hidden" name="deliveryType" value="" />
-						<input type="hidden" name="deliverydelay" id="deliverydelay" value="<%=sAverageDeliveryTime%>" />
-						<input type="hidden" name="collectiondelay" id="collectiondelay" value="<%=sAverageCollectionTime%>" />
-                        <input type="hidden" name="deliveryPC" value="<%=request.querystring("postcode")%>" />
-                        <input type="hidden" name="deliveryTime" value="" />
-						<input type="hidden" name="asaporder" value="" />
-						<input type="hidden" name="special" value="" />
-                        <input type="hidden" name="deliveryLat" value="" />
-                        <input type="hidden" name="deliveryLng" value="" />
-                        <input type="hidden" name="deliveryAddress" value="" />
-                        <input type="hidden" name="deliveryPostCode" value="" />
-                        <input type="hidden" name="TableNumberCheckout" value="" />
-                   </form>
-                        <div id="shoppingcart"></div>                        
+                            <form id="CheckOutForm" action="<%=CheckoutURL %>" method="post">                
+                            <input type="hidden" name="deliveryDistance" id="distance" value="" />
+                            <input type="hidden" name="deliveryType" value="" />
+						    <input type="hidden" name="deliverydelay" id="deliverydelay" value="<%=sAverageDeliveryTime%>" />
+						    <input type="hidden" name="collectiondelay" id="collectiondelay" value="<%=sAverageCollectionTime%>" />
+                            <input type="hidden" name="deliveryPC" value="<%=request.querystring("postcode")%>" />
+                            <input type="hidden" name="deliveryTime" value="" />
+						    <input type="hidden" name="asaporder" value="" />
+						    <input type="hidden" name="special" value="" />
+                            <input type="hidden" name="deliveryLat" value="" />
+                            <input type="hidden" name="deliveryLng" value="" />
+                            <input type="hidden" name="deliveryAddress" value="" />
+                            <input type="hidden" name="deliveryPostCode" value="" />
+                            <input type="hidden" name="TableNumberCheckout" value="" />
+                       </form>
+                            <div id="shoppingcart"></div>                        
           
 
                                    
                     
-  </div>
-</div>
-
-
-
-
-
-
-<div class="panel panel-danger" >
-  <div class="panel-heading"  >
-          <h3 class="panel-title">Opening Hours</h3>
-  </div>
-        <div class="panel-body">           
-                        <table border="0" width="100%" id="openninghours">
-                            <% 
-                       
-                        objRds.Open "SELECT  oi.minacceptorderbeforeclose,  convert(varchar, Hour_From, 8)  as Hour_From, convert(varchar, Hour_To, 8)  as Hour_To ,DayOfWeek,delivery,collection " & _
-                        " FROM openingtimes oi " & _
-                        " where oi.IdBusinessDetail = " & vRestaurantId & _
-                        " order by DayOfWeek, Hour_From", objCon
-                        Dim jsDate, tempminacceptorderbeforeclose
-                        jsDate = ""
-						jscnt=0
-						currentdayofweek=""
-                        
-                        
-                        Do While NOT objRds.Eof 
-             jscnt=jscnt+1
-                            if ISNULL(objRds("minacceptorderbeforeclose")) OR objRds("minacceptorderbeforeclose") & "" = "" Then
-                               tempminacceptorderbeforeclose = -1
-                         Else
-                                tempminacceptorderbeforeclose = objRds("minacceptorderbeforeclose")
-                        End If
-                              Dim o1_Hour_From : o1_Hour_From =  FormatTimeC(objRds("Hour_From"),5) 
-                             Dim o1_Hour_To : o1_Hour_To =  FormatTimeC(objRds("Hour_To"),5) 
-                            if jsDate <> "" Then jsDate = jsDate & ","
-                                jsDate = jsDate & jscnt & ": { min:Date.parse('01/01/2011 " & o1_Hour_From & "'),  max: Date.parse('01/01/2011 " & o1_Hour_To & "'), d:'" & objRds("DayOfWeek") & "', delivery:'" & objRds("delivery") & "', collection:'" & objRds("collection") & "',minacceptorderbeforeclose:" & tempminacceptorderbeforeclose &"}"
-                                
-                                dim isavailable : isavailable ="y"
-                                if objRds("collection")="n" and objRds("delivery")="n" then
-                                            isavailable = "n"
-                                end if
-
-                            %>
-                            <tr name="nameopentime" <% if objRds("DayOfWeek") = Weekday(DateAdd("h",houroffset,now), vbMonday)  then %> style="font-weight:bold;" <% end if %>  nameopentime="<%=objRds("DayOfWeek") %>" available="<%=isavailable %>">
-                                <td style="width: 30px">
-								<%if currentdayofweek<>objRds("DayOfWeek") then%>
-                                    <%= WeekdayName(objRds("DayOfWeek"), false, vbMonday) %>
-									<%end if%>
-                                </td>
-                                <td>
-                                  <div align="right"> <%if objRds("collection")="n" then%><img src="<%=SITE_URL %>Images/no-collection.gif" width="18" data-toggle="tooltip" data-placement="left" title="Collection is not available during this time slot"></i> <%end if%> <%if objRds("delivery")="n" then%><img src="<%=SITE_URL %>Images/no-delivery.gif" width="18" data-toggle="tooltip" data-placement="left" title="Delivery is not available during this time slot"></i> <%end if%> <%= o1_Hour_From%>
-                                    - <%= o1_Hour_To  %></div>  <%' objRds("minacceptorderbeforeclose") & "|" & ISNULL(objRds("minacceptorderbeforeclose")) & "|" & (objRds("minacceptorderbeforeclose") & "" = "") & "|" & tempminacceptorderbeforeclose %>
-                                </td>
-                               <script type="text/javascript">
-                                   $(function () {
-                                       $("[data-toggle=tooltip]").tooltip();
-                                   });
-</script>
-                               
-                            </tr>
-                            <%currentdayofweek=objRds("DayOfWeek")
-                            objRds.MoveNext    
-                        Loop
-                    
-                        objRds.Close
-                        set objRds =  nothing
-                        objCon.Close
-                        set objCon = nothing
-						
-                            %>
-                        </table>
-                    </div>
+      </div>
     </div>
-	<%=menupagetext%>
+
+
+
+
+
+
+    <div class="panel panel-danger" >
+      <div class="panel-heading"  >
+              <h3 class="panel-title">Opening Hours</h3>
+      </div>
+            <div class="panel-body">           
+                            <table border="0" width="100%" id="openninghours">
+                                <% 
+                       
+                            objRds.Open "SELECT  oi.minacceptorderbeforeclose,  convert(varchar, Hour_From, 8)  as Hour_From, convert(varchar, Hour_To, 8)  as Hour_To ,DayOfWeek,delivery,collection " & _
+                            " FROM openingtimes oi " & _
+                            " where oi.IdBusinessDetail = " & vRestaurantId & _
+                            " order by DayOfWeek, Hour_From", objCon
+                            Dim jsDate, tempminacceptorderbeforeclose
+                            jsDate = ""
+						    jscnt=0
+						    currentdayofweek=""
+                        
+                        
+                            Do While NOT objRds.Eof 
+                 jscnt=jscnt+1
+                                if ISNULL(objRds("minacceptorderbeforeclose")) OR objRds("minacceptorderbeforeclose") & "" = "" Then
+                                   tempminacceptorderbeforeclose = -1
+                             Else
+                                    tempminacceptorderbeforeclose = objRds("minacceptorderbeforeclose")
+                            End If
+                                  Dim o1_Hour_From : o1_Hour_From =  FormatTimeC(objRds("Hour_From"),5) 
+                                 Dim o1_Hour_To : o1_Hour_To =  FormatTimeC(objRds("Hour_To"),5) 
+                                if jsDate <> "" Then jsDate = jsDate & ","
+                                    jsDate = jsDate & jscnt & ": { min:Date.parse('01/01/2011 " & o1_Hour_From & "'),  max: Date.parse('01/01/2011 " & o1_Hour_To & "'), d:'" & objRds("DayOfWeek") & "', delivery:'" & objRds("delivery") & "', collection:'" & objRds("collection") & "',minacceptorderbeforeclose:" & tempminacceptorderbeforeclose &"}"
+                                
+                                    dim isavailable : isavailable ="y"
+                                    if objRds("collection")="n" and objRds("delivery")="n" then
+                                                isavailable = "n"
+                                    end if
+
+                                %>
+                                <tr name="nameopentime" <% if objRds("DayOfWeek") = Weekday(DateAdd("h",houroffset,now), vbMonday)  then %> style="font-weight:bold;" <% end if %>  nameopentime="<%=objRds("DayOfWeek") %>" available="<%=isavailable %>">
+                                    <td style="width: 30px">
+								    <%if currentdayofweek<>objRds("DayOfWeek") then%>
+                                        <%= WeekdayName(objRds("DayOfWeek"), false, vbMonday) %>
+									    <%end if%>
+                                    </td>
+                                    <td>
+                                      <div align="right"> <%if objRds("collection")="n" then%><img src="<%=SITE_URL %>Images/no-collection.gif" width="18" data-toggle="tooltip" data-placement="left" title="Collection is not available during this time slot"></i> <%end if%> <%if objRds("delivery")="n" then%><img src="<%=SITE_URL %>Images/no-delivery.gif" width="18" data-toggle="tooltip" data-placement="left" title="Delivery is not available during this time slot"></i> <%end if%> <%= o1_Hour_From%>
+                                        - <%= o1_Hour_To  %></div>  <%' objRds("minacceptorderbeforeclose") & "|" & ISNULL(objRds("minacceptorderbeforeclose")) & "|" & (objRds("minacceptorderbeforeclose") & "" = "") & "|" & tempminacceptorderbeforeclose %>
+                                    </td>
+                                   <script type="text/javascript">
+                                       $(function () {
+                                           $("[data-toggle=tooltip]").tooltip();
+                                       });
+    </script>
+                               
+                                </tr>
+                                <%currentdayofweek=objRds("DayOfWeek")
+                                objRds.MoveNext    
+                            Loop
+                    
+                            objRds.Close
+                            set objRds =  nothing
+                            objCon.Close
+                            set objCon = nothing
+						
+                                %>
+                            </table>
+                        </div>
+        </div>
+	    <%=menupagetext%>
 	
-</div>
+    </div>
 
 
 
@@ -1226,11 +1634,40 @@ if(is_android) {
 
 
 		
+	    </div>
+	    </div>
 	</div>
-	</div>
-	
 </div>
+<script>
+             function CategorySelection(ID)
+            {
+        
+                $("#txtSearch").val("");
+                $(".product-line-heading").show();
+                $("[data-type=group-cate]").each(function(){
+                    var categroup  = $(this);
+                    categroup.find(".product-line").each(function(){
+                        $(this).show();
+                    });
+                }); 
 
+                $("[data-type='group-cate']").each(function(){
+                    $(this).hide();
+                    $(this).prev().find(".product-line-heading__icon").addClass("arrow-icon-down").removeClass("arrow-icon-up");
+                });
+                $("#" + ID).prev().find(".product-line-heading__icon").addClass("arrow-icon-up").removeClass("arrow-icon-down");
+              
+                $("#" + ID).slideDown("slow");
+
+            }
+           function selectcategorymobile(groupid,obj)
+            {
+                var idAnchor  =  $(obj).attr("data");
+              
+                $('#' + groupid ).hide();
+                $('#' + groupid).slideDown('show');
+            }
+        </script>
 <script>
         
     function IsMatchSearch(terms, text)
@@ -1246,6 +1683,501 @@ if(is_android) {
                         break;      
                 }
               
+        }
+        return result;
+    }
+    
+    var allergenvalues="",suitableforvalue="";
+    var containmaycontain =  false;
+    function SearchAllergen(obj,mode,id)
+    {
+        if($(obj).find(".icon-check").length > 0 )
+            $(obj).find(".icon-check").remove();
+        else
+        {
+            if(mode=="Allergen")
+                $('<span class="glyphicon glyphicon-remove icon-check" attrvalue="' + id.replace("filter_","")+ '"></span>').insertBefore("#" + id);
+            else
+                $('<span class="glyphicon glyphicon-ok icon-check" attrvalue="' + id.replace("filter_","")+ '"></span>').insertBefore("#" + id);    
+        }
+
+        
+    }
+    function ClearFilter()
+    {
+        if($("#FilterModal").find(".icon-check").length > 0 )
+            $("#FilterModal").find(".icon-check").remove();
+
+   
+        //Filter();
+     
+    }
+    function Filter()
+    {
+        if($("#filter-may").is(":checked"))
+            containmaycontain  = true;
+        else
+            containmaycontain  = false;
+        allergenvalues="";
+        suitableforvalue="";
+        $("#allergenlist").find("li").each(function(){
+            if( $(this).find(".icon-check").length > 0)
+                allergenvalues += $(this).find(".icon-check").attr("attrvalue") +",";
+        });
+        $("#suitableforlist").find("li").each(function(){
+            if($(this).find(".icon-check").length >0)
+                suitableforvalue += $(this).find(".icon-check").attr("attrvalue") +",";
+        });
+
+
+     
+        $("[data-type=group-cate]").each(function(){
+            var categroup  = $(this);
+            categroup.find(".product-line").each(function(){
+                    
+                if(screenmode=="mobile")
+                {
+                    categroup.hide();
+                    $(this).show();
+                    $(categroup).prev().find(".product-line-heading__icon").addClass("arrow-icon-down").removeClass("arrow-icon-up");
+                }else
+                {
+                    $(this).show();
+                }
+                    
+                    
+            });
+        });
+        $("#FilterModal").modal("hide");
+
+        $(".product-line__property-name").show();
+        $(".topping").show();
+        $("[name='ContainAllergen_dp']").show();                
+        $(".product-line-heading").show();
+        if(allergenvalues !="" || suitableforvalue !="" || screenmode!="mobile")
+        {
+            $("[data-type='group-cate']").each(function(){
+                $(this).show();
+                $(this).prev().find(".product-line-heading__icon").addClass("arrow-icon-up").removeClass("arrow-icon-down");
+            });
+        }else
+        {
+            if(screenmode=="mobile")
+            {
+                $("[data-type='group-cate']").each(function(){
+                    $(this).hide();
+                    $(this).prev().find(".product-line-heading__icon").addClass("arrow-icon-down").removeClass("arrow-icon-up");
+                });
+            }
+        }
+
+        if (allergenvalues != "" || suitableforvalue != "") $('#icoAllergenFilter').addClass('glyphicon-filtered');
+        else $('#icoAllergenFilter').removeClass('glyphicon-filtered');
+
+        filterSearchAllergen(allergenvalues);
+        filterSearchSuitable(suitableforvalue);
+        
+    }
+    function isMatchFilterSeachAllergen(valueseach, valueproperty)
+    {
+        var result =  false;
+        
+        if(valueseach == "" || typeof valueproperty == "undefined" )
+            result = false;
+        else if(valueseach != "")
+        {
+            if(typeof valueproperty != "undefined")
+            {
+                var scontain = valueproperty.split("|")[0];
+                var maycontain = valueproperty.split("|")[1];
+                if(containmaycontain == false)
+                    valueproperty = scontain;
+                else
+                {
+                    valueproperty = scontain;
+                    if(maycontain.trim() !="")
+                        valueproperty +="," + maycontain;
+                }
+                valueproperty.split(",").forEach(function(value,index){
+                    if(value !="")
+                    {
+                        valueseach.split(",").forEach(function(value2,index2){
+                       
+                            if(value2!="" && value2.trim() == value.trim())
+                                result =  true;
+                        });
+                    }
+                });
+            }
+        }
+        return result;
+    }
+    function isMatchFilterSeachSuitable(valueseach, valueproperty)
+    {
+        var result =  false;
+        
+        if(valueseach == "" || typeof valueproperty == "undefined" )
+            result = true;
+        else if(valueseach != "")
+        {
+            if(typeof valueproperty != "undefined")
+            {
+                valueproperty.split(",").forEach(function(value,index){
+                    if(value !="")
+                    {
+                        valueseach.split(",").forEach(function(value2,index2){
+                       
+                            if(value2!="" && value2.trim() == value.trim())
+                                result =  true;
+                        });
+                    }
+                });
+            }
+        }
+        return result;
+    }
+    function getouterHTML($obj){
+        if(typeof $obj !="undefined" && $($obj).length > 0)
+            return $obj[0].outerHTML;
+    }
+    function CheckPropertyMatch(searchtext,obj,attrid,mode)
+    {
+        var result =  false;
+        if(searchtext=="")        
+            result =  true;       
+        else{
+            if(mode=="allergen")
+            {   
+                result =  true;
+                obj.each(function(){
+                    var $this  = $(this);
+                    if(typeof  $this.attr(attrid) != "undefined" && $this.attr(attrid) !="-1" && $this.attr(attrid) !="|"  )
+                    {
+                        var scontain = $this.attr(attrid).split("|")[0];
+                        var maycontain = $this.attr(attrid).split("|")[1];
+                        var valueproperty ="";
+                        if(containmaycontain == false)
+                            valueproperty = scontain;
+                        else
+                        {
+                            valueproperty = scontain;
+                            if(maycontain.trim() !="")
+                                valueproperty +="," + maycontain;
+                        }
+
+                        valueproperty.split(",").forEach(function(value,index){
+                            if(value !="")
+                            {
+                                searchtext.split(",").forEach(function(value2,index2){                               
+                                   if(value2!="" && value2.trim() == value.trim() )                            
+                                        result =  false;
+                                });
+                            }
+                            
+                        });
+                    }
+
+                });
+            }else{
+                attrid = attrid.replace("s_containallergen_","s_SuitableFor_");
+                obj.each(function(){
+                    var $this  = $(this);
+                    if(typeof  $this.attr(attrid) != "undefined" && $this.attr(attrid)!="-1")
+                    {
+                        $this.attr(attrid).split(",").forEach(function(value,index){
+                            if(value !="")
+                            {
+                                searchtext.split(",").forEach(function(value2,index2){                               
+                                    if(value2!="" && value2.trim() == value.trim())                                
+                                        result =  true;                               
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+            
+        }
+        return result;
+    }
+       
+    function filterToppingProperty(searchtext,obj,attrid,mode)
+    {
+        var result =  false;
+        if(searchtext==""){
+           // $(idsearch).show();
+            result =  true;
+        }
+        else{
+            if(mode=="allergen")
+            {                
+                obj.each(function(){
+                    var $this  = $(this);
+                    if(typeof  $this.attr(attrid) != "undefined" && $this.attr(attrid) !="-1" )
+                    {
+                        var scontain = $this.attr(attrid).split("|")[0];
+                        var maycontain = $this.attr(attrid).split("|")[1];
+                        var valueproperty ="";
+                        if(containmaycontain == false)
+                            valueproperty = scontain;
+                        else
+                        {
+                            valueproperty = scontain;
+                            if(maycontain.trim() !="")
+                                valueproperty +="," + maycontain;
+                        }
+                        if(valueproperty=="")
+                        {
+                            result =  true;
+                        }
+                        else
+                        {
+                            valueproperty.split(",").forEach(function(value,index){
+                                if(value !="")
+                                {  
+                               
+                                    searchtext.split(",").forEach(function(value2,index2){                               
+                                        if(value2!="" && value2.trim() == value.trim())
+                                        {                                        
+                                            //if($this.is(":visible") || typeof $this.attr("style")=="undefined")
+                                            $this.hide();                                        
+                                        }else if(value2!=""  )                               
+                                            result =  true;
+                                    });
+                                }else
+                                {
+                                    //if($this.is(":visible"))
+                                    //    $this.hide(); 
+                                    result =  true;
+                                }
+                            });
+                        }
+                        
+                    }
+                });
+            }else{
+                attrid = attrid.replace("s_containallergen_","s_SuitableFor_");
+                obj.each(function(){
+                    var $this  = $(this);
+                    if(typeof  $this.attr(attrid) != "undefined" && $this.attr(attrid)!="-1")
+                    {
+                        $this.attr(attrid).split(",").forEach(function(value,index){
+                            if(value !="")
+                            {
+                                searchtext.split(",").forEach(function(value2,index2){                               
+                                    if(value2!="" && value2.trim() != value.trim() &&  $this.is(":visible"))
+                                    {
+                                       // if($this.is(":visible"))
+                                            $this.hide();
+                                      
+                                    }else if(value2!="" && value2.trim() == value.trim())                                
+                                        result =  true;
+                                
+                                });
+                            }else
+                            {
+                                if($this.is(":visible"))
+                                    $this.hide();
+                            }
+                        });
+                    }
+                });
+            }
+            
+        }
+        return result;
+        
+    }
+    function filterSearchAllergen(allergenlist)
+    {
+        var searchtext =  allergenlist;
+        var itemsearch  = "s_containallergen_m";
+        var propertysearch  = "s_containallergen_p";
+        var dishpropertysearch  = "s_containallergen_dp";
+        var toppingsearch  = "s_containallergen_t";
+        var mode = "allergen";
+        if(searchtext!=""){
+            $(".dishproperties").hide();
+            $(".product-line-heading").hide();
+            $("[data-type=group-cate]").each(function(){
+                var categroup  = $(this);
+                categroup.find(".product-line").each(function(){                    
+                    var nameid = $(this).attr("name");
+                    //if(nameid + "" == "439")
+                    //    debugger;
+                    var istopping =  false;
+                    var isdishname = true;                       
+                    var isdishproperty = false;
+                    if($(this).find(".product-line__content-left").length > 0)
+                    {
+                        //check property
+                        if($(this).find(".product-line__description").length > 0) 
+                        {                            
+                                if(isMatchFilterSeachAllergen(searchtext,$(this).find(".product-line__description").attr("" +  itemsearch)))                        
+                                    isdishname = false;         
+                        }                       
+                        //dishproperties468-
+                        if($("#dishproperties"  + nameid + "-").length > 0 && isdishname == true)
+                        {
+                                isdishname = filterToppingProperty(searchtext,$("#dishproperties"  + nameid + "-").find(".topping"),"s_containallergen_t",mode);
+                            if(isdishname == false)
+                                isdishname =  filterToppingProperty(searchtext,$("#dishproperties"  + nameid + "-").find("[name='ContainAllergen_dp']"),"s_containallergen_dp",mode);                           
+                        }
+                        //if(nameid + "" == "439")
+                        //    console.log("isdishname1 " + isdishname);
+                    }else{
+                        var _flag = false;
+                        var isShowParent  = true;
+                        categroup.find('[name="' + nameid + '"]').each(function(){
+                            var propertyObj = $(this);
+                            var isshowproperty = false;
+                            if(typeof propertyObj.attr("Parent") == "undefined" )
+                            {   
+                                if(isShowParent == true)
+                                {
+                                    isshowproperty = CheckPropertyMatch(searchtext,propertyObj.find(".product-line__property-name:first"),"s_containallergen_p",mode);   
+                                    if(isshowproperty==true)
+                                    {
+                                        var nextobj =  propertyObj.next();                                 
+                                        if(nextobj.attr("class")=="dishproperties")
+                                        {
+                                            // check all property meet search 
+                                            var isshowtopping = filterToppingProperty(searchtext,nextobj.find(".topping"),"s_containallergen_t",mode) ;
+                                            var isshowproperty  = filterToppingProperty(searchtext,nextobj.find("[name='ContainAllergen_dp']"),"s_containallergen_dp",mode)
+                                            if(isshowtopping ==false && isshowproperty == false )
+                                                isshowproperty =  false;                                            
+                                        }
+                                    }
+                                    if(isshowproperty==false && propertyObj.is(":visible"))
+                                        propertyObj.hide();
+                                    if(isshowproperty == true){
+                                        isdishname = true;
+                                        _flag  = true;
+                                    }   
+                                }
+                                                                 
+                            } else
+                            {
+                                if(propertyObj.find(".product-line__description").length > 0) 
+                                {                    
+                                if(isMatchFilterSeachAllergen(searchtext,propertyObj.find(".product-line__description").attr("" +  itemsearch)))
+                                    {
+                                        _flag = false;         
+                                        isShowParent =  false;
+                                    }
+                                        
+                                }      
+                            }
+                        });
+                        isdishname = _flag;
+                    }
+                   
+                    if( isdishname == false)
+                    {
+                        if( $(this).is(":visible"))
+                            $(this).hide();
+                    }
+                    if($(this).is(":visible"))
+                    {
+                        categroup.show();
+                        $("#group-" + categroup.attr("id")).show();
+                        $("#group-" + categroup.attr("id")).find("img").removeClass("arrow-icon-down").addClass("arrow-icon-up");
+                    }
+                });
+            });
+        }
+        
+    }
+
+    function filterSearchSuitable(allergenlist,mode)
+    {
+        var searchtext =  allergenlist;
+        var itemsearch  = "s_suitablefor_m";
+        var propertysearch  = "s_suitablefor_p";
+        var dishpropertysearch  = "s_suitablefor_dp";
+        var toppingsearch  = "s_suitablefor_t";
+        var mode = "SuitableFor";
+        if(searchtext!=""){
+            $(".dishproperties").hide();
+            $(".product-line-heading").hide();
+            $("[data-type=group-cate]").each(function(){
+                var categroup  = $(this);
+                categroup.find(".product-line").each(function(){                    
+                    var nameid = $(this).attr("name");
+                    var istopping =  false;
+                    var isdishname = false;    
+                    var isdishproperty = false;
+                    if($(this).find(".product-line__content-left").length > 0)
+                    {
+                        //check property
+                        if($(this).find(".product-line__description").length > 0) 
+                        {       
+                                if(isMatchFilterSeachSuitable(searchtext,$(this).find(".product-line__description").attr("" +  itemsearch)))                        
+                                    isdishname = true;                           
+                        }                       
+                        //dishproperties468-
+                        if($("#dishproperties"  + nameid + "-").length > 0 && isdishname == false)
+                        {
+                            isdishname = filterToppingProperty(searchtext,$("#dishproperties"  + nameid + "-").find(".topping"),"s_containallergen_t",mode);
+                            if(isdishname == false)
+                                isdishname =  filterToppingProperty(searchtext,$("#dishproperties"  + nameid + "-").find("[name='ContainAllergen_dp']"),"s_containallergen_dp",mode);                           
+                        }
+                    }else{
+                        categroup.find('[name="' + nameid + '"]').each(function(){
+                            var propertyObj = $(this);
+                            var isshowproperty = false;
+                            if(typeof propertyObj.attr("Parent") == "undefined")
+                            {   
+                                
+                                    isshowproperty = CheckPropertyMatch(searchtext,propertyObj,"s_containallergen_p",mode);
+                                    if(isshowproperty==false)
+                                    {
+                                        var nextobj =  propertyObj.next();                                 
+                                        if(nextobj.attr("class")=="dishproperties")
+                                        {
+                                            // check all property meet search 
+                                            isshowproperty =  filterToppingProperty(searchtext,nextobj.find(".topping"),"s_containallergen_t",mode);
+                                            if(isshowproperty==false)
+                                                isshowproperty =  filterToppingProperty(searchtext,nextobj.find("[name='ContainAllergen_dp']"),"s_containallergen_dp",mode);
+                                        }
+                                    }
+                                if(isshowproperty==false && propertyObj.is(":visible"))
+                                    propertyObj.hide();
+                                if(isshowproperty == true)
+                                   isdishname = true;
+                            }  
+                        });
+                    }
+                        if( isdishname == false)
+                        {
+                            if( $(this).is(":visible"))
+                                $(this).hide();
+                        }
+                       
+                        if($(this).is(":visible"))
+                        {
+                            categroup.show();
+                            $("#group-" + categroup.attr("id")).show();
+                            $("#group-" + categroup.attr("id")).find("img").removeClass("arrow-icon-down").addClass("arrow-icon-up");
+                        }
+                    
+                });
+            });
+        }
+       
+    }
+    function IsMatchSearch(terms, text)
+    {
+        var arrTerms  = terms.split(" ");
+        var result = false;
+        for(var i= 0 ; i< arrTerms.length;i++)
+        {
+            if(arrTerms[i].toLowerCase()!="")
+            {
+                result = text.toLowerCase().indexOf(arrTerms[i].toLowerCase()) >-1? true:false
+                if(result == false)
+                    break;      
+            }              
         }
         return result;
     }
@@ -1409,12 +2341,15 @@ if(is_android) {
 		
 	
 
-    function Del(itemId) {
+    function Delc(itemId) {
 	
         $("#shoppingcart").load("<%=SITE_URL%>local/ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&id=" + itemId);
 
     }
-		
+    function Del(itemId,qty)
+    {
+        $("#shoppingcart").load("<%=SITE_URL%>local/ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&qty="+qty+"&id=" + itemId);
+    }
     function Showdishproperties(itemtoshow) {
 	
         $("#" + itemtoshow).slideToggle();
@@ -2455,6 +3390,429 @@ if(!jsDate[days])
         </div>
     </div>
 </div>
+ <div id="FilterModal" class="modal fade">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                ×</button>
+                <h4>Filter</h4>
+
+            </div>
+            <div class="modal-body">
+                
+      <% if StrAllergen & "" <> "" then
+                    dim arrStrAllergen : arrStrAllergen = split(StrAllergen,"[**]")
+                    dim indexAllergen : indexAllergen = 0
+                    dim AllergenID,AllergenName,AllergenIcon,AllergenType
+                  %> 
+                <style>
+.span-icon br {
+  display: none;
+}
+.eicon-list.eicon-list li {
+    width: auto;
+    margin-bottom: 0;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    position: relative;
+}
+
+.span-icon img {
+  margin-right: 3px;
+}
+.icon-check.glyphicon-remove {
+  color: red;
+}
+.icon-check.glyphicon-ok {
+  color: green;
+}
+.eicon-list .icon-check {
+    top: 10px;
+    left: 8px;
+    right: auto;
+    position: absolute;
+    font-size: 18px;
+    
+}
+/* <span class="glyphicon glyphicon-remove icon-check icon-check--remove"></span> */
+t-action.list-action {
+  margin-bottom: 0;
+  height: 37px;
+  display: inline-flex;
+  align-items: center;
+}
+.list-action .fa {
+  margin-right: 9px;
+  font-size: 22px;
+  color: black;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mb-5 {
+  margin-bottom: 5px;
+}
+.list-collapse .will-hide {
+  display: none;
+}
+.eicon-list.eicon-list {
+  padding-left: 15px;
+  padding-right: 15px;
+  background-color: whitesmoke;
+}
+.bootstrap-select-wrapper.bootstrap-select-wrapper,
+.dishproperties .bootstrap-select {
+  padding: 0;
+}
+.bootstrap-select-wrapper.bootstrap-select-wrapper .dropdown-toggle,
+.dishproperties .dropdown-toggle {
+  width: 100%;
+}
+
+.open > .dropdown-menu {
+  padding-top: 0;
+}
+.dropdown-menu.dropdown-menu.inner {
+  position: relative;
+  float: none;
+  min-width: auto;
+  border: 0;
+  top: 100%;
+  background: #ffffff;
+}
+.row-md-flex{
+    margin-left: 0;
+    margin-right: 0;
+}
+@media only screen and (min-width: 768px){
+    .row-md-flex{
+        display: flex;
+        margin-left: 0;
+        margin-right: 0;
+        align-items: flex-start;
+    }
+    .flex-md-auto{
+        flex: 0 0 auto;
+        width: auto;
+        float: none;
+        width: 108px;
+        padding-left: 0;
+        padding-right: 0;
+        padding-top: 6px;
+    }
+    .flex-md-expand{
+        flex: 1;
+        width: auto;
+        float: none;
+       
+    }
+}
+@media only screen and (min-width: 768px) and (max-width: 991px){
+    .flex-md-auto{
+         width: 118px;
+    }
+}
+/*task 263 */
+.bootstrap-select.w-select{
+width: calc(100% - 20px);
+}
+
+.tooltip .tooltip-inner{
+   width: auto;
+  max-width: 100%;
+  padding-top:5px;
+  padding-bottom: 5px;
+  text-align: left;
+  font-size: 12px;
+}
+.tip{
+  color: #fec752;
+} 
+.tip-allergen{margin-left:10px;}
+
+.pr-0{padding-right: 0px !important;}
+.pl-0{padding-left: 0px !important;}
+.d-flex{display: flex;border-bottom:1px dotted #d4d4d4;}
+.mr-5{margin-right:5px}
+.ml-5{margin-left:5px}
+.ml-auto{margin-left: auto;}
+
+.dishproperties .dropdown-menu.dropdown-menu.inner{
+    min-width: 288px !important;
+}
+
+.dishproperties .dropdown-menu > li > a{
+    padding: 3px 10px;
+}
+
+.toggle__input-main {
+    -webkit-appearance: none;
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    opacity: 0;
+    left: 0;
+    top: 0;
+}
+
+.toggle__input-main:checked+.toggle__label {
+    padding-left: 33px;
+}
+
+.toggle__input-main:checked+.toggle__label:before {
+    content: attr(data-on);
+    left: 1px;
+    top: 1px;
+}
+
+.toggle__input-main:checked+.toggle__label:after {
+    margin: 1px;
+}
+
+.toggle__label {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    height: 25px;
+    width: 58px;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: Helvetica,Arial,sans-serif;
+    -webkit-transition: .3s ease-out;
+    -moz-transition: .3s ease-out;
+    -o-transition: .3s ease-out;
+    transition: .3s ease-out;
+    border-radius: 13px;
+    margin-bottom: 0;
+}
+
+.toggle__label:before {
+    width: 33px;
+    content: attr(data-off);
+    position: absolute;
+    top: 1px;
+    right: 3px;
+}
+
+.toggle__label:after {
+    content: "�";
+    width: 19px;
+    height: 19px;
+    margin: 1px;
+    font: 20px/20px Times,Serif;
+    display: block;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    -o-border-radius: 13px;
+    border-radius: 13px;
+}
+
+.toggle_transparent-white .toggle__label {
+    border: 1px solid #fff;
+}
+
+.toggle_white .toggle__label {
+    background: #fff;
+    border: 2px solid #fff;
+}
+
+.toggle__text_red .toggle__label {
+    color: #bb2021;
+}
+
+.toggle__text_pink .toggle__label {
+    color: #cd0040;
+}
+
+.toggle__text_black .toggle__label {
+    color: #000;
+}
+
+.toggle__after_red .toggle__label:after {
+    color: #bb2021;
+    background: #bb2021;
+}
+
+.toggle__after_orange .toggle__label:after {
+    color: #f25c2a;
+    background: #f25c2a;
+}
+
+.toggle__after_green .toggle__label:after {
+    color: #018000;
+    background: #018000;
+}
+
+.toggle__after_pink .toggle__label:after {
+    color: #cd0040;
+    background: #cd0040;
+}
+
+.toggle__after_black .toggle__label:after {
+    color: #000;
+    background: #000;
+}
+
+.toggle__after_white .toggle__label:after {
+    color: #fff;
+    background: #fff;
+}
+
+.filter-may {
+    display: table;
+    padding-bottom: 10px;
+    padding:6px;
+    margin-bottom:10px;
+    background-color:#e4e3e3;
+}
+
+.filter-may__toggle {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
+.filter-may__text {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 10px;
+    font-size: 14px;
+}
+
+.filter-may_w100 {
+    width: 100%;
+}
+
+.filter-may__min-width260 {
+    min-width: 260px;
+}
+.glyphicon-filtered {
+    color: orange!important;
+    border: 1px dotted;
+}
+
+.w-select .caret {
+  margin-left: -5px;
+}
+
+.w-select .filter-option {
+text-align: left;  
+overflow: hidden;  
+white-space: nowrap;  
+text-overflow: ellipsis;  
+width: 100%;
+}
+@media (max-width: 767px) {
+  .dishproperties__heading {
+    padding-top:15px;
+  }
+}
+.dropdown-menu > li > a:focus {
+    outline: 0;
+}
+    </style>    
+                
+    <div class="row row-md-flex mt-20">
+             
+            <% if ucase(EnableAllergen & "") = "YES" then %>
+            <div class="col-sm-3 flex-md-auto mb-5">Select without:</div>
+             
+            <ul class="eicon-list flex-md-expand col-sm-9 ng-scope list-inline" id="allergenlist">
+                <li>
+                    <div class="filter-may">
+                        <div class="filter-may__text" data-bind="text:$root.staticResources().filterMayContain">Exclude dishes that "may contain" selected allergens</div>
+                        <div class="toggle toggle_white toggle__after_orange toggle__text_black filter-may__toggle prn">
+                            <input class="toggle__input-main"
+                                    id="filter-may"
+                                    name="filter-may"
+                                    type="checkbox"
+                                    value="true"
+                                    checked="checked" data-bind="checked: includeMayValue" />
+                            <label for="filter-may" data-on="YES" data-off="NO" class="toggle__label"></label>
+                            <input type="hidden" value="false" name="filter-may" class="toggle__input-helper">
+                        </div>
+                    </div>
+                </li>
+                <% 
+                    
+                    for indexAllergen = 0 to ubound(arrStrAllergen)
+                        if arrStrAllergen(indexAllergen) & "" <> "" then
+                            AllergenID = split(arrStrAllergen(indexAllergen),"|")(0)
+                            AllergenName = trim( split(arrStrAllergen(indexAllergen),"|")(1))
+                            AllergenIcon = split(arrStrAllergen(indexAllergen),"|")(2)
+                            AllergenType = split(arrStrAllergen(indexAllergen),"|")(3)
+                                    if trim(AllergenType & "") = "Allergen" then    
+                                        dim classwillhide  : classwillhide = ""
+                                             
+                                            
+                            %>
+                                <li <%=classwillhide %>  onclick="SearchAllergen(this,'Allergen','filter_<%=AllergenID %>')">                                    
+                                    <span class="span-icon">                                        
+                                        <img  id="filter_<%=AllergenID %>"  width="25" src="<%=SITE_URL %>Images/allergen/png/<%=replace(trim(AllergenIcon & ""),"amber","red") %>" alt="<%=AllergenName %>" title="  <%=AllergenName %>"/>   <br />                                  
+                                        <span class="icon-name" style="color:black;"><%=AllergenName %></span>
+                                    </span>
+                                    
+                                </li>
+                            <%
+                                end if
+                        end if
+                    next
+                     %>
+                        
+                                
+            </ul>
+            <%end if %>
+       
+        </div>
+  
+     <div class="row row-md-flex"> 
+                <% if ucase(EnableSuitableFor & "") = "YES" then %>
+                        <div class="col-sm-3 flex-md-auto mb-5">Suitable for:</div>
+                        <ul class="eicon-list flex-md-expand col-sm-9 ng-scope list-collapse list-inline" id="suitableforlist">
+                <% 
+                   
+                    for indexAllergen = 0 to ubound(arrStrAllergen)
+                        if arrStrAllergen(indexAllergen) & "" <> "" then
+                            AllergenID = trim(split(arrStrAllergen(indexAllergen),"|")(0))
+                            AllergenName = trim(split(arrStrAllergen(indexAllergen),"|")(1))
+                            AllergenIcon = split(arrStrAllergen(indexAllergen),"|")(2)
+                            AllergenType = split(arrStrAllergen(indexAllergen),"|")(3)
+                                    if trim(AllergenType & "") = "SuitableFor" then      
+                            %>
+                                <li onclick="SearchAllergen(this,'SuitableFor','filter_<%=AllergenID %>')">
+                                    <span class="span-icon">
+                                        <img id="filter_<%=AllergenID %>" width="25" src="<%=SITE_URL %>Images/allergen/png/<%=trim(AllergenIcon & "")%>"  alt="<%=AllergenName %>" title="  <%=AllergenName %>" />                                        
+                                          <br />    <span class="icon-name" style="color:black;"><%=AllergenName %></span>
+                                    </span>
+                                     
+                                </li>
+                            <%
+                                end if
+                        end if
+                    next
+                     %>
+            </ul>
+             <%end if %>
+      </div>
+     <% end if %>
+                 <% if  announcement_Filter & "" <> "" then %>
+                <div class="announmentinmenu" style="margin-bottom:20px;"><p><%=replace(replace(announcement_Filter,vbCrLf,"<BR>"),"'","\'")  %></p></div>
+            <% end if %>
+            </div>     
+           
+         
+            <div class="modal-footer">
+
+               <a href="#"  onclick="ClearFilter();" class="btn btn-primary">Clear Filters</a> 
+               <a href="#" data-dismiss="modal" onclick="Filter();" class="btn btn-primary">Continue</a>
+            </div>       
+        </div>
+    </div>
+</div>
 <script type="text/javascript">
     $(window).load(function() {
         $(".loader").fadeOut("slow");
@@ -2858,8 +4216,13 @@ function areCookiesEnabled() {
                     console.log('lazy instance is about to be destroyed' + loadedElements)
                 }
             });
-        });
 
+            
+        });
+        setTimeout(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+        },1000);
+       
     </script>
 </body>
 </html>

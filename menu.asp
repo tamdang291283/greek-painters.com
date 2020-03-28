@@ -1841,7 +1841,7 @@ max-width: 154.3px;
                                 </form>
                                    <div class="alert alert-danger" id="missingPostcodeAlert" style="display:none;margin: 2px 8px 2px 2px;"><span style="color:#49cb29;font-weight:bold;">Check</span> delivery is available, then click <span style="color:#49cb29;font-weight:bold;">Checkout</span> to continue</strong><br></div>
                                    <div class="alert alert-danger" style="margin: 2px 8px 2px 2px;" id="missingPostcodeAlert2">We don't deliver to that postcode.</div>
-                                   <div class="alert alert-danger" id="missingPostcodeAlert3" style="margin: 2px 8px 2px 2px;">Postcode must contain a space.</div>
+                                   <div class="alert alert-danger" id="missingPostcodeAlert3" style="margin: 2px 8px 2px 2px;">Postcode is invalid.</div>
                                 </div>
 						        <div class="clear-both"></div>
                       <div id="CollectionAddress" class="hidepanel alert alert-success" style="clear:both;text-align:center; padding: 7px; font-size: 11px; display: none;margin: 8px 8px 2px 2px;" data-original-title="" title=""><span style="font-weight: bold;"><span style="color:red;">Collect from:</span><br/> <%=AddressRestaurant %></span></div>
@@ -2254,17 +2254,21 @@ max-width: 154.3px;
     var form = $("#CheckOutForm");
     zipcode =  zipcode.replace(/\+/gi, " ");
     $('.delivery_info').hide();
-    if(zipcode.indexOf(' ') > 0){
+    if(zipcode.length >= 6 && zipcode.length <= 8){
 
         individualpostcodes = "<%=individualpostcodes%>";
-        individualpostcodes= individualpostcodes.toLowerCase();
-        firstpartofzipcode = "|" + zipcode.substr(0, zipcode.indexOf(' ')) + "|";
+        individualpostcodes = individualpostcodes.toLowerCase();
+        individualpostcodes = individualpostcodes.replace(/ /gi, "");
+
+
+        zipcode = zipcode.replace(/ /gi, "");
+        var chars4ofzipcode = "|" + zipcode.substr(0, 4) + "|";
+        var chars5ofzipcode = "|" + zipcode.substr(0, 5) + "|";
+
         var isMatchZipcode = false; 
-        if (zipcode.length == 8) {
-            if (individualpostcodes.indexOf("|" +zipcode.substr(0, 6).toLowerCase() + "|") >= 0) isMatchZipcode = true;
-        }
-        if(individualpostcodes.toLowerCase().indexOf(firstpartofzipcode.toLowerCase()) >= 0 )
-             isMatchZipcode = true;
+        if(individualpostcodes.indexOf(chars4ofzipcode) >= 0 || individualpostcodes.indexOf(chars5ofzipcode) >= 0 )
+            isMatchZipcode = true;
+       
        
         if( ( isMatchZipcode && _inDeliveryZone == -1) || _inDeliveryZone == 1){
 			
