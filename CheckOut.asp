@@ -1291,7 +1291,7 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                         tempLng = results[0].geometry.location.lng();
                
                   
-                    var tempStreetNumber2 = '', tempRouteName2 = '', tempLocalcity2= '';
+                    var tempStreetNumber2 = '', tempRouteName2 = '', tempLocalcity2= '', tempPostalTown2='';
 		              
                     for (i = 0; i < results[0].address_components.length; i++)
                     {
@@ -1305,14 +1305,17 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                             tempLocalcity2 = results[0].address_components[i].short_name;
                         }
                         else if (results[0].address_components[i].types[0] == "postal_town") {
-                            tempLocalcity2 = results[0].address_components[i].short_name;
+                            tempPostalTown2 = results[0].address_components[i].short_name;
                         }
                     }
                     if(tempStreetNumber2!="")
                         $("#Address").val(tempStreetNumber2);
-                    else if(tempRouteName2!="") $("#Address").val(tempRouteName2);
-                    if(tempLocalcity2!="")
-                        $("#Address2").val(tempLocalcity2);
+                    else if (tempRouteName2 != "") $("#Address").val(tempRouteName2);
+                    else if (tempLocalcity2 != "") $("#Address").val(tempLocalcity2);
+
+                    if(tempPostalTown2!="")
+                        $("#Address2").val(tempPostalTown2);
+                    else if (tempLocalcity2 != "") $("#Address2").val(tempLocalcity2);
                                   
                       
                     
