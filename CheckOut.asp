@@ -631,6 +631,7 @@ else{e.value="no";location.reload();}
                     <label class="control-label" for="Email">Email Address *</label>
                     <div class="controls">
                         <input  id="Email" name="Email" class="form-control" required placeholder="Your Email Address" value="<%=EmailCustomer%>"  type="email" />
+                        <p id="hint"></p>
                     </div>
                 </div>
                 <div class="control-group">
@@ -642,7 +643,41 @@ else{e.value="no";location.reload();}
                 </div>
 
             </fieldset> 
-            			
+                        <!--<script type="text/javascript" src="<%=SITE_URL %>Scripts/jquery-1.11.0.min.js"></script>-->
+                        <script type="text/javascript" src="<%=SITE_URL %>Scripts/mailcheck.js"></script>
+            			<script type="text/javascript">
+            			    var email = jQuery('#Email');
+            			    var hint = jQuery("#hint"); 
+            			    email.on('blur',function() {
+            			        hint.css('display', 'none').empty(); // hide hint initially
+            			        jQuery(this).mailcheck({
+            			            suggested: function(element, suggestion) {
+            			                if(!hint.html()) {
+            			                    // misspell - display hint element
+            			                    var suggestion = "Did you mean <span class='suggestion'>" +
+                                               "<span class='address'>" + suggestion.address + "</span>"
+                                               + "@<a href='#' class='domain'>" + suggestion.domain +
+                                               "</a></span>?";
+ 
+            			                    hint.html(suggestion).fadeIn(150);
+            			                } else {
+            			                    // Subsequent errors
+            			                    jQuery(".address").html(suggestion.address);
+            			                    jQuery(".domain").html(suggestion.domain);
+            			                }
+            			            }
+            			        });
+            			    });
+ 
+            			    hint.on('click', '.domain', function() {
+            			        // Display with the suggestion and remove the hint
+            			        email.val(jQuery(".suggestion").text());
+            			        hint.fadeOut(200, function() {
+            			            jQuery(this).empty();
+            			        });
+            			        return false;
+            			    });
+            			</script>
                 <fieldset>
                 <legend>Your Address</legend>
                     <%
@@ -1252,14 +1287,11 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({"address":firstResult }, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK && results[0]) {
-                    var tempLat = results[0].geometry.location.lat(),
-                        tempLng = results[0].geometry.location.lng();
-               
-                  
-                    var tempStreetNumber2 = '', tempRouteName2 = '', tempLocalcity2= '';
+                   
+                    var tempStreetNumber2 = '', tempRouteName2 = '', tempLocalcity2= '', tempPostalTown2 = '';
 		              
                     for (i = 0; i < results[0].address_components.length; i++)
-                    {
+                    { 
                         if (results[0].address_components[i].types[0] == "street_number") {
                             tempStreetNumber2 = results[0].address_components[i].short_name + ' ';
                         }
@@ -1270,16 +1302,20 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                             tempLocalcity2 = results[0].address_components[i].short_name;
                         }
                         else if (results[0].address_components[i].types[0] == "postal_town") {
-                            tempLocalcity2 = results[0].address_components[i].short_name;
+                            tempPostalTown2 = results[0].address_components[i].short_name;
                         }
                     }
+                    
                     if(tempStreetNumber2!="")
                         $("#Address").val(tempStreetNumber2);
-                    else if(tempRouteName2!="") $("#Address").val(tempRouteName2);
-                    if(tempLocalcity2!="")
-                        $("#Address2").val(tempLocalcity2);
+                    else if (tempRouteName2 != "") $("#Address").val(tempRouteName2);
+                    else if (tempLocalcity2 != "") $("#Address").val(tempLocalcity2);
+
+                    if(tempPostalTown2!="")
+                        $("#Address2").val(tempPostalTown2);
+                    else if (tempLocalcity2 != "") $("#Address2").val(tempLocalcity2);
                                   
-                      
+                    $("#frmMakeOrder").valid();   
                     
                 }
                 
@@ -1369,17 +1405,18 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
         });
 
         $("#frmMakeOrder").removeAttr("novalidate");
-        // $("form").validate();
-        if (1 == 2) {
-        $("#frmMakeOrder").validate({
-            rules: {
-                Email: {
-                    required: true,
-                    email: true
+      
+
+         
+            $("#frmMakeOrder").validate({
+                rules: {
+                    Email: {
+                        required: true,
+                        email: true
+                    }
                 }
-            }
-        });
-        }
+            });
+        
 
         var isFormSubmitted = false;
         $("#frmMakeOrder").submit(function() {    
@@ -1398,7 +1435,11 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                     }
 
             if($("form").valid() ){
-                if(isFormSubmitted) return false;     
+                if(isFormSubmitted) return false;  
+                if($.trim( $("#hint").html()) !="") 
+                {   $("#Email").focus();
+                    return false;
+                }
                 return true;
             }
         });

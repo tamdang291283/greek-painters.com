@@ -2172,6 +2172,7 @@ max-width: 154.3px;
                 if (status == google.maps.GeocoderStatus.OK && results[0]) {
                     // Start from new update for task #157  
                     var indexResponse = 0;
+                                       
                     if (results.length > 0) {
                         var formatted_address = "";
                         for (var i = 0; i < results.length; i++) {
@@ -2179,6 +2180,8 @@ max-width: 154.3px;
                                 indexResponse = i;
                         }
                     }
+
+
                     var tempLat = results[indexResponse].geometry.location.lat(),
                         tempLng = results[indexResponse].geometry.location.lng();
                     var deliverZoneResult = CheckPointInDeliveryZone(tempLat, tempLng);
@@ -4978,7 +4981,7 @@ CheckDistance();
                         $("#hidLat").val(tempLat);
                          $("#hidLng").val(tempLng);
 
-                        var tempStreetNumber2 = '', tempRouteName2 = '', tempLocalcity2= '';
+                        var tempStreetNumber2 = '', tempRouteName2 = '', tempLocalcity2= '', tempPostalTown2 = '';
 		              
                         for (i = 0; i < results[indexResponse].address_components.length; i++)
 		                {
@@ -4995,17 +4998,17 @@ CheckDistance();
 		                        tempLocalcity2 = results[indexResponse].address_components[i].short_name;
 		                    }
                             else if (results[indexResponse].address_components[i].types[0] == "postal_town") {
-		                        tempLocalcity2 = results[indexResponse].address_components[i].short_name;
+		                        tempPostalTown2 = results[indexResponse].address_components[i].short_name;
 		                    }
                         }
                         // End from new update for task #157  
                         if (tempRouteName2 != '') {
                             if(tempStreetNumber2 != '')
-                                $("#hidFormattedAdd").val(tempStreetNumber2 + '[*]' + tempRouteName2 + '[*]' + tempLocalcity2);
+                                $("#hidFormattedAdd").val(tempStreetNumber2 + '[*]' + tempRouteName2 + '[*]' + tempLocalcity2 + '[*]' + tempPostalTown2 );
                             else
-                                $("#hidFormattedAdd").val(tempRouteName2 + '[*]' + tempLocalcity2);
+                                $("#hidFormattedAdd").val(tempRouteName2 + '[*]' + tempLocalcity2 + '[*]' + tempPostalTown2);
                         }
-                        else $("#hidFormattedAdd").val(tempLocalcity2);                      
+                        else $("#hidFormattedAdd").val(tempLocalcity2 + '[*]' + tempPostalTown2);                      
                       
                         CheckDistanceLatLng(_distance);
                     }
