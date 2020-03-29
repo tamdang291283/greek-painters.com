@@ -675,7 +675,7 @@ display: block;
 </style>
 <%end if %>
     <div id="divShoppingCartSroll" class="shoppingCartScroll">
-    <table style="width: 100%" >  
+    <table style="width: 100%;position:relative;" >  
 
     <%
         Do While NOT objRds.Eof  %>
@@ -750,11 +750,11 @@ display: block;
                      <td style="padding:5px 0 5px 5px;" colspan="2">                        
                          <div class="input-group">
                               
-                              <span class="input-group-btn btn-number" style=" font-size: 13px;cursor:pointer;" data-type="minus" data-field="<%=objRds("Id") %>" onclick="IconClick(this);">
+                              <span class="input-group-btn btn-number" style=" font-size: 13px;cursor:pointer;" data-type="minus" data-field="<%=objRds("Id") %>" onclick="IconClick(this,<%=objRds("Id") %>);">
                                   <span class="glyphicon glyphicon-minus"></span>
                               </span>
                                <input type="text" name="<%=objRds("Id") %>" class="form-control input-number"  id="qty<%=objRds("Id") %>" value="<%=objRds("Qta")  %>"  min="0" max="1000">
-                              <span class="input-group-btn btn-number" style="font-size: 13px;cursor:pointer;" data-type="plus" data-field="<%=objRds("Id") %>"  onclick="IconClick(this);">                                 
+                              <span class="input-group-btn btn-number" style="font-size: 13px;cursor:pointer;" data-type="plus" data-field="<%=objRds("Id") %>"  onclick="IconClick(this,<%=objRds("Id") %>);">                                 
                               <span class="glyphicon glyphicon-plus"></span>
                               </span>
                           </div>
@@ -908,7 +908,9 @@ $("textarea#Specialinput").val($.cookie("Specialinput"));
     $(function(){
         if($("#basket<%=Request.QueryString("id") %>").length > 0)
         {
-            jQuery('#divShoppingCartSroll').scrollTop($("#basket<%=Request.QueryString("id") %>").position().top);
+          
+            if(<%=Request.QueryString("top")%> > 0 )
+                jQuery('#divShoppingCartSroll').scrollTop(<%=Request.QueryString("top")%>);
         }
     });
     <% end if %>
@@ -917,11 +919,12 @@ $("textarea#Specialinput").val($.cookie("Specialinput"));
   <% if CanEditQtyBasket = "a" then %>
 <script type="text/javascript">  
     
-    function IconClick(obj)
+    function IconClick(obj,id)
     {
-        fieldName = $(obj).attr('data-field');
+        fieldName = id;
         type = $(obj).attr('data-type');
         var input = $("input[name='" + fieldName + "']");
+        
         var currentVal = parseInt(input.val());
         if (!isNaN(currentVal)) {
             if (type == 'minus') {
@@ -949,6 +952,9 @@ $("textarea#Specialinput").val($.cookie("Specialinput"));
 
     }
 
+    $('.input-number').unbind("focusin");
+    $('.input-number').unbind("change");
+    $(".input-number").unbind("keydown");
 $('.input-number').focusin(function(){
    $(this).data('oldValue', $(this).val());
 });
@@ -960,7 +966,7 @@ $('.input-number').change(function() {
     valueCurrent = parseInt($(this).val());
     
     name = $(this).attr('name');
-   
+    
     if (parseInt($(this).val()) >= 0) {
         Del($(this).attr("id").replace("qty", ""), $(this).val());
     } else {

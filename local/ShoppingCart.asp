@@ -971,7 +971,8 @@ $("textarea#Specialinput").val($.cookie("Specialinput"));
       $(function(){
           if($("#basket<%=Request.QueryString("id") %>").length > 0)
           {
-              jQuery('#divShoppingCartSroll').scrollTop($("#basket<%=Request.QueryString("id") %>").position().top);
+              if(<%=Request.QueryString("top")%> > 0 )
+                  jQuery('#divShoppingCartSroll').scrollTop(<%=Request.QueryString("top")%>);
           }
       });
    <% end if %>
