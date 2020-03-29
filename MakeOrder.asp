@@ -72,7 +72,7 @@ end if%>
             vouchercodediscount = objRds_Order("vouchercodediscount")
             dim discountValueDisCat : discountValueDisCat = -1
             dim ListIncludeID,IncludeDishes_Categories 
-            if  Vouchercode & "" <> "" then   
+            if  Vouchercode & "" <> "" and 1 <> 1 then   
                 dim RS_VoucherCode : set RS_VoucherCode  = Server.CreateObject("ADODB.Recordset")
                     RS_VoucherCode.Open "SELECT minimumamount,vouchercodediscount,ListID,IncludeDishes_Categories FROM vouchercodes with(nolock)   where IdBusinessDetail=" & ResID & " and vouchercode='" & Vouchercode & "'", conn, 1, 3 
                 if not RS_VoucherCode.EOF then
@@ -191,12 +191,12 @@ dim vOrderSubTotal : vOrderSubTotal  = Request.Form("vOrderSubTotal")
                     %>
                           <script type="text/javascript">
                               alert("Shopping cart contents do not match payment value.  Please start again...");
-                              document.location.href="<%=MenuURL%>";
+                             document.location.href="<%=MenuURL%>";
                           </script>  
                     <%
                        
                 end if
-                        
+               
         end if 
 
     end if
