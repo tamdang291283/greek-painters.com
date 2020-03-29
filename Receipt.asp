@@ -414,7 +414,7 @@ Payment Status:&nbsp;<%if lcase(objRds("PaymentType"))="stripe-paid" or  objRds(
 					
 					<%if vvouchercode<>"" then%>
 					<tr>
-                        <td style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code:&nbsp;<br /><%=vvouchercode%> <%if VoucherDiscontType <> "Amount" then %>(-<%=vvouchercodediscount%>%)&nbsp;<%end if %> </td>
+                        <td style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code:&nbsp;<br /><%=vvouchercode%> <%if VoucherDiscontType <> "Amount" then %>(-<%=vvouchercodediscount%>%)<%end if %>&nbsp; </td>
                         <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;"> -<%=CURRENCYSYMBOL%> <%if VoucherDiscontType <> "Amount" then %>  <%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2) %> <%else %><%=FormatNumber(Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ","")),2) %>  <%end if %> </td>
                     </tr>
 					<%end if%>

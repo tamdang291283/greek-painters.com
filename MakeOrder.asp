@@ -72,7 +72,7 @@ end if%>
             vouchercodediscount = objRds_Order("vouchercodediscount")
             dim discountValueDisCat : discountValueDisCat = -1
             dim ListIncludeID,IncludeDishes_Categories 
-            if  Vouchercode & "" <> "" and 1 <> 1 then   
+            if  Vouchercode & "" <> "" then   
                 dim RS_VoucherCode : set RS_VoucherCode  = Server.CreateObject("ADODB.Recordset")
                     RS_VoucherCode.Open "SELECT minimumamount,vouchercodediscount,ListID,IncludeDishes_Categories FROM vouchercodes with(nolock)   where IdBusinessDetail=" & ResID & " and vouchercode='" & Vouchercode & "'", conn, 1, 3 
                 if not RS_VoucherCode.EOF then
@@ -116,7 +116,7 @@ end if%>
         end if
         objRds_Order.close()
         set objRds_Order = nothing 
-            Response.Write("vOrderSubTotal " & vOrderSubTotal & " subtotalcart " & subtotalcart & "<br/>")
+            
             if cdbl(trim(vOrderSubTotal&"")) = cdbl(trim(subtotalcart&"")) then
                 result =  false
                
@@ -152,7 +152,7 @@ Set objCon = Server.CreateObject("ADODB.Connection")
 Set objRds = Server.CreateObject("ADODB.Recordset") 
 objCon.Open sConnString
 objRds.Open "SELECT * FROM [Orders] WHERE Id = " & Request.Form("order_id"), objCon, 1, 3 
-   
+    
 iItemNumber = objRds("ID")
 iRestaurantId = objRds("IdBusinessDetail")
 Dim VoucherDiscountType : VoucherDiscountType = objRds("DiscountType")
@@ -194,8 +194,9 @@ dim vOrderSubTotal : vOrderSubTotal  = Request.Form("vOrderSubTotal")
                              document.location.href="<%=MenuURL%>";
                           </script>  
                     <%
-                       
+                     
                 end if
+                     
                
         end if 
 
@@ -295,6 +296,7 @@ End If
 ' Task 277
 WriteLog server.MapPath("PaymentSurcharge.txt")," after makeorder.asp  OrderID = "  &  Request.Form("order_id") & " PaymentSurcharge "  & objRds("PaymentSurcharge")
 OrderTotal = CDbl( objRds("OrderTotal")) + cdbl( objRds("PaymentSurcharge"))
+
 Dim iItemNumber, iRestaurantId, iRestaurantEmail, iEmail
 
 
@@ -571,6 +573,8 @@ set objRds = nothing
     set objCon = nothing
     'Session.Abandon
 	session("vOrderId")=Request.Form("order_id")
+
+    
 
 'response.write "subject=" & MAIL_SUBJECT & "<BR>"
 'response.write "url=" & SITE_URL & "Email.asp?id_o=" & iItemNumber & "&id_r=" & iRestaurantId & "<BR>"
