@@ -687,7 +687,7 @@ else{e.value="no";location.reload();}
                         HouseNumber = ""
                    
                         IF HouseNumberCustomer & "" <> "" ANd PostaLCodeCustomer & "" <> "" AND (Request.Form("isChangeExistingAddress") & "" = "" or Request.Form("isChangeExistingAddress") & "" = "N")  Then
-                           ' Response.Write("ok1<br/>")
+                            
                             PostCode = PostaLCodeCustomer 'Request.Cookies("PostCode")
                             HouseNumber =HouseNumberCustomer 'Request.Cookies("HouseNumber")
                             Add1 = Address1Customer 'Request.Cookies("Address")
@@ -1287,9 +1287,7 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
             var geocoder = new google.maps.Geocoder();
             geocoder.geocode({"address":firstResult }, function(results, status) {
                 if (status == google.maps.GeocoderStatus.OK && results[0]) {
-                    var tempLat = results[0].geometry.location.lat(),
-                        tempLng = results[0].geometry.location.lng();
-               
+                   
                   
                     var tempStreetNumber2 = '', tempRouteName2 = '', tempLocalcity2= '', tempPostalTown2='';
 		              
@@ -1308,9 +1306,10 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                             tempPostalTown2 = results[0].address_components[i].short_name;
                         }
                     }
-                    if(tempStreetNumber2!="")
-                        $("#Address").val(tempStreetNumber2);
-                    else if (tempRouteName2 != "") $("#Address").val(tempRouteName2);
+                     
+                    $("#HouseNumber").val(tempStreetNumber2);
+
+                    if (tempRouteName2 != "") $("#Address").val(tempRouteName2);
                     else if (tempLocalcity2 != "") $("#Address").val(tempLocalcity2);
 
                     if(tempPostalTown2!="")
@@ -1318,13 +1317,13 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                     else if (tempLocalcity2 != "") $("#Address2").val(tempLocalcity2);
                                   
                       
-                    
+                    $("#frmMakeOrder").valid();
                 }
                 
             });  
             return ;          
     }
-    <% if individualpostcodeschecking <> 0 then %>
+    <% if individualpostcodeschecking <> 0  AND ( UCase(Request.Form("isChangeExistingAddress")) & "" = "Y" OR Add1 = "" ) then %>
     CheckDistanceLatLng('<%=PostCode%>');
     <% end if %>
     $(document).ready(function () {
