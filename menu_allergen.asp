@@ -2430,11 +2430,11 @@ max-width: 154.3px;
 	
 
     function Delc(itemId) {	
-        $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&id=" + itemId);
+        $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&id=" + itemId + "&top=" + jQuery('#divShoppingCartSroll').scrollTop());
     }
     function Del(itemId,qty)
     {
-        $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&qty="+qty+"&id=" + itemId);
+        $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&qty="+qty+"&id=" + itemId + "&top=" + jQuery('#divShoppingCartSroll').scrollTop() );
     }
 		
     function Showdishproperties(itemtoshow) {
