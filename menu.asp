@@ -5002,13 +5002,18 @@ CheckDistance();
 		                    }
                         }
                         // End from new update for task #157  
-                        if (tempRouteName2 != '') {
-                            if(tempStreetNumber2 != '')
-                                $("#hidFormattedAdd").val(tempStreetNumber2 + '[*]' + tempRouteName2 + '[*]' + tempLocalcity2 + '[*]' + tempPostalTown2 );
-                            else
-                                $("#hidFormattedAdd").val(tempRouteName2 + '[*]' + tempLocalcity2 + '[*]' + tempPostalTown2);
-                        }
-                        else $("#hidFormattedAdd").val(tempLocalcity2 + '[*]' + tempPostalTown2);                      
+                        var tempHidFormatAddress ="";
+                        if (tempStreetNumber2 != '') 
+                            tempHidFormatAddress += tempStreetNumber2 + '[*]';
+                        if (tempRouteName2 != '') 
+                            tempHidFormatAddress += tempRouteName2 + '[*]';
+                        if(tempLocalcity2 != '')
+                            tempHidFormatAddress += tempLocalcity2 + '[*]';
+                        else if(tempPostalTown2 != '')
+                            tempHidFormatAddress += tempPostalTown2 + '[*]';
+                        if(tempHidFormatAddress.length >3 ) tempHidFormatAddress =  tempHidFormatAddress.substring(0, tempHidFormatAddress.length -3);
+
+                        $("#hidFormattedAdd").val(tempHidFormatAddress);                                         
                       
                         CheckDistanceLatLng(_distance);
                     }
