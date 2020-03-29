@@ -42,66 +42,254 @@
 19/08/2018 14:13:15: Pagename  = Saveimage.asp start saving 
 19/08/2018 14:13:16: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3753&id_r=2&isPrint=undefined&idlist=undefined
 19/08/2018 14:13:16: Pagename  = Saveimage.asp start saving 
-17/10/2018 08:41:39: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3804&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 08:41:39: Pagename  = Saveimage.asp start saving 
-17/10/2018 08:41:39: Pagename  = Saveimage.asp Done create receipt file   2-3804.png
-17/10/2018 08:41:39: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3804&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 08:41:39: Pagename  = Saveimage.asp start saving 
-17/10/2018 08:41:40: Pagename  = Saveimage.asp Done create receipt file   2-3804-PN.png
-17/10/2018 08:41:51: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3804&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 08:41:51: Pagename  = Saveimage.asp start saving 
-17/10/2018 09:55:11: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3805&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 09:55:11: Pagename  = Saveimage.asp start saving 
-17/10/2018 09:55:11: Pagename  = Saveimage.asp Done create receipt file   2-3805.png
-17/10/2018 09:55:11: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3805&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 09:55:11: Pagename  = Saveimage.asp start saving 
-17/10/2018 09:55:12: Pagename  = Saveimage.asp Done create receipt file   2-3805-PN.png
-17/10/2018 10:04:09: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3806&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:04:09: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:04:09: Pagename  = Saveimage.asp Done create receipt file   2-3806.png
-17/10/2018 10:04:09: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3806&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:04:09: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:04:09: Pagename  = Saveimage.asp Done create receipt file   2-3806-PN.png
-17/10/2018 10:16:35: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3807&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:16:35: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:16:35: Pagename  = Saveimage.asp Done create receipt file   2-3807.png
-17/10/2018 10:16:35: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3807&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:16:35: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:16:35: Pagename  = Saveimage.asp Done create receipt file   2-3807-PN.png
-17/10/2018 10:18:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3808&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:18:05: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:18:05: Pagename  = Saveimage.asp Done create receipt file   2-3808.png
-17/10/2018 10:18:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3808&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:18:05: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:18:05: Pagename  = Saveimage.asp Done create receipt file   2-3808-PN.png
-17/10/2018 10:18:10: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3808&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:18:10: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:18:10: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3808&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:18:10: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:20:22: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3809&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:20:22: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:20:22: Pagename  = Saveimage.asp Done create receipt file   2-3809.png
-17/10/2018 10:20:22: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3809&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-17/10/2018 10:20:22: Pagename  = Saveimage.asp start saving 
-17/10/2018 10:20:22: Pagename  = Saveimage.asp Done create receipt file   2-3809-PN.png
-24/10/2018 07:35:57: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3845&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-24/10/2018 07:35:57: Pagename  = Saveimage.asp start saving 
-24/10/2018 07:35:57: Pagename  = Saveimage.asp Done create receipt file   2-3845.png
-24/10/2018 07:35:58: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=printingname&id_o=3845&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-24/10/2018 07:35:58: Pagename  = Saveimage.asp start saving 
-24/10/2018 07:35:58: Pagename  = Saveimage.asp Done create receipt file   2-3845-PN.png
-24/10/2018 07:36:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/star/print_t.asp?mod=dishname&id_o=3845&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-24/10/2018 07:36:05: Pagename  = Saveimage.asp start saving 
-26/03/2019 08:39:44: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?mod=dishname&id_o=127&id_r=2&isPrint=&idlist=local_printer
-26/03/2019 08:39:44: Pagename  = Saveimage.asp start saving 
-26/03/2019 08:39:44: Pagename  = Saveimage.asp Done create receipt file   2-127.png
-09/04/2019 09:33:28: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?id_o=1&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-09/04/2019 09:33:28: Pagename  = Saveimage.asp start saving 
-09/04/2019 09:33:29: Pagename  = Saveimage.asp Done create receipt file   2-1.png
-09/04/2019 09:33:40: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?id_o=1&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-09/04/2019 09:33:40: Pagename  = Saveimage.asp start saving 
-09/04/2019 09:35:10: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?id_o=1&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-09/04/2019 09:35:10: Pagename  = Saveimage.asp start saving 
-09/04/2019 09:37:05: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-4-Dang/printers/star/print_t.asp?id_o=2&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-09/04/2019 09:37:05: Pagename  = Saveimage.asp start saving 
-09/04/2019 09:37:06: Pagename  = Saveimage.asp Done create receipt file   2-2.png
+19/08/2018 14:19:28: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3754&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:19:28: Pagename  = Saveimage.asp start saving 
+19/08/2018 14:19:28: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3754&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+19/08/2018 14:19:28: Pagename  = Saveimage.asp start saving 
+20/08/2018 14:58:20: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3753&id_r=2&isPrint=undefined&idlist=undefined
+20/08/2018 14:58:20: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:01:03: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:01:03: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:01:04: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:01:04: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:03:48: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:03:48: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:03:57: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:03:57: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:03:57: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:03:57: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:06:00: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:06:00: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:06:24: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:06:24: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:06:25: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:06:25: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:06:25: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:06:25: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:08:14: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:08:14: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:09:40: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:09:40: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:09:49: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:09:49: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:09:50: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:09:50: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:09:50: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:09:50: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:26:46: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:26:46: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:26:46: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:26:46: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:28:00: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:28:00: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:28:00: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3755&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:28:00: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:28:30: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3756&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:28:30: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:28:30: Pagename  = Saveimage.asp Done create receipt file   2-3756-PN.png
+20/08/2018 15:28:30: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3756&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:28:30: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:28:30: Pagename  = Saveimage.asp Done create receipt file   2-3756.png
+20/08/2018 15:45:16: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3757&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:45:16: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:45:16: Pagename  = Saveimage.asp Done create receipt file   2-3757.png
+20/08/2018 15:45:16: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3757&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 15:45:16: Pagename  = Saveimage.asp start saving 
+20/08/2018 15:45:16: Pagename  = Saveimage.asp Done create receipt file   2-3757-PN.png
+20/08/2018 16:23:22: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3758&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:23:22: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:23:22: Pagename  = Saveimage.asp Done create receipt file   2-3758.png
+20/08/2018 16:23:22: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3758&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:23:22: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:23:22: Pagename  = Saveimage.asp Done create receipt file   2-3758-PN.png
+20/08/2018 16:25:34: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3759&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:25:34: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:25:35: Pagename  = Saveimage.asp Done create receipt file   2-3759-PN.png
+20/08/2018 16:25:35: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3759&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:25:35: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:25:35: Pagename  = Saveimage.asp Done create receipt file   2-3759.png
+20/08/2018 16:26:09: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3760&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:26:09: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:26:09: Pagename  = Saveimage.asp Done create receipt file   2-3760.png
+20/08/2018 16:26:09: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3760&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:26:09: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:26:09: Pagename  = Saveimage.asp Done create receipt file   2-3760-PN.png
+20/08/2018 16:36:58: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3761&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:36:58: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:36:58: Pagename  = Saveimage.asp Done create receipt file   2-3761.png
+20/08/2018 16:36:58: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3761&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:36:58: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:36:58: Pagename  = Saveimage.asp Done create receipt file   2-3761-PN.png
+20/08/2018 16:44:26: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3762&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:44:26: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:44:26: Pagename  = Saveimage.asp Done create receipt file   2-3762.png
+20/08/2018 16:44:26: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3762&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:44:26: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:44:26: Pagename  = Saveimage.asp Done create receipt file   2-3762-PN.png
+20/08/2018 16:46:01: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3763&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:46:01: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:46:01: Pagename  = Saveimage.asp Done create receipt file   2-3763.png
+20/08/2018 16:46:01: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3763&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+20/08/2018 16:46:01: Pagename  = Saveimage.asp start saving 
+20/08/2018 16:46:01: Pagename  = Saveimage.asp Done create receipt file   2-3763-PN.png
+21/08/2018 23:47:44: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3765&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+21/08/2018 23:47:44: Pagename  = Saveimage.asp start saving 
+21/08/2018 23:47:44: Pagename  = Saveimage.asp Done create receipt file   2-3765.png
+21/08/2018 23:47:44: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3765&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+21/08/2018 23:47:44: Pagename  = Saveimage.asp start saving 
+21/08/2018 23:47:45: Pagename  = Saveimage.asp Done create receipt file   2-3765-PN.png
+02/09/2018 07:30:55: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3774&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:30:55: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:30:55: Pagename  = Saveimage.asp Done create receipt file   2-3774.png
+02/09/2018 07:30:55: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3774&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:30:55: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:30:55: Pagename  = Saveimage.asp Done create receipt file   2-3774-PN.png
+02/09/2018 07:35:02: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3774&id_r=2&isPrint=Y&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:35:02: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:35:02: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3774&id_r=2&isPrint=Y&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:35:02: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:35:22: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3774&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:35:22: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:35:23: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3774&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:35:23: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:36:41: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3775&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:36:41: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:36:42: Pagename  = Saveimage.asp Done create receipt file   2-3775.png
+02/09/2018 07:36:42: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3775&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:36:42: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:36:42: Pagename  = Saveimage.asp Done create receipt file   2-3775-PN.png
+02/09/2018 07:37:16: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3775&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:37:16: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:37:16: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3775&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:37:16: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:38:35: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3776&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:38:35: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:38:35: Pagename  = Saveimage.asp Done create receipt file   2-3776-PN.png
+02/09/2018 07:38:35: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3776&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:38:35: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:38:36: Pagename  = Saveimage.asp Done create receipt file   2-3776.png
+02/09/2018 07:45:08: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3775&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:45:08: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:45:09: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3775&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:45:09: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:45:13: Pagename  = Saveimage.asp [Refer URL] 
+02/09/2018 07:45:42: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3777&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:45:42: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:45:42: Pagename  = Saveimage.asp Done create receipt file   2-3777.png
+02/09/2018 07:45:42: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3777&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+02/09/2018 07:45:42: Pagename  = Saveimage.asp start saving 
+02/09/2018 07:45:42: Pagename  = Saveimage.asp Done create receipt file   2-3777-PN.png
+06/09/2018 09:02:13: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3778&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/09/2018 09:02:14: Pagename  = Saveimage.asp start saving 
+06/09/2018 09:02:14: Pagename  = Saveimage.asp Done create receipt file   2-3778.png
+06/09/2018 09:02:14: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3778&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/09/2018 09:02:14: Pagename  = Saveimage.asp start saving 
+06/09/2018 09:02:14: Pagename  = Saveimage.asp Done create receipt file   2-3778-PN.png
+06/09/2018 09:04:49: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3778&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/09/2018 09:04:49: Pagename  = Saveimage.asp start saving 
+06/09/2018 09:04:50: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=3778&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/09/2018 09:04:50: Pagename  = Saveimage.asp start saving 
+25/09/2018 16:04:32: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=3779&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+25/09/2018 16:04:32: Pagename  = Saveimage.asp start saving 
+25/09/2018 16:04:32: Pagename  = Saveimage.asp Done create receipt file   2-3779.png
+25/09/2018 16:33:01: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=3780&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+25/09/2018 16:33:01: Pagename  = Saveimage.asp start saving 
+25/09/2018 16:33:01: Pagename  = Saveimage.asp Done create receipt file   2-3780.png
+15/10/2018 15:58:33: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3799&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 15:58:33: Pagename  = Saveimage.asp start saving 
+15/10/2018 15:58:33: Pagename  = Saveimage.asp Done create receipt file   2-3799.png
+15/10/2018 16:01:28: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3799&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 16:01:28: Pagename  = Saveimage.asp start saving 
+15/10/2018 16:02:22: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=3799&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 16:02:22: Pagename  = Saveimage.asp start saving 
+03/01/2019 14:01:50: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=29&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+03/01/2019 14:01:50: Pagename  = Saveimage.asp start saving 
+03/01/2019 14:01:50: Pagename  = Saveimage.asp Done create receipt file   2-29.png
+03/01/2019 14:01:50: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=printingname&id_o=29&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+03/01/2019 14:01:50: Pagename  = Saveimage.asp start saving 
+03/01/2019 14:01:50: Pagename  = Saveimage.asp Done create receipt file   2-29-PN.png
+03/01/2019 14:14:18: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=29&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+03/01/2019 14:14:18: Pagename  = Saveimage.asp start saving 
+28/03/2019 15:50:56: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=75&id_r=2&isPrint=undefined&idlist=undefined
+28/03/2019 15:50:56: Pagename  = Saveimage.asp start saving 
+28/03/2019 15:50:56: Pagename  = Saveimage.asp Done create receipt file   2-75.png
+28/03/2019 15:59:25: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=75&id_r=2&isPrint=undefined&idlist=undefined
+28/03/2019 15:59:25: Pagename  = Saveimage.asp start saving 
+28/03/2019 15:59:25: Pagename  = Saveimage.asp Done create receipt file   2-75.png
+07/04/2019 08:05:21: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?mod=dishname&id_o=95&id_r=2&isPrint=undefined&idlist=undefined
+07/04/2019 08:05:21: Pagename  = Saveimage.asp start saving 
+07/04/2019 08:05:21: Pagename  = Saveimage.asp Done create receipt file   2-95.png
+07/04/2019 13:54:40: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=97&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+07/04/2019 13:54:40: Pagename  = Saveimage.asp start saving 
+07/04/2019 13:54:41: Pagename  = Saveimage.asp Done create receipt file   2-97.png
+07/04/2019 13:59:43: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=97&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+07/04/2019 13:59:43: Pagename  = Saveimage.asp start saving 
+07/04/2019 13:59:50: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=97&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+07/04/2019 13:59:50: Pagename  = Saveimage.asp start saving 
+07/04/2019 14:00:30: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=98&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+07/04/2019 14:00:30: Pagename  = Saveimage.asp start saving 
+07/04/2019 14:00:30: Pagename  = Saveimage.asp Done create receipt file   2-98.png
+06/04/2019 16:20:28: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=99&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/04/2019 16:20:29: Pagename  = Saveimage.asp start saving 
+06/04/2019 16:20:29: Pagename  = Saveimage.asp Done create receipt file   2-99.png
+06/04/2019 16:22:33: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=99&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/04/2019 16:22:33: Pagename  = Saveimage.asp start saving 
+06/04/2019 16:23:15: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=99&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/04/2019 16:23:15: Pagename  = Saveimage.asp start saving 
+06/04/2019 17:37:36: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=100&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/04/2019 17:37:36: Pagename  = Saveimage.asp start saving 
+06/04/2019 17:37:36: Pagename  = Saveimage.asp Done create receipt file   2-100.png
+06/04/2019 17:38:08: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=100&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/04/2019 17:38:08: Pagename  = Saveimage.asp start saving 
+06/04/2019 17:38:43: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=101&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+06/04/2019 17:38:43: Pagename  = Saveimage.asp start saving 
+06/04/2019 17:38:43: Pagename  = Saveimage.asp Done create receipt file   2-101.png
+07/04/2019 15:27:39: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=103&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+07/04/2019 15:27:39: Pagename  = Saveimage.asp start saving 
+07/04/2019 15:27:40: Pagename  = Saveimage.asp Done create receipt file   2-103.png
+07/04/2019 15:30:46: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=105&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+07/04/2019 15:30:46: Pagename  = Saveimage.asp start saving 
+07/04/2019 15:30:46: Pagename  = Saveimage.asp Done create receipt file   2-105.png
+08/04/2019 14:36:13: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=105&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+08/04/2019 14:36:13: Pagename  = Saveimage.asp start saving 
+09/04/2019 15:51:51: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=106&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 15:51:51: Pagename  = Saveimage.asp start saving 
+09/04/2019 15:51:51: Pagename  = Saveimage.asp Done create receipt file   2-106.png
+09/04/2019 15:53:52: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=107&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 15:53:52: Pagename  = Saveimage.asp start saving 
+09/04/2019 15:53:52: Pagename  = Saveimage.asp Done create receipt file   2-107.png
+09/04/2019 15:54:25: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=108&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 15:54:25: Pagename  = Saveimage.asp start saving 
+09/04/2019 15:54:25: Pagename  = Saveimage.asp Done create receipt file   2-108.png
+09/04/2019 15:54:53: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=109&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 15:54:53: Pagename  = Saveimage.asp start saving 
+09/04/2019 15:54:53: Pagename  = Saveimage.asp Done create receipt file   2-109.png
+09/04/2019 17:48:42: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=112&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 17:48:42: Pagename  = Saveimage.asp start saving 
+09/04/2019 17:48:42: Pagename  = Saveimage.asp Done create receipt file   2-112.png
+09/04/2019 17:53:01: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=113&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 17:53:01: Pagename  = Saveimage.asp start saving 
+09/04/2019 17:53:01: Pagename  = Saveimage.asp Done create receipt file   2-113.png
+09/04/2019 17:56:47: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=114&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+09/04/2019 17:56:47: Pagename  = Saveimage.asp start saving 
+09/04/2019 17:56:47: Pagename  = Saveimage.asp Done create receipt file   2-114.png
+30/03/2019 16:37:27: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=115&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+30/03/2019 16:37:27: Pagename  = Saveimage.asp start saving 
+30/03/2019 16:37:27: Pagename  = Saveimage.asp Done create receipt file   2-115.png
+30/03/2019 16:38:07: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=115&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+30/03/2019 16:38:07: Pagename  = Saveimage.asp start saving 
+30/03/2019 16:46:32: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=116&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+30/03/2019 16:46:32: Pagename  = Saveimage.asp start saving 
+30/03/2019 16:46:32: Pagename  = Saveimage.asp Done create receipt file   2-116.png
+30/03/2019 16:48:59: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=117&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+30/03/2019 16:48:59: Pagename  = Saveimage.asp start saving 
+30/03/2019 16:48:59: Pagename  = Saveimage.asp Done create receipt file   2-117.png
+30/03/2019 16:49:59: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=118&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+30/03/2019 16:49:59: Pagename  = Saveimage.asp start saving 
+30/03/2019 16:49:59: Pagename  = Saveimage.asp Done create receipt file   2-118.png
+10/04/2019 14:56:28: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=1&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+10/04/2019 14:56:28: Pagename  = Saveimage.asp start saving 
+10/04/2019 14:56:29: Pagename  = Saveimage.asp Done create receipt file   2-1.png
+10/04/2019 15:05:11: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/star/print_t.asp?id_o=2&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+10/04/2019 15:05:11: Pagename  = Saveimage.asp start saving 
+10/04/2019 15:05:11: Pagename  = Saveimage.asp Done create receipt file   2-2.png

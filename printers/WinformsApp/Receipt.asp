@@ -104,7 +104,7 @@
         vSubTotal = objRds("SubTotal")
         vOrderTotal = objRds("OrderTotal")
         
-        Dim PaymentSurcharge, ServiceCharge, vvouchercode, vvouchercodediscount
+        Dim PaymentSurcharge, ServiceCharge, vvouchercode, vvouchercodediscount,VoucherDiscountType
         PaymentSurcharge = objRds("PaymentSurcharge")
         If PaymentSurcharge & "" = "" Then
             PaymentSurcharge = "0"
@@ -133,7 +133,7 @@
         vvouchercodediscount = ""
         vvouchercodediscount = objRds("vouchercodediscount")
 		vvouchercode=objRds("vouchercode")
-        
+        VoucherDiscountType = objRds("DiscountType")
         dim numberOfOrder : numberOfOrder  = 0
             if Show_Ordernumner_printer = "yes" then
                 Set objRds1 = Server.CreateObject("ADODB.Recordset") 
@@ -468,8 +468,8 @@ Accepted for:&nbsp;<%=formatDateTimeC(acceptedfor)%>
                     </tr>
                         <%if vvouchercode<>"" then%>
 					<tr>
-                        <td colspan="2" style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code:&nbsp;<br /> <%=vvouchercode%> (-<%=vvouchercodediscount%>%)&nbsp; </td>
-                        <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;">-<%=CURRENCYSYMBOL%><%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2) %> </td>
+                        <td colspan="2" style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code:&nbsp;<br /> <%=vvouchercode%><% if VoucherDiscountType & "" <> "Amount" then %> (-<%=vvouchercodediscount%>%)<%end if %>&nbsp; </td>
+                        <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;">-<%=CURRENCYSYMBOL%><% if VoucherDiscountType & "" <> "Amount" then %><%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2) %><%else %><%=FormatNumber(Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ","")),2) %><%end if %> </td>
                     </tr>
 					<%end if%>
                         <tr>

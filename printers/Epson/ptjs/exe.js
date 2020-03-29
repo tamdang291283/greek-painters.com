@@ -30,8 +30,8 @@ var address = system.args[1];
 var mod = system.args[2];
 var id_o = system.args[3];
 var id_r = system.args[4];
-var isPrint = "";
-var idlist = "";
+var isPrint = system.args[5];
+var idlist = system.args[6];
     address += "?mod=" + mod + "&id_o=" + id_o + "&id_r=" + id_r + "&isPrint=" + isPrint + "&idlist=" + idlist;
 // Open Twitter on 'sencha' profile and, onPageLoad, do...
     page.open(address, function (status) {

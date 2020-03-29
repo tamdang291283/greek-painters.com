@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2048
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintingReceipt", "PrintingReceipt.csproj", "{6D5734A1-7759-4466-8087-FDAED38FAC66}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestPrinter", "..\TestPrinter\TestPrinter.csproj", "{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,21 +24,8 @@ Global
 		{6D5734A1-7759-4466-8087-FDAED38FAC66}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D5734A1-7759-4466-8087-FDAED38FAC66}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
 		{6D5734A1-7759-4466-8087-FDAED38FAC66}.SingleImage|Any CPU.Build.0 = Release|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.CD_ROM|Any CPU.ActiveCfg = Release|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.CD_ROM|Any CPU.Build.0 = Release|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.DVD-5|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.DVD-5|Any CPU.Build.0 = Debug|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.SingleImage|Any CPU.ActiveCfg = Release|Any CPU
-		{F9B34C80-1B30-45D1-B7F6-75749CB5E28B}.SingleImage|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {D7E8239D-6389-44B0-A8E3-0A04665CD609}
 	EndGlobalSection
 EndGlobal

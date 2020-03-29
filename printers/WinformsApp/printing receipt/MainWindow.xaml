@@ -17,19 +17,17 @@
         <ComboBox x:Name="cbPrinterList" Grid.ColumnSpan="3" HorizontalAlignment="Left" Margin="140,56,0,0" VerticalAlignment="Top" Width="372"/>
         <Label x:Name="label2" Grid.ColumnSpan="2" FontWeight="Bold" Content="URL Order Come" Margin="32,127,145,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtAddressURL" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="23" Margin="140,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="498" />
+
+
         <Button x:Name="btnStart" Grid.ColumnSpan="2" Content="Start" HorizontalAlignment="Left" Margin="230,187,0,0" VerticalAlignment="Top" Width="75" Click="btnStart_Click"/>
         <Button x:Name="btnStop" Content="Stop" HorizontalAlignment="Left" Margin="0,187,0,0" VerticalAlignment="Top" Width="75" Click="btnStop_Click" Grid.Column="2"/>
         <Label x:Name="label2_Copy" Grid.ColumnSpan="2" FontWeight="Bold" Content="Time Interval" Margin="32,90,145,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtInterval" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="23" Margin="140,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="61" />
-        <Label x:Name="label2_Copy1" Grid.ColumnSpan="3" FontWeight="Bold" Content="Enable Sound" Margin="285,90,262,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="EnableSound" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="46,97,0,0" VerticalAlignment="Top" Checked="EnableSound_Checked"/>
-
+        <Label x:Name="label2_Copy1" Grid.ColumnSpan="3" FontWeight="Bold" Content="Enable Sound" Margin="322,90,225,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="EnableSound" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="83,97,0,0" VerticalAlignment="Top" Checked="EnableSound_Checked"/>
         <Label x:Name="label2_Copy2" Grid.ColumnSpan="2" FontWeight="Bold" Content="sec" Margin="201,90,50,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2_Copy3" Grid.ColumnSpan="3" FontWeight="Bold" Content="Enable Sound" Margin="285,90,262,0" VerticalAlignment="Top"/>
-        <Label x:Name="label2_Copy4" FontWeight="Bold" Content="Auto Start" Margin="88,90,151,0" VerticalAlignment="Top" Grid.Column="2"/>
-        <CheckBox x:Name="AutoStart" Content="" Grid.Column="2" HorizontalAlignment="Left" Margin="157,97,0,0" VerticalAlignment="Top" Checked="AutoStart_Checked"/>
 
-
+       
 
 
 

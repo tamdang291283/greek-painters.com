@@ -8,6 +8,7 @@
 <!-- #include file="../../timezone.asp" -->
 <!-- #include file="../../restaurantsettings.asp" -->
 <%
+   
      textreceipt = true
      dim newWay : newWay = false
        if printingtype = "text" then
@@ -100,6 +101,7 @@
         Set objRds2 = Server.CreateObject("ADODB.Recordset") 
             objCon2.Open sConnString          
      dim checkstatus :  checkstatus = true    
+     
              if request.form("ConnectionType")="SetResponse" and checkstatus = true then        
                 Dim ResponseContent
                     ResponseContent=request.form("ResponseFile")      
@@ -135,7 +137,7 @@
                 DateCondition = split(datet,"/")(1) & "/" & split(datet,"/")(0) & "/" & split(datet,"/")(2)  & datetime
             end if
         SQL  = "Select top 1 ID from view_paid_orders where IdBusinessDetail= " & Request.QueryString("id_r")  & "  "
-        SQL = SQL & "  and printed = 0 and ID  =  31326 order by orderdate" 
+        SQL = SQL & "  and printed = 0  order by orderdate" 
 
     
 

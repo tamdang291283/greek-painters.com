@@ -43,7 +43,7 @@
         dim vShippingFee
         dim vSubTotal
         dim vOrderTotal
-        Dim ServiceCharge , vvouchercode, vvouchercodediscount,PaymentSurcharge
+        Dim ServiceCharge , vvouchercode, vvouchercodediscount,PaymentSurcharge,VoucherDiscountType
         PaymentSurcharge = objRds("PaymentSurcharge")
          If PaymentSurcharge & "" = "" Then
             PaymentSurcharge = "0"
@@ -76,6 +76,7 @@
         vvouchercodediscount = ""
         vvouchercodediscount = objRds("vouchercodediscount")
 		vvouchercode=objRds("vouchercode")
+        VoucherDiscountType = objRds("DiscountType")
 %>
    
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -314,8 +315,8 @@ Order Number: <%=Request.QueryString("id_o")%>
                     </tr>
                             <%if vvouchercode<>"" then%>
 					<tr>
-                        <td colspan="2" style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code:&nbsp;<br /><%=vvouchercode%> (-<%=vvouchercodediscount%>%)&nbsp;</td>
-                        <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;"> -<%=CURRENCYSYMBOL%><%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2) %> </td>
+                        <td colspan="2" style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code:&nbsp;<br /> <%=vvouchercode%><% if VoucherDiscountType & "" <> "Amount" then %> (-<%=vvouchercodediscount%>%)<%end if %>&nbsp; </td>
+                        <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;">-<%=CURRENCYSYMBOL%><% if VoucherDiscountType & "" <> "Amount" then %><%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2) %><%else %><%=FormatNumber(Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ","")),2) %><%end if %> </td>
                     </tr>
 					<%end if%>   
                         <tr>

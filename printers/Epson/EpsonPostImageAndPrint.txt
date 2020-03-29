@@ -1,722 +1,834 @@
-14/04/2018 06:08:38: PageName  = print_t.asp Start Page [Orderid] 3724
-14/04/2018 06:08:38: Pagename  =  print_t.asp  [Refer URL] 
-14/04/2018 06:08:38: PageName  = print_t.asp End Page [Orderid] 3724
-14/04/2018 06:08:39: Pagename  = Saveimage.asp 
-14/04/2018 06:08:39: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=
-14/04/2018 06:08:39: Pagename  = Saveimage.asp start saving 
-14/04/2018 06:08:39:  PrinterList  local_printer;PN:local_printer
-14/04/2018 06:08:39: Pagename  = Saveimage.asp [Orderid]  = 3724
-14/04/2018 06:08:39: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3724-local_printer-0.txt
-14/04/2018 06:08:39: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3724-local_printer-0.txt
-14/04/2018 06:08:40: PageName  = print_t.asp Start Page [Orderid] 3724
-14/04/2018 06:08:40: Pagename  =  print_t.asp  [Refer URL] 
-14/04/2018 06:08:40: PageName  = print_t.asp End Page [Orderid] 3724
-14/04/2018 06:08:40: Pagename  = Saveimage.asp 
-14/04/2018 06:08:40: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3724&id_r=2&isPrint=&idlist=
-14/04/2018 06:08:40: Pagename  = Saveimage.asp start saving 
-14/04/2018 06:08:41:  PrinterList  local_printer;PN:local_printer
-14/04/2018 06:08:41: Pagename  = Saveimage.asp [Orderid]  = 3724
-14/04/2018 06:08:41: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3724-local_printer-1-PN.txt
-14/04/2018 06:08:41: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3724-local_printer-1-PN.txt
-14/04/2018 06:23:14: PageName  = print_t.asp Start Page [Orderid] 3724
-14/04/2018 06:23:14: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3724&id_r=2
-14/04/2018 06:23:14: PageName  = print_t.asp End Page [Orderid] 3724
-14/04/2018 06:23:14: PageName  = print_t.asp Start Page [Orderid] 3724
-14/04/2018 06:23:14: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3724&id_r=2
-14/04/2018 06:23:14: PageName  = print_t.asp End Page [Orderid] 3724
-14/04/2018 06:23:18: Pagename  = Saveimage.asp 
-14/04/2018 06:23:18: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-14/04/2018 06:23:18: Pagename  = Saveimage.asp start saving 
-14/04/2018 06:23:18:  PrinterList  local_printer;PN:local_printer
-14/04/2018 06:23:18: Pagename  = Saveimage.asp [Orderid]  = 3724
-14/04/2018 06:23:18: Pagename  = Saveimage.asp 
-14/04/2018 06:23:19: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-14/04/2018 06:23:19: Pagename  = Saveimage.asp start saving 
-14/04/2018 06:23:19:  PrinterList  local_printer;PN:local_printer
-14/04/2018 06:23:19: Pagename  = Saveimage.asp [Orderid]  = 3724
-14/04/2018 06:23:32: PageName  = print_t.asp Start Page [Orderid] 3724
-14/04/2018 06:23:32: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3724&id_r=2
-14/04/2018 06:23:32: PageName  = print_t.asp End Page [Orderid] 3724
-14/04/2018 06:23:34: Pagename  = Saveimage.asp 
-14/04/2018 06:23:35: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-14/04/2018 06:23:35: Pagename  = Saveimage.asp start saving 
-14/04/2018 06:23:35:  PrinterList  local_printer;PN:local_printer
-14/04/2018 06:23:35: Pagename  = Saveimage.asp [Orderid]  = 3724
-14/04/2018 07:46:43: Pagename  = Saveimage.asp 
-14/04/2018 07:46:44: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-14/04/2018 07:46:44: Pagename  = Saveimage.asp start saving 
-14/04/2018 07:46:44:  PrinterList  local_printer;PN:local_printer
-14/04/2018 07:46:44: Pagename  = Saveimage.asp [Orderid]  = 3724
-14/04/2018 07:46:44: Pagename  = Saveimage.asp 
-14/04/2018 07:46:44: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-14/04/2018 07:46:44: Pagename  = Saveimage.asp start saving 
-14/04/2018 07:46:44:  PrinterList  local_printer;PN:local_printer
-14/04/2018 07:46:44: Pagename  = Saveimage.asp [Orderid]  = 3724
-14/04/2018 07:46:44:  PrinterList  local_printer;PN:local_printer
-14/04/2018 07:46:44: Pagename  = Saveimage.asp [Orderid]  = 3724
-15/04/2018 03:15:42: Pagename  = Saveimage.asp 
-15/04/2018 03:15:42: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-15/04/2018 03:15:42: Pagename  = Saveimage.asp start saving 
-15/04/2018 03:15:42:  PrinterList  local_printer;PN:local_printer
-15/04/2018 03:15:42: Pagename  = Saveimage.asp [Orderid]  = 3724
-15/04/2018 03:15:43: Pagename  = Saveimage.asp 
-15/04/2018 03:15:43: Pagename  = Saveimage.asp 
-15/04/2018 03:15:43: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-15/04/2018 03:15:43: Pagename  = Saveimage.asp start saving 
-15/04/2018 03:15:43: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3724&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-15/04/2018 03:15:43: Pagename  = Saveimage.asp start saving 
-15/04/2018 03:15:43:  PrinterList  local_printer;PN:local_printer
-15/04/2018 03:15:43: Pagename  = Saveimage.asp [Orderid]  = 3724
-15/04/2018 03:15:43:  PrinterList  local_printer;PN:local_printer
-15/04/2018 03:15:43: Pagename  = Saveimage.asp [Orderid]  = 3724
-15/04/2018 05:00:30: PageName  = print_t.asp Start Page [Orderid] 3725
-15/04/2018 05:00:30: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3725&id_r=2
-15/04/2018 05:00:30: PageName  = print_t.asp End Page [Orderid] 3725
-15/04/2018 05:00:30: PageName  = print_t.asp End Page [Orderid] 3725
-15/04/2018 05:00:31: Pagename  = Saveimage.asp 
-15/04/2018 05:00:31: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3725&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-15/04/2018 05:00:31: Pagename  = Saveimage.asp start saving 
-15/04/2018 05:00:31:  PrinterList  local_printer;PN:local_printer
-15/04/2018 05:00:31: Pagename  = Saveimage.asp [Orderid]  = 3725
-15/04/2018 05:00:31: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3725-local_printer-1-PN.txt
-15/04/2018 05:00:32: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3725-local_printer-1-PN.txt
-15/04/2018 05:00:32: Pagename  = Saveimage.asp 
-15/04/2018 05:00:32: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3725&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-15/04/2018 05:00:32: Pagename  = Saveimage.asp start saving 
-15/04/2018 05:00:32:  PrinterList  local_printer;PN:local_printer
-15/04/2018 05:00:32: Pagename  = Saveimage.asp [Orderid]  = 3725
-15/04/2018 05:00:32: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3725-local_printer-0.txt
-15/04/2018 05:00:32: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3725-local_printer-0.txt
-15/04/2018 05:27:51: Pagename  = Saveimage.asp 
-15/04/2018 05:27:51: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=106&id_r=2&table=&idlist=
-15/04/2018 05:27:51: Pagename  = Saveimage.asp start saving 
-15/04/2018 05:27:51:  PrinterList  local_printer;PN:local_printer
-15/04/2018 05:27:51: Pagename  = Saveimage.asp [Orderid]  = 106
-15/04/2018 05:27:51: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-106-local_printer-0.txt
-15/04/2018 05:27:51: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-106-local_printer-0.txt
-15/04/2018 05:27:51: Pagename  = Saveimage.asp 
-15/04/2018 05:27:51: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=106&id_r=2&table=&idlist=
-15/04/2018 05:27:51: Pagename  = Saveimage.asp start saving 
-15/04/2018 05:27:51:  PrinterList  local_printer;PN:local_printer
-15/04/2018 05:27:51: Pagename  = Saveimage.asp [Orderid]  = 106
-15/04/2018 05:27:51: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-106-local_printer-1-PN.txt
-15/04/2018 05:27:51: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-106-local_printer-1-PN.txt
-15/04/2018 08:06:51: PageName  = print_t.asp Start Page [Orderid] 3727
-15/04/2018 08:06:51: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3727&id_r=2
-15/04/2018 08:06:51: PageName  = print_t.asp End Page [Orderid] 3727
-15/04/2018 08:06:53: Pagename  = Saveimage.asp 
-15/04/2018 08:06:54: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3727&id_r=2&isPrint=&idlist=local_printer
-15/04/2018 08:06:54: Pagename  = Saveimage.asp start saving 
-15/04/2018 08:06:54:  PrinterList  local_printer
-15/04/2018 08:06:54: Pagename  = Saveimage.asp [Orderid]  = 3727
-15/04/2018 08:06:54: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3727-local_printer-0.txt
-15/04/2018 08:06:54: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3727-local_printer-0.txt
-15/04/2018 12:26:59: Pagename  = Saveimage.asp 
-15/04/2018 12:27:00: Pagename  = Saveimage.asp 
-15/04/2018 12:27:00: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=112&id_r=2&table=&idlist=
-15/04/2018 12:27:00: Pagename  = Saveimage.asp start saving 
-15/04/2018 12:27:00:  PrinterList  local_printer;PN:local_printer
-15/04/2018 12:27:00: Pagename  = Saveimage.asp [Orderid]  = 112
-15/04/2018 12:27:00: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=112&id_r=2&table=&idlist=
-15/04/2018 12:27:00: Pagename  = Saveimage.asp start saving 
-15/04/2018 12:27:00: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-112-local_printer-1-PN.txt
-15/04/2018 12:27:00:  PrinterList  local_printer;PN:local_printer
-15/04/2018 12:27:00: Pagename  = Saveimage.asp [Orderid]  = 112
-15/04/2018 12:27:00: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-112-local_printer-1-PN.txt
-15/04/2018 12:27:00: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-112-local_printer-0.txt
-15/04/2018 12:27:00: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-112-local_printer-0.txt
-17/04/2018 07:41:31: PageName  = print_t.asp Start Page [Orderid] 3732
-17/04/2018 07:41:31: PageName  = print_t.asp Start Page [Orderid] 3732
-17/04/2018 07:41:31: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3732&id_r=2
-17/04/2018 07:41:31: PageName  = print_t.asp End Page [Orderid] 3732
-17/04/2018 07:41:31: PageName  = print_t.asp End Page [Orderid] 3732
-17/04/2018 07:41:34: Pagename  = Saveimage.asp 
-17/04/2018 07:41:34: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3732&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-17/04/2018 07:41:34: Pagename  = Saveimage.asp start saving 
-17/04/2018 07:41:34:  PrinterList  local_printer;PN:local_printer
-17/04/2018 07:41:34: Pagename  = Saveimage.asp [Orderid]  = 3732
-17/04/2018 07:41:34: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3732-local_printer-1-PN.txt
-17/04/2018 07:41:34: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3732-local_printer-1-PN.txt
-17/04/2018 07:41:34: Pagename  = Saveimage.asp 
-17/04/2018 07:41:34: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3732&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-17/04/2018 07:41:34: Pagename  = Saveimage.asp start saving 
-17/04/2018 07:41:34:  PrinterList  local_printer;PN:local_printer
-17/04/2018 07:41:34: Pagename  = Saveimage.asp [Orderid]  = 3732
-17/04/2018 07:41:35: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3732-local_printer-0.txt
-17/04/2018 07:41:35: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3732-local_printer-0.txt
-17/04/2018 11:00:53: PageName  = print_t.asp Start Page [Orderid] 3734
-17/04/2018 11:00:53: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3734&id_r=2
-17/04/2018 11:00:53: PageName  = print_t.asp End Page [Orderid] 3734
-17/04/2018 11:00:53: PageName  = print_t.asp Start Page [Orderid] 3734
-17/04/2018 11:00:53: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3734&id_r=2
-17/04/2018 11:00:53: PageName  = print_t.asp End Page [Orderid] 3734
-17/04/2018 11:00:55: Pagename  = Saveimage.asp 
-17/04/2018 11:00:56: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3734&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-17/04/2018 11:00:56: Pagename  = Saveimage.asp start saving 
-17/04/2018 11:00:56:  PrinterList  local_printer;PN:local_printer
-17/04/2018 11:00:56: Pagename  = Saveimage.asp [Orderid]  = 3734
-17/04/2018 11:00:56: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3734-local_printer-1-PN.txt
-17/04/2018 11:00:56: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3734-local_printer-1-PN.txt
-17/04/2018 11:00:56: Pagename  = Saveimage.asp 
-17/04/2018 11:00:56: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3734&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-17/04/2018 11:00:56: Pagename  = Saveimage.asp start saving 
-17/04/2018 11:00:56:  PrinterList  local_printer;PN:local_printer
-17/04/2018 11:00:56: Pagename  = Saveimage.asp [Orderid]  = 3734
-17/04/2018 11:00:56: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3734-local_printer-0.txt
-17/04/2018 11:00:56: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3734-local_printer-0.txt
-19/04/2018 08:16:47: Pagename  = Saveimage.asp 
-19/04/2018 08:16:47: Pagename  = Saveimage.asp 
-19/04/2018 08:16:47: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=117&id_r=2&table=&idlist=
-19/04/2018 08:16:47: Pagename  = Saveimage.asp start saving 
-19/04/2018 08:16:47:  PrinterList  local_printer;PN:local_printer
-19/04/2018 08:16:47: Pagename  = Saveimage.asp [Orderid]  = 117
-19/04/2018 08:16:47: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-117-local_printer-1-PN.txt
-19/04/2018 08:16:47: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=117&id_r=2&table=&idlist=
-19/04/2018 08:16:47: Pagename  = Saveimage.asp start saving 
-19/04/2018 08:16:47: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-117-local_printer-1-PN.txt
-19/04/2018 08:16:47:  PrinterList  local_printer;PN:local_printer
-19/04/2018 08:16:47: Pagename  = Saveimage.asp [Orderid]  = 117
-19/04/2018 08:16:47: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-117-local_printer-0.txt
-19/04/2018 08:16:47: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-117-local_printer-0.txt
-19/04/2018 08:26:48: PageName  = print_t.asp Start Page [Orderid] 3738
-19/04/2018 08:26:48: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3738&id_r=2
-19/04/2018 08:26:48: PageName  = print_t.asp End Page [Orderid] 3738
-19/04/2018 08:26:49: PageName  = print_t.asp Start Page [Orderid] 3738
-19/04/2018 08:26:49: Pagename  =  print_t.asp  [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3738&id_r=2
-19/04/2018 08:26:49: PageName  = print_t.asp End Page [Orderid] 3738
-19/04/2018 08:26:50: Pagename  = Saveimage.asp 
-19/04/2018 08:26:50: Pagename  = Saveimage.asp 
-19/04/2018 08:26:50: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-19/04/2018 08:26:50: Pagename  = Saveimage.asp start saving 
-19/04/2018 08:26:50:  PrinterList  local_printer;PN:local_printer
-19/04/2018 08:26:50: Pagename  = Saveimage.asp [Orderid]  = 3738
-19/04/2018 08:26:51: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3738-local_printer-0.txt
-19/04/2018 08:26:51: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-19/04/2018 08:26:51: Pagename  = Saveimage.asp start saving 
-19/04/2018 08:26:51: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3738-local_printer-0.txt
-19/04/2018 08:26:51:  PrinterList  local_printer;PN:local_printer
-19/04/2018 08:26:51: Pagename  = Saveimage.asp [Orderid]  = 3738
-19/04/2018 08:26:51: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3738-local_printer-1-PN.txt
-19/04/2018 08:26:51: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3738-local_printer-1-PN.txt
-19/04/2018 08:41:32: Pagename  = Saveimage.asp 
-19/04/2018 08:41:32: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang//printers/epson/print_local.asp?isPrint=&id_o=120&id_r=2&table=&idlist=
-19/04/2018 08:41:32: Pagename  = Saveimage.asp start saving 
-19/04/2018 08:41:32:  PrinterList  local_printer;PN:local_printer
-19/04/2018 08:41:32: Pagename  = Saveimage.asp [Orderid]  = 120
-19/04/2018 08:41:32: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-120-local_printer-0.txt
-19/04/2018 08:41:33: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-120-local_printer-0.txt
-20/04/2018 07:20:59: Pagename  = Saveimage.asp 
-20/04/2018 07:21:00: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-20/04/2018 07:21:00: Pagename  = Saveimage.asp start saving 
-20/04/2018 07:21:00:  PrinterList  local_printer;PN:local_printer
-20/04/2018 07:21:00: Pagename  = Saveimage.asp [Orderid]  = 3738
-20/04/2018 07:21:00: Pagename  = Saveimage.asp 
-20/04/2018 07:21:00: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-20/04/2018 07:21:00: Pagename  = Saveimage.asp start saving 
-20/04/2018 07:21:00:  PrinterList  local_printer;PN:local_printer
-20/04/2018 07:21:00: Pagename  = Saveimage.asp [Orderid]  = 3738
-20/04/2018 08:42:25: Pagename  = Saveimage.asp 
-20/04/2018 08:42:26: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-20/04/2018 08:42:26: Pagename  = Saveimage.asp start saving 
-20/04/2018 08:42:26:  PrinterList  local_printer;PN:local_printer
-20/04/2018 08:42:26: Pagename  = Saveimage.asp [Orderid]  = 3738
-20/04/2018 08:42:26: Pagename  = Saveimage.asp 
-20/04/2018 08:42:27: Pagename  = Saveimage.asp [Refer URL] https://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3738&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-20/04/2018 08:42:27: Pagename  = Saveimage.asp start saving 
-20/04/2018 08:42:27:  PrinterList  local_printer;PN:local_printer
-20/04/2018 08:42:27: Pagename  = Saveimage.asp [Orderid]  = 3738
-22/04/2018 09:19:40: Pagename  = Saveimage.asp 
-22/04/2018 09:19:40: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=168&id_r=2&table=&idlist=
-22/04/2018 09:19:40: Pagename  = Saveimage.asp start saving 
-22/04/2018 09:19:40:  PrinterList  local_printer;PN:local_printer
-22/04/2018 09:19:40: Pagename  = Saveimage.asp [Orderid]  = 168
-22/04/2018 09:19:40: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-168-local_printer-1-PN.txt
-22/04/2018 09:19:40: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-168-local_printer-1-PN.txt
-22/04/2018 09:19:40: Pagename  = Saveimage.asp 
-22/04/2018 09:19:40: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=168&id_r=2&table=&idlist=
-22/04/2018 09:19:40: Pagename  = Saveimage.asp start saving 
-22/04/2018 09:19:40:  PrinterList  local_printer;PN:local_printer
-22/04/2018 09:19:40: Pagename  = Saveimage.asp [Orderid]  = 168
-22/04/2018 09:19:40: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-168-local_printer-0.txt
-22/04/2018 09:19:40: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-168-local_printer-0.txt
-24/04/2018 02:09:17: Pagename  = Saveimage.asp 
-24/04/2018 02:09:17: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=printingname&id_o=175&id_r=2&table=&idlist=
-24/04/2018 02:09:17: Pagename  = Saveimage.asp start saving 
-24/04/2018 02:09:17:  PrinterList  local_printer;PN:local_printer
-24/04/2018 02:09:17: Pagename  = Saveimage.asp [Orderid]  = 175
-24/04/2018 02:09:17: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-175-local_printer-1-PN.txt
-24/04/2018 02:09:17: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-175-local_printer-1-PN.txt
-24/04/2018 02:09:17: Pagename  = Saveimage.asp 
-24/04/2018 02:09:17: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_local.asp?isPrint=&mod=dishname&id_o=175&id_r=2&table=&idlist=
-24/04/2018 02:09:17: Pagename  = Saveimage.asp start saving 
-24/04/2018 02:09:17:  PrinterList  local_printer;PN:local_printer
-24/04/2018 02:09:17: Pagename  = Saveimage.asp [Orderid]  = 175
-24/04/2018 02:09:17: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-175-local_printer-0.txt
-24/04/2018 02:09:17: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-175-local_printer-0.txt
-24/04/2018 02:16:22: PageName  = print_t.asp Start Page [Orderid] 3743
-24/04/2018 02:16:22: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3743&id_r=2
-24/04/2018 02:16:22: PageName  = print_t.asp End Page [Orderid] 3743
-24/04/2018 02:16:22: PageName  = print_t.asp Start Page [Orderid] 3743
-24/04/2018 02:16:22: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3743&id_r=2
-24/04/2018 02:16:22: PageName  = print_t.asp End Page [Orderid] 3743
-24/04/2018 02:16:23: Pagename  = Saveimage.asp 
-24/04/2018 02:16:23: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3743&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-24/04/2018 02:16:23: Pagename  = Saveimage.asp start saving 
-24/04/2018 02:16:23:  PrinterList  local_printer;PN:local_printer
-24/04/2018 02:16:23: Pagename  = Saveimage.asp [Orderid]  = 3743
-24/04/2018 02:16:23: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3743-local_printer-0.txt
-24/04/2018 02:16:23: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3743-local_printer-0.txt
-24/04/2018 02:16:23: Pagename  = Saveimage.asp 
-24/04/2018 02:16:23: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3743&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-24/04/2018 02:16:23: Pagename  = Saveimage.asp start saving 
-24/04/2018 02:16:24:  PrinterList  local_printer;PN:local_printer
-24/04/2018 02:16:24: Pagename  = Saveimage.asp [Orderid]  = 3743
-24/04/2018 02:16:24: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3743-local_printer-1-PN.txt
-24/04/2018 02:16:24: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3743-local_printer-1-PN.txt
-24/04/2018 02:17:33: PageName  = print_t.asp Start Page [Orderid] 3744
-24/04/2018 02:17:33: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3744&id_r=2
-24/04/2018 02:17:33: PageName  = print_t.asp End Page [Orderid] 3744
-24/04/2018 02:17:33: PageName  = print_t.asp Start Page [Orderid] 3744
-24/04/2018 02:17:33: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3744&id_r=2
-24/04/2018 02:17:33: PageName  = print_t.asp End Page [Orderid] 3744
-24/04/2018 02:17:34: Pagename  = Saveimage.asp 
-24/04/2018 02:17:34: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3744&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-24/04/2018 02:17:34: Pagename  = Saveimage.asp start saving 
-24/04/2018 02:17:34:  PrinterList  local_printer;PN:local_printer
-24/04/2018 02:17:34: Pagename  = Saveimage.asp [Orderid]  = 3744
-24/04/2018 02:17:34: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3744-local_printer-0.txt
-24/04/2018 02:17:34: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3744-local_printer-0.txt
-24/04/2018 02:17:34: Pagename  = Saveimage.asp 
-24/04/2018 02:17:34: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3744&id_r=2&isPrint=&idlist=local_printer;PN:local_printer
-24/04/2018 02:17:34: Pagename  = Saveimage.asp start saving 
-24/04/2018 02:17:34:  PrinterList  local_printer;PN:local_printer
-24/04/2018 02:17:34: Pagename  = Saveimage.asp [Orderid]  = 3744
-24/04/2018 02:17:34: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3744-local_printer-1-PN.txt
-24/04/2018 02:17:34: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3744-local_printer-1-PN.txt
-26/04/2018 07:29:25: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:29:31: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:29:37: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:29:42: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:29:48: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:29:53: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:29:59: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:04: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:10: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:15: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:21: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:26: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:32: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:37: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:43: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:48: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:54: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:30:59: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:05: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:10: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:15: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:21: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:26: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:32: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:37: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:42: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:48: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:53: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:31:59: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:04: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:10: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:15: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:20: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:26: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:31: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:37: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:42: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:48: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:53: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:32:59: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:04: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:09: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:15: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:20: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:26: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:31: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:37: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:42: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:47: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:53: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:33:58: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:34:04: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:34:09: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:34:15: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:34:20: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:34:25: PageName = pintXML_v2.xml Start 2
-26/04/2018 07:34:31: PageName = pintXML_v2.xml Start 2
-06/06/2018 08:08:52: PageName  = print_t.asp Start Page [Orderid] 3597
-06/06/2018 08:08:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3597&id_r=2
-06/06/2018 08:08:52: PageName  = print_t.asp End Page [Orderid] 3597
-06/06/2018 08:08:52: PageName  = print_t.asp Start Page [Orderid] 3597
-06/06/2018 08:08:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3597&id_r=2
-06/06/2018 08:08:52: PageName  = print_t.asp End Page [Orderid] 3597
-06/06/2018 08:08:55: Pagename  = Saveimage.asp 
-06/06/2018 08:08:55: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3597&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-06/06/2018 08:08:55: Pagename  = Saveimage.asp start saving 
-06/06/2018 08:08:56:  PrinterList  local_printer;PN:kitchen_printer
-06/06/2018 08:08:56: Pagename  = Saveimage.asp [Orderid]  = 3597
-06/06/2018 08:08:56: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3597-kitchen_printer-1-PN.txt
-06/06/2018 08:08:56: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3597-kitchen_printer-1-PN.txt
-06/06/2018 08:09:01: Pagename  = Saveimage.asp 
-06/06/2018 08:09:02: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3597&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-06/06/2018 08:09:02: Pagename  = Saveimage.asp start saving 
-06/06/2018 08:09:02:  PrinterList  local_printer;PN:kitchen_printer
-06/06/2018 08:09:02: Pagename  = Saveimage.asp [Orderid]  = 3597
-06/06/2018 08:09:03: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3597-local_printer-0.txt
-06/06/2018 08:09:03: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3597-local_printer-0.txt
-06/06/2018 08:14:03: PageName  = print_t.asp Start Page [Orderid] 3598
-06/06/2018 08:14:03: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3598&id_r=2
-06/06/2018 08:14:03: PageName  = print_t.asp End Page [Orderid] 3598
-06/06/2018 08:14:03: PageName  = print_t.asp Start Page [Orderid] 3598
-06/06/2018 08:14:03: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3598&id_r=2
-06/06/2018 08:14:03: PageName  = print_t.asp End Page [Orderid] 3598
-06/06/2018 08:14:04: Pagename  = Saveimage.asp 
-06/06/2018 08:14:04: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3598&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-06/06/2018 08:14:04: Pagename  = Saveimage.asp start saving 
-06/06/2018 08:14:04:  PrinterList  local_printer;PN:kitchen_printer
-06/06/2018 08:14:04: Pagename  = Saveimage.asp [Orderid]  = 3598
-06/06/2018 08:14:04: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3598-local_printer-0.txt
-06/06/2018 08:14:05: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3598-local_printer-0.txt
-06/06/2018 08:14:05: Pagename  = Saveimage.asp 
-06/06/2018 08:14:05: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3598&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-06/06/2018 08:14:05: Pagename  = Saveimage.asp start saving 
-06/06/2018 08:14:05:  PrinterList  local_printer;PN:kitchen_printer
-06/06/2018 08:14:05: Pagename  = Saveimage.asp [Orderid]  = 3598
-06/06/2018 08:14:05: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3598-kitchen_printer-1-PN.txt
-06/06/2018 08:14:05: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3598-kitchen_printer-1-PN.txt
-08/06/2018 21:24:43: PageName  = print_t.asp Start Page [Orderid] 3604
-08/06/2018 21:24:43: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3604&id_r=2
-08/06/2018 21:24:43: PageName  = print_t.asp End Page [Orderid] 3604
-08/06/2018 21:24:43: PageName  = print_t.asp Start Page [Orderid] 3604
-08/06/2018 21:24:43: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3604&id_r=2
-08/06/2018 21:24:43: PageName  = print_t.asp End Page [Orderid] 3604
-08/06/2018 21:24:46: Pagename  = Saveimage.asp 
-08/06/2018 21:24:47: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3604&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-08/06/2018 21:24:47: Pagename  = Saveimage.asp start saving 
-08/06/2018 21:24:47:  PrinterList  local_printer;PN:kitchen_printer
-08/06/2018 21:24:47: Pagename  = Saveimage.asp [Orderid]  = 3604
-08/06/2018 21:24:47: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3604-local_printer-0.txt
-08/06/2018 21:24:47: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3604-local_printer-0.txt
-08/06/2018 21:24:47: Pagename  = Saveimage.asp 
-08/06/2018 21:24:47: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3604&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-08/06/2018 21:24:47: Pagename  = Saveimage.asp start saving 
-08/06/2018 21:24:47:  PrinterList  local_printer;PN:kitchen_printer
-08/06/2018 21:24:47: Pagename  = Saveimage.asp [Orderid]  = 3604
-08/06/2018 21:24:47: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3604-kitchen_printer-1-PN.txt
-08/06/2018 21:24:47: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3604-kitchen_printer-1-PN.txt
-14/06/2018 07:09:49: PageName  = print_t.asp Start Page [Orderid] 3640
-14/06/2018 07:09:49: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3640&id_r=2
-14/06/2018 07:09:49: PageName  = print_t.asp End Page [Orderid] 3640
-14/06/2018 07:09:50: Pagename  = Saveimage.asp 
-14/06/2018 07:09:50: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3640&id_r=2&isPrint=&idlist=local_printer
-14/06/2018 07:09:50: Pagename  = Saveimage.asp start saving 
-14/06/2018 07:09:50:  PrinterList  local_printer
-14/06/2018 07:09:50: Pagename  = Saveimage.asp [Orderid]  = 3640
-14/06/2018 07:09:50: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3640-local_printer-0.txt
-14/06/2018 07:09:50: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3640-local_printer-0.txt
-24/06/2018 12:51:26: PageName  = print_t.asp Start Page [Orderid] 3667
-24/06/2018 12:51:26: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3667&id_r=2
-24/06/2018 12:51:26: PageName  = print_t.asp End Page [Orderid] 3667
-24/06/2018 12:51:26: PageName  = print_t.asp Start Page [Orderid] 3667
-24/06/2018 12:51:26: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3667&id_r=2
-24/06/2018 12:51:26: PageName  = print_t.asp End Page [Orderid] 3667
-24/06/2018 12:51:27: Pagename  = Saveimage.asp 
-24/06/2018 12:51:27: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3667&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-24/06/2018 12:51:27: Pagename  = Saveimage.asp start saving 
-24/06/2018 12:51:27:  PrinterList  local_printer;PN:kitchen_printer
-24/06/2018 12:51:27: Pagename  = Saveimage.asp [Orderid]  = 3667
-24/06/2018 12:51:27: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3667-kitchen_printer-1-PN.txt
-24/06/2018 12:51:27: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3667-kitchen_printer-1-PN.txt
-24/06/2018 12:51:27: Pagename  = Saveimage.asp 
-24/06/2018 12:51:27: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3667&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-24/06/2018 12:51:27: Pagename  = Saveimage.asp start saving 
-24/06/2018 12:51:28:  PrinterList  local_printer;PN:kitchen_printer
-24/06/2018 12:51:28: Pagename  = Saveimage.asp [Orderid]  = 3667
-24/06/2018 12:51:28: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3667-local_printer-0.txt
-24/06/2018 12:51:28: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3667-local_printer-0.txt
-27/06/2018 10:17:10: PageName  = print_t.asp Start Page [Orderid] 3683
-27/06/2018 10:17:10: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3683&id_r=2
-27/06/2018 10:17:10: PageName  = print_t.asp End Page [Orderid] 3683
-27/06/2018 10:17:10: PageName  = print_t.asp Start Page [Orderid] 3683
-27/06/2018 10:17:10: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3683&id_r=2
-27/06/2018 10:17:10: PageName  = print_t.asp End Page [Orderid] 3683
-27/06/2018 10:17:11: Pagename  = Saveimage.asp 
-27/06/2018 10:17:11: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3683&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-27/06/2018 10:17:11: Pagename  = Saveimage.asp start saving 
-27/06/2018 10:17:11:  PrinterList  local_printer;PN:kitchen_printer
-27/06/2018 10:17:11: Pagename  = Saveimage.asp [Orderid]  = 3683
-27/06/2018 10:17:11: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3683-kitchen_printer-1-PN.txt
-27/06/2018 10:17:11: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3683-kitchen_printer-1-PN.txt
-27/06/2018 10:17:11: Pagename  = Saveimage.asp 
-27/06/2018 10:17:11: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3683&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-27/06/2018 10:17:11: Pagename  = Saveimage.asp start saving 
-27/06/2018 10:17:11:  PrinterList  local_printer;PN:kitchen_printer
-27/06/2018 10:17:11: Pagename  = Saveimage.asp [Orderid]  = 3683
-27/06/2018 10:17:12: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3683-local_printer-0.txt
-27/06/2018 10:17:12: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3683-local_printer-0.txt
-28/06/2018 09:13:11: PageName  = print_t.asp Start Page [Orderid] 3688
-28/06/2018 09:13:11: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3688&id_r=2
-28/06/2018 09:13:11: PageName  = print_t.asp End Page [Orderid] 3688
-28/06/2018 09:13:11: PageName  = print_t.asp Start Page [Orderid] 3688
-28/06/2018 09:13:11: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3688&id_r=2
-28/06/2018 09:13:11: PageName  = print_t.asp End Page [Orderid] 3688
-28/06/2018 09:13:13: Pagename  = Saveimage.asp 
-28/06/2018 09:13:13: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3688&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-28/06/2018 09:13:13: Pagename  = Saveimage.asp start saving 
-28/06/2018 09:13:13:  PrinterList  local_printer;PN:kitchen_printer
-28/06/2018 09:13:13: Pagename  = Saveimage.asp [Orderid]  = 3688
-28/06/2018 09:13:13: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3688-local_printer-0.txt
-28/06/2018 09:13:13: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3688-local_printer-0.txt
-28/06/2018 09:13:13: Pagename  = Saveimage.asp 
-28/06/2018 09:13:13: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3688&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-28/06/2018 09:13:13: Pagename  = Saveimage.asp start saving 
-28/06/2018 09:13:13:  PrinterList  local_printer;PN:kitchen_printer
-28/06/2018 09:13:13: Pagename  = Saveimage.asp [Orderid]  = 3688
-28/06/2018 09:13:13: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3688-kitchen_printer-1-PN.txt
-28/06/2018 09:13:13: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3688-kitchen_printer-1-PN.txt
-28/06/2018 09:13:32: PageName  = print_t.asp Start Page [Orderid] 3690
-28/06/2018 09:13:32: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3690&id_r=2
-28/06/2018 09:13:32: PageName  = print_t.asp End Page [Orderid] 3690
-28/06/2018 09:13:32: PageName  = print_t.asp Start Page [Orderid] 3690
-28/06/2018 09:13:32: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3690&id_r=2
-28/06/2018 09:13:32: PageName  = print_t.asp End Page [Orderid] 3690
-28/06/2018 09:13:32: Pagename  = Saveimage.asp 
-28/06/2018 09:13:32: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3690&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-28/06/2018 09:13:32: Pagename  = Saveimage.asp start saving 
-28/06/2018 09:13:33:  PrinterList  local_printer;PN:kitchen_printer
-28/06/2018 09:13:33: Pagename  = Saveimage.asp [Orderid]  = 3690
-28/06/2018 09:13:33: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3690-local_printer-0.txt
-28/06/2018 09:13:33: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3690-local_printer-0.txt
-28/06/2018 09:13:33: Pagename  = Saveimage.asp 
-28/06/2018 09:13:33: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3690&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-28/06/2018 09:13:33: Pagename  = Saveimage.asp start saving 
-28/06/2018 09:13:33:  PrinterList  local_printer;PN:kitchen_printer
-28/06/2018 09:13:33: Pagename  = Saveimage.asp [Orderid]  = 3690
-28/06/2018 09:13:33: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3690-kitchen_printer-1-PN.txt
-28/06/2018 09:13:33: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3690-kitchen_printer-1-PN.txt
-13/07/2018 07:49:52: PageName  = print_t.asp Start Page [Orderid] 3704
-13/07/2018 07:49:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3704&id_r=2
-13/07/2018 07:49:52: PageName  = print_t.asp End Page [Orderid] 3704
-13/07/2018 07:49:52: PageName  = print_t.asp Start Page [Orderid] 3704
-13/07/2018 07:49:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3704&id_r=2
-13/07/2018 07:49:52: PageName  = print_t.asp End Page [Orderid] 3704
-13/07/2018 07:49:56: Pagename  = Saveimage.asp 
-13/07/2018 07:49:56: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3704&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 07:49:56: Pagename  = Saveimage.asp start saving 
-13/07/2018 07:49:56:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 07:49:56: Pagename  = Saveimage.asp [Orderid]  = 3704
-13/07/2018 07:49:56: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3704-kitchen_printer-1-PN.txt
-13/07/2018 07:49:56: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3704-kitchen_printer-1-PN.txt
-13/07/2018 07:49:56: Pagename  = Saveimage.asp 
-13/07/2018 07:49:56: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3704&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 07:49:56: Pagename  = Saveimage.asp start saving 
-13/07/2018 07:49:56:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 07:49:56: Pagename  = Saveimage.asp [Orderid]  = 3704
-13/07/2018 07:49:57: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3704-local_printer-0.txt
-13/07/2018 07:49:57: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3704-local_printer-0.txt
-13/07/2018 08:02:04: PageName  = print_t.asp Start Page [Orderid] 3706
-13/07/2018 08:02:04: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3706&id_r=2
-13/07/2018 08:02:04: PageName  = print_t.asp End Page [Orderid] 3706
-13/07/2018 08:02:04: PageName  = print_t.asp Start Page [Orderid] 3706
-13/07/2018 08:02:04: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3706&id_r=2
-13/07/2018 08:02:04: PageName  = print_t.asp End Page [Orderid] 3706
-13/07/2018 08:02:06: Pagename  = Saveimage.asp 
-13/07/2018 08:02:06: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3706&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:02:06: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:02:06:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:02:06: Pagename  = Saveimage.asp [Orderid]  = 3706
-13/07/2018 08:02:06: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3706-local_printer-0.txt
-13/07/2018 08:02:06: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3706-local_printer-0.txt
-13/07/2018 08:02:07: Pagename  = Saveimage.asp 
-13/07/2018 08:02:07: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3706&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:02:07: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:02:07:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:02:07: Pagename  = Saveimage.asp [Orderid]  = 3706
-13/07/2018 08:02:07: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3706-kitchen_printer-1-PN.txt
-13/07/2018 08:02:07: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3706-kitchen_printer-1-PN.txt
-13/07/2018 08:38:04: PageName  = print_t.asp Start Page [Orderid] 3712
-13/07/2018 08:38:04: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3712&id_r=2
-13/07/2018 08:38:04: PageName  = print_t.asp End Page [Orderid] 3712
-13/07/2018 08:38:04: PageName  = print_t.asp Start Page [Orderid] 3712
-13/07/2018 08:38:04: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3712&id_r=2
-13/07/2018 08:38:04: PageName  = print_t.asp End Page [Orderid] 3712
-13/07/2018 08:38:06: Pagename  = Saveimage.asp 
-13/07/2018 08:38:06: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3712&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:38:06: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:38:06:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:38:06: Pagename  = Saveimage.asp [Orderid]  = 3712
-13/07/2018 08:38:06: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3712-local_printer-0.txt
-13/07/2018 08:38:06: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3712-local_printer-0.txt
-13/07/2018 08:38:06: Pagename  = Saveimage.asp 
-13/07/2018 08:38:06: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3712&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:38:06: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:38:06:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:38:06: Pagename  = Saveimage.asp [Orderid]  = 3712
-13/07/2018 08:38:06: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3712-kitchen_printer-1-PN.txt
-13/07/2018 08:38:06: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3712-kitchen_printer-1-PN.txt
-13/07/2018 08:41:06: PageName  = print_t.asp Start Page [Orderid] 3714
-13/07/2018 08:41:06: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3714&id_r=2
-13/07/2018 08:41:06: PageName  = print_t.asp End Page [Orderid] 3714
-13/07/2018 08:41:06: PageName  = print_t.asp Start Page [Orderid] 3714
-13/07/2018 08:41:06: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3714&id_r=2
-13/07/2018 08:41:06: PageName  = print_t.asp End Page [Orderid] 3714
-13/07/2018 08:41:07: Pagename  = Saveimage.asp 
-13/07/2018 08:41:07: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3714&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:41:07: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:41:07:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:41:07: Pagename  = Saveimage.asp [Orderid]  = 3714
-13/07/2018 08:41:08: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3714-local_printer-0.txt
-13/07/2018 08:41:08: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3714-local_printer-0.txt
-13/07/2018 08:41:08: Pagename  = Saveimage.asp 
-13/07/2018 08:41:08: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3714&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:41:08: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:41:08:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:41:08: Pagename  = Saveimage.asp [Orderid]  = 3714
-13/07/2018 08:41:08: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3714-kitchen_printer-1-PN.txt
-13/07/2018 08:41:08: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3714-kitchen_printer-1-PN.txt
-13/07/2018 08:47:14: PageName  = print_t.asp Start Page [Orderid] 3716
-13/07/2018 08:47:14: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3716&id_r=2
-13/07/2018 08:47:14: PageName  = print_t.asp End Page [Orderid] 3716
-13/07/2018 08:47:14: PageName  = print_t.asp Start Page [Orderid] 3716
-13/07/2018 08:47:14: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3716&id_r=2
-13/07/2018 08:47:14: PageName  = print_t.asp End Page [Orderid] 3716
-13/07/2018 08:47:14: Pagename  = Saveimage.asp 
-13/07/2018 08:47:15: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3716&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:47:15: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:47:15:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:47:15: Pagename  = Saveimage.asp [Orderid]  = 3716
-13/07/2018 08:47:15: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3716-local_printer-0.txt
-13/07/2018 08:47:15: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3716-local_printer-0.txt
-13/07/2018 08:47:15: Pagename  = Saveimage.asp 
-13/07/2018 08:47:16: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3716&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:47:16: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:47:16:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:47:16: Pagename  = Saveimage.asp [Orderid]  = 3716
-13/07/2018 08:47:16: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3716-kitchen_printer-1-PN.txt
-13/07/2018 08:47:16: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3716-kitchen_printer-1-PN.txt
-13/07/2018 08:50:33: PageName  = print_t.asp Start Page [Orderid] 3718
-13/07/2018 08:50:33: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3718&id_r=2
-13/07/2018 08:50:33: PageName  = print_t.asp End Page [Orderid] 3718
-13/07/2018 08:50:33: PageName  = print_t.asp Start Page [Orderid] 3718
-13/07/2018 08:50:33: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3718&id_r=2
-13/07/2018 08:50:33: PageName  = print_t.asp End Page [Orderid] 3718
-13/07/2018 08:50:33: Pagename  = Saveimage.asp 
-13/07/2018 08:50:34: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3718&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:50:34: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:50:34:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:50:34: Pagename  = Saveimage.asp [Orderid]  = 3718
-13/07/2018 08:50:34: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3718-local_printer-0.txt
-13/07/2018 08:50:34: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3718-local_printer-0.txt
-13/07/2018 08:50:34: Pagename  = Saveimage.asp 
-13/07/2018 08:50:34: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3718&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 08:50:34: Pagename  = Saveimage.asp start saving 
-13/07/2018 08:50:34:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 08:50:34: Pagename  = Saveimage.asp [Orderid]  = 3718
-13/07/2018 08:50:34: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3718-kitchen_printer-1-PN.txt
-13/07/2018 08:50:34: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3718-kitchen_printer-1-PN.txt
-13/07/2018 09:01:52: PageName  = print_t.asp Start Page [Orderid] 3721
-13/07/2018 09:01:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3721&id_r=2
-13/07/2018 09:01:52: PageName  = print_t.asp End Page [Orderid] 3721
-13/07/2018 09:01:52: PageName  = print_t.asp Start Page [Orderid] 3721
-13/07/2018 09:01:52: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3721&id_r=2
-13/07/2018 09:01:52: PageName  = print_t.asp End Page [Orderid] 3721
-13/07/2018 09:01:53: Pagename  = Saveimage.asp 
-13/07/2018 09:01:53: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3721&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 09:01:53: Pagename  = Saveimage.asp start saving 
-13/07/2018 09:01:53:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 09:01:53: Pagename  = Saveimage.asp [Orderid]  = 3721
-13/07/2018 09:01:53: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3721-local_printer-0.txt
-13/07/2018 09:01:53: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3721-local_printer-0.txt
-13/07/2018 09:01:58: Pagename  = Saveimage.asp 
-13/07/2018 09:01:59: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3721&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 09:01:59: Pagename  = Saveimage.asp start saving 
-13/07/2018 09:01:59:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 09:01:59: Pagename  = Saveimage.asp [Orderid]  = 3721
-13/07/2018 09:01:59: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3721-kitchen_printer-1-PN.txt
-13/07/2018 09:01:59: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3721-kitchen_printer-1-PN.txt
-13/07/2018 09:07:18: PageName  = print_t.asp Start Page [Orderid] 3723
-13/07/2018 09:07:18: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3723&id_r=2
-13/07/2018 09:07:18: PageName  = print_t.asp End Page [Orderid] 3723
-13/07/2018 09:07:18: PageName  = print_t.asp Start Page [Orderid] 3723
-13/07/2018 09:07:18: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3723&id_r=2
-13/07/2018 09:07:18: PageName  = print_t.asp End Page [Orderid] 3723
-13/07/2018 09:07:18: Pagename  = Saveimage.asp 
-13/07/2018 09:07:19: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3723&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 09:07:19: Pagename  = Saveimage.asp start saving 
-13/07/2018 09:07:19:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 09:07:19: Pagename  = Saveimage.asp [Orderid]  = 3723
-13/07/2018 09:07:19: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3723-kitchen_printer-1-PN.txt
-13/07/2018 09:07:19: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3723-kitchen_printer-1-PN.txt
-13/07/2018 09:07:19: Pagename  = Saveimage.asp 
-13/07/2018 09:07:19: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3723&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 09:07:19: Pagename  = Saveimage.asp start saving 
-13/07/2018 09:07:19:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 09:07:19: Pagename  = Saveimage.asp [Orderid]  = 3723
-13/07/2018 09:07:19: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3723-local_printer-0.txt
-13/07/2018 09:07:19: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3723-local_printer-0.txt
-13/07/2018 09:10:50: PageName  = print_t.asp Start Page [Orderid] 3725
-13/07/2018 09:10:50: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3725&id_r=2
-13/07/2018 09:10:50: PageName  = print_t.asp End Page [Orderid] 3725
-13/07/2018 09:10:50: PageName  = print_t.asp Start Page [Orderid] 3725
-13/07/2018 09:10:50: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3725&id_r=2
-13/07/2018 09:10:50: PageName  = print_t.asp End Page [Orderid] 3725
-13/07/2018 09:10:51: Pagename  = Saveimage.asp 
-13/07/2018 09:10:51: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3725&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 09:10:51: Pagename  = Saveimage.asp start saving 
-13/07/2018 09:10:51:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 09:10:51: Pagename  = Saveimage.asp [Orderid]  = 3725
-13/07/2018 09:10:51: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3725-local_printer-0.txt
-13/07/2018 09:10:51: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3725-local_printer-0.txt
-13/07/2018 09:10:52: Pagename  = Saveimage.asp 
-13/07/2018 09:10:52: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3725&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 09:10:52: Pagename  = Saveimage.asp start saving 
-13/07/2018 09:10:52:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 09:10:52: Pagename  = Saveimage.asp [Orderid]  = 3725
-13/07/2018 09:10:52: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3725-kitchen_printer-1-PN.txt
-13/07/2018 09:10:52: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3725-kitchen_printer-1-PN.txt
-13/07/2018 09:40:18: PageName  = print_t.asp Start Page [Orderid] 3726
-13/07/2018 09:40:18: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3726&id_r=2
-13/07/2018 09:40:18: PageName  = print_t.asp End Page [Orderid] 3726
-13/07/2018 09:40:18: PageName  = print_t.asp Start Page [Orderid] 3726
-13/07/2018 09:40:18: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3726&id_r=2
-13/07/2018 09:40:18: PageName  = print_t.asp End Page [Orderid] 3726
-13/07/2018 09:40:19: Pagename  = Saveimage.asp 
-13/07/2018 09:40:19: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3726&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 09:40:19: Pagename  = Saveimage.asp start saving 
-13/07/2018 09:40:19:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 09:40:19: Pagename  = Saveimage.asp [Orderid]  = 3726
-13/07/2018 09:40:19: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3726-kitchen_printer-1-PN.txt
-13/07/2018 09:40:19: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3726-kitchen_printer-1-PN.txt
-13/07/2018 09:40:19: Pagename  = Saveimage.asp 
-13/07/2018 09:40:19: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3726&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-13/07/2018 09:40:19: Pagename  = Saveimage.asp start saving 
-13/07/2018 09:40:19:  PrinterList  local_printer;PN:kitchen_printer
-13/07/2018 09:40:19: Pagename  = Saveimage.asp [Orderid]  = 3726
-13/07/2018 09:40:19: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3726-local_printer-0.txt
-13/07/2018 09:40:19: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3726-local_printer-0.txt
-25/07/2018 07:35:29: PageName  = print_t.asp Start Page [Orderid] 3742
-25/07/2018 07:35:29: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3742&id_r=2
-25/07/2018 07:35:29: PageName  = print_t.asp End Page [Orderid] 3742
-25/07/2018 07:35:29: PageName  = print_t.asp Start Page [Orderid] 3742
-25/07/2018 07:35:29: Pagename  =  print_t.asp  [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/Thanks.asp?id_o=3742&id_r=2
-25/07/2018 07:35:29: PageName  = print_t.asp End Page [Orderid] 3742
-25/07/2018 07:35:30: Pagename  = Saveimage.asp 
-25/07/2018 07:35:31: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=dishname&id_o=3742&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-25/07/2018 07:35:31: Pagename  = Saveimage.asp start saving 
-25/07/2018 07:35:31:  PrinterList  local_printer;PN:kitchen_printer
-25/07/2018 07:35:31: Pagename  = Saveimage.asp [Orderid]  = 3742
-25/07/2018 07:35:31: Pagename  = Saveimage.asp before create image 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3742-local_printer-0.txt
-25/07/2018 07:35:31: Pagename  = Saveimage.asp Done write file 0  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3742-local_printer-0.txt
-25/07/2018 07:35:31: Pagename  = Saveimage.asp 
-25/07/2018 07:35:31: Pagename  = Saveimage.asp [Refer URL] http://www.greek-painters.com/vo/food/7-3-Dang/printers/epson/print_t.asp?mod=printingname&id_o=3742&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
-25/07/2018 07:35:31: Pagename  = Saveimage.asp start saving 
-25/07/2018 07:35:31:  PrinterList  local_printer;PN:kitchen_printer
-25/07/2018 07:35:31: Pagename  = Saveimage.asp [Orderid]  = 3742
-25/07/2018 07:35:31: Pagename  = Saveimage.asp before create image -PN  = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\Printing\2-3742-kitchen_printer-1-PN.txt
-25/07/2018 07:35:31: Pagename  = Saveimage.asp Done write file PN   = C:\Inetpub\vhosts\greek-painters.com\httpdocs\vo\food\7-3-Dang\printers\epson\ReceiptImage\2-3742-kitchen_printer-1-PN.txt
+14/10/2018 09:48:12: PageName = pintXML_v2.xml Start 2
+14/10/2018 09:48:21: PageName  = print_t.asp Start Page [Orderid] 3795
+14/10/2018 09:48:21: PageName  = print_t.asp Start Page [Orderid] 3795
+14/10/2018 09:48:41: PageName  = print_t.asp Start Page [Orderid] 3795
+14/10/2018 09:48:41: PageName  = print_t.asp Start Page [Orderid] 3795
+14/10/2018 09:48:52: PageName  = print_t.asp Start Page [Orderid] 3795
+14/10/2018 09:51:17: PageName  = print_t.asp Start Page [Orderid] 3795
+14/10/2018 09:51:17: Pagename  =  print_t.asp  [Refer URL] 
+14/10/2018 09:51:17: PageName  = print_t.asp End Page [Orderid] 3795
+14/10/2018 09:51:18: Pagename  = Saveimage.asp 
+14/10/2018 09:51:18: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3795&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+14/10/2018 09:51:18: Pagename  = Saveimage.asp start saving 
+14/10/2018 09:51:18:  PrinterList  local_printer;PN:kitchen_printer
+14/10/2018 09:51:18: Pagename  = Saveimage.asp [Orderid]  = 3795
+14/10/2018 09:51:18: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-3795-local_printer-0.txt
+14/10/2018 09:51:18: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-3795-local_printer-0.txt
+14/10/2018 09:52:30: PageName  = print_t.asp Start Page [Orderid] 3795
+14/10/2018 09:52:30: Pagename  =  print_t.asp  [Refer URL] 
+14/10/2018 09:52:30: PageName  = print_t.asp End Page [Orderid] 3795
+14/10/2018 09:52:30: Pagename  = Saveimage.asp 
+14/10/2018 09:52:30: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3795&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+14/10/2018 09:52:30: Pagename  = Saveimage.asp start saving 
+14/10/2018 09:52:31:  PrinterList  local_printer;PN:kitchen_printer
+14/10/2018 09:52:31: Pagename  = Saveimage.asp [Orderid]  = 3795
+14/10/2018 09:53:36: PageName  = print_t.asp Start Page [Orderid] 3795
+14/10/2018 09:53:36: Pagename  =  print_t.asp  [Refer URL] 
+14/10/2018 09:53:36: PageName  = print_t.asp End Page [Orderid] 3795
+14/10/2018 09:53:36: Pagename  = Saveimage.asp 
+14/10/2018 09:53:36: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3795&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+14/10/2018 09:53:36: Pagename  = Saveimage.asp start saving 
+14/10/2018 09:53:36:  PrinterList  local_printer;PN:kitchen_printer
+14/10/2018 09:53:36: Pagename  = Saveimage.asp [Orderid]  = 3795
+15/10/2018 13:58:26: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 13:58:26: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3798&id_r=2
+15/10/2018 13:58:26: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 13:58:26: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 13:58:26: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3798&id_r=2
+15/10/2018 13:58:26: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 13:58:27: Pagename  = Saveimage.asp 
+15/10/2018 13:58:27: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 13:58:27: Pagename  = Saveimage.asp start saving 
+15/10/2018 13:58:27:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 13:58:27: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 13:58:27: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-3798-local_printer-0.txt
+15/10/2018 13:58:27: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-3798-local_printer-0.txt
+15/10/2018 13:58:27: Pagename  = Saveimage.asp 
+15/10/2018 13:58:27: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=printingname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 13:58:27: Pagename  = Saveimage.asp start saving 
+15/10/2018 13:58:27:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 13:58:27: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 13:58:27: Pagename  = Saveimage.asp before create image -PN  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-3798-kitchen_printer-1-PN.txt
+15/10/2018 13:58:27: Pagename  = Saveimage.asp Done write file PN   = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-3798-kitchen_printer-1-PN.txt
+15/10/2018 14:04:30: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 14:04:30: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3798&id_r=2
+15/10/2018 14:04:30: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 14:04:30: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 14:04:30: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3798&id_r=2
+15/10/2018 14:04:30: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 14:04:30: Pagename  = Saveimage.asp 
+15/10/2018 14:04:30: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 14:04:30: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:04:30:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 14:04:30: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 14:04:30: Pagename  = Saveimage.asp 
+15/10/2018 14:04:30: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=printingname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 14:04:30: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:04:30:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 14:04:30: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 14:06:42: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 14:06:42: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3798&id_r=2
+15/10/2018 14:06:42: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 14:06:42: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 14:06:42: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3798&id_r=2
+15/10/2018 14:06:42: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 14:06:42: Pagename  = Saveimage.asp 
+15/10/2018 14:06:42: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 14:06:42: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:06:42:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 14:06:42: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 14:06:42: Pagename  = Saveimage.asp 
+15/10/2018 14:06:42: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=printingname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 14:06:42: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:06:42:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 14:06:42: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 14:10:27: Pagename  = Saveimage.asp 
+15/10/2018 14:10:27: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=159&id_r=2&table=&idlist=
+15/10/2018 14:10:27: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:10:27:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+15/10/2018 14:10:27: Pagename  = Saveimage.asp [Orderid]  = 159
+15/10/2018 14:10:27: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-159-local_printer-0.txt
+15/10/2018 14:10:28: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-159-local_printer-0.txt
+15/10/2018 14:28:48: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 14:28:48: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3798&id_r=2
+15/10/2018 14:28:48: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 14:28:48: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 14:28:48: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3798&id_r=2
+15/10/2018 14:28:48: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 14:28:48: Pagename  = Saveimage.asp 
+15/10/2018 14:28:48: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 14:28:48: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:28:48:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 14:28:48: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 14:28:48: Pagename  = Saveimage.asp 
+15/10/2018 14:28:48: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=printingname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 14:28:48: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:28:48:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 14:28:48: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 14:29:42: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 14:29:42: Pagename  =  print_t.asp  [Refer URL] 
+15/10/2018 14:29:42: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 14:29:43: Pagename  = Saveimage.asp 
+15/10/2018 14:29:43: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 14:29:43: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:29:43:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 14:29:43: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 14:31:01: PageName  = print_t.asp Start Page [Orderid] 3798
+15/10/2018 14:31:01: Pagename  =  print_t.asp  [Refer URL] 
+15/10/2018 14:31:01: PageName  = print_t.asp End Page [Orderid] 3798
+15/10/2018 14:31:02: Pagename  = Saveimage.asp 
+15/10/2018 14:31:02: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3798&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 14:31:02: Pagename  = Saveimage.asp start saving 
+15/10/2018 14:31:02:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 14:31:02: Pagename  = Saveimage.asp [Orderid]  = 3798
+15/10/2018 15:51:46: PageName  = print_t.asp Start Page [Orderid] 3799
+15/10/2018 15:51:46: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3799&id_r=2
+15/10/2018 15:51:46: PageName  = print_t.asp End Page [Orderid] 3799
+15/10/2018 15:51:46: PageName  = print_t.asp Start Page [Orderid] 3799
+15/10/2018 15:51:46: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=3799&id_r=2
+15/10/2018 15:51:46: PageName  = print_t.asp End Page [Orderid] 3799
+15/10/2018 15:51:46: Pagename  = Saveimage.asp 
+15/10/2018 15:51:46: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=3799&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 15:51:46: Pagename  = Saveimage.asp start saving 
+15/10/2018 15:51:46:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 15:51:46: Pagename  = Saveimage.asp [Orderid]  = 3799
+15/10/2018 15:51:47: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-3799-local_printer-0.txt
+15/10/2018 15:51:47: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-3799-local_printer-0.txt
+15/10/2018 15:51:47: Pagename  = Saveimage.asp 
+15/10/2018 15:51:47: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=printingname&id_o=3799&id_r=2&isPrint=&idlist=local_printer;PN:kitchen_printer
+15/10/2018 15:51:47: Pagename  = Saveimage.asp start saving 
+15/10/2018 15:51:47:  PrinterList  local_printer;PN:kitchen_printer
+15/10/2018 15:51:47: Pagename  = Saveimage.asp [Orderid]  = 3799
+15/10/2018 15:51:47: Pagename  = Saveimage.asp before create image -PN  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-3799-kitchen_printer-1-PN.txt
+15/10/2018 15:51:47: Pagename  = Saveimage.asp Done write file PN   = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-3799-kitchen_printer-1-PN.txt
+16/12/2018 14:48:24: PageName  = print_t.asp Start Page [Orderid] 12
+16/12/2018 14:48:24: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=12&id_r=2
+16/12/2018 14:48:24: PageName  = print_t.asp End Page [Orderid] 12
+16/12/2018 14:48:25: Pagename  = Saveimage.asp 
+16/12/2018 14:48:25: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=12&id_r=2&isPrint=&idlist=local_printer
+16/12/2018 14:48:25: Pagename  = Saveimage.asp start saving 
+16/12/2018 14:48:25:  PrinterList  local_printer
+16/12/2018 14:48:25: Pagename  = Saveimage.asp [Orderid]  = 12
+16/12/2018 14:48:25: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-12-local_printer-0.txt
+16/12/2018 14:48:25: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-12-local_printer-0.txt
+16/12/2018 15:00:24: PageName  = print_t.asp Start Page [Orderid] 13
+16/12/2018 15:00:25: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=13&id_r=2
+16/12/2018 15:00:25: PageName  = print_t.asp End Page [Orderid] 13
+16/12/2018 15:00:25: PageName  = print_t.asp Start Page [Orderid] 13
+16/12/2018 15:00:25: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=13&id_r=2
+16/12/2018 15:00:25: PageName  = print_t.asp End Page [Orderid] 13
+17/12/2018 15:47:28: PageName  = print_t.asp Start Page [Orderid] 15
+17/12/2018 15:47:28: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=15&id_r=2
+17/12/2018 15:47:28: PageName  = print_t.asp End Page [Orderid] 15
+17/12/2018 15:47:28: PageName  = print_t.asp Start Page [Orderid] 15
+17/12/2018 15:47:28: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=15&id_r=2
+17/12/2018 15:47:28: PageName  = print_t.asp End Page [Orderid] 15
+22/12/2018 02:33:38: PageName  = print_t.asp Start Page [Orderid] 17
+22/12/2018 02:33:39: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=17&id_r=2
+22/12/2018 02:33:39: PageName  = print_t.asp End Page [Orderid] 17
+22/12/2018 02:33:39: PageName  = print_t.asp Start Page [Orderid] 17
+22/12/2018 02:33:39: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=17&id_r=2
+22/12/2018 02:33:39: PageName  = print_t.asp End Page [Orderid] 17
+03/01/2019 13:37:01: PageName  = print_t.asp Start Page [Orderid] 26
+03/01/2019 13:37:01: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=26&id_r=2
+03/01/2019 13:37:01: PageName  = print_t.asp End Page [Orderid] 26
+03/01/2019 13:37:01: PageName  = print_t.asp Start Page [Orderid] 26
+03/01/2019 13:37:01: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=26&id_r=2
+03/01/2019 13:37:01: PageName  = print_t.asp End Page [Orderid] 26
+03/01/2019 13:37:47: PageName  = print_t.asp Start Page [Orderid] 26
+03/01/2019 13:37:47: Pagename  =  print_t.asp  [Refer URL] 
+03/01/2019 13:37:47: PageName  = print_t.asp End Page [Orderid] 26
+03/01/2019 13:38:56: PageName  = print_t.asp Start Page [Orderid] 27
+03/01/2019 13:38:56: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=27&id_r=2
+03/01/2019 13:38:56: PageName  = print_t.asp End Page [Orderid] 27
+03/01/2019 13:38:56: PageName  = print_t.asp Start Page [Orderid] 27
+03/01/2019 13:38:56: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=27&id_r=2
+03/01/2019 13:38:56: PageName  = print_t.asp End Page [Orderid] 27
+03/01/2019 13:42:20: PageName  = print_t.asp Start Page [Orderid] 27
+03/01/2019 13:42:20: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=27&id_r=2
+03/01/2019 13:42:20: PageName  = print_t.asp End Page [Orderid] 27
+03/01/2019 13:42:20: PageName  = print_t.asp Start Page [Orderid] 27
+03/01/2019 13:42:20: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=27&id_r=2
+03/01/2019 13:42:20: PageName  = print_t.asp End Page [Orderid] 27
+03/01/2019 13:43:07: PageName  = print_t.asp Start Page [Orderid] 27
+03/01/2019 13:43:07: Pagename  =  print_t.asp  [Refer URL] 
+03/01/2019 13:43:07: PageName  = print_t.asp End Page [Orderid] 27
+03/01/2019 13:58:43: PageName  = print_t.asp Start Page [Orderid] 27
+03/01/2019 13:58:43: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/thanks.asp?isPrint=Y&id_o=27&id_r=2&idlist=local_printer;PN:kitchen_printer;PN:local_printer
+03/01/2019 13:58:43: PageName  = print_t.asp End Page [Orderid] 27
+03/01/2019 13:58:43: PageName  = print_t.asp Start Page [Orderid] 27
+03/01/2019 13:58:43: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/thanks.asp?isPrint=Y&id_o=27&id_r=2&idlist=local_printer;PN:kitchen_printer;PN:local_printer
+03/01/2019 13:58:43: PageName  = print_t.asp End Page [Orderid] 27
+28/03/2019 15:29:12: PageName = pintXML_v2.xml Start 2
+28/03/2019 15:29:34: PageName = pintXML_v2.xml Start 2
+28/03/2019 15:29:35: PageName = pintXML_v2.xml Start 2
+28/03/2019 15:29:35: PageName = pintXML_v2.xml Start 2
+28/03/2019 15:29:35: PageName = pintXML_v2.xml Start 2
+28/03/2019 15:31:03: PageName = reprintxml_order.asp Start 
+28/03/2019 15:35:56: PageName = reprintxml_order.asp Start 
+28/03/2019 15:36:01: PageName = reprintxml_order.asp Start 
+28/03/2019 15:36:56: PageName = reprintxml_order.asp Start 
+28/03/2019 15:37:33: PageName = reprintxml_order.asp Start 
+04/04/2019 14:04:25: PageName  = print_t.asp Start Page [Orderid] 78
+04/04/2019 14:04:25: Pagename  =  print_t.asp  [Refer URL] 
+04/04/2019 14:04:25: PageName  = print_t.asp End Page [Orderid] 78
+04/04/2019 14:04:34: PageName  = print_t.asp Start Page [Orderid] 78
+04/04/2019 14:04:34: Pagename  =  print_t.asp  [Refer URL] 
+04/04/2019 14:04:34: PageName  = print_t.asp End Page [Orderid] 78
+04/04/2019 14:05:22: PageName  = print_t.asp Start Page [Orderid] 79
+04/04/2019 14:05:23: Pagename  =  print_t.asp  [Refer URL] 
+04/04/2019 14:05:23: PageName  = print_t.asp End Page [Orderid] 79
+05/04/2019 14:07:19: PageName  = print_t.asp Start Page [Orderid] 80
+05/04/2019 14:07:19: Pagename  =  print_t.asp  [Refer URL] 
+05/04/2019 14:07:20: PageName  = print_t.asp End Page [Orderid] 80
+05/04/2019 14:09:06: PageName  = print_t.asp Start Page [Orderid] 81
+05/04/2019 14:09:06: Pagename  =  print_t.asp  [Refer URL] 
+05/04/2019 14:09:06: PageName  = print_t.asp End Page [Orderid] 81
+05/04/2019 14:15:47: PageName  = print_t.asp Start Page [Orderid] 82
+05/04/2019 14:15:47: Pagename  =  print_t.asp  [Refer URL] 
+05/04/2019 14:15:47: PageName  = print_t.asp End Page [Orderid] 82
+05/04/2019 14:31:15: PageName  = print_t.asp Start Page [Orderid] 83
+05/04/2019 14:31:15: Pagename  =  print_t.asp  [Refer URL] 
+05/04/2019 14:31:15: PageName  = print_t.asp End Page [Orderid] 83
+05/04/2019 14:32:38: PageName  = print_t.asp Start Page [Orderid] 84
+05/04/2019 14:32:38: Pagename  =  print_t.asp  [Refer URL] 
+05/04/2019 14:32:38: PageName  = print_t.asp End Page [Orderid] 84
+04/04/2019 14:49:11: PageName  = print_t.asp Start Page [Orderid] 85
+04/04/2019 14:49:11: Pagename  =  print_t.asp  [Refer URL] 
+04/04/2019 14:49:11: PageName  = print_t.asp End Page [Orderid] 85
+04/04/2019 14:49:55: PageName  = print_t.asp Start Page [Orderid] 86
+04/04/2019 14:49:55: Pagename  =  print_t.asp  [Refer URL] 
+04/04/2019 14:49:55: PageName  = print_t.asp End Page [Orderid] 86
+06/04/2019 15:05:28: PageName  = print_t.asp Start Page [Orderid] 87
+06/04/2019 15:05:29: Pagename  =  print_t.asp  [Refer URL] 
+06/04/2019 15:05:29: PageName  = print_t.asp End Page [Orderid] 87
+06/04/2019 15:12:25: PageName  = print_t.asp Start Page [Orderid] 88
+06/04/2019 15:12:25: Pagename  =  print_t.asp  [Refer URL] 
+06/04/2019 15:12:25: PageName  = print_t.asp End Page [Orderid] 88
+04/04/2019 16:38:34: PageName  = print_t.asp Start Page [Orderid] 89
+04/04/2019 16:38:34: Pagename  =  print_t.asp  [Refer URL] 
+04/04/2019 16:38:34: PageName  = print_t.asp End Page [Orderid] 89
+05/04/2019 16:39:04: PageName  = print_t.asp Start Page [Orderid] 90
+05/04/2019 16:39:04: Pagename  =  print_t.asp  [Refer URL] 
+05/04/2019 16:39:04: PageName  = print_t.asp End Page [Orderid] 90
+05/04/2019 14:03:19: PageName  = print_t.asp Start Page [Orderid] 91
+05/04/2019 14:03:19: Pagename  =  print_t.asp  [Refer URL] 
+05/04/2019 14:03:19: PageName  = print_t.asp End Page [Orderid] 91
+05/04/2019 14:03:50: PageName  = print_t.asp Start Page [Orderid] 92
+05/04/2019 14:03:50: Pagename  =  print_t.asp  [Refer URL] 
+05/04/2019 14:03:50: PageName  = print_t.asp End Page [Orderid] 92
+05/04/2019 18:06:25: PageName = reprintxml_order.asp Start 
+05/04/2019 18:06:25: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  89 Order Date 04/04/2019 16:38:07 Server Time 4/5/2019 18:6:25
+07/04/2019 05:41:03: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:41:06: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:41:06: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:41:22: PageName = reprintxml_order.asp Start 
+07/04/2019 05:41:22: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  89 Order Date 04/04/2019 16:38:07 Server Time 4/7/2019 5:41:22
+07/04/2019 05:41:39: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:42:48: PageName = reprintxml_order.asp Start 
+07/04/2019 05:42:48: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  89 Order Date 04/04/2019 16:38:07 Server Time 4/7/2019 5:42:48
+07/04/2019 05:42:49: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:42:49: Start move file from  D:\OutSource\v7-2\printers\Epson\ReceiptImage/2-94-local_printer-0.txt  to D:\OutSource\v7-2\printers\Epson\ReceiptImage\Printing/2-94-local_printer-0.txt
+07/04/2019 05:44:55: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:44:55: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:44:57: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:44:57: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:45:40: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:45:40: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:46:48: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:46:48: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:46:49: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:46:49: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:46:49: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:46:49: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:46:50: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:46:50: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:46:50: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:46:50: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:46:50: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:46:50: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:47:01: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:47:01: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:47:02: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:47:02: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:47:02: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:47:02: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:47:03: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:47:03: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:47:03: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:47:03: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:49:17: PageName = pintXML_v2.xml Start 2
+07/04/2019 05:49:17: Start Print receipt 2-94-local_printer-0
+07/04/2019 05:49:54: PageName = reprintxml_order.asp Start 
+07/04/2019 05:49:57: PageName = reprintxml_order.asp Start 
+07/04/2019 05:59:45: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 05:59:45: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-01313135588/thanks/96
+07/04/2019 06:00:48: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 06:00:48: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-01313135588/thanks/96
+07/04/2019 06:00:48: PageName  = print_t.asp End Page [Orderid] 96
+07/04/2019 06:01:18: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 06:01:18: Pagename  =  print_t.asp  [Refer URL] 
+07/04/2019 06:01:18: PageName  = print_t.asp End Page [Orderid] 96
+07/04/2019 06:04:58: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 06:04:58: Pagename  =  print_t.asp  [Refer URL] 
+07/04/2019 06:04:58: PageName  = print_t.asp End Page [Orderid] 96
+07/04/2019 06:08:41: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 06:08:41: Pagename  =  print_t.asp  [Refer URL] 
+07/04/2019 06:08:41: PageName  = print_t.asp End Page [Orderid] 96
+07/04/2019 06:08:42: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 06:08:42: Pagename  =  print_t.asp  [Refer URL] 
+07/04/2019 06:08:42: PageName  = print_t.asp End Page [Orderid] 96
+07/04/2019 06:08:43: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 06:08:43: Pagename  =  print_t.asp  [Refer URL] 
+07/04/2019 06:08:43: PageName  = print_t.asp End Page [Orderid] 96
+07/04/2019 06:08:43: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 06:08:43: Pagename  =  print_t.asp  [Refer URL] 
+07/04/2019 06:08:43: PageName  = print_t.asp End Page [Orderid] 96
+07/04/2019 06:12:01: PageName  = print_t.asp Start Page [Orderid] 96
+07/04/2019 06:12:01: Pagename  =  print_t.asp  [Refer URL] 
+07/04/2019 06:12:01: PageName  = print_t.asp End Page [Orderid] 96
+07/04/2019 06:12:01: Pagename  = Saveimage.asp 
+07/04/2019 06:12:01: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=96&id_r=2&isPrint=&idlist=local_printer
+07/04/2019 06:12:01: Pagename  = Saveimage.asp start saving 
+07/04/2019 06:12:01:  PrinterList  local_printer
+07/04/2019 06:12:01: Pagename  = Saveimage.asp [Orderid]  = 96
+07/04/2019 06:12:01: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-96-local_printer-0.txt
+07/04/2019 06:12:02: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-96-local_printer-0.txt
+07/04/2019 07:37:22: PageName = pintXML_v2.xml Start 2
+07/04/2019 07:37:22: Start move file from  D:\OutSource\v7-2\printers\Epson\ReceiptImage/2-96-local_printer-0.txt  to D:\OutSource\v7-2\printers\Epson\ReceiptImage\Printing/2-96-local_printer-0.txt
+07/04/2019 07:37:22: End Print receipt[1] D:\OutSource\v7-2\printers\Epson\ReceiptImage\2-96-local_printer-0.txt
+07/04/2019 07:37:38: PageName = reprintxml_order.asp Start 
+07/04/2019 08:04:04: Pagename  = Saveimage.asp 
+07/04/2019 08:04:04: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=25&id_r=2&table=&idlist=
+07/04/2019 08:04:04: Pagename  = Saveimage.asp start saving 
+07/04/2019 08:04:04:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+07/04/2019 08:04:04: Pagename  = Saveimage.asp [Orderid]  = 25
+07/04/2019 08:04:04: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-25-local_printer-0.txt
+07/04/2019 08:04:04: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-25-local_printer-0.txt
+07/04/2019 08:04:12: Pagename  = Saveimage.asp 
+07/04/2019 08:04:12: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=25&id_r=2&table=&idlist=
+07/04/2019 08:04:12: Pagename  = Saveimage.asp start saving 
+07/04/2019 08:04:12:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+07/04/2019 08:04:12: Pagename  = Saveimage.asp [Orderid]  = 25
+07/04/2019 08:04:13: Pagename  = Saveimage.asp 
+07/04/2019 08:04:13: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=25&id_r=2&table=&idlist=
+07/04/2019 08:04:13: Pagename  = Saveimage.asp start saving 
+07/04/2019 08:04:13:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+07/04/2019 08:04:13: Pagename  = Saveimage.asp [Orderid]  = 25
+07/04/2019 13:28:17: Pagename  = Saveimage.asp 
+07/04/2019 13:28:17: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=27&id_r=2&table=&idlist=
+07/04/2019 13:28:17: Pagename  = Saveimage.asp start saving 
+07/04/2019 13:28:17:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+07/04/2019 13:28:17: Pagename  = Saveimage.asp [Orderid]  = 27
+07/04/2019 13:28:17: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-27-local_printer-0.txt
+07/04/2019 13:28:17: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-27-local_printer-0.txt
+07/04/2019 13:28:50: Pagename  = Saveimage.asp 
+07/04/2019 13:28:50: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=28&id_r=2&table=&idlist=
+07/04/2019 13:28:50: Pagename  = Saveimage.asp start saving 
+07/04/2019 13:28:50:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+07/04/2019 13:28:50: Pagename  = Saveimage.asp [Orderid]  = 28
+07/04/2019 13:28:50: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-28-local_printer-0.txt
+07/04/2019 13:28:50: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-28-local_printer-0.txt
+07/04/2019 13:29:03: Pagename  = Saveimage.asp 
+07/04/2019 13:29:03: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=28&id_r=2&table=&idlist=
+07/04/2019 13:29:03: Pagename  = Saveimage.asp start saving 
+07/04/2019 13:29:03:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+07/04/2019 13:29:03: Pagename  = Saveimage.asp [Orderid]  = 28
+06/04/2019 17:40:33: Pagename  = Saveimage.asp 
+06/04/2019 17:40:33: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=31&id_r=2&table=&idlist=
+06/04/2019 17:40:33: Pagename  = Saveimage.asp start saving 
+06/04/2019 17:40:33:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+06/04/2019 17:40:33: Pagename  = Saveimage.asp [Orderid]  = 31
+06/04/2019 17:40:33: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31-local_printer-0.txt
+06/04/2019 17:40:33: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31-local_printer-0.txt
+06/04/2019 10:08:20: PageName = reprintxml_order.asp Start 
+06/04/2019 10:08:21: PageName = pintXML_v2.xml Start 2
+06/04/2019 10:08:21: The receipt 2-96-local_printer-0 failed to print. And it was deleted from the queue. last print 00:10:00 Now 06/04/2019 10:08:21
+06/04/2019 10:08:24: PageName = reprintxml_order.asp Start 
+06/04/2019 10:08:29: PageName = pintXML_v2.xml Start 2
+06/04/2019 10:08:30: Start move file from  D:\OutSource\v7-2\printers\Epson\ReceiptImage/2-31-local_printer-0.txt  to D:\OutSource\v7-2\printers\Epson\ReceiptImage\Printing/2-31-local_printer-0.txt
+06/04/2019 10:08:30: End Print receipt[1] D:\OutSource\v7-2\printers\Epson\ReceiptImage\2-31-local_printer-0.txt
+08/04/2019 14:36:00: PageName = reprintxml_order.asp Start 
+08/04/2019 14:36:03: PageName = pintXML_v2.xml Start 2
+08/04/2019 14:36:06: The receipt 2-31-local_printer-0 failed to print. And it was deleted from the queue. last print 00:10:00 Now 08/04/2019 14:36:06
+05/05/2019 04:32:43: PageName = pintXML_v2.xml Start 2
+05/05/2019 04:32:43: Start move file from  D:\OutSource\v7-2\printers\Epson\ReceiptImage/2-25-local_printer-0.txt  to D:\OutSource\v7-2\printers\Epson\ReceiptImage\Printing/2-25-local_printer-0.txt
+05/05/2019 04:32:43: End Print receipt[1] D:\OutSource\v7-2\printers\Epson\ReceiptImage\2-25-local_printer-0.txt
+05/05/2019 04:32:57: PageName = reprintxml_order.asp Start 
+05/05/2019 04:34:02: PageName  = print_t.asp Start Page [Orderid] 31131
+05/05/2019 04:34:03: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31131&id_r=2
+05/05/2019 04:34:03: PageName  = print_t.asp End Page [Orderid] 31131
+05/05/2019 04:34:03: Pagename  = Saveimage.asp 
+05/05/2019 04:34:03: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31131&id_r=2&isPrint=&idlist=local_printer
+05/05/2019 04:34:03: Pagename  = Saveimage.asp start saving 
+05/05/2019 04:34:03:  PrinterList  local_printer
+05/05/2019 04:34:03: Pagename  = Saveimage.asp [Orderid]  = 31131
+05/05/2019 04:34:03: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31131-local_printer-0.txt
+05/05/2019 04:34:03: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31131-local_printer-0.txt
+05/05/2019 04:34:06: PageName = pintXML_v2.xml Start 2
+05/05/2019 04:34:06: Start Print receipt 2-25-local_printer-0
+05/05/2019 04:34:06: Print receipt 2-25-local_printer-0 Successfully 
+05/05/2019 04:34:08: PageName = reprintxml_order.asp Start 
+05/05/2019 04:34:11: PageName = reprintxml_order.asp Start 
+05/05/2019 04:34:13: PageName = reprintxml_order.asp Start 
+05/05/2019 04:34:13: PageName = reprintxml_order.asp Start 
+05/05/2019 04:34:14: PageName = reprintxml_order.asp Start 
+05/05/2019 04:34:14: PageName = reprintxml_order.asp Start 
+05/05/2019 04:35:18: PageName  = print_t.asp Start Page [Orderid] 31132
+05/05/2019 04:35:18: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31132&id_r=2
+05/05/2019 04:35:18: PageName  = print_t.asp End Page [Orderid] 31132
+05/05/2019 04:35:18: Pagename  = Saveimage.asp 
+05/05/2019 04:35:18: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31132&id_r=2&isPrint=&idlist=local_printer
+05/05/2019 04:35:18: Pagename  = Saveimage.asp start saving 
+05/05/2019 04:35:18:  PrinterList  local_printer
+05/05/2019 04:35:18: Pagename  = Saveimage.asp [Orderid]  = 31132
+05/05/2019 04:35:18: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31132-local_printer-0.txt
+05/05/2019 04:35:18: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31132-local_printer-0.txt
+05/05/2019 04:36:03: PageName  = print_t.asp Start Page [Orderid] 31133
+05/05/2019 04:36:03: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31133&id_r=2
+05/05/2019 04:36:03: PageName  = print_t.asp End Page [Orderid] 31133
+05/05/2019 04:36:03: Pagename  = Saveimage.asp 
+05/05/2019 04:36:03: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31133&id_r=2&isPrint=&idlist=local_printer
+05/05/2019 04:36:03: Pagename  = Saveimage.asp start saving 
+05/05/2019 04:36:03:  PrinterList  local_printer
+05/05/2019 04:36:03: Pagename  = Saveimage.asp [Orderid]  = 31133
+05/05/2019 04:36:03: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31133-local_printer-0.txt
+05/05/2019 04:36:03: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31133-local_printer-0.txt
+05/05/2019 04:36:15: PageName = pintXML_v2.xml Start 2
+05/05/2019 04:36:15: Start Print receipt 2-25-local_printer-0
+05/05/2019 04:36:15: Print receipt 2-25-local_printer-0 Successfully 
+05/05/2019 04:36:17: PageName = reprintxml_order.asp Start 
+05/05/2019 10:31:14: PageName  = print_t.asp Start Page [Orderid] 31134
+05/05/2019 10:31:14: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31134&id_r=2
+05/05/2019 10:31:14: PageName  = print_t.asp End Page [Orderid] 31134
+05/05/2019 10:31:15: Pagename  = Saveimage.asp 
+05/05/2019 10:31:15: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31134&id_r=2&isPrint=&idlist=local_printer
+05/05/2019 10:31:15: Pagename  = Saveimage.asp start saving 
+05/05/2019 10:31:15:  PrinterList  local_printer
+05/05/2019 10:31:15: Pagename  = Saveimage.asp [Orderid]  = 31134
+05/05/2019 10:31:15: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31134-local_printer-0.txt
+05/05/2019 10:31:15: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31134-local_printer-0.txt
+13/05/2019 15:14:50: PageName  = print_t.asp Start Page [Orderid] 31150
+13/05/2019 15:14:50: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31150
+13/05/2019 15:14:50: PageName  = print_t.asp End Page [Orderid] 31150
+13/05/2019 15:14:51: Pagename  = Saveimage.asp 
+13/05/2019 15:14:51: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31150&id_r=2&isPrint=&idlist=local_printer
+13/05/2019 15:14:51: Pagename  = Saveimage.asp start saving 
+13/05/2019 15:14:51:  PrinterList  local_printer
+13/05/2019 15:14:51: Pagename  = Saveimage.asp [Orderid]  = 31150
+13/05/2019 15:14:51: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31150-local_printer-0.txt
+13/05/2019 15:14:51: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31150-local_printer-0.txt
+13/05/2019 15:17:31: PageName  = print_t.asp Start Page [Orderid] 31150
+13/05/2019 15:17:31: Pagename  =  print_t.asp  [Refer URL] 
+13/05/2019 15:17:31: PageName  = print_t.asp End Page [Orderid] 31150
+13/05/2019 15:17:33: Pagename  = Saveimage.asp 
+13/05/2019 15:17:33: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31150&id_r=2&isPrint=&idlist=local_printer
+13/05/2019 15:17:33: Pagename  = Saveimage.asp start saving 
+13/05/2019 15:17:33:  PrinterList  local_printer
+13/05/2019 15:17:33: Pagename  = Saveimage.asp [Orderid]  = 31150
+13/05/2019 15:17:55: PageName  = print_t.asp Start Page [Orderid] 31150
+13/05/2019 15:17:55: Pagename  =  print_t.asp  [Refer URL] 
+13/05/2019 15:17:55: PageName  = print_t.asp End Page [Orderid] 31150
+13/05/2019 15:17:55: Pagename  = Saveimage.asp 
+13/05/2019 15:17:55: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31150&id_r=2&isPrint=&idlist=local_printer
+13/05/2019 15:17:55: Pagename  = Saveimage.asp start saving 
+13/05/2019 15:17:55:  PrinterList  local_printer
+13/05/2019 15:17:55: Pagename  = Saveimage.asp [Orderid]  = 31150
+13/05/2019 15:26:18: PageName  = print_t.asp Start Page [Orderid] 31151
+13/05/2019 15:26:18: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31151
+13/05/2019 15:26:18: PageName  = print_t.asp End Page [Orderid] 31151
+13/05/2019 15:26:19: Pagename  = Saveimage.asp 
+13/05/2019 15:26:19: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31151&id_r=2&isPrint=&idlist=local_printer
+13/05/2019 15:26:19: Pagename  = Saveimage.asp start saving 
+13/05/2019 15:26:19:  PrinterList  local_printer
+13/05/2019 15:26:19: Pagename  = Saveimage.asp [Orderid]  = 31151
+13/05/2019 15:26:19: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31151-local_printer-0.txt
+13/05/2019 15:26:19: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31151-local_printer-0.txt
+13/05/2019 15:29:32: Pagename  = Saveimage.asp 
+13/05/2019 15:29:32: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=20&id_r=2&table=&idlist=
+13/05/2019 15:29:32: Pagename  = Saveimage.asp start saving 
+13/05/2019 15:29:32:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+13/05/2019 15:29:32: Pagename  = Saveimage.asp [Orderid]  = 20
+13/05/2019 15:29:32: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-20-local_printer-0.txt
+13/05/2019 15:29:32: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-20-local_printer-0.txt
+13/05/2019 15:30:20: Pagename  = Saveimage.asp 
+13/05/2019 15:30:20: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=21&id_r=2&table=&idlist=
+13/05/2019 15:30:20: Pagename  = Saveimage.asp start saving 
+13/05/2019 15:30:20:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+13/05/2019 15:30:20: Pagename  = Saveimage.asp [Orderid]  = 21
+13/05/2019 15:30:20: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-21-local_printer-0.txt
+13/05/2019 15:30:20: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-21-local_printer-0.txt
+13/05/2019 15:32:17: Pagename  = Saveimage.asp 
+13/05/2019 15:32:17: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=23&id_r=2&table=&idlist=
+13/05/2019 15:32:17: Pagename  = Saveimage.asp start saving 
+13/05/2019 15:32:17:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+13/05/2019 15:32:17: Pagename  = Saveimage.asp [Orderid]  = 23
+13/05/2019 15:32:17: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-23-local_printer-0.txt
+13/05/2019 15:32:17: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-23-local_printer-0.txt
+13/05/2019 15:33:42: PageName  = print_t.asp Start Page [Orderid] 31152
+13/05/2019 15:33:42: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31152&id_r=2
+13/05/2019 15:33:42: PageName  = print_t.asp End Page [Orderid] 31152
+13/05/2019 15:33:42: Pagename  = Saveimage.asp 
+13/05/2019 15:33:42: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31152&id_r=2&isPrint=&idlist=local_printer
+13/05/2019 15:33:42: Pagename  = Saveimage.asp start saving 
+13/05/2019 15:33:42:  PrinterList  local_printer
+13/05/2019 15:33:42: Pagename  = Saveimage.asp [Orderid]  = 31152
+13/05/2019 15:33:42: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31152-local_printer-0.txt
+13/05/2019 15:33:42: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31152-local_printer-0.txt
+14/05/2019 15:44:51: PageName  = print_t.asp Start Page [Orderid] 31154
+14/05/2019 15:44:51: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31154&id_r=2
+14/05/2019 15:44:51: PageName  = print_t.asp End Page [Orderid] 31154
+14/05/2019 15:44:51: Pagename  = Saveimage.asp 
+14/05/2019 15:44:51: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31154&id_r=2&isPrint=&idlist=local_printer
+14/05/2019 15:44:51: Pagename  = Saveimage.asp start saving 
+14/05/2019 15:44:51:  PrinterList  local_printer
+14/05/2019 15:44:51: Pagename  = Saveimage.asp [Orderid]  = 31154
+14/05/2019 15:44:51: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31154-local_printer-0.txt
+14/05/2019 15:44:51: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31154-local_printer-0.txt
+14/05/2019 16:01:12: PageName  = print_t.asp Start Page [Orderid] 31155
+14/05/2019 16:01:12: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31155&id_r=2
+14/05/2019 16:01:12: PageName  = print_t.asp End Page [Orderid] 31155
+14/05/2019 16:01:13: Pagename  = Saveimage.asp 
+14/05/2019 16:01:13: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31155&id_r=2&isPrint=&idlist=local_printer
+14/05/2019 16:01:13: Pagename  = Saveimage.asp start saving 
+14/05/2019 16:01:13:  PrinterList  local_printer
+14/05/2019 16:01:13: Pagename  = Saveimage.asp [Orderid]  = 31155
+14/05/2019 16:01:13: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31155-local_printer-0.txt
+14/05/2019 16:01:13: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31155-local_printer-0.txt
+30/05/2019 15:21:41: PageName  = print_t.asp Start Page [Orderid] 31186
+30/05/2019 15:21:41: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31186&id_r=2
+30/05/2019 15:21:41: PageName  = print_t.asp End Page [Orderid] 31186
+30/05/2019 15:21:41: Pagename  = Saveimage.asp 
+30/05/2019 15:21:41: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31186&id_r=2&isPrint=&idlist=local_printer
+30/05/2019 15:21:41: Pagename  = Saveimage.asp start saving 
+30/05/2019 15:21:41:  PrinterList  local_printer
+30/05/2019 15:21:41: Pagename  = Saveimage.asp [Orderid]  = 31186
+30/05/2019 15:21:42: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31186-local_printer-0.txt
+30/05/2019 15:21:42: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31186-local_printer-0.txt
+30/05/2019 15:22:09: PageName  = print_t.asp Start Page [Orderid] 31186
+30/05/2019 15:22:09: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31186&id_r=2
+30/05/2019 15:22:09: PageName  = print_t.asp End Page [Orderid] 31186
+30/05/2019 15:22:09: Pagename  = Saveimage.asp 
+30/05/2019 15:22:09: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31186&id_r=2&isPrint=&idlist=local_printer
+30/05/2019 15:22:09: Pagename  = Saveimage.asp start saving 
+30/05/2019 15:22:09:  PrinterList  local_printer
+30/05/2019 15:22:09: Pagename  = Saveimage.asp [Orderid]  = 31186
+30/05/2019 15:40:21: PageName = pintXML_v2.xml Start 2
+30/05/2019 15:40:21: The receipt 2-25-local_printer-0 failed to print. And it was deleted from the queue. last print 00:10:00 Now 30/05/2019 15:40:21
+30/05/2019 15:40:47: PageName = reprintxml_order.asp Start 
+30/05/2019 15:40:50: PageName = reprintxml_order.asp Start 
+30/05/2019 15:40:50: PageName = reprintxml_order.asp Start 
+30/05/2019 15:40:50: PageName = reprintxml_order.asp Start 
+30/05/2019 15:41:06: PageName = pintXML_v2.xml Start 2
+30/05/2019 15:41:07: Start move file from  D:\OutSource\v7-2\printers\Epson\ReceiptImage/2-27-local_printer-0.txt  to D:\OutSource\v7-2\printers\Epson\ReceiptImage\Printing/2-27-local_printer-0.txt
+30/05/2019 15:41:07: End Print receipt[1] D:\OutSource\v7-2\printers\Epson\ReceiptImage\2-27-local_printer-0.txt
+30/05/2019 15:41:32: PageName = reprintxml_order.asp Start 
+30/05/2019 15:42:16: PageName = reprintxml_order.asp Start 
+30/05/2019 15:42:18: PageName = reprintxml_order.asp Start 
+30/05/2019 15:42:18: PageName = reprintxml_order.asp Start 
+30/05/2019 15:42:19: PageName = reprintxml_order.asp Start 
+30/05/2019 15:43:00: PageName = reprintxml_order.asp Start 
+30/05/2019 15:43:01: PageName = reprintxml_order.asp Start 
+30/05/2019 15:43:02: PageName = reprintxml_order.asp Start 
+30/05/2019 15:43:25: PageName = reprintxml_order.asp Start 
+30/05/2019 15:44:06: PageName = reprintxml_order.asp Start 
+30/05/2019 15:44:41: PageName = reprintxml_order.asp Start 
+30/05/2019 15:58:09: PageName = reprintxml_order.asp Start 
+30/05/2019 16:18:36: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:04: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:06: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:06: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:06: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:07: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:07: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:24: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:25: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:25: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:25: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:25: PageName = reprintxml_order.asp Start 
+30/05/2019 16:19:50: PageName = reprintxml_order.asp Start 
+30/05/2019 16:31:57: PageName = reprintxml_order.asp Start 
+30/05/2019 16:34:58: PageName = reprintxml_order.asp Start 
+30/05/2019 16:35:31: PageName = reprintxml_order.asp Start 
+30/05/2019 16:35:53: PageName = reprintxml_order.asp Start 
+30/05/2019 16:35:53: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  31185 Order Date 29/05/2019 15:54:23 Server Time 5/30/2019 16:35:53
+30/05/2019 16:35:53: PageName = reprintxml_order.asp ReCreateReceipt  ORDER =  31185
+30/05/2019 16:35:53: PageName =reprintxml_order.asp ReCreateReceipt  END Order = 31185 batfilepath = D:\OutSource\v7-2\printers\epson\ptjs\31185-2-dishname.bat
+30/05/2019 16:35:55: PageName = reprintxml_order.asp ReCreateReceipt  END Order = 31185
+30/05/2019 16:35:55: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  31187 Order Date 30/05/2019 15:57:08 Server Time 5/30/2019 16:35:53
+30/05/2019 16:35:55: PageName = reprintxml_order.asp ReCreateReceipt  ORDER =  31187
+30/05/2019 16:35:55: PageName =reprintxml_order.asp ReCreateReceipt  END Order = 31187 batfilepath = D:\OutSource\v7-2\printers\epson\ptjs\31187-2-dishname.bat
+30/05/2019 16:35:56: PageName  = print_t.asp Start Page [Orderid] 31185
+30/05/2019 16:35:56: Pagename  =  print_t.asp  [Refer URL] 
+30/05/2019 16:35:56: PageName  = print_t.asp End Page [Orderid] 31185
+30/05/2019 16:35:56: Pagename  = Saveimage.asp 
+30/05/2019 16:35:56: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31185&id_r=2&isPrint=N&idlist=local_printer
+30/05/2019 16:35:56: Pagename  = Saveimage.asp start saving 
+30/05/2019 16:35:56:  PrinterList  local_printer
+30/05/2019 16:35:56: Pagename  = Saveimage.asp [Orderid]  = 31185
+30/05/2019 16:35:56: PageName  = print_t.asp Start Page [Orderid] 31187
+30/05/2019 16:35:56: Pagename  =  print_t.asp  [Refer URL] 
+30/05/2019 16:35:56: PageName  = print_t.asp End Page [Orderid] 31187
+30/05/2019 16:35:57: Pagename  = Saveimage.asp 
+30/05/2019 16:35:57: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31187&id_r=2&isPrint=N&idlist=local_printer
+30/05/2019 16:35:57: Pagename  = Saveimage.asp start saving 
+30/05/2019 16:35:57:  PrinterList  local_printer
+30/05/2019 16:35:57: Pagename  = Saveimage.asp [Orderid]  = 31187
+30/05/2019 16:35:57: PageName = reprintxml_order.asp ReCreateReceipt  END Order = 31187
+30/05/2019 16:36:07: PageName = reprintxml_order.asp Start 
+30/05/2019 16:36:07: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  31185 Order Date 29/05/2019 15:54:23 Server Time 5/30/2019 16:36:7
+30/05/2019 16:36:07: PageName = reprintxml_order.asp ReCreateReceipt  ORDER =  31185
+30/05/2019 16:36:07: PageName =reprintxml_order.asp ReCreateReceipt  END Order = 31185 batfilepath = D:\OutSource\v7-2\printers\epson\ptjs\31185-2-dishname.bat
+30/05/2019 16:36:09: PageName  = print_t.asp Start Page [Orderid] 31185
+30/05/2019 16:36:09: Pagename  =  print_t.asp  [Refer URL] 
+30/05/2019 16:36:09: PageName  = print_t.asp End Page [Orderid] 31185
+30/05/2019 16:36:09: PageName = reprintxml_order.asp ReCreateReceipt  END Order = 31185
+30/05/2019 16:36:09: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  31187 Order Date 30/05/2019 15:57:08 Server Time 5/30/2019 16:36:7
+30/05/2019 16:36:09: PageName = reprintxml_order.asp ReCreateReceipt  ORDER =  31187
+30/05/2019 16:36:09: PageName =reprintxml_order.asp ReCreateReceipt  END Order = 31187 batfilepath = D:\OutSource\v7-2\printers\epson\ptjs\31187-2-dishname.bat
+30/05/2019 16:36:09: Pagename  = Saveimage.asp 
+30/05/2019 16:36:09: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31185&id_r=2&isPrint=N&idlist=local_printer
+30/05/2019 16:36:09: Pagename  = Saveimage.asp start saving 
+30/05/2019 16:36:09:  PrinterList  local_printer
+30/05/2019 16:36:09: Pagename  = Saveimage.asp [Orderid]  = 31185
+30/05/2019 16:36:11: PageName  = print_t.asp Start Page [Orderid] 31187
+30/05/2019 16:36:11: Pagename  =  print_t.asp  [Refer URL] 
+30/05/2019 16:36:11: PageName  = print_t.asp End Page [Orderid] 31187
+30/05/2019 16:36:11: Pagename  = Saveimage.asp 
+30/05/2019 16:36:11: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31187&id_r=2&isPrint=N&idlist=local_printer
+30/05/2019 16:36:11: Pagename  = Saveimage.asp start saving 
+30/05/2019 16:36:11:  PrinterList  local_printer
+30/05/2019 16:36:11: Pagename  = Saveimage.asp [Orderid]  = 31187
+30/05/2019 16:36:11: PageName = reprintxml_order.asp ReCreateReceipt  END Order = 31187
+30/05/2019 16:36:12: PageName = reprintxml_order.asp Start 
+30/05/2019 16:36:12: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  31185 Order Date 29/05/2019 15:54:23 Server Time 5/30/2019 16:36:12
+30/05/2019 16:36:12: PageName = reprintxml_order.asp ReCreateReceipt  ORDER =  31185
+30/05/2019 16:36:12: PageName =reprintxml_order.asp ReCreateReceipt  END Order = 31185 batfilepath = D:\OutSource\v7-2\printers\epson\ptjs\31185-2-dishname.bat
+30/05/2019 16:36:14: PageName  = print_t.asp Start Page [Orderid] 31185
+30/05/2019 16:36:14: Pagename  =  print_t.asp  [Refer URL] 
+30/05/2019 16:36:14: PageName  = print_t.asp End Page [Orderid] 31185
+30/05/2019 16:36:14: Pagename  = Saveimage.asp 
+30/05/2019 16:36:14: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31185&id_r=2&isPrint=N&idlist=local_printer
+30/05/2019 16:36:14: Pagename  = Saveimage.asp start saving 
+30/05/2019 16:36:14:  PrinterList  local_printer
+30/05/2019 16:36:14: Pagename  = Saveimage.asp [Orderid]  = 31185
+30/05/2019 16:36:14: PageName = reprintxml_order.asp ReCreateReceipt  END Order = 31185
+30/05/2019 16:36:14: PageName = reprintxml_order.asp Start reCreate Receipt for ORDER =  31187 Order Date 30/05/2019 15:57:08 Server Time 5/30/2019 16:36:12
+30/05/2019 16:36:14: PageName = reprintxml_order.asp ReCreateReceipt  ORDER =  31187
+30/05/2019 16:36:14: PageName =reprintxml_order.asp ReCreateReceipt  END Order = 31187 batfilepath = D:\OutSource\v7-2\printers\epson\ptjs\31187-2-dishname.bat
+30/05/2019 16:36:15: PageName  = print_t.asp Start Page [Orderid] 31187
+30/05/2019 16:36:15: Pagename  =  print_t.asp  [Refer URL] 
+30/05/2019 16:36:15: PageName  = print_t.asp End Page [Orderid] 31187
+30/05/2019 16:36:16: Pagename  = Saveimage.asp 
+30/05/2019 16:36:16: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31187&id_r=2&isPrint=N&idlist=local_printer
+30/05/2019 16:36:16: Pagename  = Saveimage.asp start saving 
+30/05/2019 16:36:16:  PrinterList  local_printer
+30/05/2019 16:36:16: Pagename  = Saveimage.asp [Orderid]  = 31187
+30/05/2019 16:36:16: PageName = reprintxml_order.asp ReCreateReceipt  END Order = 31187
+30/05/2019 16:36:34: PageName = reprintxml_order.asp Start 
+30/05/2019 16:36:36: PageName = reprintxml_order.asp Start 
+01/06/2019 03:48:59: PageName  = print_t.asp Start Page [Orderid] 31186
+01/06/2019 03:49:00: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31186&id_r=2
+01/06/2019 03:49:02: PageName  = print_t.asp End Page [Orderid] 31186
+01/06/2019 20:07:54: PageName  = print_t.asp Start Page [Orderid] 31186
+01/06/2019 20:07:55: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31186&id_r=2
+01/06/2019 20:07:58: PageName  = print_t.asp End Page [Orderid] 31186
+03/06/2019 15:16:49: Pagename  = Saveimage.asp 
+03/06/2019 15:16:49: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=7&id_r=2&table=&idlist=
+03/06/2019 15:16:49: Pagename  = Saveimage.asp start saving 
+03/06/2019 15:16:49:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+03/06/2019 15:16:49: Pagename  = Saveimage.asp [Orderid]  = 7
+03/06/2019 15:16:49: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-7-local_printer-0.txt
+03/06/2019 15:16:49: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-7-local_printer-0.txt
+03/06/2019 15:17:04: Pagename  = Saveimage.asp 
+03/06/2019 15:17:04: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=7&id_r=2&table=&idlist=
+03/06/2019 15:17:04: Pagename  = Saveimage.asp start saving 
+03/06/2019 15:17:04:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+03/06/2019 15:17:04: Pagename  = Saveimage.asp [Orderid]  = 7
+05/06/2019 16:10:50: PageName  = print_t.asp Start Page [Orderid] 31188
+05/06/2019 16:10:50: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31188&id_r=2
+05/06/2019 16:10:50: PageName  = print_t.asp End Page [Orderid] 31188
+05/06/2019 16:10:50: Pagename  = Saveimage.asp 
+05/06/2019 16:10:50: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31188&id_r=2&isPrint=&idlist=local_printer
+05/06/2019 16:10:50: Pagename  = Saveimage.asp start saving 
+05/06/2019 16:10:50:  PrinterList  local_printer
+05/06/2019 16:10:50: Pagename  = Saveimage.asp [Orderid]  = 31188
+05/06/2019 16:10:51: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31188-local_printer-0.txt
+05/06/2019 16:10:51: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31188-local_printer-0.txt
+08/06/2019 16:59:00: PageName  = print_t.asp Start Page [Orderid] 31189
+08/06/2019 16:59:00: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31189&id_r=2
+08/06/2019 16:59:00: PageName  = print_t.asp End Page [Orderid] 31189
+08/06/2019 16:59:01: Pagename  = Saveimage.asp 
+08/06/2019 16:59:01: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31189&id_r=2&isPrint=&idlist=local_printer
+08/06/2019 16:59:01: Pagename  = Saveimage.asp start saving 
+08/06/2019 16:59:01:  PrinterList  local_printer
+08/06/2019 16:59:01: Pagename  = Saveimage.asp [Orderid]  = 31189
+08/06/2019 16:59:01: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31189-local_printer-0.txt
+08/06/2019 16:59:01: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31189-local_printer-0.txt
+17/06/2019 16:10:59: PageName  = print_t.asp Start Page [Orderid] 31190
+17/06/2019 16:10:59: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31190
+17/06/2019 16:10:59: PageName  = print_t.asp End Page [Orderid] 31190
+17/06/2019 16:11:00: Pagename  = Saveimage.asp 
+17/06/2019 16:11:00: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31190&id_r=2&isPrint=&idlist=local_printer
+17/06/2019 16:11:00: Pagename  = Saveimage.asp start saving 
+17/06/2019 16:11:00:  PrinterList  local_printer
+17/06/2019 16:11:00: Pagename  = Saveimage.asp [Orderid]  = 31190
+17/06/2019 16:11:00: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31190-local_printer-0.txt
+17/06/2019 16:11:00: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31190-local_printer-0.txt
+17/06/2019 16:11:26: PageName  = print_t.asp Start Page [Orderid] 31190
+17/06/2019 16:11:26: Pagename  =  print_t.asp  [Refer URL] 
+17/06/2019 16:11:26: PageName  = print_t.asp End Page [Orderid] 31190
+17/06/2019 16:11:26: Pagename  = Saveimage.asp 
+17/06/2019 16:11:26: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31190&id_r=2&isPrint=&idlist=local_printer
+17/06/2019 16:11:26: Pagename  = Saveimage.asp start saving 
+17/06/2019 16:11:26:  PrinterList  local_printer
+17/06/2019 16:11:26: Pagename  = Saveimage.asp [Orderid]  = 31190
+17/06/2019 16:16:20: Pagename  = Saveimage.asp 
+17/06/2019 16:16:20: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=14&id_r=2&table=&idlist=
+17/06/2019 16:16:20: Pagename  = Saveimage.asp start saving 
+17/06/2019 16:16:20:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+17/06/2019 16:16:20: Pagename  = Saveimage.asp [Orderid]  = 14
+17/06/2019 16:16:20: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-14-local_printer-0.txt
+17/06/2019 16:16:20: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-14-local_printer-0.txt
+17/06/2019 16:17:31: Pagename  = Saveimage.asp 
+17/06/2019 16:17:31: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=15&id_r=2&table=&idlist=
+17/06/2019 16:17:31: Pagename  = Saveimage.asp start saving 
+17/06/2019 16:17:31:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+17/06/2019 16:17:31: Pagename  = Saveimage.asp [Orderid]  = 15
+17/06/2019 16:17:31: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-15-local_printer-0.txt
+17/06/2019 16:17:31: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-15-local_printer-0.txt
+17/06/2019 16:17:52: Pagename  = Saveimage.asp 
+17/06/2019 16:17:52: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_local.asp?isPrint=&id_o=15&id_r=2&table=&idlist=
+17/06/2019 16:17:52: Pagename  = Saveimage.asp start saving 
+17/06/2019 16:17:52:  PrinterList  local_printer;PN:local_printer;PN:kitchen_printer
+17/06/2019 16:17:52: Pagename  = Saveimage.asp [Orderid]  = 15
+18/06/2019 15:17:02: PageName  = print_t.asp Start Page [Orderid] 31191
+18/06/2019 15:17:02: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/Thanks.asp?id_o=31191&id_r=2
+18/06/2019 15:17:02: PageName  = print_t.asp End Page [Orderid] 31191
+18/06/2019 15:17:02: Pagename  = Saveimage.asp 
+18/06/2019 15:17:02: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31191&id_r=2&isPrint=&idlist=local_printer
+18/06/2019 15:17:02: Pagename  = Saveimage.asp start saving 
+18/06/2019 15:17:02:  PrinterList  local_printer
+18/06/2019 15:17:02: Pagename  = Saveimage.asp [Orderid]  = 31191
+18/06/2019 15:17:02: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31191-local_printer-0.txt
+18/06/2019 15:17:02: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31191-local_printer-0.txt
+03/07/2019 16:10:19: PageName  = print_t.asp Start Page [Orderid] 31192
+03/07/2019 16:10:19: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31192
+03/07/2019 16:10:19: PageName  = print_t.asp End Page [Orderid] 31192
+03/07/2019 16:10:20: Pagename  = Saveimage.asp 
+03/07/2019 16:10:20: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31192&id_r=2&isPrint=&idlist=local_printer
+03/07/2019 16:10:20: Pagename  = Saveimage.asp start saving 
+03/07/2019 16:10:20:  PrinterList  local_printer
+03/07/2019 16:10:20: Pagename  = Saveimage.asp [Orderid]  = 31192
+03/07/2019 16:10:20: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31192-local_printer-0.txt
+03/07/2019 16:10:20: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31192-local_printer-0.txt
+03/07/2019 16:26:01: Pagename  = Saveimage.asp 
+03/07/2019 16:26:01: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31192&id_r=2&isPrint=&idlist=local_printer
+03/07/2019 16:26:01: Pagename  = Saveimage.asp start saving 
+03/07/2019 16:26:03:  PrinterList  local_printer
+03/07/2019 16:26:03: Pagename  = Saveimage.asp [Orderid]  = 31192
+20/07/2019 09:29:33: PageName  = print_t.asp Start Page [Orderid] 31196
+20/07/2019 09:29:33: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31196
+20/07/2019 09:29:33: PageName  = print_t.asp End Page [Orderid] 31196
+20/07/2019 09:29:33: Pagename  = Saveimage.asp 
+20/07/2019 09:29:33: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31196&id_r=2&isPrint=&idlist=local_printer
+20/07/2019 09:29:33: Pagename  = Saveimage.asp start saving 
+20/07/2019 09:29:33:  PrinterList  local_printer
+20/07/2019 09:29:33: Pagename  = Saveimage.asp [Orderid]  = 31196
+20/07/2019 09:29:34: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31196-local_printer-0.txt
+20/07/2019 09:29:34: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31196-local_printer-0.txt
+20/07/2019 09:32:59: PageName  = print_t.asp Start Page [Orderid] 31197
+20/07/2019 09:32:59: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31197
+20/07/2019 09:32:59: PageName  = print_t.asp End Page [Orderid] 31197
+20/07/2019 09:33:00: Pagename  = Saveimage.asp 
+20/07/2019 09:33:00: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31197&id_r=2&isPrint=&idlist=local_printer
+20/07/2019 09:33:00: Pagename  = Saveimage.asp start saving 
+20/07/2019 09:33:00:  PrinterList  local_printer
+20/07/2019 09:33:00: Pagename  = Saveimage.asp [Orderid]  = 31197
+20/07/2019 09:33:00: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31197-local_printer-0.txt
+20/07/2019 09:33:00: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31197-local_printer-0.txt
+21/07/2019 15:04:14: PageName  = print_t.asp Start Page [Orderid] 31201
+21/07/2019 15:04:14: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31201
+21/07/2019 15:04:14: PageName  = print_t.asp End Page [Orderid] 31201
+21/07/2019 15:04:14: Pagename  = Saveimage.asp 
+21/07/2019 15:04:14: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31201&id_r=2&isPrint=&idlist=local_printer
+21/07/2019 15:04:14: Pagename  = Saveimage.asp start saving 
+21/07/2019 15:04:14:  PrinterList  local_printer
+21/07/2019 15:04:14: Pagename  = Saveimage.asp [Orderid]  = 31201
+21/07/2019 15:04:15: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31201-local_printer-0.txt
+21/07/2019 15:04:15: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31201-local_printer-0.txt
+21/07/2019 15:24:03: PageName  = print_t.asp Start Page [Orderid] 31202
+21/07/2019 15:24:03: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31202
+21/07/2019 15:24:03: PageName  = print_t.asp End Page [Orderid] 31202
+21/07/2019 15:24:03: Pagename  = Saveimage.asp 
+21/07/2019 15:24:03: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31202&id_r=2&isPrint=&idlist=local_printer
+21/07/2019 15:24:03: Pagename  = Saveimage.asp start saving 
+21/07/2019 15:24:03:  PrinterList  local_printer
+21/07/2019 15:24:03: Pagename  = Saveimage.asp [Orderid]  = 31202
+21/07/2019 15:24:03: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31202-local_printer-0.txt
+21/07/2019 15:24:03: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31202-local_printer-0.txt
+11/08/2019 07:43:52: PageName  = print_t.asp Start Page [Orderid] 31209
+11/08/2019 07:43:52: Pagename  =  print_t.asp  [Refer URL] http://my.outsource.com/demo-place-sk13-8aq-0131-313-5588/thanks/31209
+11/08/2019 07:43:52: PageName  = print_t.asp End Page [Orderid] 31209
+11/08/2019 07:43:52: Pagename  = Saveimage.asp 
+11/08/2019 07:43:52: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31209&id_r=2&isPrint=&idlist=local_printer
+11/08/2019 07:43:52: Pagename  = Saveimage.asp start saving 
+11/08/2019 07:43:52:  PrinterList  local_printer
+11/08/2019 07:43:52: Pagename  = Saveimage.asp [Orderid]  = 31209
+11/08/2019 07:43:53: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31209-local_printer-0.txt
+11/08/2019 07:43:53: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31209-local_printer-0.txt
+27/08/2019 16:20:38: PageName = pintXML_v2.xml Start 2
+27/08/2019 16:20:38: The receipt 2-27-local_printer-0 failed to print. And it was deleted from the queue. last print 00:10:00 Now 27/08/2019 16:20:38
+27/08/2019 16:21:10: PageName = pintXML_v2.xml Start 2
+27/08/2019 16:21:10: Start move file from  D:\OutSource\v7-2\printers\Epson\ReceiptImage/2-28-local_printer-0.txt  to D:\OutSource\v7-2\printers\Epson\ReceiptImage\Printing/2-28-local_printer-0.txt
+27/08/2019 16:21:10: End Print receipt[1] D:\OutSource\v7-2\printers\Epson\ReceiptImage\2-28-local_printer-0.txt
+29/03/2020 15:57:50: PageName  = print_t.asp Start Page [Orderid] 31347
+29/03/2020 15:57:50: Pagename  =  print_t.asp  [Refer URL] 
+29/03/2020 15:57:50: PageName  = print_t.asp End Page [Orderid] 31347
+29/03/2020 15:57:51: Pagename  = Saveimage.asp 
+29/03/2020 15:57:51: Pagename  = Saveimage.asp [Refer URL] http://my.outsource.com/printers/epson/print_t.asp?mod=dishname&id_o=31347&id_r=2&isPrint=&idlist=local_printer
+29/03/2020 15:57:51: Pagename  = Saveimage.asp start saving 
+29/03/2020 15:57:51:  PrinterList  local_printer
+29/03/2020 15:57:51: Pagename  = Saveimage.asp [Orderid]  = 31347
+29/03/2020 15:57:52: Pagename  = Saveimage.asp before create image 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\Printing\2-31347-local_printer-0.txt
+29/03/2020 15:57:52: Pagename  = Saveimage.asp Done write file 0  = D:\OutSource\v7-2\printers\epson\ReceiptImage\2-31347-local_printer-0.txt
