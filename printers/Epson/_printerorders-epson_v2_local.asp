@@ -6,7 +6,7 @@
      %>
 
 <!-- #include file="../../timezone.asp" -->
-<!-- #include file="../../restaurantsettings.asp" -->
+<!-- #include file="../../restaurantsettings_ForPrinter.asp" -->
 <%
      dim newWay : newWay = false
        if printingtype = "text" then

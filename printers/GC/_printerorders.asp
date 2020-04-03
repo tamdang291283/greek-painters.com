@@ -9,7 +9,7 @@ Session.LCID     = 1033 'en-US
    
 session("restaurantid")=request.querystring("id")%>
 <!-- #include file="../../timezone.asp" -->
-<!-- #include file="../../restaurantsettings.asp" -->
+<!-- #include file="../../restaurantsettings_forprinter.asp" -->
 <% 
    '   Response.Write("AAAAA" & SEND_ORDERS_TO_PRINTER)
   '  Response.end()

@@ -3,7 +3,7 @@
  
     session("restaurantid")=Request.QueryString("id_r")
      %>
-<!-- #include file="../../restaurantsettings.asp" -->
+<!-- #include file="../../restaurantsettings_ForPrinter.asp" -->
 <%
     Function WriteLog(logFilePath, logContent)
         Dim logobjFSO, logFile
@@ -109,15 +109,10 @@
                         End If
                     End If
                     'SendEmailV2 "Printer failed1","Now:" & Now() & " Last Sent:" & Application(rID&"_LastSendMail") & ". Print Count:" & Application(rID&"_PrintFailCount") , "danghai88@gmail.com"
-                    If Application(rID&"_LastSendMail") = ""  Then
-                        objCon2.Open sConnString
-                        objRds2.Open "SELECT *  FROM BusinessDetails  WHERE Id = " & rID, objCon2
-                        
-                        If Not objRds2.EOF Then
-                            Dim RestaurantNotificationEmail
-                            RestaurantNotificationEmail = objRds2("CONFIRMATION_EMAIL_ADDRESS")
-                            objRds2.Close
-                            objCon2.Close 
+                    If Application(rID&"_LastSendMail") = "" AND RestaurantNotificationEmail & "" <> "" Then
+                       
+                               
+                            
                             'SendEmailV2 "Printer failed3", "Last Sent:" & Application(rID&"_LastSendMail") & ". Check EOF:" & RestaurantNotificationEmail , "danghai88@gmail.com"
                             Dim ErrCode11,sEC, eEC, errMessage
                             errMessage = ""
@@ -149,7 +144,7 @@
                             SendEmailV2 "Printer Error", "Printer has failed to print.  Error Code returned by printer:  " & ErrCode11  & " (" & errMessage & ")", RestaurantNotificationEmail
                             Application(rID&"_LastSendMail") = Now()
                             Application(rID&"_PrintFailCount") = 0
-                        End If
+                        
                     End if
                 End If
             End If

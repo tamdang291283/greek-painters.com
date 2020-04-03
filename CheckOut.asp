@@ -1311,6 +1311,7 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
 
                     if (tempRouteName2 != "") $("#Address").val(tempRouteName2);
                     else if (tempLocalcity2 != "") $("#Address").val(tempLocalcity2);
+                    else $("#Address").val("");
 
                     if(tempPostalTown2!="")
                         $("#Address2").val(tempPostalTown2);

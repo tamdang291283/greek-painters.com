@@ -1744,7 +1744,10 @@ max-width: 154.3px;
 					                                        pricefrom=objRds_propertiesitems("dishpropertyprice")
 				                                        end if
 				                                    end if
-				                                    dishpropertiestext = dishpropertiestext & "<option data-thumbnail=""" & htmlicon & """ s_SuitableFor_dp="""& s_SuitableFor_dp &"""  s_MayContainAllergen_dp="""& s_MayContainAllergen_dp  &""" s_ContainAllergen_dp="""& s_ContainAllergen_dp & "|" & s_MayContainAllergen_dp &""" value=""" & objRds_propertiesitems("id") & """>" & objRds_propertiesitems("dishproperty") & " - add " & " " &  CURRENCYSYMBOL & FormatNumber(objRds_propertiesitems("dishpropertyprice"),2) & "</option>"
+                                                    if add = "" then
+                                                        add = " - "    
+                                                    end if     
+				                                    dishpropertiestext = dishpropertiestext & "<option data-thumbnail=""" & htmlicon & """ s_SuitableFor_dp="""& s_SuitableFor_dp &"""  s_MayContainAllergen_dp="""& s_MayContainAllergen_dp  &""" s_ContainAllergen_dp="""& s_ContainAllergen_dp & "|" & s_MayContainAllergen_dp &""" value=""" & objRds_propertiesitems("id") & """>" & objRds_propertiesitems("dishproperty") & add & " " &  CURRENCYSYMBOL & FormatNumber(objRds_propertiesitems("dishpropertyprice"),2) & "</option>"
 				    		                        objRds_propertiesitems.MoveNext
 							                    wend 
                                                 objRds_propertiesitems.close()
@@ -1964,6 +1967,8 @@ max-width: 154.3px;
                 'set objRds_MenuItem = nothing
                     objRdsMainCategory.close()
                 set objRdsMainCategory = nothing
+              
+
                                  %>
 
 		</div>

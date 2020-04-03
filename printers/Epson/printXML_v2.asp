@@ -5,7 +5,7 @@
      %>
 
 <!-- #include file="../../timezone.asp" -->
-<!-- #include file="../../restaurantsettings.asp" -->
+<!-- #include file="../../restaurantsettings_ForPrinter.asp" -->
 <%
     Dim   objFSO, rID 
           rID = Request.QueryString("id_r") 
@@ -100,14 +100,8 @@
                         End If
                     End If
                     'SendEmailV2 "Printer failed1","Now:" & Now() & " Last Sent:" & Application(rID&"_LastSendMail") & ". Print Count:" & Application(rID&"_PrintFailCount") , "danghai88@gmail.com"
-                    If Application(rID&"_LastSendMail") = ""  Then
-                        objCon2.Open sConnString
-                        objRds2.Open "SELECT CONFIRMATION_EMAIL_ADDRESS  FROM BusinessDetails with(nolock)  WHERE Id = " & rID, objCon2
+                    If Application(rID&"_LastSendMail") = "" AND RestaurantNotificationEmail & "" <> """" Then
                         
-                        If Not objRds2.EOF Then
-                            Dim RestaurantNotificationEmail
-                            RestaurantNotificationEmail = objRds2("CONFIRMATION_EMAIL_ADDRESS")
-                            
                             if RePrintReceiptWays & "" then
                                 RePrintReceiptWays = "none"
                             end if
@@ -144,9 +138,7 @@
                             Application(rID&"_LastSendMail") = Now()
                             Application(rID&"_PrintFailCount") = 0
                              WriteLog Server.MapPath("EpsonPostImageAndPrint.txt"),"Printer has failed to print.  Error Code returned by printer:  " & ErrCode11  & " (" & errMessage & ")" 
-                        End If
-                                objRds2.Close
-                                objCon2.Close 
+                        
                     End if
                 End If
             End If
