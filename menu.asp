@@ -1361,7 +1361,113 @@ max-width: 154.3px;
           
 
 <!-- End update menu bar -->
-       
+                    <!--task 282 Reorder-->
+                        <% 
+                            Dim CustomerEmail : CustomerEmail = Request.Cookies("FormEmail") 
+                                CustomerEmail = "tam.dang832912@gmail.com"
+                            if trim(CustomerEmail & "") <> "" then
+                                    Dim  SQL_Order : SQL_Order = "select top 2 ID,orderdate from Orders with(nolock)where Email ='"&CustomerEmail&"'  order by ID desc"
+                                    Dim  RS_Order : set RS_Order = Server.CreateObject("ADODB.Recordset")
+                                         RS_Order.Open SQL_Order , objCon
+                            if not RS_Order.EOF then
+                        %>
+                                <div class="group-ptoduct-line">
+                                        <div class="product-line">
+                                            <div class="product-line__content-left">Previous Order</div>
+                                            <div class="pproduct-line__content-right"></div>
+                                        </div>
+                                    </div>
+                        <%
+                                         While not RS_Order.EOF
+                                          
+
+                        %>  
+                                    <div class="group-ptoduct-line">
+                                        <div class="product-line">
+                                            <div class="product-line__content-left"><%=RS_Order("orderdate") %> </div>
+                                            <div class="pproduct-line__content-right"><span onclick="ReOrder(<%=RS_Order("ID") %>)">Reorder</span></div>
+                                        </div>
+                                         <%
+                                                  '' Load Order Item 
+                                                set     objRds_Item = Server.CreateObject("ADODB.Recordset")
+                                                          
+                                                        objRds_Item.Open "select oi.Total,oi.toppingids,oi.dishpropertiesids,oi.MenuItemId,oi.MenuItemPropertyId,oi.Qta," & _
+                                                                "mi.Name, mip.Name as PropertyName ,isnull(mi.ApplyTo,'b') as ApplyTo " & _
+                                                                "from ( OrderItems oi " & _
+                                                                "inner join MenuItems mi on oi.MenuItemId = mi.Id ) " & _
+                                                                "left join MenuItemProperties mip on oi.MenuItemPropertyId = mip.Id " & _
+                                                                "where oi.OrderId = " & RS_Order("ID") & " order by oi.ID desc" , objCon
+                                               while not objRds_Item.eof 
+                                                    Dim dishpropertiesprice : dishpropertiesprice = ""
+                                                    Dim dishpropertiessplit ,dishpropertiessplit2
+                                                    Dim toppingtext
+                                                If objRds_Item("dishpropertiesids") <> "" Then						 
+						                            dishpropertiessplit=split(objRds_Item("dishpropertiesids"),",")
+					                                    for i=0 to ubound(dishpropertiessplit)					
+					                                        dishpropertiessplit2=split(dishpropertiessplit(i),"|")
+					                                        if dishpropertiessplit2(1)<>0 then					
+					                                            Set objRds_dishpropertiesprice = Server.CreateObject("ADODB.Recordset") 					
+	                                                                objRds_dishpropertiesprice.Open "SELECT MenuDishproperties.ID, MenuDishproperties.dishproperty, MenuDishproperties.dishpropertyprice, MenuDishpropertiesGroups.dishpropertypricetype, MenuDishpropertiesGroups.dishpropertygroup FROM MenuDishproperties   INNER JOIN MenuDishpropertiesGroups    ON MenuDishproperties.dishpropertygroupid = MenuDishpropertiesGroups.ID where (((MenuDishproperties.ID)=" & dishpropertiessplit2(1)  & "))", objCon
+					                                                dishpropertiesprice =  "<BR> <small>" & objRds_dishpropertiesprice("dishpropertygroup") & ":" & objRds_dishpropertiesprice("dishproperty") & "</small>" 
+					                                                objRds_dishpropertiesprice.close()
+                                                                set objRds_dishpropertiesprice = nothing
+					                                        end if
+					
+					                                    next
+					                            end if
+
+                                                toppingtext=""
+						                    If objRds_Item("toppingids") <> "" Then 
+								                    Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                                                    Dim SQLTopping 
+                                                    SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
+                                                    SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
+                                                    SQLTopping =SQLTopping & "    where m.id in ("& objRds_Item("toppingids") &")"
+                                                    objRds_toppingids.Open SQLTopping, objCon
+				                                    toppingtext=""
+                                                    Dim toppinggroup : toppinggroup = ""
+				                                    Do While NOT objRds_toppingids.Eof 
+						                                toppingtext = toppingtext & objRds_toppingids("topping") & ", "
+                                                        toppinggroup = objRds_toppingids("toppingsgroup")
+						                                objRds_toppingids.MoveNext
+						                            loop
+                                                        objRds_toppingids.close()
+                                                    set objRds_toppingids = nothing
+						                            if toppingtext<>"" then
+							                              if toppinggroup & "" = "" then
+                                                            toppinggroup = "Toppings"
+                                                          end if  
+                                                         toppingtext=left(toppingtext,len(toppingtext)-2)
+						                                toppingtext = "<small><br>"&toppinggroup&": " & toppingtext & "</small>"
+						                            end if
+						                     End If
+
+
+                                                 %>
+                                        <div class="product-line">                                           
+                                            <div class="product-line__content-left">
+                                                 <%= objRds_Item("Name") %>&nbsp;<%= objRds_Item("PropertyName") %> 
+                                                <%=dishpropertiesprice %>  
+                                                <%=toppingtext %>  
+                                            </div>
+                                            <div class="pproduct-line__content-right"><%=CURRENCYSYMBOL%><%= FormatNumber(objRds_Item("Total"), 2) %> <span onclick="AdditemTocart('<%=objRds_Item("MenuItemId")&""%>','<%=objRds_Item("MenuItemPropertyId")&""%>' ,'<%=objRds_Item("toppingids")&""%>' ,'<%=objRds_Item("dishpropertiesids")&""%>' ,'<%=objRds_Item("Qta")&""%>')  ">Add</span></div>
+                                        </div>
+                                            <%  objRds_Item.movenext
+                                                wend
+                                                objRds_Item.close()
+                                                set objRds_Item = nothing
+                                                 %>
+                                         
+                                    </div>
+                                <% 
+                                    RS_Order.movenext()
+                                    wend %>
+                           <% end if
+                               RS_Order.close()
+                               set RS_Order = nothing
+                                %> 
+                        <% end if %>
+                    <!--End reorder-->
                     <% 
                 
                 Dim vCategoryId                
@@ -2434,7 +2540,14 @@ max-width: 154.3px;
     }
 		
 	
-
+    function ReOrder(orderID)
+    {
+        $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&ot=online&op=reorder&RID=" + orderID);
+    }
+    function AdditemTocart(mi,mip,toppingids,dishproperties,qta)
+    {
+        $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&ot=online&op=add&mi=" +mi+"&mip="+mip+"&toppingids="+toppingids+"&dishproperties="+dishproperties+"&qta=" + qta);
+    }
     function Delc(itemId) {	
         $("#shoppingcart").load("<%=SITE_URL%>ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&id=" + itemId);
     }

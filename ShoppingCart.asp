@@ -170,6 +170,40 @@ If vOrderId = "" AND LCase(Request.QueryString("op")) = "add" then
     vOrderId = objRds("Id") 
      objRds.Close
     set objRds = nothing
+elseif LCase(Request.QueryString("op")) = "reorder" then
+    '' Delete old Order
+    objCon.execute("delete from orderitems where orderID in (select ID from orders with(nolock) where  SessionId=" & Session.SessionID & " ) " )
+    objCon.execute("delete from orders where SessionId=" & Session.SessionID )
+    ' Create new order
+        Dim ReorderID  : ReorderID = request.QueryString("RID")
+        Set objRds = Server.CreateObject("ADODB.Recordset") 
+            objRds.Open "SELECT * FROM [Orders] WHERE 1 = 0 ", objCon, 1, 3 
+            objRds.AddNew 
+            objRds("CreationDate") = DateAdd("h",houroffset,now)
+            objRds("IdBusinessDetail") = vRestaurantId           
+            objRds("SessionId") = Session.SessionID
+            objRds("SubTotal") = vSubTotal
+            objRds("FromIp") = Request.ServerVariables("REMOTE_ADDR")
+            objRds("OrderType") = Request.QueryString("ot")
+            objRds.Update 
+            vOrderId = objRds("Id") 
+            objRds.Close
+            set objRds = nothing
+
+    '' insert into OrderItems(OrderId,MenuItemId,MenuItemPropertyId,Qta,Price,Total,toppingids,dishpropertiesids) 
+''select OrderId,MenuItemId,MenuItemPropertyId,Qta,Price,Total,toppingids,dishpropertiesids from OrderItems where ID=2
+        Dim RS_orderItems : set RS_orderItems = Server.CreateObject("ADODB.Recordset")
+              
+            RS_orderItems.Open "select ID from OrderItems with(nolock) where orderid = " & ReorderID, objCon
+            Dim SQL_Clone
+        while not RS_orderItems.EOF
+            SQL_Clone = "insert into OrderItems(OrderId,MenuItemId,MenuItemPropertyId,Qta,Price,Total,toppingids,dishpropertiesids) "
+            SQL_Clone =  SQL_Clone & " select "&vOrderId&",MenuItemId,MenuItemPropertyId,Qta,Price,Total,toppingids,dishpropertiesids from OrderItems where ID=  " &  RS_orderItems("ID")
+            objCon.execute(SQL_Clone)
+            RS_orderItems.movenext
+        wend
+            RS_orderItems.close()
+        set RS_orderItems  =  nothing 
    '  objCon.Close    
 ElseIf vOrderId = "" Then
     vOrderId = "0"
@@ -196,6 +230,9 @@ if vOperator <> "" or 1=1 Then
             vMenuItemId = Request.QueryString("mi")
             vMenuItemPrice = 0
             vMenuItemPropertyId = Request.QueryString("mip")
+            if vMenuItemPropertyId = "" then
+                    vMenuItemPropertyId = 0
+            end if
 			toppingids = Request.QueryString("toppingids")
             dishpropertiesids = Request.QueryString("dishproperties")
             Set objRds = Server.CreateObject("ADODB.Recordset") 
@@ -288,8 +325,11 @@ if vOperator <> "" or 1=1 Then
                         objRds("Price") = cdbl(vMenuItemPrice) + cdbl(toppingprice) + cdbl(dishpropertypriceaddons)
                         objRds("Qta") = 0
                     End If 
-        
-                    objRds("Qta") = objRds("Qta") + 1
+                    if Request.QueryString("Qta") & "" = "" then
+                        objRds("Qta") = objRds("Qta") + 1
+                    else
+                        objRds("Qta") = objRds("Qta") + cint(Request.QueryString("Qta"))
+                    end if
                     WriteLog Server.MapPath("trackingtopping.txt"),"PageName = shoppingcart.asp OrderID = " & vOrderId & " vMenuItemPrice  " &vMenuItemPrice&  " toppingprice " & toppingprice & " dishpropertypriceaddons " &    dishpropertypriceaddons & " of item " & vMenuItemId
                     objRds("Total") = cdbl(objRds("Qta")) * (cdbl(vMenuItemPrice) + toppingprice + dishpropertypriceaddons)
                     objRds.Update 
@@ -911,6 +951,8 @@ $("textarea#Specialinput").val($.cookie("Specialinput"));
           
             if(<%=Request.QueryString("top")%> > 0 )
                 jQuery('#divShoppingCartSroll').scrollTop(<%=Request.QueryString("top")%>);
+          
+            
         }
     });
     <% end if %>
