@@ -52,6 +52,7 @@ End Function
 %>
 <%
 If (CStr(Request("MM_update")) = "form1") Then
+   
   If (Not MM_abortEdit) Then
     ' execute the update
     Dim MM_editCmd
@@ -90,7 +91,8 @@ If (CStr(Request("MM_update")) = "form1") Then
         SQL = SQL & "[Sat_Collection] = ?," '30
         SQL = SQL & "[Sun_Collection] = ?," '31
         SQL = SQL & "[DeliveryCostUpTo]=?," '32
-        SQL = SQL & "[DeliveryUptoMile]=? " '33 
+        SQL = SQL & "[DeliveryUptoMile]=?," '33 
+        SQL = SQL & "[s_DeliveryZonesPath]=? " '34
         SQL = SQL & "  WHERE ID = " & MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null) 
 
     MM_editCmd.CommandText = SQL
@@ -132,8 +134,8 @@ If (CStr(Request("MM_update")) = "form1") Then
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param31", 6, 1, 255, MM_IIF(Request.Form("Sun_Collection"),Request.Form("Sun_Collection"),0) ) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param32", 6, 1, 255, MM_IIF(Request.Form("DeliveryCostUpTo"),Request.Form("DeliveryCostUpTo"),0) ) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param33", 6, 1, 255, MM_IIF(Request.Form("DeliveryUptoMile"),Request.Form("DeliveryUptoMile"),0) ) ' adVarWChar
-   
-    
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param34", 201, 1, 4000, MM_IIF(Request.Form("hidDeliveryZone"),Request.Form("hidDeliveryZone"),"") ) ' nText
+       
     MM_editCmd.Execute
 
     
@@ -221,8 +223,14 @@ Recordset1_numRows = 0
 	
 
 
+	<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvyfg017v5c_Wi2hQykmsv8VpS6tNaQoM&libraries=drawing">
+</script>
 
-
+    <script   type="text/javascript" src="<%=SITE_URL %>Scripts/jquery.lazy.min.js"></script>
+    <script type="text/javascript" src="<%=SITE_URL %>scripts/fancybox/jquery.fancybox.pack.js?v=2.1.5"></script>	
+    
+    <link rel="stylesheet" type="text/css" href="<%=SITE_URL %>scripts/fancybox/jquery.fancybox.css?v=2.1.5">
 <div class="row clearfix">
 		<div class="col-md-12 column">
 		<ol class="breadcrumb">
@@ -231,7 +239,32 @@ Recordset1_numRows = 0
  <li>Edit Delivery/Collection Info</li>
   
 </ol>
-			
+            <div class="panel panel-default">
+                <div class="panel-heading">Delivery Zones setup</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <!--<label for="document name">Delivery Zones setup</label>-->
+                        <p id="DeliveryZoneInfo" style="color:red;"></p>
+                        <a id="fancyBoxMap" style="display: block; padding-top: 5px;" class="fancybox text-centered" data-popup="#divFancyMap" href="#divFancyMap">Setup Zone</a>
+                        <input type="hidden" id="hidZonesVal" name="hidZonesVal" value="" />
+                       
+                    </div>
+                    <div id="divFancyMap" style="width: 100%; height: 90%; display: none; position: absolute;">
+
+                        <div style="width: 100%; text-align: center;">
+                            <button class="btn btn-default" onclick="drawRec();">Add zone</button>
+                            <button class="btn btn-default" id="btnDeleteZone" onclick="deleteCurrentZone();" disabled>Delete selected zone</button>
+                            <button class="btn btn-default" onclick="SaveZones();">Save</button>
+                            <p style="display:block;color:green;margin-top:7px;height:11px;" id="pDrawingZoneMessage"></p>
+                        </div>
+                        <div id="divGoogleMap" style="width: 100%; height: 100%; position: absolute;"></div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
 			
 			  <div class="panel panel-default">
   <div class="panel-heading">Delivery Charges</div>
@@ -275,7 +308,7 @@ Recordset1_numRows = 0
     <input type="text"  pattern="[0-9]+([\.][0-9]{0,2})?"  title="Delivery Max Distance must be a number with up to 2 decimal places" class="form-control" id="DeliveryMaxDistance" name="DeliveryMaxDistance" value="<%=(Recordset1.Fields.Item("DeliveryMaxDistance").Value)%>" required>
   </div>
   
-  
+       
     <div class="form-group">
     <label for="document name">Delivery Charge Override By Order Value    </label>
 	<p>Enter the order value for which delivery charges become free/zero. Leave blank for no override.</p>
@@ -286,8 +319,7 @@ Recordset1_numRows = 0
   </div>
   
      
-  
-  
+ 
   
 
   
@@ -674,7 +706,7 @@ Recordset1_numRows = 0
 
  
   </div>
-  
+   <input type="hidden" name="hidDeliveryZone" id='hidDeliveryZone' value='<%=(Recordset1.Fields.Item("s_DeliveryZonesPath").Value)%>'>
   <input type="hidden" name="MM_update" value="form1">
   <input type="hidden" name="MM_recordId" value="<%= Recordset1.Fields.Item("ID").Value %>">
   <button type="submit" class="btn btn-default">Submit</button>
@@ -690,12 +722,179 @@ Recordset1_numRows = 0
 <!-- Modal -->
 
 
-      <%     Recordset1.close()
+   
+    <script>
+    var GoogleMap;
+    var drawingManager;
+    var deliveryZones = [];
+    var selectedZone;
+    
+     
+         $(".fancybox")
+    .fancybox({
+        type: 'inline',
+        //'scrolling': 'no',
+        autoSize: false,
+        height: "97%",
+        width: "96%",
+        closeBtn: true,
+        fitToView: false,
+        margin: [0, 0, 0, 0],
+        afterShow: function () {
+         
+        },
+        beforeShow: function () {
+            if (GoogleMap == null) {
+                initializeGoogleMap();
+                InitZones();
+            }
+             
+            
+        }
+        , beforeClose: function () {
+           
+        }
+    });
+
+    function initializeGoogleMap() {
+     var myLatLng = {lat: <%=Recordset1.Fields.Item("latitude").Value %>, lng: <%=Recordset1.Fields.Item("longitude").Value %>};
+    var mapOptions = {
+        center: new google.maps.LatLng(<%=Recordset1.Fields.Item("latitude").Value %>, <%=Recordset1.Fields.Item("longitude").Value %>),
+        zoom: 15
+    };
+    GoogleMap = new google.maps.Map(document.getElementById('divGoogleMap'),
+    mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: GoogleMap,
+        title: 'Here!'
+      });
+      drawingManager = new google.maps.drawing.DrawingManager();
+      initZoneDrawingManager();
+    }
+    function onCompletePolygon(polygon){
+      deliveryZones.push(polygon);
+      drawingManager.setDrawingMode(null);
+      $('#pDrawingZoneMessage').html('');      
+        google.maps.event.addListener(polygon, 'click', function (e) {
+            if (e.vertex !== undefined) {
+                var path = polygon.getPaths().getAt(e.path);
+                    path.removeAt(e.vertex);
+                    if (path.length < 3) {
+                        polygon.setMap(null);
+                    } 
+            }
+            selectZone(polygon);
+        });
+        
+    }
+    function InitZones(){
+        if( $('#hidDeliveryZone').val() == '') return;
+        var AllZones = JSON.parse($('#hidDeliveryZone').val());
+        for(var i = 0; i < AllZones.Zones.length; i++){
+             
+          deliveryZones.push(new google.maps.Polygon({
+            path: AllZones.Zones[i],
+            strokeWeight : 0.5,				 
+			fillOpacity : 0.6,
+            fillColor:'#d3f3c8',
+            editable: false,
+            draggable: false
+          })         );
+        
+        }
+        for(var i = 0; i < deliveryZones.length; i++){
+            deliveryZones[i].addListener( 'click', function (e) {
+                selectZone(this);
+             });
+            deliveryZones[i].setMap(GoogleMap);
+       }
+    }
+    function selectZone(zone){
+        selectedZone = zone;
+        zone.set('fillColor', '#ffe800'); 
+        for( var i = 0; i < deliveryZones.length; i++){ 
+           if ( deliveryZones[i] !=  selectedZone) {
+            deliveryZones[i].set('fillColor', '#d3f3c8'); 
+           }
+        }
+        $('#btnDeleteZone').removeAttr('disabled');
+    }
+    
+    function deleteCurrentZone(){
+        if(deliveryZones != null){
+        for( var i = 0; i < deliveryZones.length; i++){ 
+           if ( deliveryZones[i] === selectedZone) {
+             deliveryZones.splice(i, 1); 
+           }
+        }
+        $('#btnDeleteZone').attr('disabled','disabled');
+        selectedZone.setMap(null);
+        }
+    }
+
+   function initZoneDrawingManager(){
+        //Setting options for the Drawing Tool. In our case, enabling Polygon shape.
+       
+		drawingManager.setOptions({
+			drawingMode : null,
+			drawingControl : false,
+			drawingControlOptions : {
+				position : google.maps.ControlPosition.TOP_CENTER,
+				drawingModes : [ google.maps.drawing.OverlayType.POLYGON ]
+			},
+			polygonOptions : {				 
+				strokeWeight : 0.5,				 
+				fillOpacity : 0.6,
+                fillColor:'#d3f3c8',
+                editable: false,
+                draggable: false
+			}	
+		});
+		// Loading the drawing Tool in the Map.
+	  drawingManager.setMap(GoogleMap);
+      google.maps.event.addListener(drawingManager, 'polygoncomplete',onCompletePolygon);
+    }
+     function selectColor(color) {
+             
+            // Retrieves the current options from the drawing manager and replaces the
+            // stroke or fill color as appropriate.
+             
+            var polygonOptions = drawingManager.get('polygonOptions');
+            polygonOptions.fillColor = color;             
+            drawingManager.set('polygonOptions', polygonOptions);
+        }
+
+    function drawRec() {
+ 
+         drawingManager.setDrawingMode(google.maps.drawing.OverlayType.POLYGON);
+        $('#pDrawingZoneMessage').html('Click on the map to start drawing a zone.');
+    }
+     function ShowingZoneNumber(){
+        if( $('#hidDeliveryZone').val() == '') return;
+        var temp = JSON.parse($('#hidDeliveryZone').val());
+        $('#DeliveryZoneInfo').html(temp.Zones.length +' zone(s) is defined. View the map to see.');
+    }
+    function SaveZones() {
+        var DeliveryZones = new Object(); 
+        DeliveryZones.Zones = Array();
+         for( var i = 0; i < deliveryZones.length; i++){ 
+           DeliveryZones.Zones.push(deliveryZones[i].getPath().getArray());
+        }
+         if(DeliveryZones.Zones.length > 0)
+            $('#hidDeliveryZone').val(JSON.stringify(DeliveryZones));
+        else
+            $('#hidDeliveryZone').val('');
+        $('#DeliveryZoneInfo').html(deliveryZones.length +' zone(s) is defined. Submit to save.');
+        $.fancybox.close();
+    }
+    ShowingZoneNumber();
+    </script>
+       <%     Recordset1.close()
         set Recordset1 = nothing   
          Recordset1_cmd.ActiveConnection.Close
     set Recordset1_cmd = nothing
        %>
-
-
 </body>
 </html>
