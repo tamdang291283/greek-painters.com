@@ -1363,29 +1363,36 @@ max-width: 154.3px;
 <!-- End update menu bar -->
                     <!--task 282 Reorder-->
                         <% 
-                            Dim CustomerEmail : CustomerEmail = Request.Cookies("FormEmail") 
-                                CustomerEmail = "tam.dang832912@gmail.com"
+                            Dim CustomerEmail : CustomerEmail = Request.Cookies("FormEmail1") 
+                                if Request.Cookies("FormEmail1")  & "" <> "" then
+                                    CustomerEmail = Request.Cookies("FormEmail1")  & ""
+                                end if
+                           ' CustomerEmail = "tam.dang832912@gmail.com"
                             if trim(CustomerEmail & "") <> "" then
                                     Dim  SQL_Order : SQL_Order = "select top 2 ID,orderdate from Orders with(nolock)where Email ='"&CustomerEmail&"'  order by ID desc"
                                     Dim  RS_Order : set RS_Order = Server.CreateObject("ADODB.Recordset")
                                          RS_Order.Open SQL_Order , objCon
                             if not RS_Order.EOF then
                         %>
-                                <div class="group-ptoduct-line">
-                                        <div class="product-line">
-                                            <div class="product-line__content-left">Previous Order</div>
-                                            <div class="pproduct-line__content-right"></div>
+                                    <div class="panel panel-default" style="margin-bottom: 0;border-radius: 0;">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">Previous Orders</h4>
                                         </div>
-                                    </div>
+                                        <div class="panel-body">
+
+                                      
                         <%
                                          While not RS_Order.EOF
-                                          
+                                                
+                                        dim orderdatef :    orderdatef =  cdate(RS_Order("orderdate"))
+                                            
+                                        orderdatef = day(orderdatef) & " " & MonthName(month(orderdatef)) & " " & Year(orderdatef) 
 
                         %>  
                                     <div class="group-ptoduct-line">
                                         <div class="product-line">
-                                            <div class="product-line__content-left"><%=RS_Order("orderdate") %> </div>
-                                            <div class="pproduct-line__content-right"><span onclick="ReOrder(<%=RS_Order("ID") %>)">Reorder</span></div>
+                                            <div class="product-line__content-left"><b><%=orderdatef %></b> </div>
+                                            <div class="product-line__content-right"><span class="btn btn-success btnadd" onclick="ReOrder(<%=RS_Order("ID") %>)">Re-Order</span></div>
                                         </div>
                                          <%
                                                   '' Load Order Item 
@@ -1450,7 +1457,20 @@ max-width: 154.3px;
                                                 <%=dishpropertiesprice %>  
                                                 <%=toppingtext %>  
                                             </div>
-                                            <div class="pproduct-line__content-right"><%=CURRENCYSYMBOL%><%= FormatNumber(objRds_Item("Total"), 2) %> <span onclick="AdditemTocart('<%=objRds_Item("MenuItemId")&""%>','<%=objRds_Item("MenuItemPropertyId")&""%>' ,'<%=objRds_Item("toppingids")&""%>' ,'<%=objRds_Item("dishpropertiesids")&""%>' ,'<%=objRds_Item("Qta")&""%>')  ">Add</span></div>
+                                            <div class="product-line__content-right">
+                                                <div class="d-flex-center d-flex-end">
+                                                <div class="product-line__price"><b><%=CURRENCYSYMBOL%><%= FormatNumber(objRds_Item("Total"), 2) %></b></div>                                          
+                                                 <div align="right">                                            
+                                                <button class="btn btn-success btnadd"  onclick="AdditemTocart('<%=objRds_Item("MenuItemId")&""%>','<%=objRds_Item("MenuItemPropertyId")&""%>' ,'<%=objRds_Item("toppingids")&""%>' ,'<%=objRds_Item("dishpropertiesids")&""%>' ,'<%=objRds_Item("Qta")&""%>')">
+                                                  <span class="glyphicon glyphicon-plus"></span>
+                                                 
+                                                </button>    
+                                            
+                                            </div>	
+                                                    </div>				
+                                        </div>
+
+                                                
                                         </div>
                                             <%  objRds_Item.movenext
                                                 wend
@@ -1462,6 +1482,8 @@ max-width: 154.3px;
                                 <% 
                                     RS_Order.movenext()
                                     wend %>
+                                     </div>
+                                   </div>
                            <% end if
                                RS_Order.close()
                                set RS_Order = nothing
@@ -1780,6 +1802,7 @@ max-width: 154.3px;
                                                     s_SuitableFor_dp  = replace(objRds_propertiesitems("s_SuitableFor") & ""," ","") 
                                                      htmltooltip = htmltooltip & "<b>" &  objRds_propertiesitems("dishproperty") & "</b>"  & "<br/>"
                                                      dim htmltooltip1 : htmltooltip1 = ""
+                                                     Dim isAllergen : isAllergen = false
                                                      if s_ContainAllergen_dp & "" <> "" then                                                   
                                                         dim   arr_s_ContainAllergen_dp : arr_s_ContainAllergen_dp = split(s_ContainAllergen_dp,",")
                                                          index_m = 0
@@ -1796,6 +1819,7 @@ max-width: 154.3px;
                                                         next
                                                     end if
                                                         if htmltooltip1 & "" <> "" then
+                                                            isAllergen =  true
                                                             htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
                                                             htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
                                                          end if
@@ -1816,6 +1840,7 @@ max-width: 154.3px;
                                                         next
                                                     end if
                                                      if htmltooltip1 & "" <> "" then
+                                                            isAllergen =  true
                                                             htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
                                                             htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
                                                          end if
@@ -1836,9 +1861,13 @@ max-width: 154.3px;
                                                         next
                                                     end if
                                                      if htmltooltip1 & "" <> "" then
+                                                            isAllergen =  true
                                                             htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
                                                             htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
-                                                         end if
+                                                     end if
+                                                     if isAllergen =false  then
+                                                         htmltooltip = htmltooltip & "<span class=""tip-allergen"">No Allergens</span><br/>"
+                                                     end if   
                                                   '  htmltooltip =  htmltooltip & "<br/>"
                                                     
 				                                    add=""

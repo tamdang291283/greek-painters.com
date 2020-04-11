@@ -582,7 +582,7 @@ else{e.value="no";location.reload();}
                             <td colspan="3">
 
                                 <div id="divVoucherCode" style="padding:0px 8px 15px 8px;">
-                                     <button type="button" class="btn btn-xs btn-block" id="vouchercodeshow" style="background-color:#eeeeee;color:#7d7c7c  ;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Voucher Code</button>
+                                     <button type="button" class="btn btn-xs btn-block" id="vouchercodeshow" style="background-color:#eeeeee;color:#7d7c7c  ;height:45px;margin-bottom:20px;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Voucher Code</button>
 	                                <button type="button" class="btn  btn-xs btn-block" id="vouchercodehide"  style="display:none;background-color: #eeeeee;color:#7d7c7c  ;"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Close</button>	
                                     <div class="panel panel-default" style="display:none;" id="divVoucherCode1" >
                                         <div class="panel-body">           
