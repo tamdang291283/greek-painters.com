@@ -58,7 +58,7 @@ If (CStr(Request("MM_update")) = "form1") Then
 
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    MM_editCmd.CommandText = "UPDATE businessdetails SET [Name] = ?,[Address] = ?,[Telephone] = ?,[PostalCode] = ?,[FoodType] = ?,[ImgUrl] = ?,[backtohometext]=?, [closedtext]=?, [email]=? , [menupagetext]=?,[longitude]=?,[latitude]=?,[faviconurl]=?,[addtohomescreenurl]=?,[EnableBooking]=?,URL_Facebook=?,URL_Twitter=?,URL_Google=?,URL_Intagram=?,URL_YouTube=?,URL_Tripadvisor=?,URL_Special_Offer=?,URL_Linkin=?,s_BannerURL=?,s_IconApple=?,s_UrlApple=?,s_IconGoogle=?,s_UrlGoogle=?  WHERE ID = ?" 
+    MM_editCmd.CommandText = "UPDATE businessdetails SET [Name] = ?,[Address] = ?,[Telephone] = ?,[PostalCode] = ?,[FoodType] = ?,[ImgUrl] = ?,[backtohometext]=?, [closedtext]=?, [email]=? , [menupagetext]=?,[longitude]=?,[latitude]=?,[faviconurl]=?,[addtohomescreenurl]=?,[EnableBooking]=?,URL_Facebook=?,URL_Twitter=?,URL_Google=?,URL_Intagram=?,URL_YouTube=?,URL_Tripadvisor=?,URL_Special_Offer=?,URL_Linkin=?,s_BannerURL=?,s_IconApple=?,s_UrlApple=?,s_IconGoogle=?,s_UrlGoogle=?,enablereorder=?  WHERE ID = ?" 
 MM_editCmd.Prepared = true
 
 
@@ -92,6 +92,8 @@ MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param25", 202, 1, 255, 
 MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param26", 202, 1, 255, Request.Form("s_UrlApple"))
 MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param27", 202, 1, 255, Request.Form("s_IconGoogle"))
 MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param28", 202, 1, 255, Request.Form("s_UrlGoogle"))
+MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param29", 202, 1, 255, Request.Form("enablereorder"))
+    
     
 
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param16", 5, 1, -1, MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)) ' adDouble
@@ -324,6 +326,19 @@ Recordset1_numRows = 0
 
 
 </div>
+
+<% 
+    dim enablereorder : enablereorder  = Recordset1.Fields.Item("enablereorder").Value & ""
+        if enablereorder = "" then
+             enablereorder= "No"   
+        end if
+
+     %>
+     <div class="form-group">
+            <label for="document name">Enable Re-Order</label>
+            <p>Enable Re-Order.</p> 
+            <input type="radio" name="enablereorder" value="Yes" <%if enablereorder ="Yes" then%>checked<%end if%>> Yes &nbsp;&nbsp; <input type="radio" name="enablereorder" value="No" <%if enablereorder="No" then%>checked<%end if%>> No 
+    </div>
 
 </div>
 
