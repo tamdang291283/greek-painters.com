@@ -652,7 +652,7 @@ display: block;
                         <% End If %>
                         <%= objRds("Name") %>&nbsp;<%= objRds("PropertyName") %>         
                     <%end if %>
-                        <%= objRds("Name") %>&nbsp;<%= objRds("PropertyName") %>       
+                           
 						<%
 						'display toppings in basket area
 						If objRds("dishpropertiesids") <> "" Then						 

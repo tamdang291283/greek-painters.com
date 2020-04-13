@@ -1058,12 +1058,13 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                         </tr>
                         </table>
                          
-                     <table style="width:100%">
-
-                          <tr>
+                
+                    
+                        <table style="width:100%">
+                             <tr>
                             <td colspan="3">
 
-                                <div id="divVoucherCode" style="padding:0px 8px 15px 8px;">
+                                <div id="divVoucherCode" style="padding:0px 0px 15px 0px;max-width:555px;">
                                      <button type="button" class="btn btn-xs btn-block" id="vouchercodeshow" style="background-color:#eeeeee;color:#7d7c7c;height:45px;margin-bottom:20px;"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Voucher Code</button>
 	                                <button type="button" class="btn  btn-xs btn-block" id="vouchercodehide"  style="display:none;background-color: #eeeeee;color:#7d7c7c  ;"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Close</button>	
                                     <div class="panel panel-default" style="display:none;" id="divVoucherCode1" >
@@ -1089,85 +1090,6 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                                         </div>
                             </td>    
                         </tr>
-                     </table>
-                     <script type="text/javascript">
-                                function IsInvalidTip(str)
-                                {
-                                    var patt = new RegExp(/^(\d*\.)?\d+$/);
-                                    var res = patt.test(str);
-                                    return res;
-                                }
-                                function ChangeTip(obj)
-                                {
-                                    var tipetype = $(obj).val();
-                                    if(tipetype != "custom"){
-                                        $("#tip_value").attr("readonly","true");
-                                        var TipValue = parseFloat($("#subtotal").val()) * tipetype * 1.0 / 100;
-                                            TipValue = parseFloat(TipValue).toFixed(2);
-                                        $("#tip_value").val(TipValue); 
-                                    }else
-                                        $("#tip_value").removeAttr("readonly");
-                                            
-                                }
-                                function UpdateTip()
-                                {
-                                    if($("#tip_value").val()=="")
-                                    {
-                                        alert("Please input tip amount. Thanks!");
-                                        return false;
-                                    } else if(!IsInvalidTip($("#tip_value").val()))
-                                    {
-                                        alert("The tip must be a positive number.");
-                                        return false;
-                                    }   
-                                    $.ajax({url: "<%=SITE_URL%>UpdateTip.asp?id_r=<%=vRestaurantId%>&oid=<%=vOrderId%>&tipamount=" + $("#tip_value").val() + "&tr=" + $("#tip_custom").val() , success: function(result){
-                                        $("#tip_custom").hide();
-                                        $("#tip_value").hide();
-                                        $("#tip_edit").show();
-                                        $("#tip_update").hide();
-                                        $("#ordertotal").html(result);
-                                        $("[name=amount]").val(result);
-                                        $("#lbTipmount").html("<%=CURRENCYSYMBOL%>" + parseFloat($("#tip_value").val()).toFixed(2));
-                                        location.reload();
-                                    }});
-                                }
-                                
-                                function edit()
-                                {
-                                    $("#tip_custom").show();
-                                    $("#tip_value").show();
-                                    $("#tip_edit").hide();
-                                    $("#tip_update").show();
-                                }
-                                $("#vouchercodeshow").click(function(){
-                                    $("#divVoucherCode1").show();
-                                    $("#vouchercodeshow").hide();
-                                    $("#vouchercodehide").show();
-                                });
-
-                                $("#vouchercodehide").click(function(){
-                                    $("#divVoucherCode1").hide();
-                                    $("#vouchercodeshow").show();
-                                    $("#vouchercodehide").hide();
-                                });
-                                $(function(){
-                                    $("input.noSubmit").keypress(function(e){
-                                        var k=e.keyCode || e.which;
-                                        if(k==13){
-                                            e.preventDefault();
-                                        }
-                                    });
-                                });
-                                function VoucherCode() {
-                                    $("#panel-item").load("<%=SITE_URL%>applydiscount.asp?id_r=<%= vRestaurantId %>&o=<%=vOrderId%>&op=vouchercode&vouchercode=" + $('#vouchercode').val());
-                                   
-                                    //$.ajax({url: "<%=SITE_URL%>applydiscount.asp?id_r=<%= vRestaurantId %>&op=vouchercode&vouchercode=" + $('#vouchercode').val() , success: function(result){
-                                    //    $("#panel-item").htm(result);
-                                    //}});
-                                    return false;
-                                }
-                            </script>
-                        <table style="width:100%">
                         <tr>
                             <td colspan="3" style="text-align: center" >
                                 <div id="processpayment" class="processpaymentblock"  style="max-width:555px;">
@@ -1265,6 +1187,84 @@ glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back to Menu</a>
                         </tr>
 
                     </table>
+
+                      <script type="text/javascript">
+                                function IsInvalidTip(str)
+                                {
+                                    var patt = new RegExp(/^(\d*\.)?\d+$/);
+                                    var res = patt.test(str);
+                                    return res;
+                                }
+                                function ChangeTip(obj)
+                                {
+                                    var tipetype = $(obj).val();
+                                    if(tipetype != "custom"){
+                                        $("#tip_value").attr("readonly","true");
+                                        var TipValue = parseFloat($("#subtotal").val()) * tipetype * 1.0 / 100;
+                                            TipValue = parseFloat(TipValue).toFixed(2);
+                                        $("#tip_value").val(TipValue); 
+                                    }else
+                                        $("#tip_value").removeAttr("readonly");
+                                            
+                                }
+                                function UpdateTip()
+                                {
+                                    if($("#tip_value").val()=="")
+                                    {
+                                        alert("Please input tip amount. Thanks!");
+                                        return false;
+                                    } else if(!IsInvalidTip($("#tip_value").val()))
+                                    {
+                                        alert("The tip must be a positive number.");
+                                        return false;
+                                    }   
+                                    $.ajax({url: "<%=SITE_URL%>UpdateTip.asp?id_r=<%=vRestaurantId%>&oid=<%=vOrderId%>&tipamount=" + $("#tip_value").val() + "&tr=" + $("#tip_custom").val() , success: function(result){
+                                        $("#tip_custom").hide();
+                                        $("#tip_value").hide();
+                                        $("#tip_edit").show();
+                                        $("#tip_update").hide();
+                                        $("#ordertotal").html(result);
+                                        $("[name=amount]").val(result);
+                                        $("#lbTipmount").html("<%=CURRENCYSYMBOL%>" + parseFloat($("#tip_value").val()).toFixed(2));
+                                        location.reload();
+                                    }});
+                                }
+                                
+                                function edit()
+                                {
+                                    $("#tip_custom").show();
+                                    $("#tip_value").show();
+                                    $("#tip_edit").hide();
+                                    $("#tip_update").show();
+                                }
+                                $("#vouchercodeshow").click(function(){
+                                    $("#divVoucherCode1").show();
+                                    $("#vouchercodeshow").hide();
+                                    $("#vouchercodehide").show();
+                                });
+
+                                $("#vouchercodehide").click(function(){
+                                    $("#divVoucherCode1").hide();
+                                    $("#vouchercodeshow").show();
+                                    $("#vouchercodehide").hide();
+                                });
+                                $(function(){
+                                    $("input.noSubmit").keypress(function(e){
+                                        var k=e.keyCode || e.which;
+                                        if(k==13){
+                                            e.preventDefault();
+                                        }
+                                    });
+                                });
+                                function VoucherCode() {
+                                    $("#panel-item").load("<%=SITE_URL%>applydiscount.asp?id_r=<%= vRestaurantId %>&o=<%=vOrderId%>&op=vouchercode&vouchercode=" + $('#vouchercode').val());
+                                   
+                                    //$.ajax({url: "<%=SITE_URL%>applydiscount.asp?id_r=<%= vRestaurantId %>&op=vouchercode&vouchercode=" + $('#vouchercode').val() , success: function(result){
+                                    //    $("#panel-item").htm(result);
+                                    //}});
+                                    return false;
+                                }
+                            </script>
           
                 <%
                 End If
