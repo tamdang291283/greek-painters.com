@@ -1308,7 +1308,7 @@ max-width: 154.3px;
         <span class="menu-text">Search</span>
     </div>
       <% if StrAllergen & "" <> "" then %>
-      <div   class="menu-bar__item menu-bar__booking"   data-toggle="modal" data-target="#FilterModal">
+      <div   class="menu-bar__item menu-bar__booking"   data-toggle="modal" data-backdrop="static" data-target="#FilterModal">
         <span class="glyphicon glyphicon-filter" id="icoAllergenFilter"></span>
         <span class="menu-text">Filter</span>
     </div>
@@ -3018,9 +3018,11 @@ max-width: 154.3px;
     }
     function ClearFilter()
     {
-        if($("#FilterModal").find(".icon-check").length > 0 )
+        if ($("#FilterModal").find(".icon-check").length > 0) {
             $("#FilterModal").find(".icon-check").remove();
-
+            $('#icoAllergenFilter').removeClass('glyphicon-filtered');
+        }
+        
    
         //Filter();
      
@@ -3500,6 +3502,7 @@ max-width: 154.3px;
         if(searchtext!=""){
             $(".dishproperties").hide();
             $(".product-line-heading").hide();
+            ClearFilter();
             $("[data-type=group-cate]").each(function(){
                 var categroup  = $(this);
                 categroup.find(".product-line").each(function(){
