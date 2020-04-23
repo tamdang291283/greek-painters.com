@@ -1477,7 +1477,7 @@ max-width: 154.3px;
                                                         $(this).tooltip(
                                                         {
                                                             html: true,
-                                                            title: "<div class='tooltip-custom'>" + $('#' + $(this).data('tip')).html() + "</div>",
+                                                            title: "<div class='tooltip-custom'>" + $('#' + $(this).data('tip')).html().trim() + "</div>",
                                                             container: 'body'
                                                         });
                                                     });
@@ -3726,7 +3726,7 @@ width: 100%;
 }
 
 
-.tooltip-inner.tooltip-inner{   background-color: #fff;   color: #000; font-weight:bold;padding-top:0px;  border: 1px solid #000;}
+.tooltip-inner.tooltip-inner{   background-color: #fff;   color: #000; padding-top:0px;  border: 1px solid #000;}
 .list-expand .hidden-xs{ display: inline-block !important;;}
 
 @media (max-width: 767px) { .more.more{   display: inline-block !important;   cursor: pointer; }}.list-expand .more{   display: none !important; }
