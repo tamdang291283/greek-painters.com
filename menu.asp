@@ -2069,7 +2069,7 @@ max-width: 154.3px;
                                                         $(this).tooltip(
                                                         {
                                                             html: true,
-                                                            title: $('#' + $(this).data('tip')).html(),
+                                                            title: "<div class='tooltip-custom'>" + $('#' + $(this).data('tip')).html() + "</div>",
                                                             container: 'body'
                                                         });
                                                     });

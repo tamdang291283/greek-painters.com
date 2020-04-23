@@ -969,11 +969,11 @@ $("textarea#Specialinput").val($.cookie("Specialinput"));
    
    <% if Request.QueryString("id") & "" <> "" then %>
       $(function(){
-          if($("#basket<%=Request.QueryString("id") %>").length > 0)
-          {
+          //if($("#basket<%=Request.QueryString("id") %>").length > 0)
+          //{
               if(<%=Request.QueryString("top")%> > 0 )
                   jQuery('#divShoppingCartSroll').scrollTop(<%=Request.QueryString("top")%>);
-          }
+          //}
       });
    <% end if %>
 

@@ -213,7 +213,7 @@ end if
         EnableSuitableFor = "No"
     end if 
 
-    Dim SQL1 : SQL1 = "select ID,Name,icon,Type from allergen with(nolock) "
+    Dim SQL1 : SQL1 = "select ID,Name,icon,Type from allergen with(nolock) order by  Name "
     if EnableAllergen = "Yes" and EnableSuitableFor = "No"  then
         SQL1 = SQL1 &  " where type ='Allergen' " 
     elseif EnableAllergen = "No" and EnableSuitableFor = "Yes"  then
@@ -1219,6 +1219,7 @@ max-width: 154.3px;
                                                     s_SuitableFor_dp  = replace(objRds_propertiesitems("s_SuitableFor") & ""," ","") 
                                                      htmltooltip = htmltooltip & "<b>" &  objRds_propertiesitems("dishproperty") & "</b>"  & "<br/>"
                                                      dim htmltooltip1 : htmltooltip1 = ""
+                                                     Dim isAllergen : isAllergen = false
                                                      if s_ContainAllergen_dp & "" <> "" then                                                   
                                                         dim   arr_s_ContainAllergen_dp : arr_s_ContainAllergen_dp = split(s_ContainAllergen_dp,",")
                                                          index_m = 0
@@ -1235,6 +1236,7 @@ max-width: 154.3px;
                                                         next
                                                     end if
                                                         if htmltooltip1 & "" <> "" then
+                                                            isAllergen = true
                                                             htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
                                                             htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
                                                          end if
@@ -1255,6 +1257,7 @@ max-width: 154.3px;
                                                         next
                                                     end if
                                                      if htmltooltip1 & "" <> "" then
+                                                            isAllergen = true
                                                             htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
                                                             htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
                                                          end if
@@ -1275,9 +1278,13 @@ max-width: 154.3px;
                                                         next
                                                     end if
                                                      if htmltooltip1 & "" <> "" then
+                                                            isAllergen = true
                                                             htmltooltip1 =  left(trim(htmltooltip1),len(trim(htmltooltip1))-1)
                                                             htmltooltip = htmltooltip & "<span class=""tip-allergen"">" &  htmltooltip1 & "</span><br/>"
-                                                         end if
+                                                     end if
+                                                     if isAllergen =false  then
+                                                         htmltooltip = htmltooltip & "<span class=""tip-allergen"">No Allergens</span><br/>"
+                                                     end if   
                                                   '  htmltooltip =  htmltooltip & "<br/>"
 
 				                                        add=""
@@ -1289,6 +1296,9 @@ max-width: 154.3px;
 					                                            pricefrom=objRds_propertiesitems("dishpropertyprice")
 				                                            end if
 				                                        end if
+                                                             if add = "" then
+                                                                add = " - "    
+                                                            end if 
 				                                       ' dishpropertiestext = dishpropertiestext & "<option value=""" & objRds_propertiesitems("id") & """>" & objRds_propertiesitems("dishproperty") & add & " " &  CURRENCYSYMBOL & FormatNumber(objRds_propertiesitems("dishpropertyprice"),2) & "</option>"
                                                         dishpropertiestext = dishpropertiestext & "<option data-thumbnail=""" & htmlicon & """ s_SuitableFor_dp="""& s_SuitableFor_dp &"""  s_MayContainAllergen_dp="""& s_MayContainAllergen_dp  &""" s_ContainAllergen_dp="""& s_ContainAllergen_dp & "|" & s_MayContainAllergen_dp &""" value=""" & objRds_propertiesitems("id") & """>" & objRds_propertiesitems("dishproperty") & add & " " &  CURRENCYSYMBOL & FormatNumber(objRds_propertiesitems("dishpropertyprice"),2) & "</option>"
 				    		                            objRds_propertiesitems.MoveNext
@@ -1467,7 +1477,7 @@ max-width: 154.3px;
                                                         $(this).tooltip(
                                                         {
                                                             html: true,
-                                                            title: $('#' + $(this).data('tip')).html(),
+                                                            title: "<div class='tooltip-custom'>" + $('#' + $(this).data('tip')).html() + "</div>",
                                                             container: 'body'
                                                         });
                                                     });
@@ -2343,7 +2353,7 @@ max-width: 154.3px;
 
     function Delc(itemId) {
 	
-        $("#shoppingcart").load("<%=SITE_URL%>local/ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&id=" + itemId + "&top=" + jQuery('#divShoppingCartSroll').scrollTop() );
+        $("#shoppingcart").load("<%=SITE_URL%>local/ShoppingCart.asp?id_r=<%= vRestaurantId %>&op=del&id=" + itemId);
 
     }
     function Del(itemId,qty)
@@ -3714,6 +3724,12 @@ width: 100%;
 .dropdown-menu > li > a:focus {
     outline: 0;
 }
+
+
+.tooltip-inner.tooltip-inner{   background-color: #fff;   color: #000; font-weight:bold;padding-top:0px;  border: 1px solid #000;}
+.list-expand .hidden-xs{ display: inline-block !important;;}
+
+@media (max-width: 767px) { .more.more{   display: inline-block !important;   cursor: pointer; }}.list-expand .more{   display: none !important; }
     </style>    
                 
     <div class="row row-md-flex mt-20">
@@ -3738,7 +3754,8 @@ width: 100%;
                     </div>
                 </li>
                 <% 
-                    
+                     dim allergenline : allergenline = 1
+                    dim classwillhide
                     for indexAllergen = 0 to ubound(arrStrAllergen)
                         if arrStrAllergen(indexAllergen) & "" <> "" then
                             AllergenID = split(arrStrAllergen(indexAllergen),"|")(0)
@@ -3746,11 +3763,14 @@ width: 100%;
                             AllergenIcon = split(arrStrAllergen(indexAllergen),"|")(2)
                             AllergenType = split(arrStrAllergen(indexAllergen),"|")(3)
                                     if trim(AllergenType & "") = "Allergen" then    
-                                        dim classwillhide  : classwillhide = ""
-                                             
+                                        
+                                        classwillhide = ""
+                                        if allergenline >= 3 then
+                                            classwillhide = "hidden-xs"
+                                        end if        
                                             
                             %>
-                                <li <%=classwillhide %>  onclick="SearchAllergen(this,'Allergen','filter_<%=AllergenID %>')">                                    
+                                <li class="<%=classwillhide %>"  onclick="SearchAllergen(this,'Allergen','filter_<%=AllergenID %>')">                                    
                                     <span class="span-icon">                                        
                                         <img  id="filter_<%=AllergenID %>"  width="25" src="<%=SITE_URL %>Images/allergen/png/<%=replace(trim(AllergenIcon & ""),"amber","red") %>" alt="<%=AllergenName %>" title="  <%=AllergenName %>"/>   <br />                                  
                                         <span class="icon-name" style="color:black;"><%=AllergenName %></span>
@@ -3758,11 +3778,14 @@ width: 100%;
                                     
                                 </li>
                             <%
+                                allergenline  = allergenline + 1
                                 end if
                         end if
                     next
                      %>
-                        
+                        <% if allergenline >= 3 then %>
+                        <li class="visible-xs more" onclick="$(this).closest('#allergenlist').addClass('list-expand');">...</li>
+                        <%end if %>
                                 
             </ul>
             <%end if %>
@@ -3774,16 +3797,20 @@ width: 100%;
                         <div class="col-sm-3 flex-md-auto mb-5">Suitable for:</div>
                         <ul class="eicon-list flex-md-expand col-sm-9 ng-scope list-collapse list-inline" id="suitableforlist">
                 <% 
-                   
+                   allergenline = 1
                     for indexAllergen = 0 to ubound(arrStrAllergen)
                         if arrStrAllergen(indexAllergen) & "" <> "" then
                             AllergenID = trim(split(arrStrAllergen(indexAllergen),"|")(0))
                             AllergenName = trim(split(arrStrAllergen(indexAllergen),"|")(1))
                             AllergenIcon = split(arrStrAllergen(indexAllergen),"|")(2)
                             AllergenType = split(arrStrAllergen(indexAllergen),"|")(3)
-                                    if trim(AllergenType & "") = "SuitableFor" then      
+                                    if trim(AllergenType & "") = "SuitableFor" then    
+                                         classwillhide = ""
+                                        if allergenline >= 3 then
+                                            classwillhide = "hidden-xs"
+                                        end if   
                             %>
-                                <li onclick="SearchAllergen(this,'SuitableFor','filter_<%=AllergenID %>')">
+                                <li class="<%=classwillhide %>" onclick="SearchAllergen(this,'SuitableFor','filter_<%=AllergenID %>')">
                                     <span class="span-icon">
                                         <img id="filter_<%=AllergenID %>" width="25" src="<%=SITE_URL %>Images/allergen/png/<%=trim(AllergenIcon & "")%>"  alt="<%=AllergenName %>" title="  <%=AllergenName %>" />                                        
                                           <br />    <span class="icon-name" style="color:black;"><%=AllergenName %></span>
@@ -3791,10 +3818,16 @@ width: 100%;
                                      
                                 </li>
                             <%
+                                allergenline  = allergenline + 1
                                 end if
                         end if
                     next
                      %>
+                            <% if allergenline > 3 then %>
+                         <li class="visible-xs more" onclick="$(this).closest('#suitableforlist').addClass('list-expand');">
+                            <span class="more-vert" style="height: 18px;line-height: 18px;width: 18px;vertical-align: text-bottom;display: inline-block;"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span>More
+                        </li>
+                        <%end if %>
             </ul>
              <%end if %>
       </div>
