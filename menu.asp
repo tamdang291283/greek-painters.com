@@ -289,7 +289,7 @@ end if
         EnableSuitableFor = "No"
     end if 
 
-    Dim SQL1 : SQL1 = "select ID,Name,icon,Type from allergen with(nolock) "
+    Dim SQL1 : SQL1 = "select ID,Name,icon,Type from allergen with(nolock) order by Name "
     if EnableAllergen = "Yes" and EnableSuitableFor = "No"  then
         SQL1 = SQL1 &  " where type ='Allergen' " 
     elseif EnableAllergen = "No" and EnableSuitableFor = "Yes"  then
@@ -1899,7 +1899,7 @@ max-width: 154.3px;
                                                         htmltooltip = ""
                                                 else
                                                     dishpropertiestext =  dishpropertiestext & "   <span class=""glyphicon glyphicon-exclamation-sign append text-info tip"" data-tip=""tip-"&objRds_properties("id")&""" ></span> <br>"    
-                                                    dishpropertiestext = dishpropertiestext & "<div id=""tip-" & objRds_properties("id") & """ class=""tip-content hidden""> "
+                                                    dishpropertiestext = dishpropertiestext & "<div id=""tip-" & objRds_properties("id") & """ class=""tip-content hidden tooltip-custom""> "
                                                     dishpropertiestext=  dishpropertiestext &    htmltooltip
                                                     dishpropertiestext = dishpropertiestext & "</div>"
                                                 end if
@@ -5078,6 +5078,11 @@ width: calc(100% - 20px);
 .dropdown-menu > li > a:focus {
     outline: 0;
 }
+
+.tooltip-inner.tooltip-inner{   background-color: #fff;   color: #000;padding-top:0px;   border: 1px solid #000;}
+.list-expand .hidden-xs{ display: inline-block !important;;}
+
+@media (max-width: 767px) { .more.more{   display: inline-block !important;   cursor: pointer; }}.list-expand .more{   display: none !important; }
     </style>
               
 
@@ -5106,7 +5111,8 @@ width: calc(100% - 20px);
                     </div>
                 </li>
                 <% 
-                    
+                    dim allergenline : allergenline = 1
+                    dim classwillhide
                     for indexAllergen = 0 to ubound(arrStrAllergen)
                         if arrStrAllergen(indexAllergen) & "" <> "" then
                             AllergenID = split(arrStrAllergen(indexAllergen),"|")(0)
@@ -5114,11 +5120,15 @@ width: calc(100% - 20px);
                             AllergenIcon = split(arrStrAllergen(indexAllergen),"|")(2)
                             AllergenType = split(arrStrAllergen(indexAllergen),"|")(3)
                                     if trim(AllergenType & "") = "Allergen" then    
-                                        dim classwillhide  : classwillhide = ""
+                                        classwillhide = ""
+                                         
+                                        if allergenline >= 4 then
+                                            classwillhide = "hidden-xs"
+                                        end if
                                              
                                             
                             %>
-                                <li <%=classwillhide %>  onclick="SearchAllergen(this,'Allergen','filter_<%=AllergenID %>')">                                    
+                                <li class="<%=classwillhide %>"  onclick="SearchAllergen(this,'Allergen','filter_<%=AllergenID %>')">                                    
                                     <span class="span-icon">                                        
                                         <img  id="filter_<%=AllergenID %>"  width="25" src="<%=SITE_URL %>Images/allergen/png/<%=replace(trim(AllergenIcon & ""),"amber","red") %>" alt="<%=AllergenName %>" title="  <%=AllergenName %>"/>   <br />                                  
                                         <span class="icon-name" style="color:black;"><%=AllergenName %></span>
@@ -5126,11 +5136,17 @@ width: calc(100% - 20px);
                                     
                                 </li>
                             <%
+                                allergenline = allergenline +1
                                 end if
                         end if
                     next
                      %>
+                        <% if allergenline >= 4 then %>
                         
+                        <li class="visible-xs more" onclick="$(this).closest('#allergenlist').addClass('list-expand');">
+                            <span class="more-vert" style="height: 18px;line-height: 18px;width: 18px;vertical-align: text-bottom;display: inline-block;"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span>More
+                        </li>
+                        <%end if %>
                                 
             </ul>
             <%end if %>
@@ -5142,27 +5158,39 @@ width: calc(100% - 20px);
                         <div class="col-sm-3 flex-md-auto mb-5">Suitable for:</div>
                         <ul class="eicon-list flex-md-expand col-sm-9 ng-scope list-collapse list-inline" id="suitableforlist">
                 <% 
-                   
+                     allergenline = 1
+                     
                     for indexAllergen = 0 to ubound(arrStrAllergen)
                         if arrStrAllergen(indexAllergen) & "" <> "" then
                             AllergenID = trim(split(arrStrAllergen(indexAllergen),"|")(0))
                             AllergenName = trim(split(arrStrAllergen(indexAllergen),"|")(1))
                             AllergenIcon = split(arrStrAllergen(indexAllergen),"|")(2)
                             AllergenType = split(arrStrAllergen(indexAllergen),"|")(3)
-                                    if trim(AllergenType & "") = "SuitableFor" then      
+                                    if trim(AllergenType & "") = "SuitableFor" then 
+                                         classwillhide= ""   
+                                         if allergenline >= 3 then
+                                            classwillhide = "hidden-xs"
+                                        end if     
                             %>
-                                <li onclick="SearchAllergen(this,'SuitableFor','filter_<%=AllergenID %>')">
+                                <li class="<%=classwillhide %>" onclick="SearchAllergen(this,'SuitableFor','filter_<%=AllergenID %>')">
                                     <span class="span-icon">
                                         <img id="filter_<%=AllergenID %>" width="25" src="<%=SITE_URL %>Images/allergen/png/<%=trim(AllergenIcon & "")%>"  alt="<%=AllergenName %>" title="  <%=AllergenName %>" />                                        
                                           <br />    <span class="icon-name" style="color:black;"><%=AllergenName %></span>
                                     </span>
                                      
                                 </li>
-                            <%
+                            <%  
+                                allergenline = allergenline +1
                                 end if
                         end if
                     next
                      %>
+                             <% if allergenline > 3 then %>
+                        
+                            <li class="visible-xs more" onclick="$(this).closest('#suitableforlist').addClass('list-expand');">
+                            <span class="more-vert" style="height: 18px;line-height: 18px;width: 18px;vertical-align: text-bottom;display: inline-block;"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path></svg></span>More
+                        </li>
+                        <%end if %>
             </ul>
              <%end if %>
       </div>
