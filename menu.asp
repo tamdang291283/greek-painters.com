@@ -1054,7 +1054,7 @@ if(is_android) {
 
 <div class="visible-xs icon-thumb">
 
-    <script>
+    <script type="text/javascript">
        var isconfirm = false;
        
         function confimBookTable()
@@ -1068,11 +1068,23 @@ if(is_android) {
                       //  listitemincart
 
                     htmlItem="";
+                    var itemname = "",itemprice="";
                     $("#divShoppingCartSroll table tr").each(function(){
+                             
+                        if($(this).find("[name=itemName]").length > 0)
+                            itemname = $(this).find("[name=itemName]").html();
+                        if($(this).find("[name=itemPrice]").length > 0)
+                            itemprice = $(this).find("[name=itemPrice]").html();
+                        if(itemname!="" && itemprice!="")
+                        {
                             htmlItem += "<tr>";
-                                    htmlItem += "<td name=\"itemName\">" + $(this).find("[name=itemName]").html()  + "</td>";
-                                    htmlItem += "<td name=\"itemPrice\" style=\"vertical-align:top\">" + $(this).find("[name=itemPrice]").html() + "</td>";
+                                htmlItem += "<td name=\"itemName\">" + itemname  + "</td>";                          
+                                htmlItem += "<td name=\"itemPrice\" style=\"vertical-align:top\">" + itemprice + "</td>";
                             htmlItem += "</tr>";
+                            itemname = "";
+                            itemprice = "";
+                        }
+                            
                     });
                     if(htmlItem!="")
                         {
@@ -1376,10 +1388,13 @@ max-width: 154.3px;
                                 if not RS_Order.EOF then
                                     %>
                                                 <div class="panel panel-default" style="margin-bottom: 0;border-radius: 0;">
-                                                    <div class="panel-heading">
+                                                    <div class="panel-heading product-line-heading clearfix" onclick="ShowdishpropertiesV2('PreviousOrder');">
                                                         <h4 class="panel-title">Previous Orders</h4>
+                                                        <div class="product-line-heading__icon-wrapper is-vertical-center">
+                                                                <img class="product-line-heading__icon arrow-icon-down" src="https://www.greek-painters.com/vo/food/7-6-Dang/images/menu-category-collapse--retina.png" alt="" id="imgPreviousOrder">
+                                                        </div>
                                                     </div>
-                                                    <div class="panel-body">
+                                                    <div class="panel-body" id="PreviousOrder" style="display:none;">
 
                                       
                                     <%
@@ -2604,7 +2619,8 @@ max-width: 154.3px;
             $("#" + itemtoshow).slideDown("slow");
         }
     }
-		   
+		
+   
 
     function VoucherCode() {
 	
@@ -5081,7 +5097,8 @@ width: calc(100% - 20px);
 
 .tooltip-inner.tooltip-inner{   background-color: #fff;   color: #000;padding-top:0px;   border: 1px solid #000;}
 .list-expand .hidden-xs{ display: inline-block !important;;}
-
+.tooltip {  font-weight: bold;}
+.tooltip .tooltip-custom{  font-weight: initial;}
 @media (max-width: 767px) { .more.more{   display: inline-block !important;   cursor: pointer; }}.list-expand .more{   display: none !important; }
     </style>
               
