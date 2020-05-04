@@ -2201,7 +2201,10 @@ max-width: 154.3px;
                 var categroup  = $(this);
                 categroup.find(".product-line").each(function(){
                    
-                    if( ( $(this).find(".hidden-product-name").length > 0 &&  IsMatchSearch(searchtext, $(this).find(".hidden-product-name").html().trim()) ) || (  $(this).find(".product-line__description").length > 0 &&    IsMatchSearch(searchtext, $(this).find(".product-line__description").html().trim())) )
+                    if( ( $(this).find(".hidden-product-name").length > 0 &&  IsMatchSearch(searchtext, $(this).find(".hidden-product-name").html().trim()) ) || (  $(this).find(".product-line__description").length > 0 &&    IsMatchSearch(searchtext, $(this).find(".product-line__description").html().trim())) 
+                         || (  $(this).find(".product-line__number").length > 0 
+                           &&  IsMatchSearch(searchtext, $(this).find(".product-line__number").html().trim()))    
+                        )
                     {
                         $(this).show();
                         categroup.show();
@@ -3727,7 +3730,9 @@ width: 100%;
 
 
 .tooltip-inner.tooltip-inner{   background-color: #fff;   color: #000; padding-top:0px;  border: 1px solid #000;}
-.list-expand .hidden-xs{ display: inline-block !important;;}
+.list-expand .hidden-xs{ display: inline-block !important;}
+.tooltip {  font-weight: bold;}
+.tooltip .tooltip-custom{  font-weight: initial;}
 
 @media (max-width: 767px) { .more.more{   display: inline-block !important;   cursor: pointer; }}.list-expand .more{   display: none !important; }
     </style>    

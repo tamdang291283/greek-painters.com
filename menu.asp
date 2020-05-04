@@ -1382,12 +1382,15 @@ max-width: 154.3px;
                                     end if
                                ' CustomerEmail = "tam.dang832912@gmail.com"
                                 if trim(CustomerEmail & "") <> "" then
-                                        Dim  SQL_Order : SQL_Order = "select top 2 ID,orderdate from Orders with(nolock)where Email ='"&CustomerEmail&"'  order by ID desc"
+                                        Dim  SQL_Order : SQL_Order = "select top 2 ID,orderdate from Orders with(nolock) where Email ='"&CustomerEmail&"' " 
+                                             SQL_Order =  SQL_Order  & " and exists "
+                                             SQL_Order =  SQL_Order  & "  ( select top 1 1 from  OrderItems oi inner join MenuItems mi on oi.MenuItemId = mi.Id  where hidedish <> 1 and oi.OrderId = Orders.ID  )  "
+                                             SQL_Order =  SQL_Order & " order by ID desc"
                                         Dim  RS_Order : set RS_Order = Server.CreateObject("ADODB.Recordset")
                                              RS_Order.Open SQL_Order , objCon
                                 if not RS_Order.EOF then
                                     %>
-                                                <div class="panel panel-default" style="margin-bottom: 0;border-radius: 0;">
+                                                <div class="previous-order-heading panel panel-default" style="margin-bottom: 0;border-radius: 0;">
                                                     <div class="panel-heading product-line-heading clearfix" onclick="ShowdishpropertiesV2('PreviousOrder');">
                                                         <h4 class="panel-title">Previous Orders</h4>
                                                         <div class="product-line-heading__icon-wrapper is-vertical-center">
@@ -1403,19 +1406,20 @@ max-width: 154.3px;
                                                     dim orderdatef :    orderdatef =  cdate(RS_Order("orderdate"))
                                             
                                                     orderdatef = day(orderdatef) & " " & MonthName(month(orderdatef)) & " " & Year(orderdatef) 
-
+                                                    Dim OrderInfo : OrderInfo = ""
                                     %>  
                                                 <div class="group-ptoduct-line">
                                                     <div class="product-line">
-                                                        <div class="product-line__content-left"><b><%=orderdatef %></b> </div>
+                                                        <div class="product-line__content-left"><b><%=orderdatef %></b><br />
+                                                            <span id="order<%=RS_Order("ID") %>" style="font-size:10px;"></span>
+                                                        </div>
                                                         <div class="product-line__content-right"><span class="btn btn-success btnadd" onclick="ReOrder(<%=RS_Order("ID") %>)">Re-Order</span></div>
                                                     </div>
                                                      <%
                                                               '' Load Order Item 
-                                                            set     objRds_Item = Server.CreateObject("ADODB.Recordset")
-                                                          
+                                                            set     objRds_Item = Server.CreateObject("ADODB.Recordset")                                                          
                                                                     objRds_Item.Open "select oi.Total,oi.toppingids,oi.dishpropertiesids,oi.MenuItemId,oi.MenuItemPropertyId,oi.Qta," & _
-                                                                            "mi.Name, mip.Name as PropertyName ,isnull(mi.ApplyTo,'b') as ApplyTo " & _
+                                                                            "mi.Name, mip.Name as PropertyName ,isnull(mi.ApplyTo,'b') as ApplyTo, mi.hidedish " & _
                                                                             "from ( OrderItems oi " & _
                                                                             "inner join MenuItems mi on oi.MenuItemId = mi.Id ) " & _
                                                                             "left join MenuItemProperties mip on oi.MenuItemPropertyId = mip.Id " & _
@@ -1466,6 +1470,7 @@ max-width: 154.3px;
 						                                 End If
 
                                                                 dim ItemPrice : ItemPrice = cdbl(objRds_Item("Total"))/cdbl(objRds_Item("Qta"))
+                                                                OrderInfo =   OrderInfo & objRds_Item("Qta") & " x " & objRds_Item("Name") & " " &  objRds_Item("PropertyName") & dishpropertiesprice & toppingtext &   "<br />"
                                                              %>
                                                     <div class="product-line">                                           
                                                         <div class="product-line__content-left">
@@ -1476,14 +1481,18 @@ max-width: 154.3px;
                                                         </div>
                                                         <div class="product-line__content-right">
                                                             <div class="d-flex-center d-flex-end">
-                                                            <div class="product-line__price"><b><%=CURRENCYSYMBOL%><%= FormatNumber(ItemPrice, 2) %></b></div>                                          
-                                                             <div align="right">                                            
-                                                            <button class="btn btn-success btnadd"  onclick="AdditemTocart('<%=objRds_Item("MenuItemId")&""%>','<%=objRds_Item("MenuItemPropertyId")&""%>' ,'<%=objRds_Item("toppingids")&""%>' ,'<%=objRds_Item("dishpropertiesids")&""%>' ,'1')">
-                                                              <span class="glyphicon glyphicon-plus"></span>
-                                                 
-                                                            </button>    
-                                            
-                                                        </div>	
+                                                            <% if objRds_Item("hidedish") & "" <> "1" then %> 
+                                                                    <div class="product-line__price"><b><%=CURRENCYSYMBOL%><%= FormatNumber(ItemPrice, 2) %></b></div>  
+                                                            <% end if %>                                        
+                                                             <div align="right">    
+                                                                 <% if objRds_Item("hidedish") & "" = "1" then %> 
+                                                                    <b>unavailable</b>
+                                                                 <%else %>
+                                                                    <button class="btn btn-success btnadd"  onclick="AdditemTocart('<%=objRds_Item("MenuItemId")&""%>','<%=objRds_Item("MenuItemPropertyId")&""%>' ,'<%=objRds_Item("toppingids")&""%>' ,'<%=objRds_Item("dishpropertiesids")&""%>' ,'1')">
+                                                                          <span class="glyphicon glyphicon-plus"></span>
+                                                                    </button>         
+                                                                 <%end if %>   
+                                                            </div>	
                                                                 </div>				
                                                     </div>
 
@@ -1494,6 +1503,10 @@ max-width: 154.3px;
                                                             objRds_Item.close()
                                                             set objRds_Item = nothing
                                                              %>
+                                                        
+                                                          <script type="text/javascript">
+                                                              $("#order<%=RS_Order("ID") %>").html('<%=OrderInfo%>');
+                                                          </script>  
                                          
                                                 </div>
                                             <% 
@@ -3522,10 +3535,13 @@ max-width: 154.3px;
             $("[data-type=group-cate]").each(function(){
                 var categroup  = $(this);
                 categroup.find(".product-line").each(function(){
-                   
+                    //product-line__number
                     if( ( $(this).find(".hidden-product-name").length > 0 
                            &&  IsMatchSearch(searchtext, $(this).find(".hidden-product-name").html().trim()) ) || (  $(this).find(".product-line__description").length > 0 
-                           &&  IsMatchSearch(searchtext, $(this).find(".product-line__description").html().trim())) )
+                           &&  IsMatchSearch(searchtext, $(this).find(".product-line__description").html().trim())) || 
+                            (  $(this).find(".product-line__number").length > 0 
+                           &&  IsMatchSearch(searchtext, $(this).find(".product-line__number").html().trim()))
+                        )
                     {
                         $(this).show();
                         categroup.show();
@@ -5100,6 +5116,11 @@ width: calc(100% - 20px);
 .tooltip {  font-weight: bold;}
 .tooltip .tooltip-custom{  font-weight: initial;}
 @media (max-width: 767px) { .more.more{   display: inline-block !important;   cursor: pointer; }}.list-expand .more{   display: none !important; }
+
+@media (max-width: 767px) {
+    .previous-order-heading{margin-top: 15px;border-bottom: 0;}
+}
+.previous-order-heading .product-line-heading{margin-top:0;margin-bottom: 0;}
     </style>
               
 
