@@ -57,7 +57,7 @@ If (CStr(Request("MM_insert")) = "form1") Then
 
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    MM_editCmd.CommandText = "INSERT INTO menuitems (code,name, description,Spicyness,Price,IdMenuCategory,IdBusinessDetail,allowtoppings,dishpropertygroupid,hidedish,printingname,i_displaySort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor,ApplyTo ) VALUES (?,?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)" 
+    MM_editCmd.CommandText = "INSERT INTO menuitems (code,name, description,Spicyness,Price,IdMenuCategory,IdBusinessDetail,ToppingGroupIDs,dishpropertygroupid,hidedish,printingname,i_displaySort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor,ApplyTo) VALUES (?,?, ?,?,?,?,?,?,?,?,?,?,?,?,?,?)" 
     MM_editCmd.Prepared = true
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, MM_IIF(Request.Form("code"), Request.Form("code"), null)) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 255, Request.Form("name")) ' adVarWChar
@@ -65,14 +65,9 @@ If (CStr(Request("MM_insert")) = "form1") Then
 	'MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 202, 1, -1, Request.Form("Vegetarian")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 202, 1, 255, MM_IIF(Request.Form("Spicyness"), Request.Form("Spicyness"), null)) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 202, 1, 255,MM_IIF(Request.Form("price"), Request.Form("price"), null)) ' adVarWChar
-
-    
-	
-	
-
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 202, 1, 255, Request.Form("IdMenuCategory")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, Session("MM_id")) ' adVarWChar
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 202, 1, -1, Request.Form("allowtoppings")) ' adVarWChar
+	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 202, 1, 255, Request.Form("ToppingGroupIDs")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, MM_IIF(Request.Form("dishpropertygroupid"), Request.Form("dishpropertygroupid"), null)) ' adVarWChar
     
     
@@ -84,6 +79,7 @@ If (CStr(Request("MM_insert")) = "form1") Then
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param13", 202, 1, 255,  MM_IIF(Request.Form("s_MayContainAllergen"),Request.Form("s_MayContainAllergen"),"") ) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param14", 202, 1, 255,   MM_IIF(Request.Form("s_SuitableFor"),Request.Form("s_MayContainAllergen"),"") ) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param15", 202, 1, 255,   MM_IIF(Request.Form("ApplyTo"),Request.Form("ApplyTo"),"") ) ' adVarWChar
+    
 
 
     MM_editCmd.Execute
@@ -302,23 +298,25 @@ End If
     <input type="text" pattern="[0-9]+([\.][0-9]{0,2})?"   class="form-control" id="Price" name="Price" value="" required title="Please note if you are setting options that determine the price please set this to zero or set to number with up to 2 decimal places.">
   </div>
    <div class="form-group">
-    <label for="allowtoppings">Toppings </label>
-	<p>Does this product come with optional toppings, if so select the topping group appropriate to this item.</p>
+     <label for="ToppingGroupID">Toppings </label>
+	<p>Tick which optional topping this dish allows.</p>	
 	
-	
-	<select name="allowtoppings" id="allowtoppings" class="form-control">
-  <option value="0">-- don't allow toppings --</option>
+
 
 
 	
 	<%                  objRds.Close
                         set objRds = nothing
                         Set objRds = Server.CreateObject("ADODB.Recordset") 
-                        objRds.Open "SELECT * FROM Menutoppingsgroups where  IdBusinessDetail=" & Session("MM_id") , objCon
+                        objRds.Open "SELECT id,toppingsgroup FROM Menutoppingsgroups where  IdBusinessDetail=" & Session("MM_id") , objCon
 
                         Do While NOT objRds.Eof%>
 						
-					  <option value="<%= objRds("id") %>"><%= objRds("toppingsgroup") %></option>
+					 <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="ToppingGroupIDs" value="<%= objRds("id") %>"><%= objRds("toppingsgroup") %>
+                                    </label>
+                                  </div>
 	 <%
                             objRds.MoveNext    
                         Loop
@@ -326,7 +324,7 @@ End If
                         set objRds = nothing
                        
                         %>
-						</select>
+					
     
   </div>
    <div class="form-group">

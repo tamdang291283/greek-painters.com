@@ -8,12 +8,13 @@
 <!-- #include file="../../timezone.asp" -->
 <!-- #include file="../../restaurantsettings_ForPrinter.asp" -->
 <%
-   
+  
      textreceipt = true
      dim newWay : newWay = false
        if printingtype = "text" then
             newWay = true
        end if
+
     if newWay = false then
         Response.End
     end if
@@ -31,6 +32,7 @@
         On Error GoTo 0
     End sub
     function GetContentPrint(byval OrderID, byval resid, byval isDualPrint,byval printername,byval index)
+              
                 dim s_ContentBatchReceipt : s_ContentBatchReceipt = ""
                 oId = OrderID
                 rId =resid
@@ -50,17 +52,17 @@
                     else
                         FileMod = "-EN"                
                     end if 
-
+                    
                     If FileMod = "-PN"  Then                                                                                        
                         s_filenameEPSON = rId & "-" & oId & "-" & Replace(printername,"PN:","") & "-" & i & FileMod 
                             iQuery = "TempPOID=" &  oId & "&id_r=" & rId & "&PrintJobId=" & s_filenameEPSON
-                            Response.Write(iQuery)
+                           ' Response.Write(iQuery)
                             s_ContentBatchReceipt = PostRequestURL( replace(SITE_URL,"https","http") & "printers/epson/orders-epson_item.asp" ,iQuery)
                     ElseIf  FileMod = "-EN"  Then
                             FileMod = ""                                                   
                             s_filenameEPSON =  rId & "-" & oId & "-" & printername& "-" & i  & FileMod 
                             iQuery = "TempPOID=" &  oId & "&id_r=" & rId & "&PrintJobId=" & s_filenameEPSON                                                      
-                            Response.Write(iQuery)
+                        
                             s_ContentBatchReceipt =  PostRequestURL(replace(SITE_URL,"https","http") & "printers/epson/orders-epson_item.asp" ,iQuery)                                                        
                     End If
                 end if
@@ -82,7 +84,7 @@
             GetContentPrint = xmlprinter
     end function
     function PostRequestURL(byval URL, byval iQuery)
-      
+      Response.Write(URL&iQuery)
         dim sContent 
         set objHttp = Server.CreateObject("Microsoft.XMLHTTP")
         objHttp.open "POST", URL & "?" & iQuery, false
@@ -172,6 +174,7 @@
                     PrinterIDList = "local_printer"
                 end if
                 dim s_ContentBatchReceipt : s_ContentBatchReceipt = ""
+                
                 if PrinterIDList & "" <> "" then
                     dim arrPrinterIDList : arrPrinterIDList = split( PrinterIDList,";")
                     dim index : index = 0

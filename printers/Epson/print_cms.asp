@@ -447,27 +447,38 @@ Accepted for:&nbsp;<%=DateAdd("n",mintoadd,objRds("orderdate"))%>
 						<%
 						toppingtext=""
 						If objRds("toppingids") <> "" Then 
-				Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
-                             Dim SQLTopping 
-                             Dim toppinggroup : toppinggroup  =""
+                             Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                            Set objRds_toppingids_group = Server.CreateObject("ADODB.Recordset")     
+                            dim SQLtopping : SQLtopping = "" 
+                                SQLtopping = "select top 1 ID, toppingsgroup,printingname  from Menutoppingsgroups with(nolock)  where id in (select toppinggroupid from menutoppings where id  in (" & objRds("toppingids")& ")  ) "
+                            objRds_toppingids_group.Open SQLtopping, objCon 
+                            while not objRds_toppingids_group.EOF  
+                                Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                                Dim SQLTopping 
+                                Dim toppinggroup : toppinggroup  =""
                                 SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
                                 SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
-                                SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &")"
-                objRds_toppingids.Open SQLTopping , objCon
-				        Do While NOT objRds_toppingids.Eof 
-						        toppingtext = toppingtext & objRds_toppingids("topping") & ", "
-                                toppinggroup = objRds_toppingids("toppingsgroup")
-						        objRds_toppingids.MoveNext
-						loop
-                            objRds_toppingids.close()
-                        set objRds_toppingids = nothing
-						if toppingtext<>"" then
-                             if toppinggroup & "" = "" then
+                                SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &") and m.toppinggroupid=" & objRds_toppingids_group("ID")
+                                objRds_toppingids.Open SQLTopping , objCon
+                                Do While NOT objRds_toppingids.Eof 
+                                    toppingtext = toppingtext & objRds_toppingids("topping") & ", "
+                                   ' toppinggroup = objRds_toppingids("toppingsgroup")
+                                    objRds_toppingids.MoveNext
+                                loop
+                                objRds_toppingids.close()
+                                set objRds_toppingids = nothing
+                                if toppingtext<>"" then
+                                if toppinggroup & "" = "" then
                                     toppinggroup = "Toppings"
-                                  end if
-							toppingtext=left(toppingtext,len(toppingtext)-2)
-						    response.write "<small><br>" & toppinggroup & ": " & toppingtext & "</small>"
-						end if
+                                    end if
+                                toppingtext=left(toppingtext,len(toppingtext)-2)
+                                response.write "<small><br>" & toppinggroup & ": " & toppingtext & "</small>"
+                                end if
+                                objRds_toppingids_group.movenext()
+                            wend
+                                    objRds_toppingids_group.close()
+                                set objRds_toppingids_group =  nothing
+
 						 End If %>
 						</td>
                                 <td style="padding-right: 20px; text-align: right;" valign="top"><%=CURRENCYSYMBOL%><%= FormatNumber(objRds("Total"), 2) %></td>                                    

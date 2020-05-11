@@ -58,7 +58,7 @@ If (CStr(Request("MM_update")) = "form1") Then
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
 
-MM_editCmd.CommandText = "UPDATE menuitems SET [code] = ?,[name] = ?,[description] = ?,[Spicyness] = ?,[price] = ?,[allowtoppings] = ?,[dishpropertygroupid]=?,[hidedish]=?,[printingname]=?,s_ContainAllergen=?,s_MayContainAllergen=?,s_SuitableFor=?,ApplyTo=? WHERE ID = ?" 
+MM_editCmd.CommandText = "UPDATE menuitems SET [code] = ?,[name] = ?,[description] = ?,[Spicyness] = ?,[price] = ?,ToppingGroupIDs = ?,[dishpropertygroupid]=?,[hidedish]=?,[printingname]=?,s_ContainAllergen=?,s_MayContainAllergen=?,s_SuitableFor=?,ApplyTo=? WHERE ID = ?" 
     MM_editCmd.Prepared = true
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, MM_IIF(Request.Form("code"), Request.Form("code"), null)) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 202, 1, 255, Request.Form("name")) ' adVarWChar
@@ -67,7 +67,8 @@ MM_editCmd.CommandText = "UPDATE menuitems SET [code] = ?,[name] = ?,[descriptio
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 202, 1, 255, MM_IIF(Request.Form("Spicyness"), Request.Form("Spicyness"), null)) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 202, 1, 255,MM_IIF(Request.Form("price"), Request.Form("price"), null)) ' adVarWChar
 
-	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 202, 1, -1, Request.Form("allowtoppings")) ' adVarWChar
+	'MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param7", 202, 1, -1, Request.Form("allowtoppings")) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param16", 202, 1, 255, MM_IIF(Request.Form("ToppingGroupIDs"),Request.Form("ToppingGroupIDs"),"")) ' adVarWChar
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param8", 202, 1, 255, MM_IIF(Request.Form("dishpropertygroupid"), Request.Form("dishpropertygroupid"), null)) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param9", 202, 1, -1, Request.Form("hidedish")) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param10", 202, 1, -1, Request.Form("printingname")) ' adVarWChar
@@ -75,6 +76,7 @@ MM_editCmd.CommandText = "UPDATE menuitems SET [code] = ?,[name] = ?,[descriptio
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param13", 202, 1, 255, MM_IIF(Request.Form("s_MayContainAllergen"),Request.Form("s_MayContainAllergen"),"")) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param14", 202, 1, 255, MM_IIF(Request.Form("s_SuitableFor"),Request.Form("s_SuitableFor"),"")) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param15", 202, 1, 255, MM_IIF(Request.Form("ApplyTo"),Request.Form("ApplyTo"),"")) ' adVarWChar
+    
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param11", 5, 1, -1, MM_IIF(Request.Form("MM_recordId"), Request.Form("MM_recordId"), null)) ' adDouble
     
 
@@ -106,7 +108,7 @@ Recordset1_cmd.ActiveConnection = sConnStringcms
 sql  = "SELECT Id,Code,Name,Description,Spicyness,Price "
 sql=sql&" ,IdMenuCategory,IdBusinessDetail,Photo,allowtoppings,dishpropertygroupid"
 sql=sql&" ,hidedish,PrintingName,i_displaySort "
-sql=sql&" ,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor,isnull(ApplyTo,'b') as ApplyTo "
+sql=sql&" ,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor,isnull(ApplyTo,'b') as ApplyTo, isnull(ToppingGroupIDs,'') as ToppingGroupIDs "
 sql=sql&" FROM menuitems where id=" & request.querystring("id")
 Recordset1_cmd.CommandText = sql
 Recordset1_cmd.Prepared = true
@@ -330,38 +332,16 @@ Recordset1_numRows = 0
     <input type="text" pattern="[0-9]+([\.][0-9]{0,2})?"   class="form-control" id="Price" name="Price" value="<%= Recordset1.Fields.Item("Price").Value %>" required title="Please note if you are setting options that determine the price please set this to zero or set to number with up to 2 decimal places.">
   </div>
    <div class="form-group">
-	 <label for="allowtoppings">Toppings </label>
-	<p>Does this product come with optional toppings, if so select the topping group appropriate to this item.</p>	
-	<select name="allowtoppings" id="allowtoppings" class="form-control">
-  <option value="0">-- don't allow toppings --</option>
+	 <label for="ToppingGroupID">Toppings </label>
+	<p>Tick which optional topping this dish allows.</p>	
+  
+       
+
 
 
 	
-	<%                  objRds.Close
-                        set objRds = nothing
-                        Set objRds = Server.CreateObject("ADODB.Recordset") 
-                        objRds.Open "SELECT * FROM Menutoppingsgroups where  IdBusinessDetail=" & Session("MM_id") , objCon
-
-                        Do While NOT objRds.Eof%>
-						
-					  <option value="<%= objRds("id") %>" <%if Recordset1.Fields.Item("allowtoppings").Value=objRds("id") then%>selected<%end if%>><%= objRds("toppingsgroup") %></option>
-	 <%
-                            objRds.MoveNext    
-                        Loop
-                        objRds.close()
-                        set objRds = nothing
-                       
-                        %>
-						</select>
-	
-    
-  </div>
-   <div class="form-group">
-    <label for="dishpropertygroupid">Dish Properties</label>
-	
-	<p>Tick which optional properties this dish allows.</p>
 	<%  
-	Function in_array(element, arr)
+        Function in_array(element, arr)
 	For i=0 To Ubound(arr) 
 		If Trim(arr(i)) = Trim(element) Then 
 			in_array = True
@@ -371,6 +351,44 @@ Recordset1_numRows = 0
 		End If  
 	Next 
 End Function
+           
+        
+                     objRds.Close
+                        set objRds = nothing
+                        Set objRds = Server.CreateObject("ADODB.Recordset") 
+                        objRds.Open "SELECT id,toppingsgroup FROM Menutoppingsgroups where  IdBusinessDetail=" & Session("MM_id") , objCon
+
+                        Do While NOT objRds.Eof
+                            checked=0
+                            if Recordset1.Fields.Item("ToppingGroupIDs").Value<>"" then
+						        dparray=split(replace(Recordset1.Fields.Item("ToppingGroupIDs").Value," ",""),",")
+						        if in_array(objRds("id"),dparray) then
+						            checked=1
+						        end if
+						    end if
+                        %>  
+						          <div class="checkbox">
+                                    <label>
+                                      <input type="checkbox" name="ToppingGroupIDs" <%if checked=1 then%>checked<%end if%> value="<%= objRds("id") %>"> <%= objRds("toppingsgroup") %>
+                                    </label>
+                                  </div>
+	 <%
+                            objRds.MoveNext    
+                        Loop
+                        objRds.close()
+                        set objRds = nothing
+                       
+                        %>
+					
+	
+    
+  </div>
+   <div class="form-group">
+    <label for="dishpropertygroupid">Dish Properties</label>
+	
+	<p>Tick which optional properties this dish allows.</p>
+	<%  
+	
 	
 	
 	             

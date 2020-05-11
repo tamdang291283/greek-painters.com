@@ -253,28 +253,37 @@ end if
 						toppingtext=""
 						If objRds("toppingids") <> "" Then 
 						
-								Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
-                Dim SQLTopping 
-                Dim toppinggroup : toppinggroup  =""
-                    SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
-                    SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
-                    SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &")"
 								
-                objRds_toppingids.Open SQLTopping, objCon
-				Do While NOT objRds_toppingids.Eof 
-						toppingtext = toppingtext & objRds_toppingids("topping") & ", "
-                        toppinggroup = objRds_toppingids("toppingsgroup")
-						objRds_toppingids.MoveNext
-						loop
-                            objRds_toppingids.close()
-                            set objRds_toppingids = nothing
-						if toppingtext<>"" then
-                            if toppinggroup & "" = "" then
-                                toppinggroup = "Toppings"
-                            end if
-							toppingtext=left(toppingtext,len(toppingtext)-2)
-						response.write "<small><br>"&toppinggroup&": " & toppingtext & "</small>"
-						end if
+                            Dim SQLTopping 
+                            Dim toppinggroup : toppinggroup  =""
+                                 Set objRds_toppingids_group = Server.CreateObject("ADODB.Recordset")     
+                                dim SQLtopping : SQLtopping = "" 
+                                    SQLtopping = "select  ID, toppingsgroup,printingname  from Menutoppingsgroups  where id in (select toppinggroupid from menutoppings where id  in (" & objRds("toppingids")& ")  ) "
+                                objRds_toppingids_group.Open SQLtopping, objCon    
+                                while not objRds_toppingids_group.EOF 
+                                    Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                                    SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
+                                    SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
+                                    SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &") and m.toppinggroupid="	&	objRds_toppingids_group("ID")						
+                                            objRds_toppingids.Open SQLTopping, objCon
+				                            Do While NOT objRds_toppingids.Eof 
+						                        toppingtext = toppingtext & objRds_toppingids("topping") & ", "
+                                                ' toppinggroup = objRds_toppingids("toppingsgroup")
+						                        objRds_toppingids.MoveNext
+						                    loop
+                                                objRds_toppingids.close()
+                                                set objRds_toppingids = nothing
+						                    if toppingtext<>"" then
+                                                if toppinggroup & "" = "" then
+                                                    toppinggroup = "Toppings"
+                                                end if
+							                    toppingtext=left(toppingtext,len(toppingtext)-2)
+						                        response.write "<small><br>"&toppinggroup&": " & toppingtext & "</small>"
+						                    end if
+                                    objRds_toppingids_group.movenext()
+                                wend
+                                    objRds_toppingids_group.close()
+                                    set objRds_toppingids_group = nothing
 						 End If %>
 						</td>
                                 <td style="padding-right: 20px; text-align: right;" valign="top"><%= FormatNumber(objRds("Total"), 2) %></td>                                    
@@ -298,7 +307,7 @@ end if
                     	<%if vvouchercode<>"" then%>
 					<tr>
                         <td style="padding-top: 5px; text-align: right; border-top: 1px dotted black;">Discount code:&nbsp;<br /><%=vvouchercode%><%if VoucherDiscountType <> "Amount" then %> (-<%=vvouchercodediscount%>%)<%end if %>&nbsp; </td>
-                        <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;"> -<%=CURRENCYSYMBOL%><%if VoucherDiscountType <> "Amount" then %><%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2) %><%else %><%=FormatNumber(Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))),2) %><%end if %> </td>
+                        <td style="padding-top: 5px; padding-right: 20px; text-align: right; border-top: 1px dotted black;"> -<%=CURRENCYSYMBOL%><%if VoucherDiscountType <> "Amount" then %><%= FormatNumber((( vSubTotal * 100 )/(100- Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ",""))) - vSubTotal ),2) %><%else %><%=FormatNumber(Cdbl(Replace(Replace(Replace(vvouchercodediscount,"-",""),"%","")," ","")),2) %><%end if %> </td>
                     </tr>
 					<%end if%>
                         <tr>

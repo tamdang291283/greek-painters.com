@@ -218,45 +218,43 @@ ttabs="&#9;&#9;&#9;&#9;"
 					
 					toppingtext=""
                     dim toppingGroup : toppingGroup = "" 
-					If objRds2("toppingids") <> "" Then 
-						    
+					If objRds2("toppingids") <> "" Then 						    
 							     
-                            Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                          
                             Set objRds_toppingids_group = Server.CreateObject("ADODB.Recordset")     
                             dim SQLtopping : SQLtopping = "" 
-                                SQLtopping = "select top 1 ID, toppingsgroup,printingname  from Menutoppingsgroups  where id in (select toppinggroupid from menutoppings where id  in (" & objRds2("toppingids")& ")  ) "
-                            objRds_toppingids_group.Open SQLtopping, objCon
-                            if not objRds_toppingids_group.EOF then
-                                toppingGroup = objRds_toppingids_group("toppingsgroup")
-                                if  instr(PrintJobId,"PN") > 0 and objRds_toppingids_group("printingname") & "" <> ""  then
-                                    toppingGroup =   objRds_toppingids_group("printingname") 
-                                end if
-                            end if
-						     objRds_toppingids_group.close()
+                                SQLtopping = "select  ID, toppingsgroup,printingname  from Menutoppingsgroups with(nolock)  where id in (select toppinggroupid from menutoppings with(nolock) where id  in (" & objRds2("toppingids")& ")  ) "
+                            objRds_toppingids_group.Open SQLtopping, objCon                            
+                            while not objRds_toppingids_group.EOF 
+                                    toppingGroup = objRds_toppingids_group("toppingsgroup")
+                                    if  instr(PrintJobId,"PN") > 0 and objRds_toppingids_group("printingname") & "" <> ""  then
+                                        toppingGroup =   objRds_toppingids_group("printingname") 
+                                    end if
+                                      Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                                    objRds_toppingids.Open "SELECT topping,printingname FROM MenuToppings with(nolock) where id in (" & objRds2("toppingids") & ") and toppinggroupid=" & objRds_toppingids_group("ID"), objCon
+				                    Do While NOT objRds_toppingids.Eof 
+						                dim topping : topping =  objRds_toppingids("topping")
+                                         if  instr(PrintJobId,"PN") > 0 and objRds_toppingids("printingname") & "" <> ""  then
+                                             topping =  objRds_toppingids("printingname")
+                                         end if
+						                toppingtext = toppingtext & topping & ", "
+						                objRds_toppingids.MoveNext
+						            loop
+                                        objRds_toppingids.close()
+                                    set objRds_toppingids = nothing
+						            if toppingtext<>"" then
+							            toppingtext=left(toppingtext,len(toppingtext)-2)
+						            'response.write "%%Toppings: " & toppingtext 
+						                IF instr(PrintJobId,"PN") > 0 then
+                                            oooo=oooo & "<text width=""2"" height=""2""/><text reverse=""false"" ul=""false"" em=""false"" color=""color_1""/> <text lang=""zh-cn"" /><text>" & "    " & ReplaceSpecialCharacter(toppingGroup) &": " & ReplaceSpecialCharacter(toppingtext)  & "</text><text width=""1"" height=""1""/><text lang=""en"" /><text>&#10;</text>"
+                                        else
+						                    oooo=oooo & "<text>" & "    " & ReplaceSpecialCharacter(toppingGroup) &": " & ReplaceSpecialCharacter(toppingtext) & "&#10;</text>"
+                                        end if
+						            end if
+                                 objRds_toppingids_group.movenext()
+                            wend
+                                objRds_toppingids_group.close()
                             set objRds_toppingids_group = nothing
-                            if toppingGroup & "" = "" then
-                                toppingGroup = "Toppings"
-                            end if
-                        objRds_toppingids.Open "SELECT * FROM MenuToppings where id in (" & objRds2("toppingids") & ")", objCon
-				        Do While NOT objRds_toppingids.Eof 
-						    dim topping : topping =  objRds_toppingids("topping")
-                             if  instr(PrintJobId,"PN") > 0 and objRds_toppingids("printingname") & "" <> ""  then
-                                 topping =  objRds_toppingids("printingname")
-                             end if
-						    toppingtext = toppingtext & topping & ", "
-						objRds_toppingids.MoveNext
-						loop
-                            objRds_toppingids.close()
-                        set objRds_toppingids = nothing
-						if toppingtext<>"" then
-							toppingtext=left(toppingtext,len(toppingtext)-2)
-						'response.write "%%Toppings: " & toppingtext 
-						    IF instr(PrintJobId,"PN") > 0 then
-                                oooo=oooo & "<text width=""2"" height=""2""/><text reverse=""false"" ul=""false"" em=""false"" color=""color_1""/> <text lang=""zh-cn"" /><text>" & "    " & ReplaceSpecialCharacter(toppingGroup) &": " & ReplaceSpecialCharacter(toppingtext)  & "</text><text width=""1"" height=""1""/><text lang=""en"" /><text>&#10;</text>"
-                            else
-						        oooo=oooo & "<text>" & "    " & ReplaceSpecialCharacter(toppingGroup) &": " & ReplaceSpecialCharacter(toppingtext) & "&#10;</text>"
-                            end if
-						end if
 						 End If  
 					
 					'response.write  ";" & FormatNumber(objRds2("Total"), 2) & ";"

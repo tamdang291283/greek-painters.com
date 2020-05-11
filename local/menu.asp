@@ -929,6 +929,7 @@ max-width: 154.3px;
                         SQL = " SELECT mi.*, mi.Name AS Name, "
                         SQL =SQL & " mip.Id AS PropertyId, mip.Name AS PropertyName, "
                         SQL =SQL & "mip.Price AS PropertyPrice,  mi.allowtoppings AS miallowtoppings, "
+                        SQL =SQL & " mi.ToppingGroupIDs AS ToppingGroupIDs,mip.ToppingGroupIDs AS MToppingGroupIDs, "
                         SQL =SQL & " mip.allowtoppings AS mipallowtoppings,mip.i_displaysort  "
                         SQL = SQL & ",mip.s_ContainAllergen as s_ContainAllergen_p,mip.s_MayContainAllergen as s_MayContainAllergen_p,mip.s_SuitableFor as s_SuitableFor_p "
                         SQL = SQL & ",mi.s_ContainAllergen as s_ContainAllergen_m,mi.s_MayContainAllergen as s_MayContainAllergen_m,mi.s_SuitableFor as s_SuitableFor_m "
@@ -968,7 +969,7 @@ max-width: 154.3px;
 
                                 dim Code,MenuDescription,dishpropertygroupid,hidedish
                                 dim MenuItemName,Photo,MenuPrice,menuPrintingName,Spicyness,Vegetarian
-                                dim PropertyName,PropertyId,PropertyPrice,miallowtoppings,mipallowtoppings
+                                dim PropertyName,PropertyId,PropertyPrice,miallowtoppings,mipallowtoppings,ToppingGroupIDs,MToppingGroupIDs
                             
                                 MenuItemName = ""
                                 dim menuItemNameID : menuItemNameID = ""
@@ -1003,7 +1004,9 @@ max-width: 154.3px;
                                    
                                        miallowtoppings = objRds_MenuItem("miallowtoppings")
                                        mipallowtoppings = objRds_MenuItem("mipallowtoppings")
-                            
+                                       ToppingGroupIDs = objRds_MenuItem("ToppingGroupIDs")
+                                       MToppingGroupIDs = objRds_MenuItem("MToppingGroupIDs")
+
                                         dim class_noborder : class_noborder = ""
                                         if menuItemNameID = vMenuItemId then
                                             class_noborder = " no-border"
@@ -1325,8 +1328,9 @@ max-width: 154.3px;
                                   
 								    ' code to check if toppings are applicable to this product
 								    dishtoppingstext=""
-								    if (miallowtoppings & "" <> "0" and trim( miallowtoppings & "") <> "") or ( mipallowtoppings & "" <> "0" and trim( mipallowtoppings & "") <> "")  then
-                                             dim listtoppinggroupid : listtoppinggroupid = ""
+								    'if (miallowtoppings & "" <> "0" and trim( miallowtoppings & "") <> "") or ( mipallowtoppings & "" <> "0" and trim( mipallowtoppings & "") <> "")  then
+                                     if ToppingGroupIDs & "" <> "" or MToppingGroupIDs & "" <> ""  then
+                                                dim listtoppinggroupid : listtoppinggroupid = ""
                                                 if trim( miallowtoppings & "") <> "0" and trim( miallowtoppings & "") <> ""   then
                                                     listtoppinggroupid = miallowtoppings
                                                 end if
@@ -1338,6 +1342,12 @@ max-width: 154.3px;
                                                         listtoppinggroupid =listtoppinggroupid &  "," & mipallowtoppings
                                                     end if
                                                 end if
+                                            if ToppingGroupIDs & "" <> "" then
+                                                listtoppinggroupid =  ToppingGroupIDs
+                                            else
+                                                listtoppinggroupid = MToppingGroupIDs
+                                            end if    
+
                                              Set objRds_toppings_Group = Server.CreateObject("ADODB.Recordset")  
                                                 SQL = "select ID,toppingsgroup,i_displaysort,isnull(limittopping,0) as limittopping from Menutoppingsgroups where IdBusinessDetail = " &   vRestaurantId & " and ID in (" &listtoppinggroupid& ")  order by i_displaysort,id "                                                     
                                                 objRds_toppings_Group.Open SQL, objCon
@@ -1346,7 +1356,11 @@ max-width: 154.3px;
                                                     SQL = "SELECT id,topping,toppingprice,i_displaysort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor FROM MenuToppings with(nolock)    where  IdBusinessDetail=" & vRestaurantId                                               
                                                     SQL =SQL & " and toppinggroupid=" & objRds_toppings_Group("ID")    & " order by i_displaysort,id "                                            
                                                     objRds_toppings.Open SQL, objCon
-                                                dishtoppingstext =  "<div class=""dishproperties__title"">" & objRds_toppings_Group("toppingsgroup") & " </div> "
+                                                if dishtoppingstext & "" <> "" then
+                                                    dishtoppingstext = dishtoppingstext & "<br/>"
+                                                end if
+                                                'dishtoppingstext =  "<div class=""dishproperties__title"">" & objRds_toppings_Group("toppingsgroup") & " </div> "
+                                                dishtoppingstext =dishtoppingstext &  "<div class=""dishproperties__title"">" & objRds_toppings_Group("toppingsgroup") & " </div> "
                                                 dim s_ContainAllergen_t,s_MayContainAllergen_t,s_SuitableFor_t 
                                                 While NOT objRds_toppings.Eof 
                                                     s_ContainAllergen_t = Replace(objRds_toppings("s_ContainAllergen")& ""," ","") 

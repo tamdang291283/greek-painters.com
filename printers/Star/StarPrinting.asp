@@ -552,27 +552,40 @@ Function PrintTextOrder(Oid, vRestaurantId)
             End If
             toppingtext=""
 			If objRds("toppingids") <> "" Then 
-			    Set objCon_toppingids = Server.CreateObject("ADODB.Connection")
-			    Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
-                objCon_toppingids.Open sConnString
-                    Dim SQLTopping 
-                    Dim toppinggroup : toppinggroup  =""
-                        SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
-                        SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
-                        SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &")"
-                objRds_toppingids.Open SQLTopping, objCon
-			    Do While NOT objRds_toppingids.Eof 
-				    toppingtext = toppingtext & objRds_toppingids("topping") & ", "
-                    toppinggroup = objRds_toppingids("toppingsgroup")
-				    objRds_toppingids.MoveNext
-			    loop
-			    if toppingtext<>"" then
-                    if toppinggroup & "" = "" then
-                        toppinggroup = "Toppings"
-                    end if
-				    toppingtext=left(toppingtext,len(toppingtext)-2)
-			        Receipttext =   Receipttext & vbCrLf & toppinggroup & ": " & toppingtext
-			    end if
+                     Set objCon_toppingids = Server.CreateObject("ADODB.Connection")
+                         objCon_toppingids.Open sConnString
+
+                    Set objRds_toppingids_group = Server.CreateObject("ADODB.Recordset")     
+                    dim SQLtopping : SQLtopping = "" 
+                        SQLtopping = "select top 1 ID, toppingsgroup,printingname  from Menutoppingsgroups  where id in (select toppinggroupid from menutoppings where id  in (" & objRds("toppingids")& ")  ) "
+                    objRds_toppingids_group.Open SQLtopping, objCon_toppingids                            
+                    while not objRds_toppingids_group.EOF
+                        toppingGroup = objRds_toppingids_group("toppingsgroup")
+                        if  namePrintingMode & "" = "printingname" and objRds_toppingids_group("printingname") & "" <> ""  then
+                            toppingGroup =   objRds_toppingids_group("printingname") 
+                        end if
+                        toppingtext  =""
+                        Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                        Dim toppinggroup : toppinggroup  =""
+                            SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
+                            SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
+                            SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &") and m.toppinggroupid=" & objRds_toppingids_group("ID")
+                        objRds_toppingids.Open SQLTopping, objCon
+                        Do While NOT objRds_toppingids.Eof 
+                            toppingtext = toppingtext & objRds_toppingids("topping") & ", "                    
+                            objRds_toppingids.MoveNext
+                        loop
+                        if toppingtext<>"" then
+                            if toppinggroup & "" = "" then
+                                toppinggroup = "Toppings"
+                            end if
+                            toppingtext=left(toppingtext,len(toppingtext)-2)
+                            Receipttext =   Receipttext & vbCrLf & toppinggroup & ": " & toppingtext
+                        end if
+                        objRds_toppingids_group.movenext()
+                    wend 
+                        objRds_toppingids_group.close()
+                    set objRds_toppingids_group = nothing
 			End If
            Receipttext =   Receipttext & CURRENCYSYMBOL & FormatNumber(objRds("Total"), 2) 
             objRds.MoveNext

@@ -280,7 +280,7 @@ if vOperator <> "" or 1=1 Then
 					
 					Set objRds_toppingprice = Server.CreateObject("ADODB.Recordset") 
 					
-	                objRds_toppingprice.Open "SELECT * FROM MenuToppings   where id in (" & toppingids & ")", objCon
+	                objRds_toppingprice.Open "SELECT ID,toppingprice FROM MenuToppings   where id in (" & toppingids & ")", objCon
                     WriteLog Server.MapPath("trackingtopping.txt"),"PageName = shoppingcart.asp OrderID = " & vOrderId & " toppingid list  " & toppingids &  " ItemID " & vMenuItemId 
 					Do While NOT objRds_toppingprice.Eof 
 					    toppingprice=toppingprice+objRds_toppingprice("toppingprice") 
@@ -719,7 +719,7 @@ display: block;
 
     <%
         Do While NOT objRds.Eof  %>
-                <tr id="basket<%=objRds("Id") %>">
+                <tr id="basket<%=objRds("Id") %>" groupproperty="pro<%=objRds("Id") %>">
                     <% if CanEditQtyBasket = "a" then %>
                     <td name="itemName" colspan="3" style="text-align:left;"> 
                         <%= objRds("Name") %>&nbsp;<%= objRds("PropertyName") %>                    
@@ -755,28 +755,48 @@ display: block;
 						'display dish properties in basket area
 						toppingtext=""
 						If objRds("toppingids") <> "" Then 
-								Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
-                                Dim SQLTopping 
-                                SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
-                                SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
-                                SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &")"
-                        objRds_toppingids.Open SQLTopping, objCon
-				        toppingtext=""
-                        Dim toppinggroup : toppinggroup = ""
-				        Do While NOT objRds_toppingids.Eof 
-						    toppingtext = toppingtext & objRds_toppingids("topping") & ", "
-                            toppinggroup = objRds_toppingids("toppingsgroup")
-						    objRds_toppingids.MoveNext
-						loop
-                        objRds_toppingids.close()
-                        set objRds_toppingids = nothing
-						if toppingtext<>"" then
-							  if toppinggroup & "" = "" then
-                                toppinggroup = "Toppings"
-                              end if  
-                             toppingtext=left(toppingtext,len(toppingtext)-2)
-						    response.write "<small><br>"&toppinggroup&": " & toppingtext & "</small>"
-						end if
+                                SQL = "  SELECT distinct a.toppinggroupid,ap.toppingsgroup FROM MenuToppings a with(nolock)  "
+                                SQL = SQL & "  join Menutoppingsgroups ap with(nolock) on a.toppinggroupid = ap.ID "
+                                SQL = SQL & " where a.id in  (" & objRds("toppingids") & ") "
+                                dim objRds_toppingids_group : Set objRds_toppingids_group = Server.CreateObject("ADODB.Recordset") 
+                                objRds_toppingids_group.Open SQL, objCon
+                                      
+                                 Dim toppinggroup : toppinggroup = ""
+                                while not objRds_toppingids_group.EOF 
+                                                toppingtext=""    
+                                                toppinggroup = objRds_toppingids_group("toppingsgroup")
+								                Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                                                Dim SQLTopping 
+                                                    SQLTopping = "SELECT m.topping FROM MenuToppings m "
+                                                    SQLTopping =SQLTopping & "    where m.id in (" & objRds("toppingids") & ") and m.toppinggroupid=" & objRds_toppingids_group("toppinggroupid")
+                                        objRds_toppingids.Open SQLTopping, objCon
+				                        Do While NOT objRds_toppingids.Eof 
+                                             'if toppinggroup & "" <> objRds_toppingids("toppingsgroup") & ""  then
+                                             '   toppinggroup = objRds_toppingids("toppingsgroup") & ""
+                                            ' end if
+
+						                    toppingtext = toppingtext & objRds_toppingids("topping") & ", "
+                                           ' toppinggroup = objRds_toppingids("toppingsgroup")
+						                    objRds_toppingids.MoveNext
+						                loop
+                                            objRds_toppingids.close()
+                                        set objRds_toppingids = nothing
+                                        
+                                        if toppingtext<>"" then
+							                  if toppinggroup & "" = "" then
+                                                 toppinggroup = "Toppings"
+                                              end if  
+                                            toppingtext=left(toppingtext,len(toppingtext)-2)
+						                    response.write "<small><br>"&toppinggroup&": " & toppingtext & "</small>"
+						                end if    
+                                    objRds_toppingids_group.movenext()
+                                wend
+                                objRds_toppingids_group.close()    
+                                set objRds_toppingids_group = nothing
+                                
+
+
+						
 						 End If %>
 						 
                     </td>
@@ -786,7 +806,7 @@ display: block;
                    
                 </tr>
            <% if CanEditQtyBasket = "a" then %>
-                <tr>
+                <tr groupproperty="pro<%=objRds("Id") %>">
                      <td style="padding:5px 0 5px 5px;" colspan="2">                        
                          <div class="input-group">
                               

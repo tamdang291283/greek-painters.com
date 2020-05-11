@@ -529,44 +529,43 @@ Accepted for:&nbsp;<%=formatDateTimeC(acceptedfor)%>
 						toppingtext=""
                         dim toppingGroup : toppingGroup = "" 
 						If objRds("toppingids") <> "" Then 						        
-								Set objRds_toppingids = Server.CreateObject("ADODB.Recordset")  
+								
                                 Set objRds_toppingids_group = Server.CreateObject("ADODB.Recordset")     
                             dim SQLtopping : SQLtopping = "" 
-                                SQLtopping = "select top 1 ID, toppingsgroup,printingname  from Menutoppingsgroups  where id in (select toppinggroupid from menutoppings where id  in (" & objRds("toppingids")& ")  ) "
-                            objRds_toppingids_group.Open SQLtopping, objCon
-                            if not objRds_toppingids_group.EOF then
+                                SQLtopping = "select  ID, toppingsgroup,printingname  from Menutoppingsgroups  where id in (select toppinggroupid from menutoppings where id  in (" & objRds("toppingids")& ")  ) "
+                            objRds_toppingids_group.Open SQLtopping, objCon                            
+                            while not objRds_toppingids_group.EOF
                                 toppingGroup = objRds_toppingids_group("toppingsgroup")
                                 if  namePrintingMode & "" = "printingname" and objRds_toppingids_group("printingname") & "" <> ""  then
                                     toppingGroup =   objRds_toppingids_group("printingname") 
                                 end if
-                            end if
-						     objRds_toppingids_group.close()
-                            set objRds_toppingids_group = nothing
-                            if toppingGroup & "" = "" then
-                                toppingGroup = "Toppings"
-                            end if
-
-                            objRds_toppingids.Open "SELECT * FROM MenuToppings where id in (" & objRds("toppingids") & ")", objCon
-				                    Do While NOT objRds_toppingids.Eof 
-                                        dim topping : topping =  objRds_toppingids("topping")
-                                             if  namePrintingMode & "" = "printingname" and objRds_toppingids("printingname") & "" <> ""  then
-                                                 topping =  objRds_toppingids("printingname")
-                                             end if
-						                toppingtext = toppingtext & topping & ", "
-						                objRds_toppingids.MoveNext
-						            loop
-                                        objRds_toppingids.close()
-                                    set objRds_toppingids = nothing
-						            if toppingtext<>"" then
-							            toppingtext=left(toppingtext,len(toppingtext)-2)
-						                'response.write "<small><br>Toppings: " & toppingtext & "</small>"
-                                        if  namePrintingMode & "" = "printingname" then
-                                            response.write "<small><br><span class=""big-printing-size"">"& toppingGroup  &": " & toppingtext & "</span></small>"
-                                        else
-						                    response.write "<small><br>"& toppingGroup  &": " & toppingtext & "</small>"
-                                        end if
-						            end if
-						             End If %>
+                               toppingtext = ""
+                                Set objRds_toppingids = Server.CreateObject("ADODB.Recordset")  
+                                objRds_toppingids.Open "SELECT topping,printingname FROM MenuToppings where id in (" & objRds("toppingids") & ") and toppinggroupid=" & objRds_toppingids_group("ID") , objCon
+				                        Do While NOT objRds_toppingids.Eof 
+                                            dim topping : topping =  objRds_toppingids("topping")
+                                                    if  namePrintingMode & "" = "printingname" and objRds_toppingids("printingname") & "" <> ""  then
+                                                        topping =  objRds_toppingids("printingname")
+                                                    end if
+						                    toppingtext = toppingtext & topping & ", "
+						                    objRds_toppingids.MoveNext
+						                loop
+                                            objRds_toppingids.close()
+                                        set objRds_toppingids = nothing
+						                if toppingtext<>"" then
+							                toppingtext=left(toppingtext,len(toppingtext)-2)
+						                    'response.write "<small><br>Toppings: " & toppingtext & "</small>"
+                                            if  namePrintingMode & "" = "printingname" then
+                                                response.write "<small><br><span class=""big-printing-size"">"& toppingGroup  &": " & toppingtext & "</span></small>"
+                                            else
+						                        response.write "<small><br>"& toppingGroup  &": " & toppingtext & "</small>"
+                                            end if
+						                end if
+                                    objRds_toppingids_group.movenext()    
+                                wend 
+                                        objRds_toppingids_group.close()
+                                    set objRds_toppingids_group =nothing
+						    End If %>
 						            </td>
                                             <td style="padding-right: 20px; text-align: right;width:25%;" valign="top"><%=CURRENCYSYMBOL%><%= FormatNumber(objRds("Total"), 2) %></td>                                    
                                         </tr>

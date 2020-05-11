@@ -1445,32 +1445,45 @@ max-width: 154.3px;
 
                                                             toppingtext=""
 						                                If objRds_Item("toppingids") <> "" Then 
-								                                Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
-                                                                Dim SQLTopping 
-                                                                SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
-                                                                SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
-                                                                SQLTopping =SQLTopping & "    where m.id in ("& objRds_Item("toppingids") &")"
-                                                                objRds_toppingids.Open SQLTopping, objCon
-				                                                toppingtext=""
-                                                                Dim toppinggroup : toppinggroup = ""
-				                                                Do While NOT objRds_toppingids.Eof 
-						                                            toppingtext = toppingtext & objRds_toppingids("topping") & ", "
-                                                                    toppinggroup = objRds_toppingids("toppingsgroup")
-						                                            objRds_toppingids.MoveNext
-						                                        loop
-                                                                    objRds_toppingids.close()
-                                                                set objRds_toppingids = nothing
-						                                        if toppingtext<>"" then
-							                                          if toppinggroup & "" = "" then
-                                                                        toppinggroup = "Toppings"
-                                                                      end if  
-                                                                     toppingtext=left(toppingtext,len(toppingtext)-2)
-						                                            toppingtext = "<small><br>"&toppinggroup&": " & toppingtext & "</small>"
-						                                        end if
+                                                                 Dim SQLTopping 
+                                                                    SQLTopping = "  SELECT distinct a.toppinggroupid,ap.toppingsgroup FROM MenuToppings a with(nolock)  "
+                                                                    SQLTopping = SQLTopping & "  join Menutoppingsgroups ap with(nolock) on a.toppinggroupid = ap.ID "
+                                                                    SQLTopping = SQLTopping & " where a.id in  (" & objRds_Item("toppingids") & ") "
+                                                                dim objRds_toppingids_group : Set objRds_toppingids_group = Server.CreateObject("ADODB.Recordset") 
+                                                                    objRds_toppingids_group.Open SQLTopping, objCon
+                                                             while not objRds_toppingids_group.eof
+								                                    Set objRds_toppingids = Server.CreateObject("ADODB.Recordset")                                                                
+                                                                    SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
+                                                                    SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
+                                                                    SQLTopping =SQLTopping & "    where m.id in ("& objRds_Item("toppingids") &") and  m.toppinggroupid=" & objRds_toppingids_group("toppinggroupid")
+                                                                    objRds_toppingids.Open SQLTopping, objCon
+				                                                    toppingtext=""
+                                                                    Dim toppinggroup : toppinggroup = ""
+                                                                    toppingtext=""    
+                                                                    toppinggroup = objRds_toppingids_group("toppingsgroup")
+
+				                                                    Do While NOT objRds_toppingids.Eof 
+						                                                toppingtext = toppingtext & objRds_toppingids("topping") & ", "
+                                                                        'toppinggroup = objRds_toppingids("toppingsgroup")
+						                                                objRds_toppingids.MoveNext
+						                                            loop
+                                                                        objRds_toppingids.close()
+                                                                    set objRds_toppingids = nothing
+						                                            if toppingtext<>"" then
+							                                              if toppinggroup & "" = "" then
+                                                                            toppinggroup = "Toppings"
+                                                                          end if  
+                                                                         toppingtext=left(toppingtext,len(toppingtext)-2)
+						                                                toppingtext = "<small><br>"&toppinggroup&": " & toppingtext & "</small>"
+						                                            end if
+                                                                objRds_toppingids_group.movenext()
+                                                             wend
+                                                                objRds_toppingids_group.close()
+                                                            set objRds_toppingids_group = nothing
 						                                 End If
 
                                                                 dim ItemPrice : ItemPrice = cdbl(objRds_Item("Total"))/cdbl(objRds_Item("Qta"))
-                                                                OrderInfo =   OrderInfo & objRds_Item("Qta") & " x " & objRds_Item("Name") & " " &  objRds_Item("PropertyName") & dishpropertiesprice & toppingtext &   "<br />"
+                                                                OrderInfo =  "<div>" &   OrderInfo & objRds_Item("Qta") & " x " & objRds_Item("Name") & " " &  objRds_Item("PropertyName") & dishpropertiesprice & toppingtext &   "</div>"
                                                              %>
                                                     <div class="product-line">                                           
                                                         <div class="product-line__content-left">
@@ -1563,6 +1576,7 @@ max-width: 154.3px;
                             SQL = " SELECT mi.IdMenuCategory,mi.Id,mi.Code,mi.Description,mi.dishpropertygroupid,mi.hidedish,mi.Name,mi.Photo,mi.Price,mi.PrintingName,mi.Spicyness,mi.i_displaysort, "
                             SQL =SQL & " mip.Id AS PropertyId, mip.Name AS PropertyName, "
                             SQL =SQL & "mip.Price AS PropertyPrice,  mi.allowtoppings AS miallowtoppings, "
+                            SQL =SQL & " mi.ToppingGroupIDs AS ToppingGroupIDs,mip.ToppingGroupIDs AS MToppingGroupIDs, "
                             SQL =SQL & " mip.allowtoppings AS mipallowtoppings,mip.i_displaysort  "
                             SQL = SQL & ",mip.s_ContainAllergen as s_ContainAllergen_p,mip.s_MayContainAllergen as s_MayContainAllergen_p,mip.s_SuitableFor as s_SuitableFor_p "
                             SQL = SQL & ",mi.s_ContainAllergen as s_ContainAllergen_m,mi.s_MayContainAllergen as s_MayContainAllergen_m,mi.s_SuitableFor as s_SuitableFor_m "
@@ -1570,13 +1584,13 @@ max-width: 154.3px;
                             SQL =SQL & " LEFT JOIN MenuItemProperties  mip with(nolock)  ON mi.Id = mip.IdMenuItem "
                             SQL =SQL & "WHERE    mi.idbusinessdetail =  " & vRestaurantId & "  AND mi.hidedish<>1 and mi.IdMenuCategory=" & categoryID
                             SQL =SQL & " ORDER BY mi.i_displaysort,mi.id,mip.i_displaysort,mip.Id; "
-
+                            
                            ' objRds_MenuItem.Filter =  " IdMenuCategory = " & categoryID  & ""
                               dim objRds_MenuItem : set objRds_MenuItem  =  Server.CreateObject("ADODB.Recordset") 
                             objRds_MenuItem.Open SQL, objCon 
                             dim Code,MenuDescription,dishpropertygroupid,hidedish
                             dim MenuItemName,Photo,MenuPrice,menuPrintingName,Spicyness,Vegetarian
-                            dim PropertyName,PropertyId,PropertyPrice,miallowtoppings,mipallowtoppings
+                            dim PropertyName,PropertyId,PropertyPrice,miallowtoppings,mipallowtoppings,ToppingGroupIDs,MToppingGroupIDs
                             
                             MenuItemName = ""
                             dim menuItemNameID : menuItemNameID = ""
@@ -1615,6 +1629,10 @@ max-width: 154.3px;
                                    
                                    miallowtoppings = objRds_MenuItem("miallowtoppings")
                                    mipallowtoppings = objRds_MenuItem("mipallowtoppings")
+                                   ToppingGroupIDs = objRds_MenuItem("ToppingGroupIDs")
+                                   MToppingGroupIDs = objRds_MenuItem("MToppingGroupIDs")
+
+                           
                             
                                     dim class_noborder : class_noborder = ""
                                     if menuItemNameID = vMenuItemId then
@@ -1942,11 +1960,13 @@ max-width: 154.3px;
                                   
 								' code to check if toppings are applicable to this product
 								dishtoppingstext=""
-								if (miallowtoppings & "" <> "0" and trim( miallowtoppings & "") <> "") or ( mipallowtoppings & "" <> "0" and trim( mipallowtoppings & "") <> "")  then
-                                        dim listtoppinggroupid : listtoppinggroupid = ""
-                                            if trim( miallowtoppings & "") <> "0" and trim( miallowtoppings & "") <> ""   then
-                                                listtoppinggroupid = miallowtoppings
-                                            end if
+								'if (miallowtoppings & "" <> "0" and trim( miallowtoppings & "") <> "") or ( mipallowtoppings & "" <> "0" and trim( mipallowtoppings & "") <> "")  then
+                                            
+                                            if ToppingGroupIDs & "" <> "" or MToppingGroupIDs & "" <> ""  then
+                                                dim listtoppinggroupid : listtoppinggroupid = ""
+                                                    if trim( miallowtoppings & "") <> "0" and trim( miallowtoppings & "") <> ""   then
+                                                        listtoppinggroupid = miallowtoppings
+                                                    end if
 
                                             if trim( mipallowtoppings & "") <> "0" and  trim( mipallowtoppings & "") <> ""  then
                                                 if listtoppinggroupid = "" then
@@ -1955,17 +1975,29 @@ max-width: 154.3px;
                                                     listtoppinggroupid =listtoppinggroupid &  "," & mipallowtoppings
                                                 end if
                                             end if
+                                             'Response.Write("ToppingGroupIDs " & ToppingGroupIDs & " MToppingGroupIDs" & MToppingGroupIDs & "<br/>")
+                                            if ToppingGroupIDs & "" <> "" then
+                                                listtoppinggroupid =  ToppingGroupIDs
+                                            else
+                                                listtoppinggroupid = MToppingGroupIDs
+                                            end if    
+                                              
                                           '  Response.Write("miallowtoppings " & miallowtoppings & " mipallowtoppings " & mipallowtoppings)
                                         Set objRds_toppings_Group = Server.CreateObject("ADODB.Recordset")  
                                             SQL = "select ID,toppingsgroup,i_displaysort,isnull(limittopping,0) as limittopping  from Menutoppingsgroups with(nolock)    where IdBusinessDetail = " &   vRestaurantId & " and ID in (" &listtoppinggroupid& ") order by i_displaysort,id "       
-                                            
+                                          
                                             objRds_toppings_Group.Open SQL, objCon
+                                            dishtoppingstext = ""
                                         while not objRds_toppings_Group.EOF 
                                                 Set objRds_toppings = Server.CreateObject("ADODB.Recordset")           
                                                     SQL = "SELECT id,topping,toppingprice,i_displaysort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor FROM MenuToppings with(nolock)    where  IdBusinessDetail=" & vRestaurantId                                               
-                                                    SQL =SQL & " and toppinggroupid=" & objRds_toppings_Group("ID")    & " order by i_displaysort,id "                                            
+                                                    SQL =SQL & " and toppinggroupid=" & objRds_toppings_Group("ID")    & " order by i_displaysort,id "                                         
+                                            
                                                 objRds_toppings.Open SQL, objCon
-                                                dishtoppingstext =  "<div class=""dishproperties__title"">" & objRds_toppings_Group("toppingsgroup") & " </div> "
+                                                if dishtoppingstext & "" <> "" then
+                                                    dishtoppingstext = dishtoppingstext & "<br/>"
+                                                end if
+                                                dishtoppingstext =dishtoppingstext &  "<div class=""dishproperties__title"">" & objRds_toppings_Group("toppingsgroup") & " </div> "
                                                 dim s_ContainAllergen_t,s_MayContainAllergen_t,s_SuitableFor_t 
                                                 While NOT objRds_toppings.Eof 
                                                     s_ContainAllergen_t = Replace(objRds_toppings("s_ContainAllergen")& ""," ","") 

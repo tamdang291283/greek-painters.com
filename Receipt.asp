@@ -370,30 +370,40 @@ Payment Status:&nbsp;<%if lcase(objRds("PaymentType"))="stripe-paid" or  objRds(
 						
 						<%
 						toppingtext=""
-						If objRds("toppingids") <> "" Then 
-                                Dim SQLTopping 
-                                Dim toppinggroup : toppinggroup  =""
-                                    SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
-                                    SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
-                                    SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &")"
-
-								Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
-                                    objRds_toppingids.Open SQLTopping, objCon
-				                Do While NOT objRds_toppingids.Eof 
-						            toppingtext = toppingtext & objRds_toppingids("topping") & ", "
-                                    toppinggroup = objRds_toppingids("toppingsgroup")
-						            objRds_toppingids.MoveNext
-						        loop
-                                    objRds_toppingids.close()
-                                    set objRds_toppingids = nothing
-						    if toppingtext<>"" then
-                                 if toppinggroup & "" = "" then
-                                    toppinggroup = "Toppings"
-                                  end if 
-
-							    toppingtext=left(toppingtext,len(toppingtext)-2)
-						        response.write "<small><br>" & toppinggroup & ": " & toppingtext & "</small>"
-						    end if
+						If objRds("toppingids") <> "" Then                                 
+                                 Dim SQLTopping 
+                                        SQLTopping = "  SELECT distinct a.toppinggroupid,ap.toppingsgroup FROM MenuToppings a with(nolock)  "
+                                        SQLTopping = SQLTopping & "  join Menutoppingsgroups ap with(nolock) on a.toppinggroupid = ap.ID "
+                                        SQLTopping = SQLTopping & " where a.id in  (" & objRds("toppingids") & ") "
+                                    dim objRds_toppingids_group : Set objRds_toppingids_group = Server.CreateObject("ADODB.Recordset") 
+                                        objRds_toppingids_group.Open SQLTopping, objCon
+                                    Dim toppinggroup : toppinggroup = ""
+                                    while not objRds_toppingids_group.EOF 
+                                        toppingtext=""    
+                                        toppinggroup = objRds_toppingids_group("toppingsgroup")
+                                        Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                                                SQLTopping = "SELECT m.topping,isnull(mp.toppingsgroup,'') as toppingsgroup FROM MenuToppings m "
+                                                SQLTopping =SQLTopping & "  left join Menutoppingsgroups mp on  m.toppinggroupid = mp.ID"
+                                                SQLTopping =SQLTopping & "    where m.id in ("& objRds("toppingids") &") and m.toppinggroupid=  " & objRds_toppingids_group("toppinggroupid")
+								            Set objRds_toppingids = Server.CreateObject("ADODB.Recordset") 
+                                                objRds_toppingids.Open SQLTopping, objCon
+				                            Do While NOT objRds_toppingids.Eof 
+						                        toppingtext = toppingtext & objRds_toppingids("topping") & ", "                                                           
+						                        objRds_toppingids.MoveNext
+						                    loop
+                                                objRds_toppingids.close()
+                                                set objRds_toppingids = nothing
+						                if toppingtext<>"" then
+                                                if toppinggroup & "" = "" then
+                                                toppinggroup = "Toppings"
+                                                end if 
+							                toppingtext=left(toppingtext,len(toppingtext)-2)
+						                    response.write "<small><br>" & toppinggroup & ": " & toppingtext & "</small>"
+						                end if   
+                                        objRds_toppingids_group.movenext()                                              
+                                    wend
+                                        objRds_toppingids_group.close()    
+                                    set objRds_toppingids_group = nothing 
 						 End If  %>
 						</td>
                                 <td style="padding-right: 20px; text-align: right;" valign="top"><%=CURRENCYSYMBOL%><%= FormatNumber(objRds("Total"), 2) %></td>                                    
@@ -477,6 +487,11 @@ Payment Status:&nbsp;<%if lcase(objRds("PaymentType"))="stripe-paid" or  objRds(
                                      
         </div>
         <%end if %>
+        
+           <div style="width: 512px;margin-left:auto;margin-right:auto;" class="item-size">
+            <div style="display: block;width: 100%;padding: 0;margin-bottom: 3px; line-height: inherit;color: #333;border: 0; font-size:13px;"> </div>
+          <a href="<%=SITE_URL  %>OrderReview.asp?id_o=<%=vOrderId %>&id_r=<%=vRestaurantId %>">How was your order? Leave a review.</a>                           
+        </div>
       <% 
             
           set objRds = nothing       

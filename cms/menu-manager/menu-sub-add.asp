@@ -57,7 +57,7 @@ If (CStr(Request("MM_insert")) = "form1") Then
 
     Set MM_editCmd = Server.CreateObject ("ADODB.Command")
     MM_editCmd.ActiveConnection = sConnStringcms
-    MM_editCmd.CommandText = "INSERT INTO MenuItemProperties (name,Price,IdMenuItem,allowtoppings,printingname,i_displaySort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor) VALUES (?,?, ?, ?,?,?,?,?,?)" 
+    MM_editCmd.CommandText = "INSERT INTO MenuItemProperties (name,Price,IdMenuItem,ToppingGroupIDs,printingname,i_displaySort,s_ContainAllergen,s_MayContainAllergen,s_SuitableFor) VALUES (?,?, ?, ?,?,?,?,?,?)" 
     MM_editCmd.Prepared = true
 
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param1", 202, 1, 255, Request.Form("name")) ' adVarWChar
@@ -65,7 +65,7 @@ If (CStr(Request("MM_insert")) = "form1") Then
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param2", 6, 1, 255,MM_IIF(Request.Form("price"), Request.Form("price"), null)) ' adVarWChar
 
 	MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param3", 3, 1, 255, Request.Form("IdMenuCategory")) ' adVarWChar
-    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 3, 1, -1, MM_IIF(Request.Form("allowtoppings"),Request.Form("allowtoppings"),0)) ' adVarWChar
+    MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param4", 202, 1, 255, MM_IIF(Request.Form("ToppingGroupIDs"),Request.Form("ToppingGroupIDs"),"")) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param5", 202, 1, 255, MM_IIF( Request.Form("printingname"),  Request.Form("printingname"), "") ) ' adVarWChar
     MM_editCmd.Parameters.Append MM_editCmd.CreateParameter("param6", 3, 1, 255, MM_IIF(Request.Form("hidDisplay_sort"), Request.Form("hidDisplay_sort"),0)) ' adVarWChar
 	
@@ -256,20 +256,20 @@ End If
 
 	
 	 <label for="allowtoppings">Toppings </label>
-	<p>Does this product come with optional toppings, if so select the topping group appropriate to this item.</p>
-	
-	<select name="allowtoppings" id="allowtoppings" class="form-control">
-  <option value="0">-- don't allow toppings --</option>
-
-
+<p>Tick which optional topping this dish allows.</p>	
 	
 	<%                  objRds.Close
                        Set objRds = Server.CreateObject("ADODB.Recordset") 
-                        objRds.Open "SELECT * FROM Menutoppingsgroups where  IdBusinessDetail=" & Session("MM_id") , objCon
+                        objRds.Open "SELECT id,toppingsgroup FROM Menutoppingsgroups with(nolock) where  IdBusinessDetail=" & Session("MM_id") , objCon
 
                         Do While NOT objRds.Eof%>
-						
-					  <option value="<%= objRds("id") %>"><%= objRds("toppingsgroup") %></option>
+					
+                         <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="ToppingGroupIDs" value="<%= objRds("id") %>"> <%= objRds("toppingsgroup") %>
+                            </label>
+                        </div>
+
 	 <%
                             objRds.MoveNext    
                         Loop
@@ -277,7 +277,7 @@ End If
                         set objRds = nothing
                        
                         %>
-						</select>
+			
 	
     
   </div>
